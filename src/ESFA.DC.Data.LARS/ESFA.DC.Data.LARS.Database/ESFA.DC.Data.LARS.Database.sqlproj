@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Name>ESFA.DC.Data.LARS.Database</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.1</ProjectVersion>
+    <ProjectGuid>{4e562c40-a67a-4296-aa11-0aa2fafa2883}</ProjectGuid>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql130DatabaseSchemaProvider</DSP>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <RootNamespace>ESFA.DC.Data.LARS.Database</RootNamespace>
+    <AssemblyName>ESFA.DC.Data.LARS.Database</AssemblyName>
+    <ModelCollation>1033,CI</ModelCollation>
+    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <DeployToDatabase>True</DeployToDatabase>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetLanguage>CS</TargetLanguage>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <SqlServerVerification>False</SqlServerVerification>
+    <IncludeCompositeObjects>True</IncludeCompositeObjects>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+    <DefaultCollation>Latin1_General_CI_AS</DefaultCollation>
+    <DefaultFilegroup>PRIMARY</DefaultFilegroup>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+    <!-- Default to the v11.0 targets path if the targets file for the current VS version is not found -->
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">11.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Condition="'$(SQLDBExtensionsRefPath)' != ''" Project="$(SQLDBExtensionsRefPath)\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Properties" />
+    <Folder Include="dbo\" />
+    <Folder Include="dbo\Tables\" />
+    <Folder Include="Core\" />
+    <Folder Include="Core\Tables\" />
+    <Folder Include="Security\" />
+    <Folder Include="zzDeploymentProfiles" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="dbo\Tables\TBStandardLookup.sql" />
+    <Build Include="dbo\Tables\TBStandardLookupVersion.sql" />
+    <Build Include="Core\Tables\LARS_AnnualValue.sql" />
+    <Build Include="Core\Tables\LARS_ApprenticeshipFunding.sql">
+      <AnsiNulls>Off</AnsiNulls>
+    </Build>
+    <Build Include="Core\Tables\LARS_DataGeneration.sql" />
+    <Build Include="Core\Tables\LARS_Framework.sql" />
+    <Build Include="Core\Tables\LARS_FrameworkAims.sql" />
+    <Build Include="Core\Tables\LARS_FrameworkCmnComp.sql" />
+    <Build Include="Core\Tables\LARS_FrameworkMetaData.sql" />
+    <Build Include="Core\Tables\LARS_Funding.sql">
+      <AnsiNulls>Off</AnsiNulls>
+    </Build>
+    <Build Include="Core\Tables\LARS_LearningDelivery.sql" />
+    <Build Include="Core\Tables\LARS_LearningDeliveryCategory.sql" />
+    <Build Include="Core\Tables\LARS_Section96.sql" />
+    <Build Include="Core\Tables\LARS_Standard.sql">
+      <AnsiNulls>Off</AnsiNulls>
+    </Build>
+    <Build Include="Core\Tables\LARS_StandardAims.sql" />
+    <Build Include="Core\Tables\LARS_StandardCommonComponent.sql" />
+    <Build Include="Core\Tables\LARS_StandardFunding.sql">
+      <AnsiNulls>Off</AnsiNulls>
+    </Build>
+    <Build Include="Core\Tables\LARS_StandardMetaData.sql" />
+    <Build Include="Core\Tables\LARS_StandardPdfLink.sql" />
+    <Build Include="Core\Tables\LARS_StandardValidity.sql" />
+    <Build Include="Core\Tables\LARS_SupersedingAims.sql" />
+    <Build Include="Core\Tables\LARS_SupersedingFrameworks.sql" />
+    <Build Include="Core\Tables\LARS_UnitQualificationRelationship.sql" />
+    <Build Include="Core\Tables\LARS_Validity.sql" />
+    <Build Include="Core\Tables\LARS_Version.sql" />
+    <Build Include="Security\Core.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="zzDeploymentProfiles\zz.Local.Dev.Version.publish.xml" />
+    <None Include="zzDeploymentProfiles\Release.publish.xml" />
+  </ItemGroup>
+</Project>
