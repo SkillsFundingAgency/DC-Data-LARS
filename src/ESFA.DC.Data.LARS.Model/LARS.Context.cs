@@ -13,10 +13,10 @@ namespace ESFA.DC.Data.LARS.Model
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class LARSConnectionString : DbContext
+    public partial class LARS : DbContext
     {
-        public LARSConnectionString()
-            : base("name=LARSConnectionString")
+        public LARS()
+            : base("name=LARS")
         {
         }
     

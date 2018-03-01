@@ -49,130 +49,123 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="LARSContext.Context.cs">
+    <Compile Include="LARS.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>LARSContext.Context.tt</DependentUpon>
+      <DependentUpon>LARS.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="LARSContext.cs">
+    <Compile Include="LARS.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>LARSContext.tt</DependentUpon>
+      <DependentUpon>LARS.tt</DependentUpon>
     </Compile>
-    <Compile Include="LARSContext.Designer.cs">
+    <Compile Include="LARS.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>LARSContext.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="LARSContext1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>LARSContext.edmx</DependentUpon>
+      <DependentUpon>LARS.edmx</DependentUpon>
     </Compile>
     <Compile Include="LARS_AnnualValue.cs">
-      <DependentUpon>LARSContext.tt</DependentUpon>
+      <DependentUpon>LARS.tt</DependentUpon>
     </Compile>
     <Compile Include="LARS_ApprenticeshipFunding.cs">
-      <DependentUpon>LARSContext.tt</DependentUpon>
+      <DependentUpon>LARS.tt</DependentUpon>
     </Compile>
     <Compile Include="LARS_DataGeneration.cs">
-      <DependentUpon>LARSContext.tt</DependentUpon>
+      <DependentUpon>LARS.tt</DependentUpon>
     </Compile>
     <Compile Include="LARS_Framework.cs">
-      <DependentUpon>LARSContext.tt</DependentUpon>
+      <DependentUpon>LARS.tt</DependentUpon>
     </Compile>
     <Compile Include="LARS_FrameworkAims.cs">
-      <DependentUpon>LARSContext.tt</DependentUpon>
+      <DependentUpon>LARS.tt</DependentUpon>
     </Compile>
     <Compile Include="LARS_FrameworkCmnComp.cs">
-      <DependentUpon>LARSContext.tt</DependentUpon>
+      <DependentUpon>LARS.tt</DependentUpon>
     </Compile>
     <Compile Include="LARS_FrameworkMetaData.cs">
-      <DependentUpon>LARSContext.tt</DependentUpon>
+      <DependentUpon>LARS.tt</DependentUpon>
     </Compile>
     <Compile Include="LARS_Funding.cs">
-      <DependentUpon>LARSContext.tt</DependentUpon>
+      <DependentUpon>LARS.tt</DependentUpon>
     </Compile>
     <Compile Include="LARS_LearningDelivery.cs">
-      <DependentUpon>LARSContext.tt</DependentUpon>
+      <DependentUpon>LARS.tt</DependentUpon>
     </Compile>
     <Compile Include="LARS_LearningDeliveryCategory.cs">
-      <DependentUpon>LARSContext.tt</DependentUpon>
+      <DependentUpon>LARS.tt</DependentUpon>
     </Compile>
     <Compile Include="LARS_Section96.cs">
-      <DependentUpon>LARSContext.tt</DependentUpon>
+      <DependentUpon>LARS.tt</DependentUpon>
     </Compile>
     <Compile Include="LARS_Standard.cs">
-      <DependentUpon>LARSContext.tt</DependentUpon>
+      <DependentUpon>LARS.tt</DependentUpon>
     </Compile>
     <Compile Include="LARS_StandardAims.cs">
-      <DependentUpon>LARSContext.tt</DependentUpon>
+      <DependentUpon>LARS.tt</DependentUpon>
     </Compile>
     <Compile Include="LARS_StandardCommonComponent.cs">
-      <DependentUpon>LARSContext.tt</DependentUpon>
+      <DependentUpon>LARS.tt</DependentUpon>
     </Compile>
     <Compile Include="LARS_StandardFunding.cs">
-      <DependentUpon>LARSContext.tt</DependentUpon>
+      <DependentUpon>LARS.tt</DependentUpon>
     </Compile>
     <Compile Include="LARS_StandardMetaData.cs">
-      <DependentUpon>LARSContext.tt</DependentUpon>
+      <DependentUpon>LARS.tt</DependentUpon>
     </Compile>
     <Compile Include="LARS_StandardPdfLink.cs">
-      <DependentUpon>LARSContext.tt</DependentUpon>
+      <DependentUpon>LARS.tt</DependentUpon>
     </Compile>
     <Compile Include="LARS_StandardValidity.cs">
-      <DependentUpon>LARSContext.tt</DependentUpon>
+      <DependentUpon>LARS.tt</DependentUpon>
     </Compile>
     <Compile Include="LARS_SupersedingAims.cs">
-      <DependentUpon>LARSContext.tt</DependentUpon>
+      <DependentUpon>LARS.tt</DependentUpon>
     </Compile>
     <Compile Include="LARS_SupersedingFrameworks.cs">
-      <DependentUpon>LARSContext.tt</DependentUpon>
+      <DependentUpon>LARS.tt</DependentUpon>
     </Compile>
     <Compile Include="LARS_UnitQualificationRelationship.cs">
-      <DependentUpon>LARSContext.tt</DependentUpon>
+      <DependentUpon>LARS.tt</DependentUpon>
     </Compile>
     <Compile Include="LARS_Validity.cs">
-      <DependentUpon>LARSContext.tt</DependentUpon>
+      <DependentUpon>LARS.tt</DependentUpon>
     </Compile>
     <Compile Include="LARS_Version.cs">
-      <DependentUpon>LARSContext.tt</DependentUpon>
+      <DependentUpon>LARS.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TBStandardLookup.cs">
-      <DependentUpon>LARSContext.tt</DependentUpon>
+      <DependentUpon>LARS.tt</DependentUpon>
     </Compile>
     <Compile Include="TBStandardLookupVersion.cs">
-      <DependentUpon>LARSContext.tt</DependentUpon>
+      <DependentUpon>LARS.tt</DependentUpon>
     </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <EntityDeploy Include="LARSContext.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>LARSContext1.Designer.cs</LastGenOutput>
-    </EntityDeploy>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />
-    <None Include="LARSContext.edmx.diagram">
-      <DependentUpon>LARSContext.edmx</DependentUpon>
+    <EntityDeploy Include="LARS.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>LARS.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="LARS.edmx.diagram">
+      <DependentUpon>LARS.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="LARSContext.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>LARSContext.Context.cs</LastGenOutput>
-      <DependentUpon>LARSContext.edmx</DependentUpon>
-    </Content>
-    <Content Include="LARSContext.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>LARSContext.edmx</DependentUpon>
-      <LastGenOutput>LARSContext.cs</LastGenOutput>
-    </Content>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+    <Content Include="LARS.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>LARS.edmx</DependentUpon>
+      <LastGenOutput>LARS.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="LARS.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>LARS.edmx</DependentUpon>
+      <LastGenOutput>LARS.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

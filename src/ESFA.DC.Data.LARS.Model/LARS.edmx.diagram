@@ -4,14 +4,14 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="d1f3edf4fea24228b5e01e603d9ebda4" Name="Diagram1">
+      <Diagram DiagramId="c8f5a2fc76534bca8ba6d516319569b2" Name="Diagram1">
         <EntityTypeShape EntityType="ESFA.DC.Data.LARS.Model.LARS_AnnualValue" Width="1.5" PointX="8.75" PointY="9.875" IsExpanded="true" />
         <EntityTypeShape EntityType="ESFA.DC.Data.LARS.Model.LARS_ApprenticeshipFunding" Width="1.5" PointX="10.75" PointY="3.875" IsExpanded="true" />
         <EntityTypeShape EntityType="ESFA.DC.Data.LARS.Model.LARS_DataGeneration" Width="1.5" PointX="0.75" PointY="3.875" IsExpanded="true" />
         <EntityTypeShape EntityType="ESFA.DC.Data.LARS.Model.LARS_Framework" Width="1.5" PointX="5.75" PointY="4.25" IsExpanded="true" />
         <EntityTypeShape EntityType="ESFA.DC.Data.LARS.Model.LARS_FrameworkAims" Width="1.5" PointX="3" PointY="7" IsExpanded="true" />
         <EntityTypeShape EntityType="ESFA.DC.Data.LARS.Model.LARS_FrameworkCmnComp" Width="1.5" PointX="10.75" PointY="9.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="ESFA.DC.Data.LARS.Model.LARS_FrameworkMetaData" Width="1.5" PointX="15.375" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ESFA.DC.Data.LARS.Model.LARS_FrameworkMetaData" Width="1.5" PointX="10.75" PointY="13.875" IsExpanded="true" />
         <EntityTypeShape EntityType="ESFA.DC.Data.LARS.Model.LARS_Funding" Width="1.5" PointX="12.75" PointY="3.875" IsExpanded="true" />
         <EntityTypeShape EntityType="ESFA.DC.Data.LARS.Model.LARS_LearningDelivery" Width="1.5" PointX="0.75" PointY="7.5" IsExpanded="true" />
         <EntityTypeShape EntityType="ESFA.DC.Data.LARS.Model.LARS_LearningDeliveryCategory" Width="1.5" PointX="3" PointY="11.125" IsExpanded="true" />

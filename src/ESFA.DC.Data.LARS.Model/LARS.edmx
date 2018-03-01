@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="ESFA.DC.Data.LARS.Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="ESFA.DC.Data.LARS.Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="LARS_AnnualValue">
           <Key>
             <PropertyRef Name="LearnAimRef" />
@@ -776,8 +776,7 @@
             <End Role="LARS_Validity" EntitySet="LARS_Validity" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="ESFA.DC.Data.LARS.Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -787,8 +786,8 @@
             <PropertyRef Name="EffectiveFrom" />
           </Key>
           <Property Name="LearnAimRef" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="EffectiveFrom" Type="DateTime" Nullable="false" />
-          <Property Name="EffectiveTo" Type="DateTime" />
+          <Property Name="EffectiveFrom" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="EffectiveTo" Type="DateTime" Precision="0" />
           <Property Name="BasicSkills" Type="Int32" />
           <Property Name="BasicSkillsBroadType" Type="Int32" />
           <Property Name="BasicSkillsType" Type="Int32" />
@@ -805,9 +804,9 @@
           <Property Name="SfaApprovalStatus" Type="Int32" />
           <Property Name="UKCESSector" Type="Int32" />
           <Property Name="UKCESSubSector" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
-          <Property Name="Created_On" Type="DateTime" Nullable="false" />
+          <Property Name="Created_On" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Created_By" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Modified_On" Type="DateTime" Nullable="false" />
+          <Property Name="Modified_On" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Modified_By" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
         </EntityType>
         <EntityType Name="LARS_ApprenticeshipFunding">
@@ -824,8 +823,8 @@
           <Property Name="ProgType" Type="Int32" Nullable="false" />
           <Property Name="PwayCode" Type="Int32" Nullable="false" />
           <Property Name="FundingCategory" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="EffectiveFrom" Type="DateTime" Nullable="false" />
-          <Property Name="EffectiveTo" Type="DateTime" />
+          <Property Name="EffectiveFrom" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="EffectiveTo" Type="DateTime" Precision="0" />
           <Property Name="BandNumber" Type="Int32" />
           <Property Name="CoreGovContributionCap" Type="Decimal" Precision="10" Scale="5" />
           <Property Name="C1618Incentive" Type="Decimal" Precision="10" Scale="5" />
@@ -837,19 +836,19 @@
           <Property Name="ReservedValue3" Type="Decimal" Precision="10" Scale="5" />
           <Property Name="MaxEmployerLevyCap" Type="Decimal" Precision="10" Scale="5" />
           <Property Name="FundableWithoutEmployer" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
-          <Property Name="Created_On" Type="DateTime" Nullable="false" />
+          <Property Name="Created_On" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Created_By" Type="String" MaxLength="256" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Modified_On" Type="DateTime" Nullable="false" />
+          <Property Name="Modified_On" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Modified_By" Type="String" MaxLength="256" FixedLength="false" Unicode="false" Nullable="false" />
         </EntityType>
         <EntityType Name="LARS_DataGeneration">
           <Key>
             <PropertyRef Name="DataGeneratedOn" />
           </Key>
-          <Property Name="DataGeneratedOn" Type="DateTime" Nullable="false" />
+          <Property Name="DataGeneratedOn" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
           <Property Name="Comment" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
-          <Property Name="Created_On" Type="DateTime" Nullable="false" />
+          <Property Name="Created_On" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Created_By" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
         </EntityType>
         <EntityType Name="LARS_Framework">
@@ -862,24 +861,24 @@
           <Property Name="ProgType" Type="Int32" Nullable="false" />
           <Property Name="PwayCode" Type="Int32" Nullable="false" />
           <Property Name="PathwayName" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
-          <Property Name="EffectiveFrom" Type="DateTime" />
-          <Property Name="EffectiveTo" Type="DateTime" />
+          <Property Name="EffectiveFrom" Type="DateTime" Precision="0" />
+          <Property Name="EffectiveTo" Type="DateTime" Precision="0" />
           <Property Name="SectorSubjectAreaTier1" Type="Decimal" Precision="5" Scale="2" />
           <Property Name="SectorSubjectAreaTier2" Type="Decimal" Precision="5" Scale="2" />
           <Property Name="DataSource" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
           <Property Name="NASTitle" Type="String" MaxLength="750" FixedLength="false" Unicode="false" />
-          <Property Name="ImplementDate" Type="DateTime" />
+          <Property Name="ImplementDate" Type="DateTime" Precision="0" />
           <Property Name="IssuingAuthorityTitle" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
           <Property Name="IssuingAuthority" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
-          <Property Name="DataReceivedDate" Type="DateTime" />
+          <Property Name="DataReceivedDate" Type="DateTime" Precision="0" />
           <Property Name="MI_FullLevel2" Type="Int32" />
           <Property Name="MI_FullLevel2Percent" Type="Decimal" Precision="5" Scale="2" />
           <Property Name="MI_FullLevel3" Type="Int32" />
           <Property Name="MI_FullLevel3Percent" Type="Decimal" Precision="5" Scale="2" />
           <Property Name="CurrentVersion" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="Created_On" Type="DateTime" Nullable="false" />
+          <Property Name="Created_On" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Created_By" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Modified_On" Type="DateTime" Nullable="false" />
+          <Property Name="Modified_On" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Modified_By" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="LARS_SupersedingFrameworks" Relationship="Self.FK_CoreSupersedingFrameworks_CoreFramework_New" FromRole="LARS_Framework" ToRole="LARS_SupersedingFrameworks" />
           <NavigationProperty Name="LARS_SupersedingFrameworks1" Relationship="Self.FK_CoreSupersedingFrameworks_CoreFramework_Old" FromRole="LARS_Framework" ToRole="LARS_SupersedingFrameworks" />
@@ -896,12 +895,12 @@
           <Property Name="ProgType" Type="Int32" Nullable="false" />
           <Property Name="PwayCode" Type="Int32" Nullable="false" />
           <Property Name="LearnAimRef" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="EffectiveFrom" Type="DateTime" Nullable="false" />
-          <Property Name="EffectiveTo" Type="DateTime" />
+          <Property Name="EffectiveFrom" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="EffectiveTo" Type="DateTime" Precision="0" />
           <Property Name="FrameworkComponentType" Type="Int32" />
-          <Property Name="Created_On" Type="DateTime" Nullable="false" />
+          <Property Name="Created_On" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Created_By" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Modified_On" Type="DateTime" Nullable="false" />
+          <Property Name="Modified_On" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Modified_By" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="LARS_LearningDelivery" Relationship="Self.FK_CoreFrameworkAims_CoreLearningDelivery" FromRole="LARS_FrameworkAims" ToRole="LARS_LearningDelivery" />
         </EntityType>
@@ -916,12 +915,12 @@
           <Property Name="ProgType" Type="Int32" Nullable="false" />
           <Property Name="PwayCode" Type="Int32" Nullable="false" />
           <Property Name="CommonComponent" Type="Int32" Nullable="false" />
-          <Property Name="EffectiveFrom" Type="DateTime" Nullable="false" />
-          <Property Name="EffectiveTo" Type="DateTime" />
+          <Property Name="EffectiveFrom" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="EffectiveTo" Type="DateTime" Precision="0" />
           <Property Name="MinLevel" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
-          <Property Name="Created_On" Type="DateTime" Nullable="false" />
+          <Property Name="Created_On" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Created_By" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Modified_On" Type="DateTime" Nullable="false" />
+          <Property Name="Modified_On" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Modified_By" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
         </EntityType>
         <EntityType Name="LARS_FrameworkMetaData">
@@ -935,11 +934,11 @@
           <Property Name="PwayCode" Type="Int32" Nullable="false" />
           <Property Name="Roles" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Keywords" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="EffectiveFrom" Type="DateTime" />
-          <Property Name="EffectiveTo" Type="DateTime" />
-          <Property Name="Created_On" Type="DateTime" Nullable="false" />
+          <Property Name="EffectiveFrom" Type="DateTime" Precision="0" />
+          <Property Name="EffectiveTo" Type="DateTime" Precision="0" />
+          <Property Name="Created_On" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Created_By" Type="String" MaxLength="256" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Modified_On" Type="DateTime" Nullable="false" />
+          <Property Name="Modified_On" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Modified_By" Type="String" MaxLength="256" FixedLength="false" Unicode="false" Nullable="false" />
         </EntityType>
         <EntityType Name="LARS_Funding">
@@ -950,14 +949,14 @@
           </Key>
           <Property Name="LearnAimRef" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="FundingCategory" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="EffectiveFrom" Type="DateTime" Nullable="false" />
-          <Property Name="EffectiveTo" Type="DateTime" />
+          <Property Name="EffectiveFrom" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="EffectiveTo" Type="DateTime" Precision="0" />
           <Property Name="RateWeighted" Type="Decimal" Precision="10" Scale="5" />
           <Property Name="RateUnWeighted" Type="Decimal" Precision="10" Scale="5" />
           <Property Name="WeightingFactor" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Created_On" Type="DateTime" Nullable="false" />
+          <Property Name="Created_On" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Created_By" Type="String" MaxLength="256" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Modified_On" Type="DateTime" Nullable="false" />
+          <Property Name="Modified_On" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Modified_By" Type="String" MaxLength="256" FixedLength="false" Unicode="false" Nullable="false" />
         </EntityType>
         <EntityType Name="LARS_LearningDelivery">
@@ -965,16 +964,16 @@
             <PropertyRef Name="LearnAimRef" />
           </Key>
           <Property Name="LearnAimRef" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="EffectiveFrom" Type="DateTime" Nullable="false" />
-          <Property Name="EffectiveTo" Type="DateTime" />
+          <Property Name="EffectiveFrom" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="EffectiveTo" Type="DateTime" Precision="0" />
           <Property Name="LearnAimRefTitle" Type="String" MaxLength="254" FixedLength="false" Unicode="false" />
           <Property Name="LearnAimRefType" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
           <Property Name="NotionalNVQLevel" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
           <Property Name="NotionalNVQLevelv2" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
           <Property Name="AwardOrgAimRef" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="CertificationEndDate" Type="DateTime" />
-          <Property Name="OperationalStartDate" Type="DateTime" />
-          <Property Name="OperationalEndDate" Type="DateTime" />
+          <Property Name="CertificationEndDate" Type="DateTime" Precision="0" />
+          <Property Name="OperationalStartDate" Type="DateTime" Precision="0" />
+          <Property Name="OperationalEndDate" Type="DateTime" Precision="0" />
           <Property Name="EnglandFEHEStatus" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
           <Property Name="CreditBasedFwkType" Type="Int32" />
           <Property Name="QltyAssAgencyType" Type="Int32" />
@@ -1002,7 +1001,7 @@
           <Property Name="OfQualOfferedEngland" Type="Int32" />
           <Property Name="OfqualPurpose" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
           <Property Name="OfqualSubPurpose" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
-          <Property Name="RgltnStartDate" Type="DateTime" />
+          <Property Name="RgltnStartDate" Type="DateTime" Precision="0" />
           <Property Name="SourceQualType" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
           <Property Name="SourceSystemRef" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="SourceURLRef" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
@@ -1038,9 +1037,9 @@
           <Property Name="DirectStudyHours" Type="Int32" />
           <Property Name="DedicatedAssessmentHours" Type="Int32" />
           <Property Name="TotalQualificationTime" Type="Int32" />
-          <Property Name="Created_On" Type="DateTime" Nullable="false" />
+          <Property Name="Created_On" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Created_By" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Modified_On" Type="DateTime" Nullable="false" />
+          <Property Name="Modified_On" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Modified_By" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="LARS_FrameworkAims" Relationship="Self.FK_CoreFrameworkAims_CoreLearningDelivery" FromRole="LARS_LearningDelivery" ToRole="LARS_FrameworkAims" />
           <NavigationProperty Name="LARS_LearningDeliveryCategory" Relationship="Self.FK_CoreLearningDeliveryCategory_CoreLearningDelivery" FromRole="LARS_LearningDelivery" ToRole="LARS_LearningDeliveryCategory" />
@@ -1058,11 +1057,11 @@
           </Key>
           <Property Name="LearnAimRef" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="CategoryRef" Type="Int32" Nullable="false" />
-          <Property Name="EffectiveFrom" Type="DateTime" Nullable="false" />
-          <Property Name="EffectiveTo" Type="DateTime" />
-          <Property Name="Created_On" Type="DateTime" Nullable="false" />
+          <Property Name="EffectiveFrom" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="EffectiveTo" Type="DateTime" Precision="0" />
+          <Property Name="Created_On" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Created_By" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Modified_On" Type="DateTime" Nullable="false" />
+          <Property Name="Modified_On" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Modified_By" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="LARS_LearningDelivery" Relationship="Self.FK_CoreLearningDeliveryCategory_CoreLearningDelivery" FromRole="LARS_LearningDeliveryCategory" ToRole="LARS_LearningDelivery" />
         </EntityType>
@@ -1072,17 +1071,17 @@
             <PropertyRef Name="EffectiveFrom" />
           </Key>
           <Property Name="LearnAimRef" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="EffectiveFrom" Type="DateTime" Nullable="false" />
-          <Property Name="EffectiveTo" Type="DateTime" />
+          <Property Name="EffectiveFrom" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="EffectiveTo" Type="DateTime" Precision="0" />
           <Property Name="Section96ApprovalStatus" Type="Int32" />
-          <Property Name="Section96ApprovalStartDate" Type="DateTime" />
-          <Property Name="Section96ReviewDate" Type="DateTime" />
+          <Property Name="Section96ApprovalStartDate" Type="DateTime" Precision="0" />
+          <Property Name="Section96ReviewDate" Type="DateTime" Precision="0" />
           <Property Name="Section96ValidPre16" Type="Int32" />
           <Property Name="Section96Valid16to18" Type="Int32" />
           <Property Name="Section96Valid18plus" Type="Int32" />
-          <Property Name="Created_On" Type="DateTime" Nullable="false" />
+          <Property Name="Created_On" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Created_By" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Modified_On" Type="DateTime" Nullable="false" />
+          <Property Name="Modified_On" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Modified_By" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="LARS_LearningDelivery" Relationship="Self.FK_CoreSection96_CoreLearningDelivery" FromRole="LARS_Section96" ToRole="LARS_LearningDelivery" />
         </EntityType>
@@ -1095,16 +1094,16 @@
           <Property Name="StandardName" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
           <Property Name="StandardSectorCode" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
           <Property Name="NotionalEndLevel" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
-          <Property Name="EffectiveFrom" Type="DateTime" />
-          <Property Name="LastDateStarts" Type="DateTime" />
-          <Property Name="EffectiveTo" Type="DateTime" />
+          <Property Name="EffectiveFrom" Type="DateTime" Precision="0" />
+          <Property Name="LastDateStarts" Type="DateTime" Precision="0" />
+          <Property Name="EffectiveTo" Type="DateTime" Precision="0" />
           <Property Name="URLLink" Type="String" MaxLength="1200" FixedLength="false" Unicode="false" />
           <Property Name="SectorSubjectAreaTier1" Type="Decimal" Precision="5" Scale="2" />
           <Property Name="SectorSubjectAreaTier2" Type="Decimal" Precision="5" Scale="2" />
           <Property Name="IntegratedDegreeStandard" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
-          <Property Name="Created_On" Type="DateTime" Nullable="false" />
+          <Property Name="Created_On" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Created_By" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Modified_On" Type="DateTime" Nullable="false" />
+          <Property Name="Modified_On" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Modified_By" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="LARS_StandardAims" Relationship="Self.FK_CoreStandardAims_CoreStandard" FromRole="LARS_Standard" ToRole="LARS_StandardAims" />
           <NavigationProperty Name="LARS_StandardCommonComponent" Relationship="Self.FK_CoreStandardCommonComponent_CoreStandard" FromRole="LARS_Standard" ToRole="LARS_StandardCommonComponent" />
@@ -1119,12 +1118,12 @@
           </Key>
           <Property Name="StandardCode" Type="Int32" Nullable="false" />
           <Property Name="LearnAimRef" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="EffectiveFrom" Type="DateTime" Nullable="false" />
-          <Property Name="EffectiveTo" Type="DateTime" />
+          <Property Name="EffectiveFrom" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="EffectiveTo" Type="DateTime" Precision="0" />
           <Property Name="StandardComponentType" Type="Int32" />
-          <Property Name="Created_On" Type="DateTime" Nullable="false" />
+          <Property Name="Created_On" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Created_By" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Modified_On" Type="DateTime" Nullable="false" />
+          <Property Name="Modified_On" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Modified_By" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="LARS_LearningDelivery" Relationship="Self.FK_CoreStandardAims_CoreLearningDelivery" FromRole="LARS_StandardAims" ToRole="LARS_LearningDelivery" />
           <NavigationProperty Name="LARS_Standard" Relationship="Self.FK_CoreStandardAims_CoreStandard" FromRole="LARS_StandardAims" ToRole="LARS_Standard" />
@@ -1136,12 +1135,12 @@
           </Key>
           <Property Name="StandardCode" Type="Int32" Nullable="false" />
           <Property Name="CommonComponent" Type="Int32" Nullable="false" />
-          <Property Name="EffectiveFrom" Type="DateTime" Nullable="false" />
-          <Property Name="EffectiveTo" Type="DateTime" />
+          <Property Name="EffectiveFrom" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="EffectiveTo" Type="DateTime" Precision="0" />
           <Property Name="MinLevel" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
-          <Property Name="Created_On" Type="DateTime" Nullable="false" />
+          <Property Name="Created_On" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Created_By" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Modified_On" Type="DateTime" Nullable="false" />
+          <Property Name="Modified_On" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Modified_By" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="LARS_Standard" Relationship="Self.FK_CoreStandardCommonComponent_CoreStandard" FromRole="LARS_StandardCommonComponent" ToRole="LARS_Standard" />
         </EntityType>
@@ -1153,17 +1152,17 @@
           </Key>
           <Property Name="StandardCode" Type="Int32" Nullable="false" />
           <Property Name="FundingCategory" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="EffectiveFrom" Type="DateTime" Nullable="false" />
-          <Property Name="EffectiveTo" Type="DateTime" />
+          <Property Name="EffectiveFrom" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="EffectiveTo" Type="DateTime" Precision="0" />
           <Property Name="BandNumber" Type="Int32" />
           <Property Name="CoreGovContributionCap" Type="Decimal" Precision="10" Scale="5" />
           <Property Name="C1618Incentive" Type="Decimal" Precision="10" Scale="5" />
           <Property Name="SmallBusinessIncentive" Type="Decimal" Precision="10" Scale="5" />
           <Property Name="AchievementIncentive" Type="Decimal" Precision="10" Scale="5" />
           <Property Name="FundableWithoutEmployer" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Created_On" Type="DateTime" Nullable="false" />
+          <Property Name="Created_On" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Created_By" Type="String" MaxLength="256" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Modified_On" Type="DateTime" Nullable="false" />
+          <Property Name="Modified_On" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Modified_By" Type="String" MaxLength="256" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="LARS_Standard" Relationship="Self.FK_CoreStandardFunding_CoreStandard" FromRole="LARS_StandardFunding" ToRole="LARS_Standard" />
         </EntityType>
@@ -1179,11 +1178,11 @@
           <Property Name="Learning" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Qualifications" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="ProfessionalRegistration" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="EffectiveFrom" Type="DateTime" />
-          <Property Name="EffectiveTo" Type="DateTime" />
-          <Property Name="Created_On" Type="DateTime" Nullable="false" />
+          <Property Name="EffectiveFrom" Type="DateTime" Precision="0" />
+          <Property Name="EffectiveTo" Type="DateTime" Precision="0" />
+          <Property Name="Created_On" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Created_By" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Modified_On" Type="DateTime" Nullable="false" />
+          <Property Name="Modified_On" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Modified_By" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
         </EntityType>
         <EntityType Name="LARS_StandardPdfLink">
@@ -1194,11 +1193,11 @@
           <Property Name="StandardCode" Type="Int32" Nullable="false" />
           <Property Name="StandardPdfURL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="AssessmentPlanPdfURL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="EffectiveFrom" Type="DateTime" Nullable="false" />
-          <Property Name="EffectiveTo" Type="DateTime" />
-          <Property Name="Created_On" Type="DateTime" Nullable="false" />
+          <Property Name="EffectiveFrom" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="EffectiveTo" Type="DateTime" Precision="0" />
+          <Property Name="Created_On" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Created_By" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Modified_On" Type="DateTime" Nullable="false" />
+          <Property Name="Modified_On" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Modified_By" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
         </EntityType>
         <EntityType Name="LARS_StandardValidity">
@@ -1209,12 +1208,12 @@
           </Key>
           <Property Name="StandardCode" Type="Int32" Nullable="false" />
           <Property Name="ValidityCategory" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="StartDate" Type="DateTime" Nullable="false" />
-          <Property Name="LastNewStartDate" Type="DateTime" />
-          <Property Name="EndDate" Type="DateTime" />
-          <Property Name="Created_On" Type="DateTime" Nullable="false" />
+          <Property Name="StartDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="LastNewStartDate" Type="DateTime" Precision="0" />
+          <Property Name="EndDate" Type="DateTime" Precision="0" />
+          <Property Name="Created_On" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Created_By" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Modified_On" Type="DateTime" Nullable="false" />
+          <Property Name="Modified_On" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Modified_By" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="LARS_Standard" Relationship="Self.FK_CoreStandardValidity_CoreStandard" FromRole="LARS_StandardValidity" ToRole="LARS_Standard" />
         </EntityType>
@@ -1225,9 +1224,9 @@
           </Key>
           <Property Name="OldLearnAimRef" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="NewLearnAimRef" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Created_On" Type="DateTime" Nullable="false" />
+          <Property Name="Created_On" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Created_By" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Modified_On" Type="DateTime" Nullable="false" />
+          <Property Name="Modified_On" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Modified_By" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="LARS_LearningDelivery" Relationship="Self.FK_CoreSupersedingAims_CoreLearningDelivery" FromRole="LARS_SupersedingAims" ToRole="LARS_LearningDelivery" />
           <NavigationProperty Name="LARS_LearningDelivery1" Relationship="Self.FK_CoreSupersedingAims_CoreLearningDelivery1" FromRole="LARS_SupersedingAims" ToRole="LARS_LearningDelivery" />
@@ -1247,9 +1246,9 @@
           <Property Name="NewFworkCode" Type="Int32" Nullable="false" />
           <Property Name="NewProgType" Type="Int32" Nullable="false" />
           <Property Name="NewPwayCode" Type="Int32" Nullable="false" />
-          <Property Name="Created_On" Type="DateTime" Nullable="false" />
+          <Property Name="Created_On" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Created_By" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Modified_On" Type="DateTime" Nullable="false" />
+          <Property Name="Modified_On" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Modified_By" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="LARS_Framework" Relationship="Self.FK_CoreSupersedingFrameworks_CoreFramework_New" FromRole="LARS_SupersedingFrameworks" ToRole="LARS_Framework" />
           <NavigationProperty Name="LARS_Framework1" Relationship="Self.FK_CoreSupersedingFrameworks_CoreFramework_Old" FromRole="LARS_SupersedingFrameworks" ToRole="LARS_Framework" />
@@ -1261,11 +1260,11 @@
           </Key>
           <Property Name="UnitLearnAimRef" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="QualificationLearnAimRef" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="EffectiveFrom" Type="DateTime" Nullable="false" />
-          <Property Name="EffectiveTo" Type="DateTime" />
-          <Property Name="Created_On" Type="DateTime" Nullable="false" />
+          <Property Name="EffectiveFrom" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="EffectiveTo" Type="DateTime" Precision="0" />
+          <Property Name="Created_On" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Created_By" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Modified_On" Type="DateTime" Nullable="false" />
+          <Property Name="Modified_On" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Modified_By" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
         </EntityType>
         <EntityType Name="LARS_Validity">
@@ -1276,12 +1275,12 @@
           </Key>
           <Property Name="LearnAimRef" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="ValidityCategory" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="StartDate" Type="DateTime" Nullable="false" />
-          <Property Name="EndDate" Type="DateTime" />
-          <Property Name="LastNewStartDate" Type="DateTime" />
-          <Property Name="Created_On" Type="DateTime" Nullable="false" />
+          <Property Name="StartDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="EndDate" Type="DateTime" Precision="0" />
+          <Property Name="LastNewStartDate" Type="DateTime" Precision="0" />
+          <Property Name="Created_On" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Created_By" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Modified_On" Type="DateTime" Nullable="false" />
+          <Property Name="Modified_On" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Modified_By" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="LARS_LearningDelivery" Relationship="Self.FK_CoreValidity_CoreLearningDelivery" FromRole="LARS_Validity" ToRole="LARS_LearningDelivery" />
         </EntityType>
@@ -1296,13 +1295,13 @@
           <Property Name="MaintenanceNumber" Type="Int32" Nullable="false" />
           <Property Name="MainDataSchemaName" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
           <Property Name="RefDataSchemaName" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
-          <Property Name="ActivationDate" Type="DateTime" Nullable="false" />
-          <Property Name="ExpiryDate" Type="DateTime" />
+          <Property Name="ActivationDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="ExpiryDate" Type="DateTime" Precision="0" />
           <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
           <Property Name="Comment" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
-          <Property Name="Created_On" Type="DateTime" Nullable="false" />
+          <Property Name="Created_On" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Created_By" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Modified_On" Type="DateTime" Nullable="false" />
+          <Property Name="Modified_On" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Modified_By" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
         </EntityType>
         <EntityType Name="TBStandardLookup">
@@ -1318,11 +1317,11 @@
           <Property Name="YoungAppIncentive" Type="Decimal" Precision="18" Scale="5" />
           <Property Name="SmallBusIncentive" Type="Decimal" Precision="18" Scale="5" />
           <Property Name="AchIncentive" Type="Decimal" Precision="18" Scale="5" />
-          <Property Name="ValuesEffectiveFrom" Type="DateTime" Nullable="false" />
-          <Property Name="ValuesEffectiveTo" Type="DateTime" />
-          <Property Name="Created_On" Type="DateTime" />
+          <Property Name="ValuesEffectiveFrom" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ValuesEffectiveTo" Type="DateTime" Precision="3" />
+          <Property Name="Created_On" Type="DateTime" Precision="3" />
           <Property Name="Created_By" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
-          <Property Name="Modified_On" Type="DateTime" />
+          <Property Name="Modified_On" Type="DateTime" Precision="3" />
           <Property Name="Modified_By" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="TBStandardLookupVersion">
@@ -1330,9 +1329,9 @@
             <PropertyRef Name="StandardLookupVersion" />
           </Key>
           <Property Name="StandardLookupVersion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Created_On" Type="DateTime" />
+          <Property Name="Created_On" Type="DateTime" Precision="3" />
           <Property Name="Created_By" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
-          <Property Name="Modified_On" Type="DateTime" />
+          <Property Name="Modified_On" Type="DateTime" Precision="3" />
           <Property Name="Modified_By" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
         </EntityType>
         <Association Name="FK_CoreSupersedingFrameworks_CoreFramework_New">
@@ -1499,7 +1498,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="LARSConnectionString" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="LARS" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="LARS_AnnualValue" EntityType="Self.LARS_AnnualValue" />
           <EntitySet Name="LARS_ApprenticeshipFunding" EntityType="Self.LARS_ApprenticeshipFunding" />
           <EntitySet Name="LARS_DataGeneration" EntityType="Self.LARS_DataGeneration" />
@@ -1583,7 +1582,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="ESFADCDataLARSModelStoreContainer" CdmEntityContainer="LARSConnectionString">
+        <EntityContainerMapping StorageEntityContainer="ESFADCDataLARSModelStoreContainer" CdmEntityContainer="LARS">
           <EntitySetMapping Name="LARS_AnnualValue">
             <EntityTypeMapping TypeName="ESFA.DC.Data.LARS.Model.LARS_AnnualValue">
               <MappingFragment StoreEntitySet="LARS_AnnualValue">
@@ -2112,6 +2111,7 @@
         <DesignerProperty Name="EnablePluralization" Value="true" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
         <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
       </DesignerInfoPropertySet>
     </Options>
     <!-- Diagram content (shape and connector positions) -->
