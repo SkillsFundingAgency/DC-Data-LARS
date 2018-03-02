@@ -148,6 +148,7 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>LARS.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <None Include="ESFA.DC.Data.LARS.Model.nuspec" />
     <None Include="LARS.edmx.diagram">
       <DependentUpon>LARS.edmx</DependentUpon>
     </None>

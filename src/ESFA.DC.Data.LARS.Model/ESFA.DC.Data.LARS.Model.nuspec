@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>ESFA.DC.Data.LARS.Model</id>
+    <version>0.1.0</version>
+    <authors>DC</authors>
+    <owners>ESFA</owners>
+    <licenseUrl>https://github.com/SkillsFundingAgency/DC-Data-LARS/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/SkillsFundingAgency/DC-Data-LARS</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>LARS Entity Framework Model Project.</description>
+    <releaseNotes />
+    <copyright>Copyright 2018</copyright>
+    <tags>ILR LARS Data Database Model</tags>
+  </metadata>
+</package>
