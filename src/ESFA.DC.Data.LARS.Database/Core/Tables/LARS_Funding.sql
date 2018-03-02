@@ -10,6 +10,7 @@
     [Created_By]      VARCHAR (256)   NOT NULL,
     [Modified_On]     DATETIME        NOT NULL,
     [Modified_By]     VARCHAR (256)   NOT NULL,
-    CONSTRAINT [PK_Core_LARS_Funding_FundingID] PRIMARY KEY CLUSTERED ([LearnAimRef] ASC, [FundingCategory] ASC, [EffectiveFrom] ASC) WITH (FILLFACTOR = 90)
+    CONSTRAINT [PK_Core_LARS_Funding_FundingID] PRIMARY KEY CLUSTERED ([LearnAimRef] ASC, [FundingCategory] ASC, [EffectiveFrom] ASC) WITH (FILLFACTOR = 90),	
+    CONSTRAINT [FK_Core_LARS_Funding_CoreLearningDelivery] FOREIGN KEY ([LearnAimRef]) REFERENCES [Core].[LARS_LearningDelivery] ([LearnAimRef])
 );
 

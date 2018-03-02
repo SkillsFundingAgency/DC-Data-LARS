@@ -10,8 +10,8 @@
     [Created_By]             VARCHAR (100) NOT NULL,
     [Modified_On]            DATETIME      NOT NULL,
     [Modified_By]            VARCHAR (100) NOT NULL,
-    CONSTRAINT [PK_Core_LARS_FrameworkAims] PRIMARY KEY CLUSTERED ([ProgType] ASC, [FworkCode] ASC, [PwayCode] ASC, [LearnAimRef] ASC, [EffectiveFrom] ASC) WITH (FILLFACTOR = 90),
-	CONSTRAINT [FK_CoreFrameworkAims_CoreLearningDelivery] FOREIGN KEY ([LearnAimRef]) REFERENCES [Core].[LARS_LearningDelivery] ([LearnAimRef]),
-
+    CONSTRAINT [PK_Core_LARS_FrameworkAims] PRIMARY KEY CLUSTERED ([FworkCode] ASC, [ProgType] ASC, [PwayCode] ASC, [LearnAimRef] ASC, [EffectiveFrom] ASC) WITH (FILLFACTOR = 90),
+	CONSTRAINT [FK_CoreFrameworkAimsp_CoreFramework] FOREIGN KEY ([FworkCode],[ProgType],[PwayCode]) REFERENCES [Core].[LARS_Framework] ([FworkCode],[ProgType],[PwayCode]),
+	CONSTRAINT [FK_CoreFrameworkAims_CoreLearningDelivery] FOREIGN KEY ([LearnAimRef]) REFERENCES [Core].[LARS_LearningDelivery] ([LearnAimRef])	
 );
 
