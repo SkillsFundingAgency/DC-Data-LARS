@@ -159,6 +159,7 @@
     <Build Include="Staging\Stored Procedures\usp_Process_DataGeneration.sql" />
     <Build Include="Staging\Stored Procedures\usp_Process_ApprenticeshipFunding.sql" />
     <Build Include="Staging\Stored Procedures\usp_Process_AnnualValue.sql" />
+    <Build Include="Staging\Stored Procedures\usp_Process.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="zzDeploymentProfiles\zz.Local.Dev.Version.publish.xml" />
