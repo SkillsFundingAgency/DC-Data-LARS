@@ -17,6 +17,8 @@ namespace ESFA.DC.Data.LARS.Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public LARS_Framework()
         {
+            this.LARS_FrameworkAims = new HashSet<LARS_FrameworkAims>();
+            this.LARS_FrameworkCmnComp = new HashSet<LARS_FrameworkCmnComp>();
             this.LARS_SupersedingFrameworks = new HashSet<LARS_SupersedingFrameworks>();
             this.LARS_SupersedingFrameworks1 = new HashSet<LARS_SupersedingFrameworks>();
         }
@@ -45,6 +47,11 @@ namespace ESFA.DC.Data.LARS.Model
         public System.DateTime Modified_On { get; set; }
         public string Modified_By { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<LARS_FrameworkAims> LARS_FrameworkAims { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<LARS_FrameworkCmnComp> LARS_FrameworkCmnComp { get; set; }
+        public virtual LARS_FrameworkMetaData LARS_FrameworkMetaData { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<LARS_SupersedingFrameworks> LARS_SupersedingFrameworks { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

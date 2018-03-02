@@ -17,7 +17,9 @@ namespace ESFA.DC.Data.LARS.Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public LARS_LearningDelivery()
         {
+            this.LARS_AnnualValue = new HashSet<LARS_AnnualValue>();
             this.LARS_FrameworkAims = new HashSet<LARS_FrameworkAims>();
+            this.LARS_Funding = new HashSet<LARS_Funding>();
             this.LARS_LearningDeliveryCategory = new HashSet<LARS_LearningDeliveryCategory>();
             this.LARS_Section96 = new HashSet<LARS_Section96>();
             this.LARS_StandardAims = new HashSet<LARS_StandardAims>();
@@ -106,7 +108,11 @@ namespace ESFA.DC.Data.LARS.Model
         public string Modified_By { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<LARS_AnnualValue> LARS_AnnualValue { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<LARS_FrameworkAims> LARS_FrameworkAims { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<LARS_Funding> LARS_Funding { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<LARS_LearningDeliveryCategory> LARS_LearningDeliveryCategory { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

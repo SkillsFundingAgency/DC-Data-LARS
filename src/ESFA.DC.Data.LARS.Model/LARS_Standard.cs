@@ -46,6 +46,7 @@ namespace ESFA.DC.Data.LARS.Model
         public virtual ICollection<LARS_StandardCommonComponent> LARS_StandardCommonComponent { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<LARS_StandardFunding> LARS_StandardFunding { get; set; }
+        public virtual LARS_StandardMetaData LARS_StandardMetaData { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<LARS_StandardValidity> LARS_StandardValidity { get; set; }
     }

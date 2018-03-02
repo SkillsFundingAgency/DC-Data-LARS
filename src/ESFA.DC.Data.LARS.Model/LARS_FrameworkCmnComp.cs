@@ -25,5 +25,7 @@ namespace ESFA.DC.Data.LARS.Model
         public string Created_By { get; set; }
         public System.DateTime Modified_On { get; set; }
         public string Modified_By { get; set; }
+    
+        public virtual LARS_Framework LARS_Framework { get; set; }
     }
 }
