@@ -12,8 +12,9 @@ namespace ESFA.DC.Data.LARS.Model
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using ESFA.DC.Data.LARS.Model.Interfaces;
     
-    public partial class LARS : DbContext
+    public partial class LARS : DbContext, ILARS
     {
         public LARS()
             : base("name=LARS")
