@@ -65,6 +65,9 @@
     <Folder Include="Core\Tables\" />
     <Folder Include="Security\" />
     <Folder Include="zzDeploymentProfiles" />
+    <Folder Include="Staging\" />
+    <Folder Include="Staging\Tables\" />
+    <Folder Include="Staging\Stored Procedures\" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Tables\TBStandardLookup.sql" />
@@ -101,6 +104,62 @@
     <Build Include="Core\Tables\LARS_Validity.sql" />
     <Build Include="Core\Tables\LARS_Version.sql" />
     <Build Include="Security\Core.sql" />
+    <Build Include="Staging\Tables\TBStandardLookupVersion.sql" />
+    <Build Include="Staging\Tables\TBStandardLookup.sql" />
+    <Build Include="Staging\Tables\LARS_LearningDeliveryCategory.sql" />
+    <Build Include="Staging\Tables\LARS_AnnualValue.sql" />
+    <Build Include="Staging\Tables\LARS_ApprenticeshipFunding.sql">
+      <AnsiNulls>Off</AnsiNulls>
+    </Build>
+    <Build Include="Staging\Tables\LARS_DataGeneration.sql" />
+    <Build Include="Staging\Tables\LARS_Framework.sql" />
+    <Build Include="Staging\Tables\LARS_FrameworkAims.sql" />
+    <Build Include="Staging\Tables\LARS_FrameworkCmnComp.sql" />
+    <Build Include="Staging\Tables\LARS_FrameworkMetaData.sql" />
+    <Build Include="Staging\Tables\LARS_Funding.sql">
+      <AnsiNulls>Off</AnsiNulls>
+    </Build>
+    <Build Include="Staging\Tables\LARS_LearningDelivery.sql" />
+    <Build Include="Staging\Tables\LARS_Standard.sql">
+      <AnsiNulls>Off</AnsiNulls>
+    </Build>
+    <Build Include="Staging\Tables\LARS_StandardAims.sql" />
+    <Build Include="Staging\Tables\LARS_StandardCommonComponent.sql" />
+    <Build Include="Staging\Tables\LARS_StandardFunding.sql">
+      <AnsiNulls>Off</AnsiNulls>
+    </Build>
+    <Build Include="Staging\Tables\LARS_StandardMetaData.sql" />
+    <Build Include="Staging\Tables\LARS_StandardPdfLink.sql" />
+    <Build Include="Staging\Tables\LARS_StandardValidity.sql" />
+    <Build Include="Staging\Tables\LARS_SupersedingAims.sql" />
+    <Build Include="Staging\Tables\LARS_SupersedingFrameworks.sql" />
+    <Build Include="Staging\Tables\LARS_UnitQualificationRelationship.sql" />
+    <Build Include="Staging\Tables\LARS_Validity.sql" />
+    <Build Include="Staging\Tables\LARS_Version.sql" />
+    <Build Include="Staging\Tables\LARS_Section96.sql" />
+    <Build Include="Security\Staging.sql" />
+    <Build Include="Staging\Stored Procedures\usp_Process_Version.sql" />
+    <Build Include="Staging\Stored Procedures\usp_Process_Validity.sql" />
+    <Build Include="Staging\Stored Procedures\usp_Process_SupersedingFrameworks.sql" />
+    <Build Include="Staging\Stored Procedures\usp_Process_SupersedingAims.sql" />
+    <Build Include="Staging\Stored Procedures\usp_Process_StandardValidity.sql" />
+    <Build Include="Staging\Stored Procedures\usp_Process_StandardMetaData.sql" />
+    <Build Include="Staging\Stored Procedures\usp_Process_StandardFunding.sql" />
+    <Build Include="Staging\Stored Procedures\usp_Process_StandardCommonComponent.sql" />
+    <Build Include="Staging\Stored Procedures\usp_Process_StandardAims.sql" />
+    <Build Include="Staging\Stored Procedures\usp_Process_Standard.sql" />
+    <Build Include="Staging\Stored Procedures\usp_Process_Section96.sql" />
+    <Build Include="Staging\Stored Procedures\usp_Process_LearningDeliveryCategory.sql" />
+    <Build Include="Staging\Stored Procedures\usp_Process_LearningDelivery.sql" />
+    <Build Include="Staging\Stored Procedures\usp_Process_Funding.sql" />
+    <Build Include="Staging\Stored Procedures\usp_Process_FrameworkMetaData.sql" />
+    <Build Include="Staging\Stored Procedures\usp_Process_FrameworkCmnComp.sql" />
+    <Build Include="Staging\Stored Procedures\usp_Process_FrameworkAims.sql" />
+    <Build Include="Staging\Stored Procedures\usp_Process_Framework.sql" />
+    <Build Include="Staging\Stored Procedures\usp_Process_DataGeneration.sql" />
+    <Build Include="Staging\Stored Procedures\usp_Process_ApprenticeshipFunding.sql" />
+    <Build Include="Staging\Stored Procedures\usp_Process_AnnualValue.sql" />
+    <Build Include="Staging\Stored Procedures\usp_Process.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="zzDeploymentProfiles\zz.Local.Dev.Version.publish.xml" />
