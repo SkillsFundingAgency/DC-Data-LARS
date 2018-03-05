@@ -1,7 +1,5 @@
-﻿CREATE SCHEMA [Core]
+﻿CREATE SCHEMA [Staging]
     AUTHORIZATION [dbo];
-
-
 
 
 
