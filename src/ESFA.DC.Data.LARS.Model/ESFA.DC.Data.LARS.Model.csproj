@@ -158,16 +158,16 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="LARS.Context.tt">
+    <None Include="LARS.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>LARS.edmx</DependentUpon>
       <LastGenOutput>LARS.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="LARS.tt">
+    </None>
+    <None Include="LARS.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>LARS.edmx</DependentUpon>
       <LastGenOutput>LARS.cs</LastGenOutput>
-    </Content>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
