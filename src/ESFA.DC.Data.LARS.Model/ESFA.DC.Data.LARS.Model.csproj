@@ -71,6 +71,9 @@
     <Compile Include="LARS_ApprenticeshipFunding.cs">
       <DependentUpon>LARS.tt</DependentUpon>
     </Compile>
+    <Compile Include="LARS_CareerLearningPilot.cs">
+      <DependentUpon>LARS.tt</DependentUpon>
+    </Compile>
     <Compile Include="LARS_DataGeneration.cs">
       <DependentUpon>LARS.tt</DependentUpon>
     </Compile>

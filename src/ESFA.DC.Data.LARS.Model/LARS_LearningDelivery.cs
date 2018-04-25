@@ -26,6 +26,7 @@ namespace ESFA.DC.Data.LARS.Model
             this.LARS_SupersedingAims = new HashSet<LARS_SupersedingAims>();
             this.LARS_SupersedingAims1 = new HashSet<LARS_SupersedingAims>();
             this.LARS_Validity = new HashSet<LARS_Validity>();
+            this.LARS_CareerLearningPilot = new HashSet<LARS_CareerLearningPilot>();
         }
     
         public string LearnAimRef { get; set; }
@@ -125,5 +126,7 @@ namespace ESFA.DC.Data.LARS.Model
         public virtual ICollection<LARS_SupersedingAims> LARS_SupersedingAims1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<LARS_Validity> LARS_Validity { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<LARS_CareerLearningPilot> LARS_CareerLearningPilot { get; set; }
     }
 }

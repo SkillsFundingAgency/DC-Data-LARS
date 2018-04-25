@@ -6,5 +6,10 @@
     <DeployScriptFileName>ESFA.DC.Data.LARS.Database.sql</DeployScriptFileName>
     <TargetConnectionString>Data Source=__SQL_SERVER__;Integrated Security=True;Persist Security Info=False;Pooling=False;MultipleActiveResultSets=False;Connect Timeout=60;Encrypt=False;TrustServerCertificate=True</TargetConnectionString>
     <ProfileVersionNumber>1</ProfileVersionNumber>
+    <BlockOnPossibleDataLoss>True</BlockOnPossibleDataLoss>
+    <DropObjectsNotInSource>True</DropObjectsNotInSource>
+    <DoNotDropDatabaseRoles>True</DoNotDropDatabaseRoles>
+    <DoNotDropLogins>True</DoNotDropLogins>
+    <DoNotDropRoleMembership>True</DoNotDropRoleMembership>
   </PropertyGroup>
 </Project>

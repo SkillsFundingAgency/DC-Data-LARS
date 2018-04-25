@@ -31,6 +31,7 @@ BEGIN
 
 			EXEC [Staging].[usp_Process_ApprenticeshipFunding];
 			EXEC [Staging].[usp_Process_StandardAims];
+			EXEC [Staging].[usp_Process_CareerLearningPilot];
 
 			EXEC [Staging].[usp_Process_DataGeneration];
 		RETURN 0;

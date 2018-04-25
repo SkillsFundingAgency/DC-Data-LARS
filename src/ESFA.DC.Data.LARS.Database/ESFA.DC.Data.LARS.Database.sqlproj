@@ -27,6 +27,7 @@
     <DefaultFilegroup>PRIMARY</DefaultFilegroup>
     <IsEncryptionOn>True</IsEncryptionOn>
     <CompatibilityMode>140</CompatibilityMode>
+    <EnableFullTextSearch>True</EnableFullTextSearch>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <OutputPath>bin\Release\</OutputPath>
@@ -164,6 +165,9 @@
     <Build Include="Staging\Stored Procedures\usp_Process.sql" />
     <Build Include="Security\User_RO.sql" />
     <Build Include="Security\RoleMemberships.sql" />
+    <Build Include="Core\Tables\LARS_CareerLearningPilot.sql" />
+    <Build Include="Staging\Tables\LARS_CareerLearningPilot.sql" />
+    <Build Include="Staging\Stored Procedures\usp_Process_CareerLearningPilot.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="zzDeploymentProfiles\zz.Local.Dev.Version.publish.xml" />

@@ -13,6 +13,6 @@
     [Modified_On]                DATETIME      NOT NULL,
     [Modified_By]                VARCHAR (100) NOT NULL,
     CONSTRAINT [PK_Core_LARS_Section96] PRIMARY KEY CLUSTERED ([LearnAimRef] ASC, [EffectiveFrom] ASC) WITH (FILLFACTOR = 90),
-    CONSTRAINT [FK_CoreSection96_CoreLearningDelivery] FOREIGN KEY ([LearnAimRef]) REFERENCES [Core].[LARS_LearningDelivery] ([LearnAimRef]),
+    CONSTRAINT [FK_Core_LARS_Section96_CoreLearningDelivery] FOREIGN KEY ([LearnAimRef]) REFERENCES [Core].[LARS_LearningDelivery] ([LearnAimRef]),
 );
 

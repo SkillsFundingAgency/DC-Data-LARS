@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="377bceaa10554dcfb93f384f26b301b5" Name="Diagram1">
+      <Diagram DiagramId="377bceaa10554dcfb93f384f26b301b5" Name="Diagram1" ZoomLevel="96">
         <EntityTypeShape EntityType="ESFA.DC.Data.LARS.Model.LARS_AnnualValue" Width="1.5" PointX="3" PointY="8.625" IsExpanded="true" />
         <EntityTypeShape EntityType="ESFA.DC.Data.LARS.Model.LARS_ApprenticeshipFunding" Width="1.5" PointX="8.75" PointY="2.875" IsExpanded="true" />
         <EntityTypeShape EntityType="ESFA.DC.Data.LARS.Model.LARS_DataGeneration" Width="1.5" PointX="5.75" PointY="2.875" IsExpanded="true" />
@@ -49,6 +49,9 @@
         <AssociationConnector Association="ESFA.DC.Data.LARS.Model.FK_CoreStandardFunding_CoreStandard" ManuallyRouted="false" />
         <AssociationConnector Association="ESFA.DC.Data.LARS.Model.FK_CoreStandardMetaData_CoreStandard" ManuallyRouted="false" />
         <AssociationConnector Association="ESFA.DC.Data.LARS.Model.FK_CoreStandardValidity_CoreStandard" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="ESFA.DC.Data.LARS.Model.LARS_CareerLearningPilot" Width="1.5" PointX="3" PointY="59.375" />
+        <AssociationConnector Association="ESFA.DC.Data.LARS.Model.FK_Core_LARS_CLP_CoreLearningDelivery" />
+        <AssociationConnector Association="ESFA.DC.Data.LARS.Model.FK_Core_LARS_CLP_CoreLearningDelivery" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
