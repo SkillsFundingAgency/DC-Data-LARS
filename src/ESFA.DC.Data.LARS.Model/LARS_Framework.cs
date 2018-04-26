@@ -51,10 +51,10 @@ namespace ESFA.DC.Data.LARS.Model
         public virtual ICollection<LARS_FrameworkAims> LARS_FrameworkAims { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<LARS_FrameworkCmnComp> LARS_FrameworkCmnComp { get; set; }
-        public virtual LARS_FrameworkMetaData LARS_FrameworkMetaData { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<LARS_SupersedingFrameworks> LARS_SupersedingFrameworks { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<LARS_SupersedingFrameworks> LARS_SupersedingFrameworks1 { get; set; }
+        public virtual LARS_FrameworkMetaData LARS_FrameworkMetaData { get; set; }
     }
 }

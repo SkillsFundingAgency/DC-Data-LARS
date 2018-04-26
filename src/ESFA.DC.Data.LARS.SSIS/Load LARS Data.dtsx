@@ -12,8 +12,8 @@
   DTS:ObjectName="Load LARS Data"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="74"
-  DTS:VersionGUID="{E5715553-B2DD-4A49-A292-6D10F9AE1F5D}">
+  DTS:VersionBuild="81"
+  DTS:VersionGUID="{ECF1E921-C6D9-4016-A758-0EEF7136E85A}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -100,6 +100,7 @@
       DTS:refId="Package\SEQ - Process Data"
       DTS:CreationName="STOCK:SEQUENCE"
       DTS:Description="Sequence Container"
+      DTS:Disabled="True"
       DTS:DTSID="{365b63b4-58bd-4c23-ac7a-159888ef81bc}"
       DTS:ExecutableType="STOCK:SEQUENCE"
       DTS:LocaleID="-1"
@@ -148,7 +149,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Merge - CareerLearningPilot"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="3">
+              DTS:ThreadHint="2">
               <DTS:Variables />
               <DTS:PropertyExpression
                 DTS:Name="Name">LTRIM(RTRIM("SQL - Merge - " + @[User::Name]))</DTS:PropertyExpression>
@@ -204,7 +205,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Merge - DataGeneration"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="4">
+              DTS:ThreadHint="3">
               <DTS:Variables />
               <DTS:PropertyExpression
                 DTS:Name="Name">LTRIM(RTRIM("SQL - Merge - " + @[User::Name]))</DTS:PropertyExpression>
@@ -316,7 +317,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Merge - FrameworkAims"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="2">
+              DTS:ThreadHint="7">
               <DTS:Variables />
               <DTS:PropertyExpression
                 DTS:Name="Name">LTRIM(RTRIM("SQL - Merge - " + @[User::Name]))</DTS:PropertyExpression>
@@ -428,7 +429,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Merge - FrameworkMetaData"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="11">
+              DTS:ThreadHint="5">
               <DTS:Variables />
               <DTS:PropertyExpression
                 DTS:Name="Name">LTRIM(RTRIM("SQL - Merge - " + @[User::Name]))</DTS:PropertyExpression>
@@ -484,7 +485,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Merge - Funding"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="12">
+              DTS:ThreadHint="6">
               <DTS:Variables />
               <DTS:PropertyExpression
                 DTS:Name="Name">LTRIM(RTRIM("SQL - Merge - " + @[User::Name]))</DTS:PropertyExpression>
@@ -540,7 +541,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Merge - LearningDelivery"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="2">
+              DTS:ThreadHint="1">
               <DTS:Variables />
               <DTS:PropertyExpression
                 DTS:Name="Name">LTRIM(RTRIM("SQL - Merge - " + @[User::Name]))</DTS:PropertyExpression>
@@ -596,7 +597,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Merge - LearningDeliveryCategory"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="9">
+              DTS:ThreadHint="1">
               <DTS:Variables />
               <DTS:PropertyExpression
                 DTS:Name="Name">LTRIM(RTRIM("SQL - Merge - " + @[User::Name]))</DTS:PropertyExpression>
@@ -652,7 +653,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Merge - Standard"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="1">
+              DTS:ThreadHint="4">
               <DTS:Variables />
               <DTS:PropertyExpression
                 DTS:Name="Name">LTRIM(RTRIM("SQL - Merge - " + @[User::Name]))</DTS:PropertyExpression>
@@ -708,7 +709,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Merge - StandardAims"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="10">
+              DTS:ThreadHint="13">
               <DTS:Variables />
               <DTS:PropertyExpression
                 DTS:Name="Name">LTRIM(RTRIM("SQL - Merge - " + @[User::Name]))</DTS:PropertyExpression>
@@ -764,7 +765,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Merge - StandardCommonComponent"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="1">
+              DTS:ThreadHint="8">
               <DTS:Variables />
               <DTS:PropertyExpression
                 DTS:Name="Name">LTRIM(RTRIM("SQL - Merge - " + @[User::Name]))</DTS:PropertyExpression>
@@ -820,7 +821,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Merge - StandardFunding"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="8">
+              DTS:ThreadHint="9">
               <DTS:Variables />
               <DTS:PropertyExpression
                 DTS:Name="Name">LTRIM(RTRIM("SQL - Merge - " + @[User::Name]))</DTS:PropertyExpression>
@@ -876,7 +877,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Merge - StandardMetaData"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="13">
+              DTS:ThreadHint="10">
               <DTS:Variables />
               <DTS:PropertyExpression
                 DTS:Name="Name">LTRIM(RTRIM("SQL - Merge - " + @[User::Name]))</DTS:PropertyExpression>
@@ -933,7 +934,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Merge - StandardPdfLink"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="14">
+              DTS:ThreadHint="11">
               <DTS:Variables />
               <DTS:PropertyExpression
                 DTS:Name="Name">LTRIM(RTRIM("SQL - Merge - " + @[User::Name]))</DTS:PropertyExpression>
@@ -989,7 +990,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Merge - StandardValidity"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="16">
+              DTS:ThreadHint="4">
               <DTS:Variables />
               <DTS:PropertyExpression
                 DTS:Name="Name">LTRIM(RTRIM("SQL - Merge - " + @[User::Name]))</DTS:PropertyExpression>
@@ -1101,7 +1102,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Merge - SupersedingFrameworks"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="17">
+              DTS:ThreadHint="14">
               <DTS:Variables />
               <DTS:PropertyExpression
                 DTS:Name="Name">LTRIM(RTRIM("SQL - Merge - " + @[User::Name]))</DTS:PropertyExpression>
@@ -1158,7 +1159,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Merge - UnitQualificationRelationship"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="5">
+              DTS:ThreadHint="12">
               <DTS:Variables />
               <DTS:PropertyExpression
                 DTS:Name="Name">LTRIM(RTRIM("SQL - Merge - " + @[User::Name]))</DTS:PropertyExpression>
@@ -1214,7 +1215,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Merge - Validity"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="6">
+              DTS:ThreadHint="16">
               <DTS:Variables />
               <DTS:PropertyExpression
                 DTS:Name="Name">LTRIM(RTRIM("SQL - Merge - " + @[User::Name]))</DTS:PropertyExpression>
@@ -1270,7 +1271,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Merge - Version"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="7">
+              DTS:ThreadHint="17">
               <DTS:Variables />
               <DTS:PropertyExpression
                 DTS:Name="Name">LTRIM(RTRIM("SQL - Merge - " + @[User::Name]))</DTS:PropertyExpression>
@@ -1490,6 +1491,8 @@
                 DTS:Name="Name">LTRIM(RTRIM("DFT - " + @[User::Name]))</DTS:PropertyExpression>
               <DTS:ObjectData>
                 <pipeline
+                  defaultBufferMaxRows="100000"
+                  engineThreads="25"
                   version="1">
                   <components>
                     <component
@@ -2427,7 +2430,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Delete from - AnnualValue"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="1">
+              DTS:ThreadHint="0">
               <DTS:Variables>
                 <DTS:Variable
                   DTS:CreationName=""
@@ -3528,7 +3531,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Delete from - ApprenticeshipFunding"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="2">
+              DTS:ThreadHint="1">
               <DTS:Variables>
                 <DTS:Variable
                   DTS:CreationName=""
@@ -4213,7 +4216,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Delete from - CareerLearningPilot"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="0">
+              DTS:ThreadHint="3">
               <DTS:Variables>
                 <DTS:Variable
                   DTS:CreationName=""
@@ -5761,7 +5764,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Delete from - Framework"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="5">
+              DTS:ThreadHint="2">
               <DTS:Variables>
                 <DTS:Variable
                   DTS:CreationName=""
@@ -6406,7 +6409,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Delete from - FrameworkAims"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="3">
+              DTS:ThreadHint="10">
               <DTS:Variables>
                 <DTS:Variable
                   DTS:CreationName=""
@@ -7051,7 +7054,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Delete from - FrameworkCmnComp"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="7">
+              DTS:ThreadHint="8">
               <DTS:Variables>
                 <DTS:Variable
                   DTS:CreationName=""
@@ -7686,7 +7689,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Delete from - FrameworkMetaData"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="8">
+              DTS:ThreadHint="9">
               <DTS:Variables>
                 <DTS:Variable
                   DTS:CreationName=""
@@ -8373,7 +8376,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Delete from - Funding"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="6">
+              DTS:ThreadHint="5">
               <DTS:Variables>
                 <DTS:Variable
                   DTS:CreationName=""
@@ -8467,6 +8470,8 @@
                 DTS:Name="Name">LTRIM(RTRIM("DFT - " + @[User::Name]))</DTS:PropertyExpression>
               <DTS:ObjectData>
                 <pipeline
+                  defaultBufferSize="104857600"
+                  engineThreads="25"
                   version="1">
                   <components>
                     <component
@@ -11129,7 +11134,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Delete from - LearningDelivery"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="10">
+              DTS:ThreadHint="6">
               <DTS:Variables>
                 <DTS:Variable
                   DTS:CreationName=""
@@ -11690,7 +11695,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Delete from - LearningDeliveryCategory"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="11">
+              DTS:ThreadHint="7">
               <DTS:Variables>
                 <DTS:Variable
                   DTS:CreationName=""
@@ -12391,7 +12396,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Delete from - Section96"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="12">
+              DTS:ThreadHint="11">
               <DTS:Variables>
                 <DTS:Variable
                   DTS:CreationName=""
@@ -13274,7 +13279,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Delete from - Standard"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="13">
+              DTS:ThreadHint="12">
               <DTS:Variables>
                 <DTS:Variable
                   DTS:CreationName=""
@@ -13863,7 +13868,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Delete from - StandardAims"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="14">
+              DTS:ThreadHint="13">
               <DTS:Variables>
                 <DTS:Variable
                   DTS:CreationName=""
@@ -14452,7 +14457,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Delete from - StandardCommonComponent"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="9">
+              DTS:ThreadHint="15">
               <DTS:Variables>
                 <DTS:Variable
                   DTS:CreationName=""
@@ -15231,7 +15236,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Delete from - StandardFunding"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="16">
+              DTS:ThreadHint="14">
               <DTS:Variables>
                 <DTS:Variable
                   DTS:CreationName=""
@@ -15950,7 +15955,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Delete from - StandardMetaData"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="17">
+              DTS:ThreadHint="16">
               <DTS:Variables>
                 <DTS:Variable
                   DTS:CreationName=""
@@ -17661,7 +17666,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Delete from - SupersedingFrameworks"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="20">
+              DTS:ThreadHint="17">
               <DTS:Variables>
                 <DTS:Variable
                   DTS:CreationName=""
@@ -17695,6 +17700,1272 @@
               DTS:LogicalAnd="True"
               DTS:ObjectName="Constraint"
               DTS:To="Package\SEQ - Stage Data\SEQ - Stage - SupersedingFrameworks\DFT - SupersedingFrameworks" />
+          </DTS:PrecedenceConstraints>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup"
+          DTS:CreationName="STOCK:SEQUENCE"
+          DTS:Description="Sequence Container"
+          DTS:DTSID="{b7aac0a2-c21f-43c2-be54-2aed0661624a}"
+          DTS:ExecutableType="STOCK:SEQUENCE"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SEQ - Stage - TBStandardLookup">
+          <DTS:Variables>
+            <DTS:Variable
+              DTS:CreationName=""
+              DTS:DTSID="{208ce69a-0916-428b-83c9-d56b937147f2}"
+              DTS:IncludeInDebugDump="2345"
+              DTS:Namespace="User"
+              DTS:ObjectName="Name">
+              <DTS:VariableValue
+                DTS:DataType="8">TBStandardLookup</DTS:VariableValue>
+            </DTS:Variable>
+            <DTS:Variable
+              DTS:CreationName=""
+              DTS:DTSID="{2159c15b-1135-42f6-8b80-47eead2e96ac}"
+              DTS:EvaluateAsExpression="True"
+              DTS:Expression="&quot;SELECT * FROM [dbo].[&quot; + @[User::Name] +&quot;] &quot; +  @[User::SourceSqlFilter]"
+              DTS:IncludeInDebugDump="2345"
+              DTS:Namespace="User"
+              DTS:ObjectName="SourceObjectSelectStatement">
+              <DTS:VariableValue
+                DTS:DataType="8">SELECT * FROM [dbo].[TBStandardLookup] </DTS:VariableValue>
+            </DTS:Variable>
+            <DTS:Variable
+              DTS:CreationName=""
+              DTS:DTSID="{74721928-a595-4a26-8a83-c83c52ce6f2a}"
+              DTS:EvaluateAsExpression="True"
+              DTS:Expression="&quot;[&quot; + @[User::StagingSchema] + &quot;].[&quot; + @[User::Name] +&quot;]&quot;"
+              DTS:IncludeInDebugDump="2345"
+              DTS:Namespace="User"
+              DTS:ObjectName="StagingObjectName">
+              <DTS:VariableValue
+                DTS:DataType="8">[Staging].[TBStandardLookup]</DTS:VariableValue>
+            </DTS:Variable>
+          </DTS:Variables>
+          <DTS:PropertyExpression
+            DTS:Name="Name">LTRIM(RTRIM( "SEQ - Stage - " + @[User::Name]))</DTS:PropertyExpression>
+          <DTS:Executables>
+            <DTS:Executable
+              DTS:refId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup"
+              DTS:CreationName="Microsoft.Pipeline"
+              DTS:Description="Data Flow Task"
+              DTS:DTSID="{c442687f-8513-4a04-9c0d-871e6ef30f98}"
+              DTS:ExecutableType="Microsoft.Pipeline"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="DFT - TBStandardLookup"
+              DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+              <DTS:Variables />
+              <DTS:PropertyExpression
+                DTS:Name="Name">LTRIM(RTRIM("DFT - " + @[User::Name]))</DTS:PropertyExpression>
+              <DTS:ObjectData>
+                <pipeline
+                  version="1">
+                  <components>
+                    <component
+                      refId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Source Data"
+                      componentClassID="Microsoft.OLEDBSource"
+                      contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                      description="OLE DB Source"
+                      name="Source Data"
+                      usesDispositions="true"
+                      version="7">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                          name="CommandTimeout">0</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the name of the database object used to open a rowset."
+                          name="OpenRowset"></property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the variable that contains the name of the database object used to open a rowset."
+                          name="OpenRowsetVariable">User::SourceObjectName</property>
+                        <property
+                          dataType="System.String"
+                          description="The SQL command to be executed."
+                          name="SqlCommand"
+                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                        <property
+                          dataType="System.String"
+                          description="The variable that contains the SQL command to be executed."
+                          name="SqlCommandVariable">User::SourceObjectSelectStatement</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the column code page to use when code page information is unavailable from the data source."
+                          name="DefaultCodePage">1252</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Forces the use of the DefaultCodePage property value when describing character data."
+                          name="AlwaysUseDefaultCodePage">false</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the mode used to access the database."
+                          name="AccessMode"
+                          typeConverter="AccessMode">3</property>
+                        <property
+                          dataType="System.String"
+                          description="The mappings between the parameters in the SQL command and variables."
+                          name="ParameterMapping"></property>
+                      </properties>
+                      <connections>
+                        <connection
+                          refId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Source Data.Connections[OleDbConnection]"
+                          connectionManagerID="Package.ConnectionManagers[Source Connection Manager]"
+                          connectionManagerRefId="Package.ConnectionManagers[Source Connection Manager]"
+                          description="The OLE DB runtime connection used to access the database."
+                          name="OleDbConnection" />
+                      </connections>
+                      <outputs>
+                        <output
+                          refId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Source Data.Outputs[OLE DB Source Output]"
+                          name="OLE DB Source Output">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Source Data.Outputs[OLE DB Source Output].Columns[Created_On]"
+                              dataType="dbTimeStamp"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Source Data.Outputs[OLE DB Source Output].ExternalColumns[Created_On]"
+                              lineageId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Source Data.Outputs[OLE DB Source Output].Columns[Created_On]"
+                              name="Created_On"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Source Data.Outputs[OLE DB Source Output].Columns[Created_By]"
+                              codePage="1252"
+                              dataType="str"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Source Data.Outputs[OLE DB Source Output].ExternalColumns[Created_By]"
+                              length="150"
+                              lineageId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Source Data.Outputs[OLE DB Source Output].Columns[Created_By]"
+                              name="Created_By"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Source Data.Outputs[OLE DB Source Output].Columns[Modified_On]"
+                              dataType="dbTimeStamp"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Source Data.Outputs[OLE DB Source Output].ExternalColumns[Modified_On]"
+                              lineageId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Source Data.Outputs[OLE DB Source Output].Columns[Modified_On]"
+                              name="Modified_On"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Source Data.Outputs[OLE DB Source Output].Columns[Modified_By]"
+                              codePage="1252"
+                              dataType="str"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Source Data.Outputs[OLE DB Source Output].ExternalColumns[Modified_By]"
+                              length="150"
+                              lineageId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Source Data.Outputs[OLE DB Source Output].Columns[Modified_By]"
+                              name="Modified_By"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Source Data.Outputs[OLE DB Source Output].Columns[StandardNumber]"
+                              dataType="i4"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Source Data.Outputs[OLE DB Source Output].ExternalColumns[StandardNumber]"
+                              lineageId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Source Data.Outputs[OLE DB Source Output].Columns[StandardNumber]"
+                              name="StandardNumber"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Source Data.Outputs[OLE DB Source Output].Columns[StandardDesc]"
+                              codePage="1252"
+                              dataType="str"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Source Data.Outputs[OLE DB Source Output].ExternalColumns[StandardDesc]"
+                              length="255"
+                              lineageId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Source Data.Outputs[OLE DB Source Output].Columns[StandardDesc]"
+                              name="StandardDesc"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Source Data.Outputs[OLE DB Source Output].Columns[Sector]"
+                              codePage="1252"
+                              dataType="str"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Source Data.Outputs[OLE DB Source Output].ExternalColumns[Sector]"
+                              length="100"
+                              lineageId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Source Data.Outputs[OLE DB Source Output].Columns[Sector]"
+                              name="Sector"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Source Data.Outputs[OLE DB Source Output].Columns[Status]"
+                              codePage="1252"
+                              dataType="str"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Source Data.Outputs[OLE DB Source Output].ExternalColumns[Status]"
+                              length="100"
+                              lineageId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Source Data.Outputs[OLE DB Source Output].Columns[Status]"
+                              name="Status"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Source Data.Outputs[OLE DB Source Output].Columns[CoreGovContCap]"
+                              dataType="numeric"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Source Data.Outputs[OLE DB Source Output].ExternalColumns[CoreGovContCap]"
+                              lineageId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Source Data.Outputs[OLE DB Source Output].Columns[CoreGovContCap]"
+                              name="CoreGovContCap"
+                              precision="18"
+                              scale="5"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Source Data.Outputs[OLE DB Source Output].Columns[YoungAppIncentive]"
+                              dataType="numeric"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Source Data.Outputs[OLE DB Source Output].ExternalColumns[YoungAppIncentive]"
+                              lineageId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Source Data.Outputs[OLE DB Source Output].Columns[YoungAppIncentive]"
+                              name="YoungAppIncentive"
+                              precision="18"
+                              scale="5"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Source Data.Outputs[OLE DB Source Output].Columns[SmallBusIncentive]"
+                              dataType="numeric"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Source Data.Outputs[OLE DB Source Output].ExternalColumns[SmallBusIncentive]"
+                              lineageId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Source Data.Outputs[OLE DB Source Output].Columns[SmallBusIncentive]"
+                              name="SmallBusIncentive"
+                              precision="18"
+                              scale="5"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Source Data.Outputs[OLE DB Source Output].Columns[AchIncentive]"
+                              dataType="numeric"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Source Data.Outputs[OLE DB Source Output].ExternalColumns[AchIncentive]"
+                              lineageId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Source Data.Outputs[OLE DB Source Output].Columns[AchIncentive]"
+                              name="AchIncentive"
+                              precision="18"
+                              scale="5"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Source Data.Outputs[OLE DB Source Output].Columns[ValuesEffectiveFrom]"
+                              dataType="dbTimeStamp"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Source Data.Outputs[OLE DB Source Output].ExternalColumns[ValuesEffectiveFrom]"
+                              lineageId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Source Data.Outputs[OLE DB Source Output].Columns[ValuesEffectiveFrom]"
+                              name="ValuesEffectiveFrom"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Source Data.Outputs[OLE DB Source Output].Columns[ValuesEffectiveTo]"
+                              dataType="dbTimeStamp"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Source Data.Outputs[OLE DB Source Output].ExternalColumns[ValuesEffectiveTo]"
+                              lineageId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Source Data.Outputs[OLE DB Source Output].Columns[ValuesEffectiveTo]"
+                              name="ValuesEffectiveTo"
+                              truncationRowDisposition="FailComponent" />
+                          </outputColumns>
+                          <externalMetadataColumns
+                            isUsed="True">
+                            <externalMetadataColumn
+                              refId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Source Data.Outputs[OLE DB Source Output].ExternalColumns[Created_On]"
+                              dataType="dbTimeStamp"
+                              name="Created_On" />
+                            <externalMetadataColumn
+                              refId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Source Data.Outputs[OLE DB Source Output].ExternalColumns[Created_By]"
+                              codePage="1252"
+                              dataType="str"
+                              length="150"
+                              name="Created_By" />
+                            <externalMetadataColumn
+                              refId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Source Data.Outputs[OLE DB Source Output].ExternalColumns[Modified_On]"
+                              dataType="dbTimeStamp"
+                              name="Modified_On" />
+                            <externalMetadataColumn
+                              refId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Source Data.Outputs[OLE DB Source Output].ExternalColumns[Modified_By]"
+                              codePage="1252"
+                              dataType="str"
+                              length="150"
+                              name="Modified_By" />
+                            <externalMetadataColumn
+                              refId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Source Data.Outputs[OLE DB Source Output].ExternalColumns[StandardNumber]"
+                              dataType="i4"
+                              name="StandardNumber" />
+                            <externalMetadataColumn
+                              refId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Source Data.Outputs[OLE DB Source Output].ExternalColumns[StandardDesc]"
+                              codePage="1252"
+                              dataType="str"
+                              length="255"
+                              name="StandardDesc" />
+                            <externalMetadataColumn
+                              refId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Source Data.Outputs[OLE DB Source Output].ExternalColumns[Sector]"
+                              codePage="1252"
+                              dataType="str"
+                              length="100"
+                              name="Sector" />
+                            <externalMetadataColumn
+                              refId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Source Data.Outputs[OLE DB Source Output].ExternalColumns[Status]"
+                              codePage="1252"
+                              dataType="str"
+                              length="100"
+                              name="Status" />
+                            <externalMetadataColumn
+                              refId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Source Data.Outputs[OLE DB Source Output].ExternalColumns[CoreGovContCap]"
+                              dataType="numeric"
+                              name="CoreGovContCap"
+                              precision="18"
+                              scale="5" />
+                            <externalMetadataColumn
+                              refId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Source Data.Outputs[OLE DB Source Output].ExternalColumns[YoungAppIncentive]"
+                              dataType="numeric"
+                              name="YoungAppIncentive"
+                              precision="18"
+                              scale="5" />
+                            <externalMetadataColumn
+                              refId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Source Data.Outputs[OLE DB Source Output].ExternalColumns[SmallBusIncentive]"
+                              dataType="numeric"
+                              name="SmallBusIncentive"
+                              precision="18"
+                              scale="5" />
+                            <externalMetadataColumn
+                              refId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Source Data.Outputs[OLE DB Source Output].ExternalColumns[AchIncentive]"
+                              dataType="numeric"
+                              name="AchIncentive"
+                              precision="18"
+                              scale="5" />
+                            <externalMetadataColumn
+                              refId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Source Data.Outputs[OLE DB Source Output].ExternalColumns[ValuesEffectiveFrom]"
+                              dataType="dbTimeStamp"
+                              name="ValuesEffectiveFrom" />
+                            <externalMetadataColumn
+                              refId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Source Data.Outputs[OLE DB Source Output].ExternalColumns[ValuesEffectiveTo]"
+                              dataType="dbTimeStamp"
+                              name="ValuesEffectiveTo" />
+                          </externalMetadataColumns>
+                        </output>
+                        <output
+                          refId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Source Data.Outputs[OLE DB Source Error Output]"
+                          isErrorOut="true"
+                          name="OLE DB Source Error Output">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Source Data.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                              dataType="i4"
+                              lineageId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Source Data.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                              name="ErrorCode"
+                              specialFlags="1" />
+                            <outputColumn
+                              refId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Source Data.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                              dataType="i4"
+                              lineageId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Source Data.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                              name="ErrorColumn"
+                              specialFlags="2" />
+                            <outputColumn
+                              refId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Source Data.Outputs[OLE DB Source Error Output].Columns[Created_On]"
+                              dataType="dbTimeStamp"
+                              lineageId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Source Data.Outputs[OLE DB Source Error Output].Columns[Created_On]"
+                              name="Created_On" />
+                            <outputColumn
+                              refId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Source Data.Outputs[OLE DB Source Error Output].Columns[Created_By]"
+                              codePage="1252"
+                              dataType="str"
+                              length="150"
+                              lineageId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Source Data.Outputs[OLE DB Source Error Output].Columns[Created_By]"
+                              name="Created_By" />
+                            <outputColumn
+                              refId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Source Data.Outputs[OLE DB Source Error Output].Columns[Modified_On]"
+                              dataType="dbTimeStamp"
+                              lineageId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Source Data.Outputs[OLE DB Source Error Output].Columns[Modified_On]"
+                              name="Modified_On" />
+                            <outputColumn
+                              refId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Source Data.Outputs[OLE DB Source Error Output].Columns[Modified_By]"
+                              codePage="1252"
+                              dataType="str"
+                              length="150"
+                              lineageId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Source Data.Outputs[OLE DB Source Error Output].Columns[Modified_By]"
+                              name="Modified_By" />
+                            <outputColumn
+                              refId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Source Data.Outputs[OLE DB Source Error Output].Columns[StandardNumber]"
+                              dataType="i4"
+                              lineageId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Source Data.Outputs[OLE DB Source Error Output].Columns[StandardNumber]"
+                              name="StandardNumber" />
+                            <outputColumn
+                              refId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Source Data.Outputs[OLE DB Source Error Output].Columns[StandardDesc]"
+                              codePage="1252"
+                              dataType="str"
+                              length="255"
+                              lineageId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Source Data.Outputs[OLE DB Source Error Output].Columns[StandardDesc]"
+                              name="StandardDesc" />
+                            <outputColumn
+                              refId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Source Data.Outputs[OLE DB Source Error Output].Columns[Sector]"
+                              codePage="1252"
+                              dataType="str"
+                              length="100"
+                              lineageId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Source Data.Outputs[OLE DB Source Error Output].Columns[Sector]"
+                              name="Sector" />
+                            <outputColumn
+                              refId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Source Data.Outputs[OLE DB Source Error Output].Columns[Status]"
+                              codePage="1252"
+                              dataType="str"
+                              length="100"
+                              lineageId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Source Data.Outputs[OLE DB Source Error Output].Columns[Status]"
+                              name="Status" />
+                            <outputColumn
+                              refId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Source Data.Outputs[OLE DB Source Error Output].Columns[CoreGovContCap]"
+                              dataType="numeric"
+                              lineageId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Source Data.Outputs[OLE DB Source Error Output].Columns[CoreGovContCap]"
+                              name="CoreGovContCap"
+                              precision="18"
+                              scale="5" />
+                            <outputColumn
+                              refId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Source Data.Outputs[OLE DB Source Error Output].Columns[YoungAppIncentive]"
+                              dataType="numeric"
+                              lineageId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Source Data.Outputs[OLE DB Source Error Output].Columns[YoungAppIncentive]"
+                              name="YoungAppIncentive"
+                              precision="18"
+                              scale="5" />
+                            <outputColumn
+                              refId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Source Data.Outputs[OLE DB Source Error Output].Columns[SmallBusIncentive]"
+                              dataType="numeric"
+                              lineageId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Source Data.Outputs[OLE DB Source Error Output].Columns[SmallBusIncentive]"
+                              name="SmallBusIncentive"
+                              precision="18"
+                              scale="5" />
+                            <outputColumn
+                              refId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Source Data.Outputs[OLE DB Source Error Output].Columns[AchIncentive]"
+                              dataType="numeric"
+                              lineageId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Source Data.Outputs[OLE DB Source Error Output].Columns[AchIncentive]"
+                              name="AchIncentive"
+                              precision="18"
+                              scale="5" />
+                            <outputColumn
+                              refId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Source Data.Outputs[OLE DB Source Error Output].Columns[ValuesEffectiveFrom]"
+                              dataType="dbTimeStamp"
+                              lineageId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Source Data.Outputs[OLE DB Source Error Output].Columns[ValuesEffectiveFrom]"
+                              name="ValuesEffectiveFrom" />
+                            <outputColumn
+                              refId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Source Data.Outputs[OLE DB Source Error Output].Columns[ValuesEffectiveTo]"
+                              dataType="dbTimeStamp"
+                              lineageId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Source Data.Outputs[OLE DB Source Error Output].Columns[ValuesEffectiveTo]"
+                              name="ValuesEffectiveTo" />
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                    <component
+                      refId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Target Data"
+                      componentClassID="Microsoft.OLEDBDestination"
+                      contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                      description="OLE DB Destination"
+                      name="Target Data"
+                      usesDispositions="true"
+                      version="4">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                          name="CommandTimeout">0</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the name of the database object used to open a rowset."
+                          name="OpenRowset">[Core].[LARS_SupersedingFrameworks]</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the variable that contains the name of the database object used to open a rowset."
+                          name="OpenRowsetVariable">User::StagingObjectName</property>
+                        <property
+                          dataType="System.String"
+                          description="The SQL command to be executed."
+                          name="SqlCommand"
+                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the column code page to use when code page information is unavailable from the data source."
+                          name="DefaultCodePage">1252</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Forces the use of the DefaultCodePage property value when describing character data."
+                          name="AlwaysUseDefaultCodePage">false</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the mode used to access the database."
+                          name="AccessMode"
+                          typeConverter="AccessMode">4</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                          name="FastLoadKeepIdentity">true</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                          name="FastLoadKeepNulls">true</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                          name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                          name="FastLoadMaxInsertCommitSize">2147483647</property>
+                      </properties>
+                      <connections>
+                        <connection
+                          refId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Target Data.Connections[OleDbConnection]"
+                          connectionManagerID="Package.ConnectionManagers[Target Connection Manager]"
+                          connectionManagerRefId="Package.ConnectionManagers[Target Connection Manager]"
+                          description="The OLE DB runtime connection used to access the database."
+                          name="OleDbConnection" />
+                      </connections>
+                      <inputs>
+                        <input
+                          refId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Target Data.Inputs[OLE DB Destination Input]"
+                          errorOrTruncationOperation="Insert"
+                          errorRowDisposition="FailComponent"
+                          hasSideEffects="true"
+                          name="OLE DB Destination Input">
+                          <inputColumns>
+                            <inputColumn
+                              refId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Target Data.Inputs[OLE DB Destination Input].Columns[Created_On]"
+                              cachedDataType="dbTimeStamp"
+                              cachedName="Created_On"
+                              externalMetadataColumnId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Target Data.Inputs[OLE DB Destination Input].ExternalColumns[Created_On]"
+                              lineageId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Source Data.Outputs[OLE DB Source Output].Columns[Created_On]" />
+                            <inputColumn
+                              refId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Target Data.Inputs[OLE DB Destination Input].Columns[Created_By]"
+                              cachedCodepage="1252"
+                              cachedDataType="str"
+                              cachedLength="150"
+                              cachedName="Created_By"
+                              externalMetadataColumnId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Target Data.Inputs[OLE DB Destination Input].ExternalColumns[Created_By]"
+                              lineageId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Source Data.Outputs[OLE DB Source Output].Columns[Created_By]" />
+                            <inputColumn
+                              refId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Target Data.Inputs[OLE DB Destination Input].Columns[Modified_On]"
+                              cachedDataType="dbTimeStamp"
+                              cachedName="Modified_On"
+                              externalMetadataColumnId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Target Data.Inputs[OLE DB Destination Input].ExternalColumns[Modified_On]"
+                              lineageId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Source Data.Outputs[OLE DB Source Output].Columns[Modified_On]" />
+                            <inputColumn
+                              refId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Target Data.Inputs[OLE DB Destination Input].Columns[Modified_By]"
+                              cachedCodepage="1252"
+                              cachedDataType="str"
+                              cachedLength="150"
+                              cachedName="Modified_By"
+                              externalMetadataColumnId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Target Data.Inputs[OLE DB Destination Input].ExternalColumns[Modified_By]"
+                              lineageId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Source Data.Outputs[OLE DB Source Output].Columns[Modified_By]" />
+                            <inputColumn
+                              refId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Target Data.Inputs[OLE DB Destination Input].Columns[StandardNumber]"
+                              cachedDataType="i4"
+                              cachedName="StandardNumber"
+                              externalMetadataColumnId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Target Data.Inputs[OLE DB Destination Input].ExternalColumns[StandardNumber]"
+                              lineageId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Source Data.Outputs[OLE DB Source Output].Columns[StandardNumber]" />
+                            <inputColumn
+                              refId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Target Data.Inputs[OLE DB Destination Input].Columns[StandardDesc]"
+                              cachedCodepage="1252"
+                              cachedDataType="str"
+                              cachedLength="255"
+                              cachedName="StandardDesc"
+                              externalMetadataColumnId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Target Data.Inputs[OLE DB Destination Input].ExternalColumns[StandardDesc]"
+                              lineageId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Source Data.Outputs[OLE DB Source Output].Columns[StandardDesc]" />
+                            <inputColumn
+                              refId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Target Data.Inputs[OLE DB Destination Input].Columns[Sector]"
+                              cachedCodepage="1252"
+                              cachedDataType="str"
+                              cachedLength="100"
+                              cachedName="Sector"
+                              externalMetadataColumnId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Target Data.Inputs[OLE DB Destination Input].ExternalColumns[Sector]"
+                              lineageId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Source Data.Outputs[OLE DB Source Output].Columns[Sector]" />
+                            <inputColumn
+                              refId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Target Data.Inputs[OLE DB Destination Input].Columns[Status]"
+                              cachedCodepage="1252"
+                              cachedDataType="str"
+                              cachedLength="100"
+                              cachedName="Status"
+                              externalMetadataColumnId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Target Data.Inputs[OLE DB Destination Input].ExternalColumns[Status]"
+                              lineageId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Source Data.Outputs[OLE DB Source Output].Columns[Status]" />
+                            <inputColumn
+                              refId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Target Data.Inputs[OLE DB Destination Input].Columns[CoreGovContCap]"
+                              cachedDataType="numeric"
+                              cachedName="CoreGovContCap"
+                              cachedPrecision="18"
+                              cachedScale="5"
+                              externalMetadataColumnId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Target Data.Inputs[OLE DB Destination Input].ExternalColumns[CoreGovContCap]"
+                              lineageId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Source Data.Outputs[OLE DB Source Output].Columns[CoreGovContCap]" />
+                            <inputColumn
+                              refId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Target Data.Inputs[OLE DB Destination Input].Columns[YoungAppIncentive]"
+                              cachedDataType="numeric"
+                              cachedName="YoungAppIncentive"
+                              cachedPrecision="18"
+                              cachedScale="5"
+                              externalMetadataColumnId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Target Data.Inputs[OLE DB Destination Input].ExternalColumns[YoungAppIncentive]"
+                              lineageId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Source Data.Outputs[OLE DB Source Output].Columns[YoungAppIncentive]" />
+                            <inputColumn
+                              refId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Target Data.Inputs[OLE DB Destination Input].Columns[SmallBusIncentive]"
+                              cachedDataType="numeric"
+                              cachedName="SmallBusIncentive"
+                              cachedPrecision="18"
+                              cachedScale="5"
+                              externalMetadataColumnId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Target Data.Inputs[OLE DB Destination Input].ExternalColumns[SmallBusIncentive]"
+                              lineageId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Source Data.Outputs[OLE DB Source Output].Columns[SmallBusIncentive]" />
+                            <inputColumn
+                              refId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Target Data.Inputs[OLE DB Destination Input].Columns[AchIncentive]"
+                              cachedDataType="numeric"
+                              cachedName="AchIncentive"
+                              cachedPrecision="18"
+                              cachedScale="5"
+                              externalMetadataColumnId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Target Data.Inputs[OLE DB Destination Input].ExternalColumns[AchIncentive]"
+                              lineageId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Source Data.Outputs[OLE DB Source Output].Columns[AchIncentive]" />
+                            <inputColumn
+                              refId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Target Data.Inputs[OLE DB Destination Input].Columns[ValuesEffectiveFrom]"
+                              cachedDataType="dbTimeStamp"
+                              cachedName="ValuesEffectiveFrom"
+                              externalMetadataColumnId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Target Data.Inputs[OLE DB Destination Input].ExternalColumns[ValuesEffectiveFrom]"
+                              lineageId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Source Data.Outputs[OLE DB Source Output].Columns[ValuesEffectiveFrom]" />
+                            <inputColumn
+                              refId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Target Data.Inputs[OLE DB Destination Input].Columns[ValuesEffectiveTo]"
+                              cachedDataType="dbTimeStamp"
+                              cachedName="ValuesEffectiveTo"
+                              externalMetadataColumnId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Target Data.Inputs[OLE DB Destination Input].ExternalColumns[ValuesEffectiveTo]"
+                              lineageId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Source Data.Outputs[OLE DB Source Output].Columns[ValuesEffectiveTo]" />
+                          </inputColumns>
+                          <externalMetadataColumns
+                            isUsed="True">
+                            <externalMetadataColumn
+                              refId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Target Data.Inputs[OLE DB Destination Input].ExternalColumns[Created_On]"
+                              dataType="dbTimeStamp"
+                              name="Created_On" />
+                            <externalMetadataColumn
+                              refId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Target Data.Inputs[OLE DB Destination Input].ExternalColumns[Created_By]"
+                              codePage="1252"
+                              dataType="str"
+                              length="150"
+                              name="Created_By" />
+                            <externalMetadataColumn
+                              refId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Target Data.Inputs[OLE DB Destination Input].ExternalColumns[Modified_On]"
+                              dataType="dbTimeStamp"
+                              name="Modified_On" />
+                            <externalMetadataColumn
+                              refId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Target Data.Inputs[OLE DB Destination Input].ExternalColumns[Modified_By]"
+                              codePage="1252"
+                              dataType="str"
+                              length="150"
+                              name="Modified_By" />
+                            <externalMetadataColumn
+                              refId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Target Data.Inputs[OLE DB Destination Input].ExternalColumns[StandardNumber]"
+                              dataType="i4"
+                              name="StandardNumber" />
+                            <externalMetadataColumn
+                              refId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Target Data.Inputs[OLE DB Destination Input].ExternalColumns[StandardDesc]"
+                              codePage="1252"
+                              dataType="str"
+                              length="255"
+                              name="StandardDesc" />
+                            <externalMetadataColumn
+                              refId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Target Data.Inputs[OLE DB Destination Input].ExternalColumns[Sector]"
+                              codePage="1252"
+                              dataType="str"
+                              length="100"
+                              name="Sector" />
+                            <externalMetadataColumn
+                              refId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Target Data.Inputs[OLE DB Destination Input].ExternalColumns[Status]"
+                              codePage="1252"
+                              dataType="str"
+                              length="100"
+                              name="Status" />
+                            <externalMetadataColumn
+                              refId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Target Data.Inputs[OLE DB Destination Input].ExternalColumns[CoreGovContCap]"
+                              dataType="numeric"
+                              name="CoreGovContCap"
+                              precision="18"
+                              scale="5" />
+                            <externalMetadataColumn
+                              refId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Target Data.Inputs[OLE DB Destination Input].ExternalColumns[YoungAppIncentive]"
+                              dataType="numeric"
+                              name="YoungAppIncentive"
+                              precision="18"
+                              scale="5" />
+                            <externalMetadataColumn
+                              refId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Target Data.Inputs[OLE DB Destination Input].ExternalColumns[SmallBusIncentive]"
+                              dataType="numeric"
+                              name="SmallBusIncentive"
+                              precision="18"
+                              scale="5" />
+                            <externalMetadataColumn
+                              refId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Target Data.Inputs[OLE DB Destination Input].ExternalColumns[AchIncentive]"
+                              dataType="numeric"
+                              name="AchIncentive"
+                              precision="18"
+                              scale="5" />
+                            <externalMetadataColumn
+                              refId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Target Data.Inputs[OLE DB Destination Input].ExternalColumns[ValuesEffectiveFrom]"
+                              dataType="dbTimeStamp"
+                              name="ValuesEffectiveFrom" />
+                            <externalMetadataColumn
+                              refId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Target Data.Inputs[OLE DB Destination Input].ExternalColumns[ValuesEffectiveTo]"
+                              dataType="dbTimeStamp"
+                              name="ValuesEffectiveTo" />
+                          </externalMetadataColumns>
+                        </input>
+                      </inputs>
+                      <outputs>
+                        <output
+                          refId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Target Data.Outputs[OLE DB Destination Error Output]"
+                          exclusionGroup="1"
+                          isErrorOut="true"
+                          name="OLE DB Destination Error Output"
+                          synchronousInputId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Target Data.Inputs[OLE DB Destination Input]">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Target Data.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                              dataType="i4"
+                              lineageId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Target Data.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                              name="ErrorCode"
+                              specialFlags="1" />
+                            <outputColumn
+                              refId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Target Data.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                              dataType="i4"
+                              lineageId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Target Data.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                              name="ErrorColumn"
+                              specialFlags="2" />
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                  </components>
+                  <paths>
+                    <path
+                      refId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup.Paths[OLE DB Source Output]"
+                      endId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Target Data.Inputs[OLE DB Destination Input]"
+                      name="OLE DB Source Output"
+                      startId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Source Data.Outputs[OLE DB Source Output]" />
+                  </paths>
+                </pipeline>
+              </DTS:ObjectData>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\SQL - Delete from - TBStandardLookup"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Execute SQL Task"
+              DTS:DTSID="{f9b27796-f8e2-450e-b455-e16aa037ed50}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="SQL - Delete from - TBStandardLookup"
+              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+              DTS:ThreadHint="21">
+              <DTS:Variables>
+                <DTS:Variable
+                  DTS:CreationName=""
+                  DTS:DTSID="{83e06338-8d34-43eb-85db-291c96010ae5}"
+                  DTS:EvaluateAsExpression="True"
+                  DTS:Expression="&quot;DELETE FROM &quot; + @[User::StagingObjectName] + &quot;;&quot;"
+                  DTS:IncludeInDebugDump="2345"
+                  DTS:Namespace="User"
+                  DTS:ObjectName="SqlCommand">
+                  <DTS:VariableValue
+                    DTS:DataType="8">DELETE FROM [Staging].[TBStandardLookup];</DTS:VariableValue>
+                </DTS:Variable>
+              </DTS:Variables>
+              <DTS:PropertyExpression
+                DTS:Name="Name">LTRIM(RTRIM("SQL - Delete from - " + @[User::Name]))</DTS:PropertyExpression>
+              <DTS:PropertyExpression
+                DTS:Name="SqlStatementSource">@[User::SqlCommand]</DTS:PropertyExpression>
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{86E1CE56-F3B2-4A5A-ACFF-4C6DFB8BCD0A}"
+                  SQLTask:SqlStatementSource="DELETE FROM [Staging].[TBStandardLookup];" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              </DTS:ObjectData>
+            </DTS:Executable>
+          </DTS:Executables>
+          <DTS:PrecedenceConstraints>
+            <DTS:PrecedenceConstraint
+              DTS:refId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup.PrecedenceConstraints[Constraint]"
+              DTS:CreationName=""
+              DTS:DTSID="{b8fd3228-66d0-4c0f-96e2-ddb24d6c4cf5}"
+              DTS:From="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\SQL - Delete from - TBStandardLookup"
+              DTS:LogicalAnd="True"
+              DTS:ObjectName="Constraint"
+              DTS:To="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup" />
+          </DTS:PrecedenceConstraints>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookupVersion"
+          DTS:CreationName="STOCK:SEQUENCE"
+          DTS:Description="Sequence Container"
+          DTS:DTSID="{f501bde7-5f16-4693-af5e-953928764477}"
+          DTS:ExecutableType="STOCK:SEQUENCE"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SEQ - Stage - TBStandardLookupVersion">
+          <DTS:Variables>
+            <DTS:Variable
+              DTS:CreationName=""
+              DTS:DTSID="{39bed9ba-b893-47bf-b15e-d44a834a1a1b}"
+              DTS:IncludeInDebugDump="2345"
+              DTS:Namespace="User"
+              DTS:ObjectName="Name">
+              <DTS:VariableValue
+                DTS:DataType="8">TBStandardLookupVersion</DTS:VariableValue>
+            </DTS:Variable>
+            <DTS:Variable
+              DTS:CreationName=""
+              DTS:DTSID="{bc23b79d-c33c-4a0a-8e2c-9c4a7ecd0ce5}"
+              DTS:EvaluateAsExpression="True"
+              DTS:Expression="&quot;SELECT * FROM [dbo].[&quot; + @[User::Name] +&quot;] &quot; +  @[User::SourceSqlFilter]"
+              DTS:IncludeInDebugDump="2345"
+              DTS:Namespace="User"
+              DTS:ObjectName="SourceObjectSelectStatement">
+              <DTS:VariableValue
+                DTS:DataType="8">SELECT * FROM [dbo].[TBStandardLookupVersion] </DTS:VariableValue>
+            </DTS:Variable>
+            <DTS:Variable
+              DTS:CreationName=""
+              DTS:DTSID="{7af4827e-8c24-4bb3-b1a1-63208e281a14}"
+              DTS:EvaluateAsExpression="True"
+              DTS:Expression="&quot;[&quot; + @[User::StagingSchema] + &quot;].[&quot; + @[User::Name] +&quot;]&quot;"
+              DTS:IncludeInDebugDump="2345"
+              DTS:Namespace="User"
+              DTS:ObjectName="StagingObjectName">
+              <DTS:VariableValue
+                DTS:DataType="8">[Staging].[TBStandardLookupVersion]</DTS:VariableValue>
+            </DTS:Variable>
+          </DTS:Variables>
+          <DTS:PropertyExpression
+            DTS:Name="Name">LTRIM(RTRIM( "SEQ - Stage - " + @[User::Name]))</DTS:PropertyExpression>
+          <DTS:Executables>
+            <DTS:Executable
+              DTS:refId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookupVersion\DFT - TBStandardLookupVersion"
+              DTS:CreationName="Microsoft.Pipeline"
+              DTS:Description="Data Flow Task"
+              DTS:DTSID="{c2fef7b1-dd46-4e9a-96c2-0d88807c3f2c}"
+              DTS:ExecutableType="Microsoft.Pipeline"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="DFT - TBStandardLookupVersion"
+              DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+              <DTS:Variables />
+              <DTS:PropertyExpression
+                DTS:Name="Name">LTRIM(RTRIM("DFT - " + @[User::Name]))</DTS:PropertyExpression>
+              <DTS:ObjectData>
+                <pipeline
+                  version="1">
+                  <components>
+                    <component
+                      refId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookupVersion\DFT - TBStandardLookupVersion\Source Data"
+                      componentClassID="Microsoft.OLEDBSource"
+                      contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                      description="OLE DB Source"
+                      name="Source Data"
+                      usesDispositions="true"
+                      version="7">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                          name="CommandTimeout">0</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the name of the database object used to open a rowset."
+                          name="OpenRowset"></property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the variable that contains the name of the database object used to open a rowset."
+                          name="OpenRowsetVariable">User::SourceObjectName</property>
+                        <property
+                          dataType="System.String"
+                          description="The SQL command to be executed."
+                          name="SqlCommand"
+                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                        <property
+                          dataType="System.String"
+                          description="The variable that contains the SQL command to be executed."
+                          name="SqlCommandVariable">User::SourceObjectSelectStatement</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the column code page to use when code page information is unavailable from the data source."
+                          name="DefaultCodePage">1252</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Forces the use of the DefaultCodePage property value when describing character data."
+                          name="AlwaysUseDefaultCodePage">false</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the mode used to access the database."
+                          name="AccessMode"
+                          typeConverter="AccessMode">3</property>
+                        <property
+                          dataType="System.String"
+                          description="The mappings between the parameters in the SQL command and variables."
+                          name="ParameterMapping"></property>
+                      </properties>
+                      <connections>
+                        <connection
+                          refId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookupVersion\DFT - TBStandardLookupVersion\Source Data.Connections[OleDbConnection]"
+                          connectionManagerID="Package.ConnectionManagers[Source Connection Manager]"
+                          connectionManagerRefId="Package.ConnectionManagers[Source Connection Manager]"
+                          description="The OLE DB runtime connection used to access the database."
+                          name="OleDbConnection" />
+                      </connections>
+                      <outputs>
+                        <output
+                          refId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookupVersion\DFT - TBStandardLookupVersion\Source Data.Outputs[OLE DB Source Output]"
+                          name="OLE DB Source Output">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookupVersion\DFT - TBStandardLookupVersion\Source Data.Outputs[OLE DB Source Output].Columns[Created_On]"
+                              dataType="dbTimeStamp"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookupVersion\DFT - TBStandardLookupVersion\Source Data.Outputs[OLE DB Source Output].ExternalColumns[Created_On]"
+                              lineageId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookupVersion\DFT - TBStandardLookupVersion\Source Data.Outputs[OLE DB Source Output].Columns[Created_On]"
+                              name="Created_On"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookupVersion\DFT - TBStandardLookupVersion\Source Data.Outputs[OLE DB Source Output].Columns[Created_By]"
+                              codePage="1252"
+                              dataType="str"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookupVersion\DFT - TBStandardLookupVersion\Source Data.Outputs[OLE DB Source Output].ExternalColumns[Created_By]"
+                              length="150"
+                              lineageId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookupVersion\DFT - TBStandardLookupVersion\Source Data.Outputs[OLE DB Source Output].Columns[Created_By]"
+                              name="Created_By"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookupVersion\DFT - TBStandardLookupVersion\Source Data.Outputs[OLE DB Source Output].Columns[Modified_On]"
+                              dataType="dbTimeStamp"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookupVersion\DFT - TBStandardLookupVersion\Source Data.Outputs[OLE DB Source Output].ExternalColumns[Modified_On]"
+                              lineageId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookupVersion\DFT - TBStandardLookupVersion\Source Data.Outputs[OLE DB Source Output].Columns[Modified_On]"
+                              name="Modified_On"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookupVersion\DFT - TBStandardLookupVersion\Source Data.Outputs[OLE DB Source Output].Columns[Modified_By]"
+                              codePage="1252"
+                              dataType="str"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookupVersion\DFT - TBStandardLookupVersion\Source Data.Outputs[OLE DB Source Output].ExternalColumns[Modified_By]"
+                              length="150"
+                              lineageId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookupVersion\DFT - TBStandardLookupVersion\Source Data.Outputs[OLE DB Source Output].Columns[Modified_By]"
+                              name="Modified_By"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookupVersion\DFT - TBStandardLookupVersion\Source Data.Outputs[OLE DB Source Output].Columns[StandardLookupVersion]"
+                              codePage="1252"
+                              dataType="str"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookupVersion\DFT - TBStandardLookupVersion\Source Data.Outputs[OLE DB Source Output].ExternalColumns[StandardLookupVersion]"
+                              length="50"
+                              lineageId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookupVersion\DFT - TBStandardLookupVersion\Source Data.Outputs[OLE DB Source Output].Columns[StandardLookupVersion]"
+                              name="StandardLookupVersion"
+                              truncationRowDisposition="FailComponent" />
+                          </outputColumns>
+                          <externalMetadataColumns
+                            isUsed="True">
+                            <externalMetadataColumn
+                              refId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookupVersion\DFT - TBStandardLookupVersion\Source Data.Outputs[OLE DB Source Output].ExternalColumns[Created_On]"
+                              dataType="dbTimeStamp"
+                              name="Created_On" />
+                            <externalMetadataColumn
+                              refId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookupVersion\DFT - TBStandardLookupVersion\Source Data.Outputs[OLE DB Source Output].ExternalColumns[Created_By]"
+                              codePage="1252"
+                              dataType="str"
+                              length="150"
+                              name="Created_By" />
+                            <externalMetadataColumn
+                              refId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookupVersion\DFT - TBStandardLookupVersion\Source Data.Outputs[OLE DB Source Output].ExternalColumns[Modified_On]"
+                              dataType="dbTimeStamp"
+                              name="Modified_On" />
+                            <externalMetadataColumn
+                              refId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookupVersion\DFT - TBStandardLookupVersion\Source Data.Outputs[OLE DB Source Output].ExternalColumns[Modified_By]"
+                              codePage="1252"
+                              dataType="str"
+                              length="150"
+                              name="Modified_By" />
+                            <externalMetadataColumn
+                              refId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookupVersion\DFT - TBStandardLookupVersion\Source Data.Outputs[OLE DB Source Output].ExternalColumns[StandardLookupVersion]"
+                              codePage="1252"
+                              dataType="str"
+                              length="50"
+                              name="StandardLookupVersion" />
+                          </externalMetadataColumns>
+                        </output>
+                        <output
+                          refId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookupVersion\DFT - TBStandardLookupVersion\Source Data.Outputs[OLE DB Source Error Output]"
+                          isErrorOut="true"
+                          name="OLE DB Source Error Output">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookupVersion\DFT - TBStandardLookupVersion\Source Data.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                              dataType="i4"
+                              lineageId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookupVersion\DFT - TBStandardLookupVersion\Source Data.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                              name="ErrorCode"
+                              specialFlags="1" />
+                            <outputColumn
+                              refId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookupVersion\DFT - TBStandardLookupVersion\Source Data.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                              dataType="i4"
+                              lineageId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookupVersion\DFT - TBStandardLookupVersion\Source Data.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                              name="ErrorColumn"
+                              specialFlags="2" />
+                            <outputColumn
+                              refId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookupVersion\DFT - TBStandardLookupVersion\Source Data.Outputs[OLE DB Source Error Output].Columns[Created_On]"
+                              dataType="dbTimeStamp"
+                              lineageId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookupVersion\DFT - TBStandardLookupVersion\Source Data.Outputs[OLE DB Source Error Output].Columns[Created_On]"
+                              name="Created_On" />
+                            <outputColumn
+                              refId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookupVersion\DFT - TBStandardLookupVersion\Source Data.Outputs[OLE DB Source Error Output].Columns[Created_By]"
+                              codePage="1252"
+                              dataType="str"
+                              length="150"
+                              lineageId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookupVersion\DFT - TBStandardLookupVersion\Source Data.Outputs[OLE DB Source Error Output].Columns[Created_By]"
+                              name="Created_By" />
+                            <outputColumn
+                              refId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookupVersion\DFT - TBStandardLookupVersion\Source Data.Outputs[OLE DB Source Error Output].Columns[Modified_On]"
+                              dataType="dbTimeStamp"
+                              lineageId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookupVersion\DFT - TBStandardLookupVersion\Source Data.Outputs[OLE DB Source Error Output].Columns[Modified_On]"
+                              name="Modified_On" />
+                            <outputColumn
+                              refId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookupVersion\DFT - TBStandardLookupVersion\Source Data.Outputs[OLE DB Source Error Output].Columns[Modified_By]"
+                              codePage="1252"
+                              dataType="str"
+                              length="150"
+                              lineageId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookupVersion\DFT - TBStandardLookupVersion\Source Data.Outputs[OLE DB Source Error Output].Columns[Modified_By]"
+                              name="Modified_By" />
+                            <outputColumn
+                              refId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookupVersion\DFT - TBStandardLookupVersion\Source Data.Outputs[OLE DB Source Error Output].Columns[StandardLookupVersion]"
+                              codePage="1252"
+                              dataType="str"
+                              length="50"
+                              lineageId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookupVersion\DFT - TBStandardLookupVersion\Source Data.Outputs[OLE DB Source Error Output].Columns[StandardLookupVersion]"
+                              name="StandardLookupVersion" />
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                    <component
+                      refId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookupVersion\DFT - TBStandardLookupVersion\Target Data"
+                      componentClassID="Microsoft.OLEDBDestination"
+                      contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                      description="OLE DB Destination"
+                      name="Target Data"
+                      usesDispositions="true"
+                      version="4">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                          name="CommandTimeout">0</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the name of the database object used to open a rowset."
+                          name="OpenRowset">[Core].[LARS_SupersedingFrameworks]</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the variable that contains the name of the database object used to open a rowset."
+                          name="OpenRowsetVariable">User::StagingObjectName</property>
+                        <property
+                          dataType="System.String"
+                          description="The SQL command to be executed."
+                          name="SqlCommand"
+                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the column code page to use when code page information is unavailable from the data source."
+                          name="DefaultCodePage">1252</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Forces the use of the DefaultCodePage property value when describing character data."
+                          name="AlwaysUseDefaultCodePage">false</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the mode used to access the database."
+                          name="AccessMode"
+                          typeConverter="AccessMode">4</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                          name="FastLoadKeepIdentity">true</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                          name="FastLoadKeepNulls">true</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                          name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                          name="FastLoadMaxInsertCommitSize">2147483647</property>
+                      </properties>
+                      <connections>
+                        <connection
+                          refId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookupVersion\DFT - TBStandardLookupVersion\Target Data.Connections[OleDbConnection]"
+                          connectionManagerID="Package.ConnectionManagers[Target Connection Manager]"
+                          connectionManagerRefId="Package.ConnectionManagers[Target Connection Manager]"
+                          description="The OLE DB runtime connection used to access the database."
+                          name="OleDbConnection" />
+                      </connections>
+                      <inputs>
+                        <input
+                          refId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookupVersion\DFT - TBStandardLookupVersion\Target Data.Inputs[OLE DB Destination Input]"
+                          errorOrTruncationOperation="Insert"
+                          errorRowDisposition="FailComponent"
+                          hasSideEffects="true"
+                          name="OLE DB Destination Input">
+                          <inputColumns>
+                            <inputColumn
+                              refId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookupVersion\DFT - TBStandardLookupVersion\Target Data.Inputs[OLE DB Destination Input].Columns[Created_On]"
+                              cachedDataType="dbTimeStamp"
+                              cachedName="Created_On"
+                              externalMetadataColumnId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookupVersion\DFT - TBStandardLookupVersion\Target Data.Inputs[OLE DB Destination Input].ExternalColumns[Created_On]"
+                              lineageId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookupVersion\DFT - TBStandardLookupVersion\Source Data.Outputs[OLE DB Source Output].Columns[Created_On]" />
+                            <inputColumn
+                              refId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookupVersion\DFT - TBStandardLookupVersion\Target Data.Inputs[OLE DB Destination Input].Columns[Created_By]"
+                              cachedCodepage="1252"
+                              cachedDataType="str"
+                              cachedLength="150"
+                              cachedName="Created_By"
+                              externalMetadataColumnId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookupVersion\DFT - TBStandardLookupVersion\Target Data.Inputs[OLE DB Destination Input].ExternalColumns[Created_By]"
+                              lineageId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookupVersion\DFT - TBStandardLookupVersion\Source Data.Outputs[OLE DB Source Output].Columns[Created_By]" />
+                            <inputColumn
+                              refId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookupVersion\DFT - TBStandardLookupVersion\Target Data.Inputs[OLE DB Destination Input].Columns[Modified_On]"
+                              cachedDataType="dbTimeStamp"
+                              cachedName="Modified_On"
+                              externalMetadataColumnId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookupVersion\DFT - TBStandardLookupVersion\Target Data.Inputs[OLE DB Destination Input].ExternalColumns[Modified_On]"
+                              lineageId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookupVersion\DFT - TBStandardLookupVersion\Source Data.Outputs[OLE DB Source Output].Columns[Modified_On]" />
+                            <inputColumn
+                              refId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookupVersion\DFT - TBStandardLookupVersion\Target Data.Inputs[OLE DB Destination Input].Columns[Modified_By]"
+                              cachedCodepage="1252"
+                              cachedDataType="str"
+                              cachedLength="150"
+                              cachedName="Modified_By"
+                              externalMetadataColumnId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookupVersion\DFT - TBStandardLookupVersion\Target Data.Inputs[OLE DB Destination Input].ExternalColumns[Modified_By]"
+                              lineageId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookupVersion\DFT - TBStandardLookupVersion\Source Data.Outputs[OLE DB Source Output].Columns[Modified_By]" />
+                            <inputColumn
+                              refId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookupVersion\DFT - TBStandardLookupVersion\Target Data.Inputs[OLE DB Destination Input].Columns[StandardLookupVersion]"
+                              cachedCodepage="1252"
+                              cachedDataType="str"
+                              cachedLength="50"
+                              cachedName="StandardLookupVersion"
+                              externalMetadataColumnId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookupVersion\DFT - TBStandardLookupVersion\Target Data.Inputs[OLE DB Destination Input].ExternalColumns[StandardLookupVersion]"
+                              lineageId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookupVersion\DFT - TBStandardLookupVersion\Source Data.Outputs[OLE DB Source Output].Columns[StandardLookupVersion]" />
+                          </inputColumns>
+                          <externalMetadataColumns
+                            isUsed="True">
+                            <externalMetadataColumn
+                              refId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookupVersion\DFT - TBStandardLookupVersion\Target Data.Inputs[OLE DB Destination Input].ExternalColumns[Created_On]"
+                              dataType="dbTimeStamp"
+                              name="Created_On" />
+                            <externalMetadataColumn
+                              refId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookupVersion\DFT - TBStandardLookupVersion\Target Data.Inputs[OLE DB Destination Input].ExternalColumns[Created_By]"
+                              codePage="1252"
+                              dataType="str"
+                              length="150"
+                              name="Created_By" />
+                            <externalMetadataColumn
+                              refId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookupVersion\DFT - TBStandardLookupVersion\Target Data.Inputs[OLE DB Destination Input].ExternalColumns[Modified_On]"
+                              dataType="dbTimeStamp"
+                              name="Modified_On" />
+                            <externalMetadataColumn
+                              refId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookupVersion\DFT - TBStandardLookupVersion\Target Data.Inputs[OLE DB Destination Input].ExternalColumns[Modified_By]"
+                              codePage="1252"
+                              dataType="str"
+                              length="150"
+                              name="Modified_By" />
+                            <externalMetadataColumn
+                              refId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookupVersion\DFT - TBStandardLookupVersion\Target Data.Inputs[OLE DB Destination Input].ExternalColumns[StandardLookupVersion]"
+                              codePage="1252"
+                              dataType="str"
+                              length="50"
+                              name="StandardLookupVersion" />
+                          </externalMetadataColumns>
+                        </input>
+                      </inputs>
+                      <outputs>
+                        <output
+                          refId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookupVersion\DFT - TBStandardLookupVersion\Target Data.Outputs[OLE DB Destination Error Output]"
+                          exclusionGroup="1"
+                          isErrorOut="true"
+                          name="OLE DB Destination Error Output"
+                          synchronousInputId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookupVersion\DFT - TBStandardLookupVersion\Target Data.Inputs[OLE DB Destination Input]">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookupVersion\DFT - TBStandardLookupVersion\Target Data.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                              dataType="i4"
+                              lineageId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookupVersion\DFT - TBStandardLookupVersion\Target Data.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                              name="ErrorCode"
+                              specialFlags="1" />
+                            <outputColumn
+                              refId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookupVersion\DFT - TBStandardLookupVersion\Target Data.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                              dataType="i4"
+                              lineageId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookupVersion\DFT - TBStandardLookupVersion\Target Data.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                              name="ErrorColumn"
+                              specialFlags="2" />
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                  </components>
+                  <paths>
+                    <path
+                      refId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookupVersion\DFT - TBStandardLookupVersion.Paths[OLE DB Source Output]"
+                      endId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookupVersion\DFT - TBStandardLookupVersion\Target Data.Inputs[OLE DB Destination Input]"
+                      name="OLE DB Source Output"
+                      startId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookupVersion\DFT - TBStandardLookupVersion\Source Data.Outputs[OLE DB Source Output]" />
+                  </paths>
+                </pipeline>
+              </DTS:ObjectData>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookupVersion\SQL - Delete from - TBStandardLookupVersion"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Execute SQL Task"
+              DTS:DTSID="{adee299b-3ecb-44ee-867e-8bb271c538a3}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="SQL - Delete from - TBStandardLookupVersion"
+              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+              DTS:ThreadHint="22">
+              <DTS:Variables>
+                <DTS:Variable
+                  DTS:CreationName=""
+                  DTS:DTSID="{44ad22aa-57b6-42a0-9ac1-28adeca20c84}"
+                  DTS:EvaluateAsExpression="True"
+                  DTS:Expression="&quot;DELETE FROM &quot; + @[User::StagingObjectName] + &quot;;&quot;"
+                  DTS:IncludeInDebugDump="2345"
+                  DTS:Namespace="User"
+                  DTS:ObjectName="SqlCommand">
+                  <DTS:VariableValue
+                    DTS:DataType="8">DELETE FROM [Staging].[TBStandardLookupVersion];</DTS:VariableValue>
+                </DTS:Variable>
+              </DTS:Variables>
+              <DTS:PropertyExpression
+                DTS:Name="Name">LTRIM(RTRIM("SQL - Delete from - " + @[User::Name]))</DTS:PropertyExpression>
+              <DTS:PropertyExpression
+                DTS:Name="SqlStatementSource">@[User::SqlCommand]</DTS:PropertyExpression>
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{86E1CE56-F3B2-4A5A-ACFF-4C6DFB8BCD0A}"
+                  SQLTask:SqlStatementSource="DELETE FROM [Staging].[TBStandardLookupVersion];" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              </DTS:ObjectData>
+            </DTS:Executable>
+          </DTS:Executables>
+          <DTS:PrecedenceConstraints>
+            <DTS:PrecedenceConstraint
+              DTS:refId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookupVersion.PrecedenceConstraints[Constraint]"
+              DTS:CreationName=""
+              DTS:DTSID="{5b02dd39-fe5f-4716-9a82-e430aa94660f}"
+              DTS:From="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookupVersion\SQL - Delete from - TBStandardLookupVersion"
+              DTS:LogicalAnd="True"
+              DTS:ObjectName="Constraint"
+              DTS:To="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookupVersion\DFT - TBStandardLookupVersion" />
           </DTS:PrecedenceConstraints>
         </DTS:Executable>
         <DTS:Executable
@@ -18232,7 +19503,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Delete from - UnitQualificationRelationship"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="15">
+              DTS:ThreadHint="20">
               <DTS:Variables>
                 <DTS:Variable
                   DTS:CreationName=""
@@ -18833,7 +20104,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Delete from - Validity"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="21">
+              DTS:ThreadHint="23">
               <DTS:Variables>
                 <DTS:Variable
                   DTS:CreationName=""
@@ -19564,7 +20835,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Delete from - Version"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="22">
+              DTS:ThreadHint="24">
               <DTS:Variables>
                 <DTS:Variable
                   DTS:CreationName=""
@@ -21069,6 +22340,80 @@
           TopLeft="998,754.714285714286" />
         <NodeLayout
           Size="224,42"
+          Id="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup"
+          TopLeft="35,74.5" />
+        <NodeLayout
+          Size="289,42"
+          Id="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\SQL - Delete from - TBStandardLookup"
+          TopLeft="5.5,5.5" />
+        <EdgeLayout
+          Id="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup.PrecedenceConstraints[Constraint]"
+          TopLeft="148.5,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,27"
+              Start="0,0"
+              End="0,19.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="300,125"
+          Size="300,168"
+          Id="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup"
+          TopLeft="5.71428571428547,1180.92857142857" />
+        <NodeLayout
+          Size="224,42"
+          Id="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookupVersion\DFT - TBStandardLookupVersion"
+          TopLeft="35,74.5" />
+        <NodeLayout
+          Size="289,42"
+          Id="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookupVersion\SQL - Delete from - TBStandardLookupVersion"
+          TopLeft="5.5,5.5" />
+        <EdgeLayout
+          Id="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookupVersion.PrecedenceConstraints[Constraint]"
+          TopLeft="148.5,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,27"
+              Start="0,0"
+              End="0,19.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="300,125"
+          Size="300,168"
+          Id="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookupVersion"
+          TopLeft="334.714285714285,1179.92857142857" />
+        <NodeLayout
+          Size="224,42"
           Id="Package\SEQ - Stage Data\SEQ - Stage - UnitQualificationRelationship\DFT - UnitQualificationRelationship"
           TopLeft="35,74.5" />
         <NodeLayout
@@ -21181,19 +22526,19 @@
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="1342,1404"
-          Size="1342,1447"
+          PanelSize="1342,1632"
+          Size="1342,1675"
           Id="Package\SEQ - Stage Data"
           TopLeft="949,629.238095238097" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="2291,1352.7380952381">
+          TopLeft="2291,1466.7380952381">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="125.76190476191,-90.4523809523769"
+              EndConnector="125.76190476191,-204.452380952377"
               Start="0,0"
-              End="118.26190476191,-90.4523809523769">
+              End="118.26190476191,-204.452380952377">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -21204,13 +22549,13 @@
                     Point2="62.880952380955,0"
                     Point3="62.880952380955,-4" />
                   <mssgle:LineSegment
-                    End="62.880952380955,-86.4523809523769" />
+                    End="62.880952380955,-200.452380952377" />
                   <mssgle:CubicBezierSegment
-                    Point1="62.880952380955,-86.4523809523769"
-                    Point2="62.880952380955,-90.4523809523769"
-                    Point3="66.880952380955,-90.4523809523769" />
+                    Point1="62.880952380955,-200.452380952377"
+                    Point2="62.880952380955,-204.452380952377"
+                    Point3="66.880952380955,-204.452380952377" />
                   <mssgle:LineSegment
-                    End="118.26190476191,-90.4523809523769" />
+                    End="118.26190476191,-204.452380952377" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -21226,7 +22571,7 @@
     design-time-name="Package\SEQ - Stage Data\SEQ - Stage - AnnualValue\DFT - AnnualValue">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="135,42"
           Id="Package\SEQ - Stage Data\SEQ - Stage - AnnualValue\DFT - AnnualValue\Target Data"
@@ -21254,9 +22599,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -22344,6 +23687,118 @@
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="135,42"
+          Id="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Target Data"
+          TopLeft="361,156" />
+        <NodeLayout
+          Size="136,42"
+          Id="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Source Data"
+          TopLeft="355,63" />
+        <EdgeLayout
+          Id="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup.Paths[OLE DB Source Output]"
+          TopLeft="425.75,105">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,51"
+              Start="0,0"
+              End="0,43.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,43.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Source Data">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Target Data">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookupVersion\DFT - TBStandardLookupVersion">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="135,42"
+          Id="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookupVersion\DFT - TBStandardLookupVersion\Target Data"
+          TopLeft="361,156" />
+        <NodeLayout
+          Size="136,42"
+          Id="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookupVersion\DFT - TBStandardLookupVersion\Source Data"
+          TopLeft="355,63" />
+        <EdgeLayout
+          Id="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookupVersion\DFT - TBStandardLookupVersion.Paths[OLE DB Source Output]"
+          TopLeft="425.75,105">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,51"
+              Start="0,0"
+              End="0,43.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,43.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookupVersion\DFT - TBStandardLookupVersion\Source Data">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookupVersion\DFT - TBStandardLookupVersion\Target Data">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
