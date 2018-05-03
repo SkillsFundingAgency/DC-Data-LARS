@@ -16,7 +16,7 @@ BEGIN
 
 			EXEC [Staging].[usp_Process_Framework];
 			EXEC [Staging].[usp_Process_FrameworkAims];
-			EXEC [Staging].[usp_Process_FrameworkCmnComp];					
+			EXEC [Staging].[usp_Process_FrameworkCmnComp];
 			EXEC [Staging].[usp_Process_FrameworkMetaData];		
 				
 			EXEC [Staging].[usp_Process_LearningDeliveryCategory];
@@ -31,6 +31,11 @@ BEGIN
 
 			EXEC [Staging].[usp_Process_ApprenticeshipFunding];
 			EXEC [Staging].[usp_Process_StandardAims];
+			EXEC [Staging].[usp_Process_CareerLearningPilot];
+
+			EXEC [Staging].[usp_Process_TBStandardLookup];
+			EXEC [Staging].[usp_Process_TBStandardLookupVersion];
+
 
 			EXEC [Staging].[usp_Process_DataGeneration];
 		RETURN 0;

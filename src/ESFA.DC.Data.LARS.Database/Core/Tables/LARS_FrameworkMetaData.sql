@@ -11,6 +11,6 @@
     [Modified_On]   DATETIME       DEFAULT (getdate()) NOT NULL,
     [Modified_By]   VARCHAR (256)  NOT NULL,
     CONSTRAINT [PK_Core_LARS_FrameworkMetaData] PRIMARY KEY CLUSTERED ([FworkCode] ASC, [ProgType] ASC, [PwayCode] ASC),
-	CONSTRAINT [FK_CoreFrameworkMetaData_CoreFramework] FOREIGN KEY ([FworkCode],[ProgType],[PwayCode]) REFERENCES [Core].[LARS_Framework] ([FworkCode],[ProgType],[PwayCode]),
+	CONSTRAINT [FK_Core_LARS_FrameworkMetaData_CoreFramework] FOREIGN KEY ([FworkCode],[ProgType],[PwayCode]) REFERENCES [Core].[LARS_Framework] ([FworkCode],[ProgType],[PwayCode]) ON DELETE CASCADE
 );
 

@@ -14,6 +14,6 @@
     [Modified_On]             DATETIME        NOT NULL,
     [Modified_By]             VARCHAR (256)   NOT NULL,
     CONSTRAINT [PK_Core_LARS_StandardFunding] PRIMARY KEY CLUSTERED ([StandardCode] ASC, [FundingCategory] ASC, [EffectiveFrom] ASC) WITH (FILLFACTOR = 90),
-    CONSTRAINT [FK_CoreStandardFunding_CoreStandard] FOREIGN KEY ([StandardCode]) REFERENCES [Core].[LARS_Standard] ([StandardCode])
+    CONSTRAINT [FK_Core_LARS_StandardFunding_CoreStandard] FOREIGN KEY ([StandardCode]) REFERENCES [Core].[LARS_Standard] ([StandardCode]) ON DELETE CASCADE
 );
 

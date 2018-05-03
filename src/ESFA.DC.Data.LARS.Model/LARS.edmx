@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="ESFA.DC.Data.LARS.Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="ESFA.DC.Data.LARS.Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="LARS_AnnualValue">
           <Key>
             <PropertyRef Name="LearnAimRef" />
@@ -57,10 +57,29 @@
           <Property Name="1618EmployerAdditionalPayment" Type="decimal" Precision="10" Scale="5" />
           <Property Name="1618FrameworkUplift" Type="decimal" Precision="10" Scale="5" />
           <Property Name="Duration" Type="decimal" Precision="10" Scale="5" />
+          <Property Name="CareLeaverAdditionalPayment" Type="decimal" Precision="10" Scale="5" />
           <Property Name="ReservedValue2" Type="decimal" Precision="10" Scale="5" />
           <Property Name="ReservedValue3" Type="decimal" Precision="10" Scale="5" />
           <Property Name="MaxEmployerLevyCap" Type="decimal" Precision="10" Scale="5" />
           <Property Name="FundableWithoutEmployer" Type="char" MaxLength="1" />
+          <Property Name="Created_On" Type="datetime" Nullable="false" />
+          <Property Name="Created_By" Type="varchar" MaxLength="256" Nullable="false" />
+          <Property Name="Modified_On" Type="datetime" Nullable="false" />
+          <Property Name="Modified_By" Type="varchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LARS_CareerLearningPilot">
+          <Key>
+            <PropertyRef Name="LearnAimRef" />
+            <PropertyRef Name="AreaCode" />
+            <PropertyRef Name="EffectiveFrom" />
+          </Key>
+          <Property Name="LearnAimRef" Type="varchar" MaxLength="8" Nullable="false" />
+          <Property Name="AreaCode" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="EffectiveFrom" Type="date" Nullable="false" />
+          <Property Name="EffectiveTo" Type="date" />
+          <Property Name="MaxLoanAmount" Type="decimal" Precision="10" Scale="5" />
+          <Property Name="SubsidyPercent" Type="decimal" Precision="10" Scale="5" />
+          <Property Name="SubsidyRate" Type="decimal" Precision="10" Scale="5" />
           <Property Name="Created_On" Type="datetime" Nullable="false" />
           <Property Name="Created_By" Type="varchar" MaxLength="256" Nullable="false" />
           <Property Name="Modified_On" Type="datetime" Nullable="false" />
@@ -314,6 +333,7 @@
           <Property Name="SectorSubjectAreaTier1" Type="decimal" Precision="5" Scale="2" />
           <Property Name="SectorSubjectAreaTier2" Type="decimal" Precision="5" Scale="2" />
           <Property Name="IntegratedDegreeStandard" Type="char" MaxLength="1" />
+          <Property Name="OtherBodyApprovalRequired" Type="varchar" MaxLength="20" />
           <Property Name="Created_On" Type="datetime" Nullable="false" />
           <Property Name="Created_By" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="Modified_On" Type="datetime" Nullable="false" />
@@ -533,19 +553,7 @@
           <Property Name="Modified_On" Type="datetime" />
           <Property Name="Modified_By" Type="varchar" MaxLength="150" />
         </EntityType>
-        <Association Name="FK_Core_LARS_Funding_CoreLearningDelivery">
-          <End Role="LARS_LearningDelivery" Type="Self.LARS_LearningDelivery" Multiplicity="1" />
-          <End Role="LARS_Funding" Type="Self.LARS_Funding" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="LARS_LearningDelivery">
-              <PropertyRef Name="LearnAimRef" />
-            </Principal>
-            <Dependent Role="LARS_Funding">
-              <PropertyRef Name="LearnAimRef" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_CoreAnnualValue_CoreLearningDelivery">
+        <Association Name="FK_Core_LARS_AnnualValue_CoreLearningDelivery">
           <End Role="LARS_LearningDelivery" Type="Self.LARS_LearningDelivery" Multiplicity="1" />
           <End Role="LARS_AnnualValue" Type="Self.LARS_AnnualValue" Multiplicity="*" />
           <ReferentialConstraint>
@@ -557,20 +565,22 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_CoreFrameworkAims_CoreLearningDelivery">
+        <Association Name="FK_Core_LARS_CLP_CoreLearningDelivery">
           <End Role="LARS_LearningDelivery" Type="Self.LARS_LearningDelivery" Multiplicity="1" />
-          <End Role="LARS_FrameworkAims" Type="Self.LARS_FrameworkAims" Multiplicity="*" />
+          <End Role="LARS_CareerLearningPilot" Type="Self.LARS_CareerLearningPilot" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="LARS_LearningDelivery">
               <PropertyRef Name="LearnAimRef" />
             </Principal>
-            <Dependent Role="LARS_FrameworkAims">
+            <Dependent Role="LARS_CareerLearningPilot">
               <PropertyRef Name="LearnAimRef" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_CoreFrameworkAimsp_CoreFramework">
-          <End Role="LARS_Framework" Type="Self.LARS_Framework" Multiplicity="1" />
+        <Association Name="FK_Core_LARS_FrameworkAims_CoreFramework">
+          <End Role="LARS_Framework" Type="Self.LARS_Framework" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="LARS_FrameworkAims" Type="Self.LARS_FrameworkAims" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="LARS_Framework">
@@ -585,8 +595,24 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_CoreFrameworkCmnComp_CoreFramework">
-          <End Role="LARS_Framework" Type="Self.LARS_Framework" Multiplicity="1" />
+        <Association Name="FK_Core_LARS_FrameworkAims_CoreLearningDelivery">
+          <End Role="LARS_LearningDelivery" Type="Self.LARS_LearningDelivery" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="LARS_FrameworkAims" Type="Self.LARS_FrameworkAims" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LARS_LearningDelivery">
+              <PropertyRef Name="LearnAimRef" />
+            </Principal>
+            <Dependent Role="LARS_FrameworkAims">
+              <PropertyRef Name="LearnAimRef" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Core_LARS_FrameworkCmnComp_CoreFramework">
+          <End Role="LARS_Framework" Type="Self.LARS_Framework" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="LARS_FrameworkCmnComp" Type="Self.LARS_FrameworkCmnComp" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="LARS_Framework">
@@ -601,8 +627,10 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_CoreFrameworkMetaData_CoreFramework">
-          <End Role="LARS_Framework" Type="Self.LARS_Framework" Multiplicity="1" />
+        <Association Name="FK_Core_LARS_FrameworkMetaData_CoreFramework">
+          <End Role="LARS_Framework" Type="Self.LARS_Framework" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="LARS_FrameworkMetaData" Type="Self.LARS_FrameworkMetaData" Multiplicity="0..1" />
           <ReferentialConstraint>
             <Principal Role="LARS_Framework">
@@ -617,8 +645,24 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_CoreLearningDeliveryCategory_CoreLearningDelivery">
-          <End Role="LARS_LearningDelivery" Type="Self.LARS_LearningDelivery" Multiplicity="1" />
+        <Association Name="FK_Core_LARS_Funding_CoreLearningDelivery">
+          <End Role="LARS_LearningDelivery" Type="Self.LARS_LearningDelivery" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="LARS_Funding" Type="Self.LARS_Funding" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LARS_LearningDelivery">
+              <PropertyRef Name="LearnAimRef" />
+            </Principal>
+            <Dependent Role="LARS_Funding">
+              <PropertyRef Name="LearnAimRef" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Core_LARS_LearningDeliveryCategory_CoreLearningDelivery">
+          <End Role="LARS_LearningDelivery" Type="Self.LARS_LearningDelivery" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="LARS_LearningDeliveryCategory" Type="Self.LARS_LearningDeliveryCategory" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="LARS_LearningDelivery">
@@ -629,7 +673,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_CoreSection96_CoreLearningDelivery">
+        <Association Name="FK_Core_LARS_Section96_CoreLearningDelivery">
           <End Role="LARS_LearningDelivery" Type="Self.LARS_LearningDelivery" Multiplicity="1" />
           <End Role="LARS_Section96" Type="Self.LARS_Section96" Multiplicity="*" />
           <ReferentialConstraint>
@@ -641,8 +685,10 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_CoreStandardAims_CoreLearningDelivery">
-          <End Role="LARS_LearningDelivery" Type="Self.LARS_LearningDelivery" Multiplicity="1" />
+        <Association Name="FK_Core_LARS_StandardAims_CoreLearningDelivery">
+          <End Role="LARS_LearningDelivery" Type="Self.LARS_LearningDelivery" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="LARS_StandardAims" Type="Self.LARS_StandardAims" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="LARS_LearningDelivery">
@@ -653,8 +699,10 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_CoreStandardAims_CoreStandard">
-          <End Role="LARS_Standard" Type="Self.LARS_Standard" Multiplicity="1" />
+        <Association Name="FK_Core_LARS_StandardAims_CoreStandard">
+          <End Role="LARS_Standard" Type="Self.LARS_Standard" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="LARS_StandardAims" Type="Self.LARS_StandardAims" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="LARS_Standard">
@@ -665,8 +713,10 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_CoreStandardCommonComponent_CoreStandard">
-          <End Role="LARS_Standard" Type="Self.LARS_Standard" Multiplicity="1" />
+        <Association Name="FK_Core_LARS_StandardCommonComponent_CoreStandard">
+          <End Role="LARS_Standard" Type="Self.LARS_Standard" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="LARS_StandardCommonComponent" Type="Self.LARS_StandardCommonComponent" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="LARS_Standard">
@@ -677,8 +727,10 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_CoreStandardFunding_CoreStandard">
-          <End Role="LARS_Standard" Type="Self.LARS_Standard" Multiplicity="1" />
+        <Association Name="FK_Core_LARS_StandardFunding_CoreStandard">
+          <End Role="LARS_Standard" Type="Self.LARS_Standard" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="LARS_StandardFunding" Type="Self.LARS_StandardFunding" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="LARS_Standard">
@@ -689,20 +741,10 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_CoreStandardMetaData_CoreStandard">
-          <End Role="LARS_Standard" Type="Self.LARS_Standard" Multiplicity="1" />
-          <End Role="LARS_StandardMetaData" Type="Self.LARS_StandardMetaData" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="LARS_Standard">
-              <PropertyRef Name="StandardCode" />
-            </Principal>
-            <Dependent Role="LARS_StandardMetaData">
-              <PropertyRef Name="StandardCode" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_CoreStandardValidity_CoreStandard">
-          <End Role="LARS_Standard" Type="Self.LARS_Standard" Multiplicity="1" />
+        <Association Name="FK_Core_LARS_StandardValidity_CoreStandard">
+          <End Role="LARS_Standard" Type="Self.LARS_Standard" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="LARS_StandardValidity" Type="Self.LARS_StandardValidity" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="LARS_Standard">
@@ -713,64 +755,10 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_CoreSupersedingAims_CoreLearningDelivery">
-          <End Role="LARS_LearningDelivery" Type="Self.LARS_LearningDelivery" Multiplicity="1" />
-          <End Role="LARS_SupersedingAims" Type="Self.LARS_SupersedingAims" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="LARS_LearningDelivery">
-              <PropertyRef Name="LearnAimRef" />
-            </Principal>
-            <Dependent Role="LARS_SupersedingAims">
-              <PropertyRef Name="OldLearnAimRef" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_CoreSupersedingAims_CoreLearningDelivery1">
-          <End Role="LARS_LearningDelivery" Type="Self.LARS_LearningDelivery" Multiplicity="1" />
-          <End Role="LARS_SupersedingAims" Type="Self.LARS_SupersedingAims" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="LARS_LearningDelivery">
-              <PropertyRef Name="LearnAimRef" />
-            </Principal>
-            <Dependent Role="LARS_SupersedingAims">
-              <PropertyRef Name="NewLearnAimRef" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_CoreSupersedingFrameworks_CoreFramework_New">
-          <End Role="LARS_Framework" Type="Self.LARS_Framework" Multiplicity="1" />
-          <End Role="LARS_SupersedingFrameworks" Type="Self.LARS_SupersedingFrameworks" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="LARS_Framework">
-              <PropertyRef Name="FworkCode" />
-              <PropertyRef Name="ProgType" />
-              <PropertyRef Name="PwayCode" />
-            </Principal>
-            <Dependent Role="LARS_SupersedingFrameworks">
-              <PropertyRef Name="NewFworkCode" />
-              <PropertyRef Name="NewProgType" />
-              <PropertyRef Name="NewPwayCode" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_CoreSupersedingFrameworks_CoreFramework_Old">
-          <End Role="LARS_Framework" Type="Self.LARS_Framework" Multiplicity="1" />
-          <End Role="LARS_SupersedingFrameworks" Type="Self.LARS_SupersedingFrameworks" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="LARS_Framework">
-              <PropertyRef Name="FworkCode" />
-              <PropertyRef Name="ProgType" />
-              <PropertyRef Name="PwayCode" />
-            </Principal>
-            <Dependent Role="LARS_SupersedingFrameworks">
-              <PropertyRef Name="OldFworkCode" />
-              <PropertyRef Name="OldProgType" />
-              <PropertyRef Name="OldPwayCode" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_CoreValidity_CoreLearningDelivery">
-          <End Role="LARS_LearningDelivery" Type="Self.LARS_LearningDelivery" Multiplicity="1" />
+        <Association Name="FK_Core_LARS_Validity_CoreLearningDelivery">
+          <End Role="LARS_LearningDelivery" Type="Self.LARS_LearningDelivery" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="LARS_Validity" Type="Self.LARS_Validity" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="LARS_LearningDelivery">
@@ -784,6 +772,7 @@
         <EntityContainer Name="ESFADCDataLARSModelStoreContainer">
           <EntitySet Name="LARS_AnnualValue" EntityType="Self.LARS_AnnualValue" Schema="Core" store:Type="Tables" />
           <EntitySet Name="LARS_ApprenticeshipFunding" EntityType="Self.LARS_ApprenticeshipFunding" Schema="Core" store:Type="Tables" />
+          <EntitySet Name="LARS_CareerLearningPilot" EntityType="Self.LARS_CareerLearningPilot" Schema="Core" store:Type="Tables" />
           <EntitySet Name="LARS_DataGeneration" EntityType="Self.LARS_DataGeneration" Schema="Core" store:Type="Tables" />
           <EntitySet Name="LARS_Framework" EntityType="Self.LARS_Framework" Schema="Core" store:Type="Tables" />
           <EntitySet Name="LARS_FrameworkAims" EntityType="Self.LARS_FrameworkAims" Schema="Core" store:Type="Tables" />
@@ -807,85 +796,68 @@
           <EntitySet Name="LARS_Version" EntityType="Self.LARS_Version" Schema="Core" store:Type="Tables" />
           <EntitySet Name="TBStandardLookup" EntityType="Self.TBStandardLookup" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TBStandardLookupVersion" EntityType="Self.TBStandardLookupVersion" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Core_LARS_AnnualValue_CoreLearningDelivery" Association="Self.FK_Core_LARS_AnnualValue_CoreLearningDelivery">
+            <End Role="LARS_LearningDelivery" EntitySet="LARS_LearningDelivery" />
+            <End Role="LARS_AnnualValue" EntitySet="LARS_AnnualValue" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Core_LARS_CLP_CoreLearningDelivery" Association="Self.FK_Core_LARS_CLP_CoreLearningDelivery">
+            <End Role="LARS_LearningDelivery" EntitySet="LARS_LearningDelivery" />
+            <End Role="LARS_CareerLearningPilot" EntitySet="LARS_CareerLearningPilot" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Core_LARS_FrameworkAims_CoreFramework" Association="Self.FK_Core_LARS_FrameworkAims_CoreFramework">
+            <End Role="LARS_Framework" EntitySet="LARS_Framework" />
+            <End Role="LARS_FrameworkAims" EntitySet="LARS_FrameworkAims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Core_LARS_FrameworkAims_CoreLearningDelivery" Association="Self.FK_Core_LARS_FrameworkAims_CoreLearningDelivery">
+            <End Role="LARS_LearningDelivery" EntitySet="LARS_LearningDelivery" />
+            <End Role="LARS_FrameworkAims" EntitySet="LARS_FrameworkAims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Core_LARS_FrameworkCmnComp_CoreFramework" Association="Self.FK_Core_LARS_FrameworkCmnComp_CoreFramework">
+            <End Role="LARS_Framework" EntitySet="LARS_Framework" />
+            <End Role="LARS_FrameworkCmnComp" EntitySet="LARS_FrameworkCmnComp" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Core_LARS_FrameworkMetaData_CoreFramework" Association="Self.FK_Core_LARS_FrameworkMetaData_CoreFramework">
+            <End Role="LARS_Framework" EntitySet="LARS_Framework" />
+            <End Role="LARS_FrameworkMetaData" EntitySet="LARS_FrameworkMetaData" />
+          </AssociationSet>
           <AssociationSet Name="FK_Core_LARS_Funding_CoreLearningDelivery" Association="Self.FK_Core_LARS_Funding_CoreLearningDelivery">
             <End Role="LARS_LearningDelivery" EntitySet="LARS_LearningDelivery" />
             <End Role="LARS_Funding" EntitySet="LARS_Funding" />
           </AssociationSet>
-          <AssociationSet Name="FK_CoreAnnualValue_CoreLearningDelivery" Association="Self.FK_CoreAnnualValue_CoreLearningDelivery">
-            <End Role="LARS_LearningDelivery" EntitySet="LARS_LearningDelivery" />
-            <End Role="LARS_AnnualValue" EntitySet="LARS_AnnualValue" />
-          </AssociationSet>
-          <AssociationSet Name="FK_CoreFrameworkAims_CoreLearningDelivery" Association="Self.FK_CoreFrameworkAims_CoreLearningDelivery">
-            <End Role="LARS_LearningDelivery" EntitySet="LARS_LearningDelivery" />
-            <End Role="LARS_FrameworkAims" EntitySet="LARS_FrameworkAims" />
-          </AssociationSet>
-          <AssociationSet Name="FK_CoreFrameworkAimsp_CoreFramework" Association="Self.FK_CoreFrameworkAimsp_CoreFramework">
-            <End Role="LARS_Framework" EntitySet="LARS_Framework" />
-            <End Role="LARS_FrameworkAims" EntitySet="LARS_FrameworkAims" />
-          </AssociationSet>
-          <AssociationSet Name="FK_CoreFrameworkCmnComp_CoreFramework" Association="Self.FK_CoreFrameworkCmnComp_CoreFramework">
-            <End Role="LARS_Framework" EntitySet="LARS_Framework" />
-            <End Role="LARS_FrameworkCmnComp" EntitySet="LARS_FrameworkCmnComp" />
-          </AssociationSet>
-          <AssociationSet Name="FK_CoreFrameworkMetaData_CoreFramework" Association="Self.FK_CoreFrameworkMetaData_CoreFramework">
-            <End Role="LARS_Framework" EntitySet="LARS_Framework" />
-            <End Role="LARS_FrameworkMetaData" EntitySet="LARS_FrameworkMetaData" />
-          </AssociationSet>
-          <AssociationSet Name="FK_CoreLearningDeliveryCategory_CoreLearningDelivery" Association="Self.FK_CoreLearningDeliveryCategory_CoreLearningDelivery">
+          <AssociationSet Name="FK_Core_LARS_LearningDeliveryCategory_CoreLearningDelivery" Association="Self.FK_Core_LARS_LearningDeliveryCategory_CoreLearningDelivery">
             <End Role="LARS_LearningDelivery" EntitySet="LARS_LearningDelivery" />
             <End Role="LARS_LearningDeliveryCategory" EntitySet="LARS_LearningDeliveryCategory" />
           </AssociationSet>
-          <AssociationSet Name="FK_CoreSection96_CoreLearningDelivery" Association="Self.FK_CoreSection96_CoreLearningDelivery">
+          <AssociationSet Name="FK_Core_LARS_Section96_CoreLearningDelivery" Association="Self.FK_Core_LARS_Section96_CoreLearningDelivery">
             <End Role="LARS_LearningDelivery" EntitySet="LARS_LearningDelivery" />
             <End Role="LARS_Section96" EntitySet="LARS_Section96" />
           </AssociationSet>
-          <AssociationSet Name="FK_CoreStandardAims_CoreLearningDelivery" Association="Self.FK_CoreStandardAims_CoreLearningDelivery">
+          <AssociationSet Name="FK_Core_LARS_StandardAims_CoreLearningDelivery" Association="Self.FK_Core_LARS_StandardAims_CoreLearningDelivery">
             <End Role="LARS_LearningDelivery" EntitySet="LARS_LearningDelivery" />
             <End Role="LARS_StandardAims" EntitySet="LARS_StandardAims" />
           </AssociationSet>
-          <AssociationSet Name="FK_CoreStandardAims_CoreStandard" Association="Self.FK_CoreStandardAims_CoreStandard">
+          <AssociationSet Name="FK_Core_LARS_StandardAims_CoreStandard" Association="Self.FK_Core_LARS_StandardAims_CoreStandard">
             <End Role="LARS_Standard" EntitySet="LARS_Standard" />
             <End Role="LARS_StandardAims" EntitySet="LARS_StandardAims" />
           </AssociationSet>
-          <AssociationSet Name="FK_CoreStandardCommonComponent_CoreStandard" Association="Self.FK_CoreStandardCommonComponent_CoreStandard">
+          <AssociationSet Name="FK_Core_LARS_StandardCommonComponent_CoreStandard" Association="Self.FK_Core_LARS_StandardCommonComponent_CoreStandard">
             <End Role="LARS_Standard" EntitySet="LARS_Standard" />
             <End Role="LARS_StandardCommonComponent" EntitySet="LARS_StandardCommonComponent" />
           </AssociationSet>
-          <AssociationSet Name="FK_CoreStandardFunding_CoreStandard" Association="Self.FK_CoreStandardFunding_CoreStandard">
+          <AssociationSet Name="FK_Core_LARS_StandardFunding_CoreStandard" Association="Self.FK_Core_LARS_StandardFunding_CoreStandard">
             <End Role="LARS_Standard" EntitySet="LARS_Standard" />
             <End Role="LARS_StandardFunding" EntitySet="LARS_StandardFunding" />
           </AssociationSet>
-          <AssociationSet Name="FK_CoreStandardMetaData_CoreStandard" Association="Self.FK_CoreStandardMetaData_CoreStandard">
-            <End Role="LARS_Standard" EntitySet="LARS_Standard" />
-            <End Role="LARS_StandardMetaData" EntitySet="LARS_StandardMetaData" />
-          </AssociationSet>
-          <AssociationSet Name="FK_CoreStandardValidity_CoreStandard" Association="Self.FK_CoreStandardValidity_CoreStandard">
+          <AssociationSet Name="FK_Core_LARS_StandardValidity_CoreStandard" Association="Self.FK_Core_LARS_StandardValidity_CoreStandard">
             <End Role="LARS_Standard" EntitySet="LARS_Standard" />
             <End Role="LARS_StandardValidity" EntitySet="LARS_StandardValidity" />
           </AssociationSet>
-          <AssociationSet Name="FK_CoreSupersedingAims_CoreLearningDelivery" Association="Self.FK_CoreSupersedingAims_CoreLearningDelivery">
-            <End Role="LARS_LearningDelivery" EntitySet="LARS_LearningDelivery" />
-            <End Role="LARS_SupersedingAims" EntitySet="LARS_SupersedingAims" />
-          </AssociationSet>
-          <AssociationSet Name="FK_CoreSupersedingAims_CoreLearningDelivery1" Association="Self.FK_CoreSupersedingAims_CoreLearningDelivery1">
-            <End Role="LARS_LearningDelivery" EntitySet="LARS_LearningDelivery" />
-            <End Role="LARS_SupersedingAims" EntitySet="LARS_SupersedingAims" />
-          </AssociationSet>
-          <AssociationSet Name="FK_CoreSupersedingFrameworks_CoreFramework_New" Association="Self.FK_CoreSupersedingFrameworks_CoreFramework_New">
-            <End Role="LARS_Framework" EntitySet="LARS_Framework" />
-            <End Role="LARS_SupersedingFrameworks" EntitySet="LARS_SupersedingFrameworks" />
-          </AssociationSet>
-          <AssociationSet Name="FK_CoreSupersedingFrameworks_CoreFramework_Old" Association="Self.FK_CoreSupersedingFrameworks_CoreFramework_Old">
-            <End Role="LARS_Framework" EntitySet="LARS_Framework" />
-            <End Role="LARS_SupersedingFrameworks" EntitySet="LARS_SupersedingFrameworks" />
-          </AssociationSet>
-          <AssociationSet Name="FK_CoreValidity_CoreLearningDelivery" Association="Self.FK_CoreValidity_CoreLearningDelivery">
+          <AssociationSet Name="FK_Core_LARS_Validity_CoreLearningDelivery" Association="Self.FK_Core_LARS_Validity_CoreLearningDelivery">
             <End Role="LARS_LearningDelivery" EntitySet="LARS_LearningDelivery" />
             <End Role="LARS_Validity" EntitySet="LARS_Validity" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="ESFA.DC.Data.LARS.Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -950,6 +922,7 @@
           <Property Name="Created_By" Type="String" MaxLength="256" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Modified_On" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Modified_By" Type="String" MaxLength="256" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CareLeaverAdditionalPayment" Type="Decimal" Precision="10" Scale="5" />
         </EntityType>
         <EntityType Name="LARS_DataGeneration">
           <Key>
@@ -992,9 +965,9 @@
           <Property Name="Modified_By" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="LARS_FrameworkAims" Relationship="Self.FK_CoreFrameworkAimsp_CoreFramework" FromRole="LARS_Framework" ToRole="LARS_FrameworkAims" />
           <NavigationProperty Name="LARS_FrameworkCmnComp" Relationship="Self.FK_CoreFrameworkCmnComp_CoreFramework" FromRole="LARS_Framework" ToRole="LARS_FrameworkCmnComp" />
-          <NavigationProperty Name="LARS_FrameworkMetaData" Relationship="Self.FK_CoreFrameworkMetaData_CoreFramework" FromRole="LARS_Framework" ToRole="LARS_FrameworkMetaData" />
           <NavigationProperty Name="LARS_SupersedingFrameworks" Relationship="Self.FK_CoreSupersedingFrameworks_CoreFramework_New" FromRole="LARS_Framework" ToRole="LARS_SupersedingFrameworks" />
           <NavigationProperty Name="LARS_SupersedingFrameworks1" Relationship="Self.FK_CoreSupersedingFrameworks_CoreFramework_Old" FromRole="LARS_Framework" ToRole="LARS_SupersedingFrameworks" />
+          <NavigationProperty Name="LARS_FrameworkMetaData" Relationship="ESFA.DC.Data.LARS.Model.FK_Core_LARS_FrameworkMetaData_CoreFramework" FromRole="LARS_Framework" ToRole="LARS_FrameworkMetaData" />
         </EntityType>
         <EntityType Name="LARS_FrameworkAims">
           <Key>
@@ -1055,7 +1028,7 @@
           <Property Name="Created_By" Type="String" MaxLength="256" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Modified_On" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Modified_By" Type="String" MaxLength="256" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="LARS_Framework" Relationship="Self.FK_CoreFrameworkMetaData_CoreFramework" FromRole="LARS_FrameworkMetaData" ToRole="LARS_Framework" />
+          <NavigationProperty Name="LARS_Framework" Relationship="ESFA.DC.Data.LARS.Model.FK_Core_LARS_FrameworkMetaData_CoreFramework" FromRole="LARS_FrameworkMetaData" ToRole="LARS_Framework" />
         </EntityType>
         <EntityType Name="LARS_Funding">
           <Key>
@@ -1167,6 +1140,7 @@
           <NavigationProperty Name="LARS_SupersedingAims" Relationship="Self.FK_CoreSupersedingAims_CoreLearningDelivery" FromRole="LARS_LearningDelivery" ToRole="LARS_SupersedingAims" />
           <NavigationProperty Name="LARS_SupersedingAims1" Relationship="Self.FK_CoreSupersedingAims_CoreLearningDelivery1" FromRole="LARS_LearningDelivery" ToRole="LARS_SupersedingAims" />
           <NavigationProperty Name="LARS_Validity" Relationship="Self.FK_CoreValidity_CoreLearningDelivery" FromRole="LARS_LearningDelivery" ToRole="LARS_Validity" />
+          <NavigationProperty Name="LARS_CareerLearningPilot" Relationship="ESFA.DC.Data.LARS.Model.FK_Core_LARS_CLP_CoreLearningDelivery" FromRole="LARS_LearningDelivery" ToRole="LARS_CareerLearningPilot" />
         </EntityType>
         <EntityType Name="LARS_LearningDeliveryCategory">
           <Key>
@@ -1229,6 +1203,7 @@
           <NavigationProperty Name="LARS_StandardFunding" Relationship="Self.FK_CoreStandardFunding_CoreStandard" FromRole="LARS_Standard" ToRole="LARS_StandardFunding" />
           <NavigationProperty Name="LARS_StandardMetaData" Relationship="Self.FK_CoreStandardMetaData_CoreStandard" FromRole="LARS_Standard" ToRole="LARS_StandardMetaData" />
           <NavigationProperty Name="LARS_StandardValidity" Relationship="Self.FK_CoreStandardValidity_CoreStandard" FromRole="LARS_Standard" ToRole="LARS_StandardValidity" />
+          <Property Name="OtherBodyApprovalRequired" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="LARS_StandardAims">
           <Key>
@@ -1499,22 +1474,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_CoreFrameworkMetaData_CoreFramework">
-          <End Role="LARS_Framework" Type="Self.LARS_Framework" Multiplicity="1" />
-          <End Role="LARS_FrameworkMetaData" Type="Self.LARS_FrameworkMetaData" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="LARS_Framework">
-              <PropertyRef Name="FworkCode" />
-              <PropertyRef Name="ProgType" />
-              <PropertyRef Name="PwayCode" />
-            </Principal>
-            <Dependent Role="LARS_FrameworkMetaData">
-              <PropertyRef Name="FworkCode" />
-              <PropertyRef Name="ProgType" />
-              <PropertyRef Name="PwayCode" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_CoreSupersedingFrameworks_CoreFramework_New">
           <End Role="LARS_Framework" Type="Self.LARS_Framework" Multiplicity="1" />
           <End Role="LARS_SupersedingFrameworks" Type="Self.LARS_SupersedingFrameworks" Multiplicity="*" />
@@ -1741,10 +1700,6 @@
             <End Role="LARS_Framework" EntitySet="LARS_Framework" />
             <End Role="LARS_FrameworkCmnComp" EntitySet="LARS_FrameworkCmnComp" />
           </AssociationSet>
-          <AssociationSet Name="FK_CoreFrameworkMetaData_CoreFramework" Association="Self.FK_CoreFrameworkMetaData_CoreFramework">
-            <End Role="LARS_Framework" EntitySet="LARS_Framework" />
-            <End Role="LARS_FrameworkMetaData" EntitySet="LARS_FrameworkMetaData" />
-          </AssociationSet>
           <AssociationSet Name="FK_CoreSupersedingFrameworks_CoreFramework_New" Association="Self.FK_CoreSupersedingFrameworks_CoreFramework_New">
             <End Role="LARS_Framework" EntitySet="LARS_Framework" />
             <End Role="LARS_SupersedingFrameworks" EntitySet="LARS_SupersedingFrameworks" />
@@ -1805,7 +1760,65 @@
             <End Role="LARS_Standard" EntitySet="LARS_Standard" />
             <End Role="LARS_StandardValidity" EntitySet="LARS_StandardValidity" />
           </AssociationSet>
+          <EntitySet Name="LARS_CareerLearningPilot" EntityType="ESFA.DC.Data.LARS.Model.LARS_CareerLearningPilot" />
+          <AssociationSet Name="FK_Core_LARS_CLP_CoreLearningDelivery" Association="ESFA.DC.Data.LARS.Model.FK_Core_LARS_CLP_CoreLearningDelivery">
+            <End Role="LARS_LearningDelivery" EntitySet="LARS_LearningDelivery" />
+            <End Role="LARS_CareerLearningPilot" EntitySet="LARS_CareerLearningPilot" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Core_LARS_FrameworkMetaData_CoreFramework" Association="ESFA.DC.Data.LARS.Model.FK_Core_LARS_FrameworkMetaData_CoreFramework">
+            <End Role="LARS_Framework" EntitySet="LARS_Framework" />
+            <End Role="LARS_FrameworkMetaData" EntitySet="LARS_FrameworkMetaData" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="LARS_CareerLearningPilot">
+          <Key>
+            <PropertyRef Name="LearnAimRef" />
+            <PropertyRef Name="AreaCode" />
+            <PropertyRef Name="EffectiveFrom" />
+          </Key>
+          <Property Name="LearnAimRef" Type="String" Nullable="false" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="AreaCode" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EffectiveFrom" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="EffectiveTo" Type="DateTime" Precision="0" />
+          <Property Name="MaxLoanAmount" Type="Decimal" Precision="10" Scale="5" />
+          <Property Name="SubsidyPercent" Type="Decimal" Precision="10" Scale="5" />
+          <Property Name="SubsidyRate" Type="Decimal" Precision="10" Scale="5" />
+          <Property Name="Created_On" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Created_By" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="false" />
+          <Property Name="Modified_On" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Modified_By" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="LARS_LearningDelivery" Relationship="ESFA.DC.Data.LARS.Model.FK_Core_LARS_CLP_CoreLearningDelivery" FromRole="LARS_CareerLearningPilot" ToRole="LARS_LearningDelivery" />
+        </EntityType>
+        <Association Name="FK_Core_LARS_CLP_CoreLearningDelivery">
+          <End Type="ESFA.DC.Data.LARS.Model.LARS_LearningDelivery" Role="LARS_LearningDelivery" Multiplicity="1" />
+          <End Type="ESFA.DC.Data.LARS.Model.LARS_CareerLearningPilot" Role="LARS_CareerLearningPilot" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LARS_LearningDelivery">
+              <PropertyRef Name="LearnAimRef" />
+            </Principal>
+            <Dependent Role="LARS_CareerLearningPilot">
+              <PropertyRef Name="LearnAimRef" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Core_LARS_FrameworkMetaData_CoreFramework">
+          <End Type="ESFA.DC.Data.LARS.Model.LARS_Framework" Role="LARS_Framework" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="ESFA.DC.Data.LARS.Model.LARS_FrameworkMetaData" Role="LARS_FrameworkMetaData" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="LARS_Framework">
+              <PropertyRef Name="FworkCode" />
+              <PropertyRef Name="ProgType" />
+              <PropertyRef Name="PwayCode" />
+            </Principal>
+            <Dependent Role="LARS_FrameworkMetaData">
+              <PropertyRef Name="FworkCode" />
+              <PropertyRef Name="ProgType" />
+              <PropertyRef Name="PwayCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1844,6 +1857,7 @@
           <EntitySetMapping Name="LARS_ApprenticeshipFunding">
             <EntityTypeMapping TypeName="ESFA.DC.Data.LARS.Model.LARS_ApprenticeshipFunding">
               <MappingFragment StoreEntitySet="LARS_ApprenticeshipFunding">
+                <ScalarProperty Name="CareLeaverAdditionalPayment" ColumnName="CareLeaverAdditionalPayment" />
                 <ScalarProperty Name="ApprenticeshipType" ColumnName="ApprenticeshipType" />
                 <ScalarProperty Name="ApprenticeshipCode" ColumnName="ApprenticeshipCode" />
                 <ScalarProperty Name="ProgType" ColumnName="ProgType" />
@@ -2097,6 +2111,7 @@
           <EntitySetMapping Name="LARS_Standard">
             <EntityTypeMapping TypeName="ESFA.DC.Data.LARS.Model.LARS_Standard">
               <MappingFragment StoreEntitySet="LARS_Standard">
+                <ScalarProperty Name="OtherBodyApprovalRequired" ColumnName="OtherBodyApprovalRequired" />
                 <ScalarProperty Name="StandardCode" ColumnName="StandardCode" />
                 <ScalarProperty Name="Version" ColumnName="Version" />
                 <ScalarProperty Name="StandardName" ColumnName="StandardName" />
@@ -2320,6 +2335,23 @@
                 <ScalarProperty Name="Created_By" ColumnName="Created_By" />
                 <ScalarProperty Name="Modified_On" ColumnName="Modified_On" />
                 <ScalarProperty Name="Modified_By" ColumnName="Modified_By" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LARS_CareerLearningPilot">
+            <EntityTypeMapping TypeName="ESFA.DC.Data.LARS.Model.LARS_CareerLearningPilot">
+              <MappingFragment StoreEntitySet="LARS_CareerLearningPilot">
+                <ScalarProperty Name="Modified_By" ColumnName="Modified_By" />
+                <ScalarProperty Name="Modified_On" ColumnName="Modified_On" />
+                <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+                <ScalarProperty Name="Created_On" ColumnName="Created_On" />
+                <ScalarProperty Name="SubsidyRate" ColumnName="SubsidyRate" />
+                <ScalarProperty Name="SubsidyPercent" ColumnName="SubsidyPercent" />
+                <ScalarProperty Name="MaxLoanAmount" ColumnName="MaxLoanAmount" />
+                <ScalarProperty Name="EffectiveTo" ColumnName="EffectiveTo" />
+                <ScalarProperty Name="EffectiveFrom" ColumnName="EffectiveFrom" />
+                <ScalarProperty Name="AreaCode" ColumnName="AreaCode" />
+                <ScalarProperty Name="LearnAimRef" ColumnName="LearnAimRef" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -9,7 +9,7 @@
     [Modified_On]           DATETIME      NOT NULL,
     [Modified_By]           VARCHAR (100) NOT NULL,
     CONSTRAINT [PK_Core_LARS_StandardAims] PRIMARY KEY CLUSTERED ([StandardCode] ASC, [LearnAimRef] ASC, [EffectiveFrom] ASC) WITH (FILLFACTOR = 90),
-    CONSTRAINT [FK_CoreStandardAims_CoreLearningDelivery] FOREIGN KEY ([LearnAimRef]) REFERENCES [Core].[LARS_LearningDelivery] ([LearnAimRef]),
-    CONSTRAINT [FK_CoreStandardAims_CoreStandard] FOREIGN KEY ([StandardCode]) REFERENCES [Core].[LARS_Standard] ([StandardCode])
+    CONSTRAINT [FK_Core_LARS_StandardAims_CoreLearningDelivery] FOREIGN KEY ([LearnAimRef]) REFERENCES [Core].[LARS_LearningDelivery] ([LearnAimRef]) ON DELETE CASCADE,
+    CONSTRAINT [FK_Core_LARS_StandardAims_CoreStandard] FOREIGN KEY ([StandardCode]) REFERENCES [Core].[LARS_Standard] ([StandardCode]) ON DELETE CASCADE
 );
 

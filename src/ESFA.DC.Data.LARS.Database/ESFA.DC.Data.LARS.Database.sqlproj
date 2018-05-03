@@ -27,6 +27,7 @@
     <DefaultFilegroup>PRIMARY</DefaultFilegroup>
     <IsEncryptionOn>True</IsEncryptionOn>
     <CompatibilityMode>140</CompatibilityMode>
+    <EnableFullTextSearch>True</EnableFullTextSearch>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <OutputPath>bin\Release\</OutputPath>
@@ -70,6 +71,7 @@
     <Folder Include="Staging\" />
     <Folder Include="Staging\Tables\" />
     <Folder Include="Staging\Stored Procedures\" />
+    <Folder Include="dbo\Stored Procedures" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Tables\TBStandardLookup.sql" />
@@ -164,6 +166,13 @@
     <Build Include="Staging\Stored Procedures\usp_Process.sql" />
     <Build Include="Security\User_RO.sql" />
     <Build Include="Security\RoleMemberships.sql" />
+    <Build Include="Core\Tables\LARS_CareerLearningPilot.sql" />
+    <Build Include="Staging\Tables\LARS_CareerLearningPilot.sql" />
+    <Build Include="Staging\Stored Procedures\usp_Process_CareerLearningPilot.sql" />
+    <Build Include="Staging\Stored Procedures\usp_Process_TBStandardLookup.sql" />
+    <Build Include="Staging\Stored Procedures\usp_Process_TBStandardLookupVersion.sql" />
+    <Build Include="dbo\Stored Procedures\usp_ClearAll_StagingTables.sql" />
+    <Build Include="dbo\Stored Procedures\usp_ClearAll_CoreTables.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="zzDeploymentProfiles\zz.Local.Dev.Version.publish.xml" />

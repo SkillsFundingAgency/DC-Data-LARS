@@ -51,5 +51,6 @@ namespace ESFA.DC.Data.LARS.Model
         public virtual DbSet<LARS_Version> LARS_Version { get; set; }
         public virtual DbSet<TBStandardLookup> TBStandardLookups { get; set; }
         public virtual DbSet<TBStandardLookupVersion> TBStandardLookupVersions { get; set; }
+        public virtual DbSet<LARS_CareerLearningPilot> LARS_CareerLearningPilot { get; set; }
     }
 }

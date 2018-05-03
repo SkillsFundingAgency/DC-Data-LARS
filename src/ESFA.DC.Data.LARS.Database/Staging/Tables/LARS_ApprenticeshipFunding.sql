@@ -13,6 +13,7 @@
     [1618EmployerAdditionalPayment] DECIMAL (10, 5) NULL,
     [1618FrameworkUplift]           DECIMAL (10, 5) NULL,
     [Duration]                      DECIMAL (10, 5) NULL,
+    [CareLeaverAdditionalPayment]   DECIMAL (10, 5) NULL,
     [ReservedValue2]                DECIMAL (10, 5) NULL,
     [ReservedValue3]                DECIMAL (10, 5) NULL,
     [MaxEmployerLevyCap]            DECIMAL (10, 5) NULL,

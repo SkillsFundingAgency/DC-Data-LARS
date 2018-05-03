@@ -19,6 +19,7 @@ BEGIN
 					    ,[SectorSubjectAreaTier1]
 					    ,[SectorSubjectAreaTier2]	
 					    ,[IntegratedDegreeStandard]
+						,[OtherBodyApprovalRequired]
 						,[Created_On]
 					    ,[Created_By]
 					    ,[Modified_On]
@@ -42,6 +43,7 @@ BEGIN
 							,Target.[SectorSubjectAreaTier1]
 							,Target.[SectorSubjectAreaTier2]
 							,Target.[IntegratedDegreeStandard]
+							,Target.[OtherBodyApprovalRequired]
 					EXCEPT 
 						SELECT 
 							 Source.[StandardCode]
@@ -56,6 +58,7 @@ BEGIN
 							,Source.[SectorSubjectAreaTier1]
 							,Source.[SectorSubjectAreaTier2]
 						    ,Source.[IntegratedDegreeStandard]
+							,Source.[OtherBodyApprovalRequired]
 					)
 		  THEN
 			UPDATE SET 
@@ -70,6 +73,7 @@ BEGIN
 					,[SectorSubjectAreaTier1] = Source.[SectorSubjectAreaTier1]
 					,[SectorSubjectAreaTier2] = Source.[SectorSubjectAreaTier2]
 					,[IntegratedDegreeStandard] = Source.[IntegratedDegreeStandard]					
+					,[OtherBodyApprovalRequired] = Source.[OtherBodyApprovalRequired]
 					,[Modified_By] = Source.[Modified_By]
 					,[Modified_On] = Source.[Modified_On]
 		WHEN NOT MATCHED BY TARGET THEN
@@ -85,6 +89,7 @@ BEGIN
 						,[SectorSubjectAreaTier1]
 						,[SectorSubjectAreaTier2]
 						,[IntegratedDegreeStandard]
+						,[OtherBodyApprovalRequired]
 						,[Created_On]
 						,[Created_By]
 						,[Modified_On]
@@ -102,6 +107,7 @@ BEGIN
 						,Source.[SectorSubjectAreaTier1]
 						,Source.[SectorSubjectAreaTier2]
 						,Source.[IntegratedDegreeStandard]
+						,Source.[OtherBodyApprovalRequired]
 						,Source.[Created_On]
 						,Source.[Created_By]
 						,Source.[Modified_On]

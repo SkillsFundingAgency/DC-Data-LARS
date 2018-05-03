@@ -9,6 +9,6 @@
     [Modified_On]      DATETIME      NOT NULL,
     [Modified_By]      VARCHAR (100) NOT NULL,
     CONSTRAINT [PK_Core_LARS_StandardValidity] PRIMARY KEY CLUSTERED ([StandardCode] ASC, [ValidityCategory] ASC, [StartDate] ASC) WITH (FILLFACTOR = 90),
-    CONSTRAINT [FK_CoreStandardValidity_CoreStandard] FOREIGN KEY ([StandardCode]) REFERENCES [Core].[LARS_Standard] ([StandardCode])
+    CONSTRAINT [FK_Core_LARS_StandardValidity_CoreStandard] FOREIGN KEY ([StandardCode]) REFERENCES [Core].[LARS_Standard] ([StandardCode]) ON DELETE CASCADE
 );
 

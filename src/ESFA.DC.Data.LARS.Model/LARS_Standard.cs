@@ -39,6 +39,7 @@ namespace ESFA.DC.Data.LARS.Model
         public string Created_By { get; set; }
         public System.DateTime Modified_On { get; set; }
         public string Modified_By { get; set; }
+        public string OtherBodyApprovalRequired { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<LARS_StandardAims> LARS_StandardAims { get; set; }

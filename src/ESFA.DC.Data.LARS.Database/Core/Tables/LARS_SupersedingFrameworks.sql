@@ -9,8 +9,6 @@
     [Created_By]   VARCHAR (100) NOT NULL,
     [Modified_On]  DATETIME      NOT NULL,
     [Modified_By]  VARCHAR (100) NOT NULL,
-    CONSTRAINT [PK_Core_LARS_SupersedingFrameworks] PRIMARY KEY CLUSTERED ([OldFworkCode] ASC, [OldProgType] ASC, [OldPwayCode] ASC, [NewFworkCode] ASC, [NewProgType] ASC, [NewPwayCode] ASC) WITH (FILLFACTOR = 90),
-    CONSTRAINT [FK_CoreSupersedingFrameworks_CoreFramework_New] FOREIGN KEY ([NewFworkCode], [NewProgType], [NewPwayCode]) REFERENCES [Core].[LARS_Framework] ([FworkCode], [ProgType], [PwayCode]),
-    CONSTRAINT [FK_CoreSupersedingFrameworks_CoreFramework_Old] FOREIGN KEY ([OldFworkCode], [OldProgType], [OldPwayCode]) REFERENCES [Core].[LARS_Framework] ([FworkCode], [ProgType], [PwayCode])
+    CONSTRAINT [PK_Core_LARS_SupersedingFrameworks] PRIMARY KEY CLUSTERED ([OldFworkCode] ASC, [OldProgType] ASC, [OldPwayCode] ASC, [NewFworkCode] ASC, [NewProgType] ASC, [NewPwayCode] ASC) WITH (FILLFACTOR = 90)
 );
 
