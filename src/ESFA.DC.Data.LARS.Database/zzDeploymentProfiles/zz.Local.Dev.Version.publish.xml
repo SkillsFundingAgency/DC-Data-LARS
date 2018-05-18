@@ -21,7 +21,10 @@
   </PropertyGroup>
   <ItemGroup>
     <SqlCmdVariable Include="LarsROUserPwd">
-      <Value>Set@Deployment</Value>
+      <Value></Value>
+    </SqlCmdVariable>
+    <SqlCmdVariable Include="LarsRWUserPwd">
+      <Value></Value>
     </SqlCmdVariable>
   </ItemGroup>
 </Project>

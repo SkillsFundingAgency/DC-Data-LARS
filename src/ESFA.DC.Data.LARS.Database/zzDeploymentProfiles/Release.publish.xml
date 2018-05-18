@@ -23,5 +23,8 @@
     <SqlCmdVariable Include="LarsROUserPwd">
       <Value>__LarsROUserPwd__</Value>
     </SqlCmdVariable>
+    <SqlCmdVariable Include="LarsRWUserPwd">
+      <Value>__LarsRWUserPwd__</Value>
+    </SqlCmdVariable>
   </ItemGroup>
 </Project>

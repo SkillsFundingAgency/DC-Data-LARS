@@ -173,6 +173,7 @@
     <Build Include="Staging\Stored Procedures\usp_Process_TBStandardLookupVersion.sql" />
     <Build Include="dbo\Stored Procedures\usp_ClearAll_StagingTables.sql" />
     <Build Include="dbo\Stored Procedures\usp_ClearAll_CoreTables.sql" />
+    <Build Include="Security\User_RW.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="zzDeploymentProfiles\zz.Local.Dev.Version.publish.xml" />
@@ -183,8 +184,12 @@
   </ItemGroup>
   <ItemGroup>
     <SqlCmdVariable Include="LarsROUserPwd">
-      <DefaultValue>Not@Set.01</DefaultValue>
+      <DefaultValue>Set@Deployment</DefaultValue>
       <Value>$(SqlCmdVar__1)</Value>
+    </SqlCmdVariable>
+    <SqlCmdVariable Include="LarsRWUserPwd">
+      <DefaultValue>Set@Deployment</DefaultValue>
+      <Value>$(SqlCmdVar__2)</Value>
     </SqlCmdVariable>
   </ItemGroup>
 </Project>
