@@ -5,11 +5,23 @@
     <TargetDatabaseName>LARS</TargetDatabaseName>
     <DeployScriptFileName>ESFA.DC.Data.LARS.Database.sql</DeployScriptFileName>
     <TargetConnectionString>Data Source=(local);Integrated Security=True;Persist Security Info=False;Pooling=False;MultipleActiveResultSets=False;Connect Timeout=60;Encrypt=False;TrustServerCertificate=True</TargetConnectionString>
-    <ProfileVersionNumber>1</ProfileVersionNumber>
     <BlockOnPossibleDataLoss>True</BlockOnPossibleDataLoss>
     <DropObjectsNotInSource>True</DropObjectsNotInSource>
     <DoNotDropDatabaseRoles>True</DoNotDropDatabaseRoles>
+    <DoNotDropDatabaseScopedCredentials>True</DoNotDropDatabaseScopedCredentials>
+    <DoNotDropCredentials>True</DoNotDropCredentials>
+    <DoNotDropCertificates>True</DoNotDropCertificates>
+    <DoNotDropAsymmetricKeys>True</DoNotDropAsymmetricKeys>
     <DoNotDropLogins>True</DoNotDropLogins>
     <DoNotDropRoleMembership>True</DoNotDropRoleMembership>
+    <DoNotDropUsers>True</DoNotDropUsers>
+    <DoNotDropServerRoles>True</DoNotDropServerRoles>
+    <DoNotDropServerRoleMembership>True</DoNotDropServerRoleMembership>
+    <ProfileVersionNumber>1</ProfileVersionNumber>
   </PropertyGroup>
+  <ItemGroup>
+    <SqlCmdVariable Include="LarsROUserPwd">
+      <Value>Set@Deployment</Value>
+    </SqlCmdVariable>
+  </ItemGroup>
 </Project>

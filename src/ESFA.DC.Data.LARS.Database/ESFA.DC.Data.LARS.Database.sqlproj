@@ -181,4 +181,10 @@
   <ItemGroup>
     <PreDeploy Include="zzScript.PreDeployment1.sql" />
   </ItemGroup>
+  <ItemGroup>
+    <SqlCmdVariable Include="LarsROUserPwd">
+      <DefaultValue>Not@Set.01</DefaultValue>
+      <Value>$(SqlCmdVar__1)</Value>
+    </SqlCmdVariable>
+  </ItemGroup>
 </Project>
