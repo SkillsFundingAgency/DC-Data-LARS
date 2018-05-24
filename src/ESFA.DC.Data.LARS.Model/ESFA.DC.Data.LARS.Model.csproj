@@ -65,6 +65,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>LARS.edmx</DependentUpon>
     </Compile>
+    <Compile Include="LARSConstructor.cs" />
     <Compile Include="LARS_AnnualValue.cs">
       <DependentUpon>LARS.tt</DependentUpon>
     </Compile>
