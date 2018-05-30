@@ -27,13 +27,13 @@
       <Value>__LarsRWUserPassword__</Value>
     </SqlCmdVariable>
     <SqlCmdVariable Include="BUILD_BUILDNUMBER">
-      <Value>__BUILD_BUILDNUMBER__</Value>
+      <Value>__BUILDNUMBER__</Value>
     </SqlCmdVariable>
     <SqlCmdVariable Include="DEPLOYMENT_DATETIME">
-      <Value>__RELEASE_DEPLOYMENT_STARTTIME__</Value>
+      <Value>__DEPLOYMENTSTARTTIME__</Value>
     </SqlCmdVariable>
     <SqlCmdVariable Include="BUILD_BRANCHNAME">
-      <Value>__BUILD_SOURCEBRANCHNAME__</Value>
+      <Value>__SOURCEBRANCHNAME__</Value>
     </SqlCmdVariable>
   </ItemGroup>
 </Project>
