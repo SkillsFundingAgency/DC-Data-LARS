@@ -11,4 +11,23 @@
 */
 
 
+RAISERROR('		   Extended Property',10,1) WITH NOWAIT;
+ 
+RAISERROR('		         %s - %s',10,1,'BuildNumber','$(BUILD_BUILDNUMBER)') WITH NOWAIT;
+IF NOT EXISTS (SELECT name, value FROM fn_listextendedproperty('BuildNumber', default, default, default, default, default, default))
+	EXEC sp_addextendedproperty @name = N'BuildNumber', @value = '$(BUILD_BUILDNUMBER)';  
+ELSE
+	EXEC sp_updateextendedproperty @name = N'BuildNumber', @value = '$(BUILD_BUILDNUMBER)';  
+	
+RAISERROR('		         %s - %s',10,1,'BuildBranch','$(BUILD_BRANCHNAME)') WITH NOWAIT;
+IF NOT EXISTS (SELECT name, value FROM fn_listextendedproperty('BuildBranch', default, default, default, default, default, default))
+	EXEC sp_addextendedproperty @name = N'BuildBranch', @value = '$(BUILD_BRANCHNAME)';  
+ELSE
+	EXEC sp_updateextendedproperty @name = N'BuildBranch', @value = '$(BUILD_BRANCHNAME)';  
+
+RAISERROR('		         %s - %s',10,1,'DeploymentDatetime','$(DEPLOYMENT_DATETIME)') WITH NOWAIT;
+IF NOT EXISTS (SELECT name, value FROM fn_listextendedproperty('DeploymentDatetime', default, default, default, default, default, default))
+	EXEC sp_addextendedproperty @name = N'DeploymentDatetime', @value = '$(DEPLOYMENT_DATETIME)';  
+ELSE
+	EXEC sp_updateextendedproperty @name = N'DeploymentDatetime', @value = '$(DEPLOYMENT_DATETIME)';  
 

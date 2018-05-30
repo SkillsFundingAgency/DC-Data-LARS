@@ -183,11 +183,26 @@
     <PreDeploy Include="zzScript.PreDeployment1.sql" />
   </ItemGroup>
   <ItemGroup>
-    <SqlCmdVariable Include="LarsROUserPwd">
+    <SqlCmdVariable Include="BUILD_BRANCHNAME">
+      <DefaultValue>
+      </DefaultValue>
+      <Value>$(SqlCmdVar__5)</Value>
+    </SqlCmdVariable>
+    <SqlCmdVariable Include="BUILD_BUILDNUMBER">
+      <DefaultValue>
+      </DefaultValue>
+      <Value>$(SqlCmdVar__4)</Value>
+    </SqlCmdVariable>
+    <SqlCmdVariable Include="DEPLOYMENT_DATETIME">
+      <DefaultValue>
+      </DefaultValue>
+      <Value>$(SqlCmdVar__3)</Value>
+    </SqlCmdVariable>
+    <SqlCmdVariable Include="LarsROUserPassword">
       <DefaultValue>Set@Deployment</DefaultValue>
       <Value>$(SqlCmdVar__1)</Value>
     </SqlCmdVariable>
-    <SqlCmdVariable Include="LarsRWUserPwd">
+    <SqlCmdVariable Include="LarsRWUserPassword">
       <DefaultValue>Set@Deployment</DefaultValue>
       <Value>$(SqlCmdVar__2)</Value>
     </SqlCmdVariable>

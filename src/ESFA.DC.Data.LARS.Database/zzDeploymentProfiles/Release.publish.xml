@@ -20,11 +20,20 @@
     <ProfileVersionNumber>1</ProfileVersionNumber>
   </PropertyGroup>
   <ItemGroup>
-    <SqlCmdVariable Include="LarsROUserPwd">
-      <Value>__LarsROUserPwd__</Value>
+    <SqlCmdVariable Include="LarsROUserPassword">
+      <Value>__LarsROUserPassword__</Value>
     </SqlCmdVariable>
-    <SqlCmdVariable Include="LarsRWUserPwd">
-      <Value>__LarsRWUserPwd__</Value>
+    <SqlCmdVariable Include="LarsRWUserPassword">
+      <Value>__LarsRWUserPassword__</Value>
+    </SqlCmdVariable>
+    <SqlCmdVariable Include="BUILD_BUILDNUMBER">
+      <Value>__BUILD_BUILDNUMBER__</Value>
+    </SqlCmdVariable>
+    <SqlCmdVariable Include="DEPLOYMENT_DATETIME">
+      <Value>__RELEASE_DEPLOYMENT_STARTTIME__</Value>
+    </SqlCmdVariable>
+    <SqlCmdVariable Include="BUILD_BRANCHNAME">
+      <Value>__BUILD_SOURCEBRANCHNAME__</Value>
     </SqlCmdVariable>
   </ItemGroup>
 </Project>
