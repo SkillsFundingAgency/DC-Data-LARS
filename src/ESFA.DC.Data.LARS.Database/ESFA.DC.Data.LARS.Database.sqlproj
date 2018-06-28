@@ -180,9 +180,6 @@
     <None Include="zzDeploymentProfiles\Release.publish.xml" />
   </ItemGroup>
   <ItemGroup>
-    <PreDeploy Include="zzScript.PreDeployment1.sql" />
-  </ItemGroup>
-  <ItemGroup>
     <SqlCmdVariable Include="BUILD_BRANCHNAME">
       <DefaultValue>
       </DefaultValue>
@@ -206,5 +203,8 @@
       <DefaultValue>Set@Deployment</DefaultValue>
       <Value>$(SqlCmdVar__2)</Value>
     </SqlCmdVariable>
+  </ItemGroup>
+  <ItemGroup>
+    <PostDeploy Include="zz.Script.PostDeployment.sql" />
   </ItemGroup>
 </Project>
