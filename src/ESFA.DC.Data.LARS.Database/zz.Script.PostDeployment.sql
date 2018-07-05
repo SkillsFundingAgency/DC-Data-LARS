@@ -10,7 +10,9 @@ Post-Deployment Script Template
 --------------------------------------------------------------------------------------
 */
 
+SET NOCOUNT ON;
 GO
+
 RAISERROR('		   Extended Property',10,1) WITH NOWAIT;
 GO
 
@@ -34,10 +36,27 @@ IF NOT EXISTS (SELECT name, value FROM fn_listextendedproperty('DeploymentDateti
 	EXEC sp_addextendedproperty @name = N'DeploymentDatetime', @value = @DeploymentTime;  
 ELSE
 	EXEC sp_updateextendedproperty @name = N'DeploymentDatetime', @value = @DeploymentTime;  
+GO
 
+IF EXISTS (SELECT * FROM [sys].[objects] WHERE [type] = 'V' AND Name = 'DisplayDeploymentProperties_VW')
+BEGIN 
+	DROP VIEW [dbo].[DisplayDeploymentProperties_VW];
+END
 
 GO
-PRINT N'Update complete.';
+EXEC ('CREATE VIEW [dbo].[DisplayDeploymentProperties_VW]
+AS
+	SELECT name, value 
+	FROM fn_listextendedproperty(default, default, default, default, default, default, default);  
+	');
 
+GO
 
+RAISERROR('		   Update User Account Passwords',10,1) WITH NOWAIT;
+GO
+ALTER USER [Lars_RO_User] WITH PASSWORD = N'$(ROUserPassword)';
+ALTER USER [Lars_RW_User] WITH PASSWORD = N'$(RWUserPassword)';
+
+GO
+RAISERROR('Completed',10,1) WITH NOWAIT;
 GO
