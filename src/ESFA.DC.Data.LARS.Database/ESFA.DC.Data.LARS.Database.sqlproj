@@ -177,7 +177,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="zzDeploymentProfiles\zz.Local.Dev.Version.publish.xml" />
-    <None Include="zzDeploymentProfiles\Release.publish.xml" />
   </ItemGroup>
   <ItemGroup>
     <SqlCmdVariable Include="BUILD_BRANCHNAME">
@@ -188,11 +187,11 @@
       <DefaultValue>0.0.0.0</DefaultValue>
       <Value>$(SqlCmdVar__4)</Value>
     </SqlCmdVariable>
-    <SqlCmdVariable Include="LarsROUserPassword">
+    <SqlCmdVariable Include="ROUserPassword">
       <DefaultValue>Set@Deployment</DefaultValue>
       <Value>$(SqlCmdVar__1)</Value>
     </SqlCmdVariable>
-    <SqlCmdVariable Include="LarsRWUserPassword">
+    <SqlCmdVariable Include="RWUserPassword">
       <DefaultValue>Set@Deployment</DefaultValue>
       <Value>$(SqlCmdVar__2)</Value>
     </SqlCmdVariable>
