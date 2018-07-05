@@ -187,6 +187,11 @@
       <DefaultValue>0.0.0.0</DefaultValue>
       <Value>$(SqlCmdVar__4)</Value>
     </SqlCmdVariable>
+    <SqlCmdVariable Include="RELEASE_RELEASENAME">
+      <DefaultValue>
+      </DefaultValue>
+      <Value>$(SqlCmdVar__6)</Value>
+    </SqlCmdVariable>
     <SqlCmdVariable Include="ROUserPassword">
       <DefaultValue>Set@Deployment</DefaultValue>
       <Value>$(SqlCmdVar__1)</Value>
