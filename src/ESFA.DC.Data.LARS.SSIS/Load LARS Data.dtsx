@@ -12,8 +12,8 @@
   DTS:ObjectName="Load LARS Data"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="81"
-  DTS:VersionGUID="{ECF1E921-C6D9-4016-A758-0EEF7136E85A}">
+  DTS:VersionBuild="82"
+  DTS:VersionGUID="{64BC0810-E625-41D6-BE8F-9BE36FB613D7}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -23,7 +23,7 @@
       DTS:DTSID="{E97E4542-C8A1-4A90-AA18-A38FBDA79679}"
       DTS:ObjectName="Source Connection Manager">
       <DTS:PropertyExpression
-        DTS:Name="ConnectionString">@[$Package::SourceConnectionString]</DTS:PropertyExpression>
+        DTS:Name="ConnectionString">@[$Project::SourceConnectionManager_ConnectionString]</DTS:PropertyExpression>
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:ConnectionString="Data Source=.;Initial Catalog=CLARS_DRAFT;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
@@ -35,35 +35,13 @@
       DTS:DTSID="{86E1CE56-F3B2-4A5A-ACFF-4C6DFB8BCD0A}"
       DTS:ObjectName="Target Connection Manager">
       <DTS:PropertyExpression
-        DTS:Name="ConnectionString">@[$Package::TargetConnectionString]</DTS:PropertyExpression>
+        DTS:Name="ConnectionString">@[$Project::TargetConnectionManager_ConnectionString]</DTS:PropertyExpression>
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:ConnectionString="Data Source=.;Initial Catalog=LARS;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
-  <DTS:PackageParameters>
-    <DTS:PackageParameter
-      DTS:CreationName=""
-      DTS:DataType="8"
-      DTS:DTSID="{0BAB0945-69B5-4EAF-BBDB-72BB1597436B}"
-      DTS:ObjectName="SourceConnectionString"
-      DTS:Required="True">
-      <DTS:Property
-        DTS:DataType="8"
-        DTS:Name="ParameterValue">Data Source=.;Initial Catalog=CLARS_DRAFT;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;</DTS:Property>
-    </DTS:PackageParameter>
-    <DTS:PackageParameter
-      DTS:CreationName=""
-      DTS:DataType="8"
-      DTS:DTSID="{CF485C10-7417-4C50-A9AD-C96F2F8FAD48}"
-      DTS:ObjectName="TargetConnectionString"
-      DTS:Required="True">
-      <DTS:Property
-        DTS:DataType="8"
-        DTS:Name="ParameterValue">Data Source=.;Initial Catalog=LARS;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;</DTS:Property>
-    </DTS:PackageParameter>
-  </DTS:PackageParameters>
   <DTS:Variables>
     <DTS:Variable
       DTS:CreationName=""
@@ -149,7 +127,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Merge - CareerLearningPilot"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="2">
+              DTS:ThreadHint="0">
               <DTS:Variables />
               <DTS:PropertyExpression
                 DTS:Name="Name">LTRIM(RTRIM("SQL - Merge - " + @[User::Name]))</DTS:PropertyExpression>
@@ -205,7 +183,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Merge - DataGeneration"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="3">
+              DTS:ThreadHint="1">
               <DTS:Variables />
               <DTS:PropertyExpression
                 DTS:Name="Name">LTRIM(RTRIM("SQL - Merge - " + @[User::Name]))</DTS:PropertyExpression>
@@ -261,7 +239,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Merge - Framework"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="0">
+              DTS:ThreadHint="2">
               <DTS:Variables />
               <DTS:PropertyExpression
                 DTS:Name="Name">LTRIM(RTRIM("SQL - Merge - " + @[User::Name]))</DTS:PropertyExpression>
@@ -317,7 +295,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Merge - FrameworkAims"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="7">
+              DTS:ThreadHint="2">
               <DTS:Variables />
               <DTS:PropertyExpression
                 DTS:Name="Name">LTRIM(RTRIM("SQL - Merge - " + @[User::Name]))</DTS:PropertyExpression>
@@ -373,7 +351,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Merge - FrameworkCmnComp"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="0">
+              DTS:ThreadHint="13">
               <DTS:Variables />
               <DTS:PropertyExpression
                 DTS:Name="Name">LTRIM(RTRIM("SQL - Merge - " + @[User::Name]))</DTS:PropertyExpression>
@@ -429,7 +407,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Merge - FrameworkMetaData"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="5">
+              DTS:ThreadHint="14">
               <DTS:Variables />
               <DTS:PropertyExpression
                 DTS:Name="Name">LTRIM(RTRIM("SQL - Merge - " + @[User::Name]))</DTS:PropertyExpression>
@@ -485,7 +463,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Merge - Funding"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="6">
+              DTS:ThreadHint="8">
               <DTS:Variables />
               <DTS:PropertyExpression
                 DTS:Name="Name">LTRIM(RTRIM("SQL - Merge - " + @[User::Name]))</DTS:PropertyExpression>
@@ -541,7 +519,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Merge - LearningDelivery"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="1">
+              DTS:ThreadHint="0">
               <DTS:Variables />
               <DTS:PropertyExpression
                 DTS:Name="Name">LTRIM(RTRIM("SQL - Merge - " + @[User::Name]))</DTS:PropertyExpression>
@@ -597,7 +575,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Merge - LearningDeliveryCategory"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="1">
+              DTS:ThreadHint="9">
               <DTS:Variables />
               <DTS:PropertyExpression
                 DTS:Name="Name">LTRIM(RTRIM("SQL - Merge - " + @[User::Name]))</DTS:PropertyExpression>
@@ -653,7 +631,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Merge - Standard"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="4">
+              DTS:ThreadHint="3">
               <DTS:Variables />
               <DTS:PropertyExpression
                 DTS:Name="Name">LTRIM(RTRIM("SQL - Merge - " + @[User::Name]))</DTS:PropertyExpression>
@@ -709,7 +687,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Merge - StandardAims"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="13">
+              DTS:ThreadHint="15">
               <DTS:Variables />
               <DTS:PropertyExpression
                 DTS:Name="Name">LTRIM(RTRIM("SQL - Merge - " + @[User::Name]))</DTS:PropertyExpression>
@@ -765,7 +743,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Merge - StandardCommonComponent"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="8">
+              DTS:ThreadHint="16">
               <DTS:Variables />
               <DTS:PropertyExpression
                 DTS:Name="Name">LTRIM(RTRIM("SQL - Merge - " + @[User::Name]))</DTS:PropertyExpression>
@@ -821,7 +799,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Merge - StandardFunding"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="9">
+              DTS:ThreadHint="17">
               <DTS:Variables />
               <DTS:PropertyExpression
                 DTS:Name="Name">LTRIM(RTRIM("SQL - Merge - " + @[User::Name]))</DTS:PropertyExpression>
@@ -877,7 +855,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Merge - StandardMetaData"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="10">
+              DTS:ThreadHint="3">
               <DTS:Variables />
               <DTS:PropertyExpression
                 DTS:Name="Name">LTRIM(RTRIM("SQL - Merge - " + @[User::Name]))</DTS:PropertyExpression>
@@ -934,7 +912,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Merge - StandardPdfLink"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="11">
+              DTS:ThreadHint="4">
               <DTS:Variables />
               <DTS:PropertyExpression
                 DTS:Name="Name">LTRIM(RTRIM("SQL - Merge - " + @[User::Name]))</DTS:PropertyExpression>
@@ -990,7 +968,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Merge - StandardValidity"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="4">
+              DTS:ThreadHint="5">
               <DTS:Variables />
               <DTS:PropertyExpression
                 DTS:Name="Name">LTRIM(RTRIM("SQL - Merge - " + @[User::Name]))</DTS:PropertyExpression>
@@ -1046,7 +1024,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Merge - SupersedingAims"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="15">
+              DTS:ThreadHint="6">
               <DTS:Variables />
               <DTS:PropertyExpression
                 DTS:Name="Name">LTRIM(RTRIM("SQL - Merge - " + @[User::Name]))</DTS:PropertyExpression>
@@ -1102,7 +1080,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Merge - SupersedingFrameworks"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="14">
+              DTS:ThreadHint="7">
               <DTS:Variables />
               <DTS:PropertyExpression
                 DTS:Name="Name">LTRIM(RTRIM("SQL - Merge - " + @[User::Name]))</DTS:PropertyExpression>
@@ -1159,7 +1137,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Merge - UnitQualificationRelationship"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="12">
+              DTS:ThreadHint="10">
               <DTS:Variables />
               <DTS:PropertyExpression
                 DTS:Name="Name">LTRIM(RTRIM("SQL - Merge - " + @[User::Name]))</DTS:PropertyExpression>
@@ -1215,7 +1193,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Merge - Validity"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="16">
+              DTS:ThreadHint="11">
               <DTS:Variables />
               <DTS:PropertyExpression
                 DTS:Name="Name">LTRIM(RTRIM("SQL - Merge - " + @[User::Name]))</DTS:PropertyExpression>
@@ -1271,7 +1249,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Merge - Version"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="17">
+              DTS:ThreadHint="12">
               <DTS:Variables />
               <DTS:PropertyExpression
                 DTS:Name="Name">LTRIM(RTRIM("SQL - Merge - " + @[User::Name]))</DTS:PropertyExpression>
@@ -2430,7 +2408,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Delete from - AnnualValue"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="0">
+              DTS:ThreadHint="4">
               <DTS:Variables>
                 <DTS:Variable
                   DTS:CreationName=""
@@ -3531,7 +3509,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Delete from - ApprenticeshipFunding"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="1">
+              DTS:ThreadHint="7">
               <DTS:Variables>
                 <DTS:Variable
                   DTS:CreationName=""
@@ -4216,7 +4194,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Delete from - CareerLearningPilot"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="3">
+              DTS:ThreadHint="8">
               <DTS:Variables>
                 <DTS:Variable
                   DTS:CreationName=""
@@ -4693,7 +4671,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Delete from - DataGeneration"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="4">
+              DTS:ThreadHint="9">
               <DTS:Variables>
                 <DTS:Variable
                   DTS:CreationName=""
@@ -5764,7 +5742,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Delete from - Framework"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="2">
+              DTS:ThreadHint="10">
               <DTS:Variables>
                 <DTS:Variable
                   DTS:CreationName=""
@@ -6409,7 +6387,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Delete from - FrameworkAims"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="10">
+              DTS:ThreadHint="2">
               <DTS:Variables>
                 <DTS:Variable
                   DTS:CreationName=""
@@ -7054,7 +7032,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Delete from - FrameworkCmnComp"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="8">
+              DTS:ThreadHint="3">
               <DTS:Variables>
                 <DTS:Variable
                   DTS:CreationName=""
@@ -7689,7 +7667,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Delete from - FrameworkMetaData"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="9">
+              DTS:ThreadHint="0">
               <DTS:Variables>
                 <DTS:Variable
                   DTS:CreationName=""
@@ -8376,7 +8354,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Delete from - Funding"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="5">
+              DTS:ThreadHint="11">
               <DTS:Variables>
                 <DTS:Variable
                   DTS:CreationName=""
@@ -11134,7 +11112,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Delete from - LearningDelivery"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="6">
+              DTS:ThreadHint="12">
               <DTS:Variables>
                 <DTS:Variable
                   DTS:CreationName=""
@@ -11695,7 +11673,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Delete from - LearningDeliveryCategory"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="7">
+              DTS:ThreadHint="13">
               <DTS:Variables>
                 <DTS:Variable
                   DTS:CreationName=""
@@ -12396,7 +12374,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Delete from - Section96"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="11">
+              DTS:ThreadHint="5">
               <DTS:Variables>
                 <DTS:Variable
                   DTS:CreationName=""
@@ -13279,7 +13257,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Delete from - Standard"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="12">
+              DTS:ThreadHint="6">
               <DTS:Variables>
                 <DTS:Variable
                   DTS:CreationName=""
@@ -13868,7 +13846,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Delete from - StandardAims"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="13">
+              DTS:ThreadHint="20">
               <DTS:Variables>
                 <DTS:Variable
                   DTS:CreationName=""
@@ -14457,7 +14435,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Delete from - StandardCommonComponent"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="15">
+              DTS:ThreadHint="21">
               <DTS:Variables>
                 <DTS:Variable
                   DTS:CreationName=""
@@ -15236,7 +15214,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Delete from - StandardFunding"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="14">
+              DTS:ThreadHint="22">
               <DTS:Variables>
                 <DTS:Variable
                   DTS:CreationName=""
@@ -15955,7 +15933,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Delete from - StandardMetaData"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="16">
+              DTS:ThreadHint="17">
               <DTS:Variables>
                 <DTS:Variable
                   DTS:CreationName=""
@@ -16544,7 +16522,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Delete from - StandardValidity"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="18">
+              DTS:ThreadHint="23">
               <DTS:Variables>
                 <DTS:Variable
                   DTS:CreationName=""
@@ -17059,7 +17037,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Delete from - SupersedingAims"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="19">
+              DTS:ThreadHint="14">
               <DTS:Variables>
                 <DTS:Variable
                   DTS:CreationName=""
@@ -17666,7 +17644,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Delete from - SupersedingFrameworks"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="17">
+              DTS:ThreadHint="18">
               <DTS:Variables>
                 <DTS:Variable
                   DTS:CreationName=""
@@ -18455,7 +18433,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Delete from - TBStandardLookup"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="21">
+              DTS:ThreadHint="19">
               <DTS:Variables>
                 <DTS:Variable
                   DTS:CreationName=""
@@ -18932,7 +18910,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Delete from - TBStandardLookupVersion"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="22">
+              DTS:ThreadHint="15">
               <DTS:Variables>
                 <DTS:Variable
                   DTS:CreationName=""
@@ -19503,7 +19481,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Delete from - UnitQualificationRelationship"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="20">
+              DTS:ThreadHint="16">
               <DTS:Variables>
                 <DTS:Variable
                   DTS:CreationName=""
@@ -20104,7 +20082,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Delete from - Validity"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="23">
+              DTS:ThreadHint="1">
               <DTS:Variables>
                 <DTS:Variable
                   DTS:CreationName=""
