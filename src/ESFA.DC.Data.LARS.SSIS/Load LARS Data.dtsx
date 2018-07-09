@@ -12,8 +12,8 @@
   DTS:ObjectName="Load LARS Data"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="82"
-  DTS:VersionGUID="{64BC0810-E625-41D6-BE8F-9BE36FB613D7}">
+  DTS:VersionBuild="84"
+  DTS:VersionGUID="{F4B2D273-BF4D-49CD-8221-6CFA3DC931A5}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -26,7 +26,7 @@
         DTS:Name="ConnectionString">@[$Project::SourceConnectionManager_ConnectionString]</DTS:PropertyExpression>
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=.;Initial Catalog=CLARS_DRAFT;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+          DTS:ConnectionString="Data Source=DSCI-PRD-ADM-01;Initial Catalog=LARS;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -38,7 +38,11 @@
         DTS:Name="ConnectionString">@[$Project::TargetConnectionManager_ConnectionString]</DTS:PropertyExpression>
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=.;Initial Catalog=LARS;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+          DTS:ConnectionString="Data Source=DCOL-DEV-SqlServer-WEU.database.windows.net;User Id=LARS_RW_User;initial catalog=LARS;Provider=sqloledb;MultipleActiveResultSets=True;App=RefDataLoader;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"></DTS:Password>
+        </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
@@ -127,7 +131,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Merge - CareerLearningPilot"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="0">
+              DTS:ThreadHint="1">
               <DTS:Variables />
               <DTS:PropertyExpression
                 DTS:Name="Name">LTRIM(RTRIM("SQL - Merge - " + @[User::Name]))</DTS:PropertyExpression>
@@ -183,7 +187,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Merge - DataGeneration"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="1">
+              DTS:ThreadHint="7">
               <DTS:Variables />
               <DTS:PropertyExpression
                 DTS:Name="Name">LTRIM(RTRIM("SQL - Merge - " + @[User::Name]))</DTS:PropertyExpression>
@@ -239,7 +243,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Merge - Framework"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="2">
+              DTS:ThreadHint="3">
               <DTS:Variables />
               <DTS:PropertyExpression
                 DTS:Name="Name">LTRIM(RTRIM("SQL - Merge - " + @[User::Name]))</DTS:PropertyExpression>
@@ -295,7 +299,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Merge - FrameworkAims"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="2">
+              DTS:ThreadHint="8">
               <DTS:Variables />
               <DTS:PropertyExpression
                 DTS:Name="Name">LTRIM(RTRIM("SQL - Merge - " + @[User::Name]))</DTS:PropertyExpression>
@@ -351,7 +355,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Merge - FrameworkCmnComp"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="13">
+              DTS:ThreadHint="3">
               <DTS:Variables />
               <DTS:PropertyExpression
                 DTS:Name="Name">LTRIM(RTRIM("SQL - Merge - " + @[User::Name]))</DTS:PropertyExpression>
@@ -407,7 +411,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Merge - FrameworkMetaData"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="14">
+              DTS:ThreadHint="4">
               <DTS:Variables />
               <DTS:PropertyExpression
                 DTS:Name="Name">LTRIM(RTRIM("SQL - Merge - " + @[User::Name]))</DTS:PropertyExpression>
@@ -463,7 +467,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Merge - Funding"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="8">
+              DTS:ThreadHint="5">
               <DTS:Variables />
               <DTS:PropertyExpression
                 DTS:Name="Name">LTRIM(RTRIM("SQL - Merge - " + @[User::Name]))</DTS:PropertyExpression>
@@ -519,7 +523,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Merge - LearningDelivery"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="0">
+              DTS:ThreadHint="1">
               <DTS:Variables />
               <DTS:PropertyExpression
                 DTS:Name="Name">LTRIM(RTRIM("SQL - Merge - " + @[User::Name]))</DTS:PropertyExpression>
@@ -575,7 +579,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Merge - LearningDeliveryCategory"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="9">
+              DTS:ThreadHint="6">
               <DTS:Variables />
               <DTS:PropertyExpression
                 DTS:Name="Name">LTRIM(RTRIM("SQL - Merge - " + @[User::Name]))</DTS:PropertyExpression>
@@ -631,7 +635,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Merge - Standard"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="3">
+              DTS:ThreadHint="2">
               <DTS:Variables />
               <DTS:PropertyExpression
                 DTS:Name="Name">LTRIM(RTRIM("SQL - Merge - " + @[User::Name]))</DTS:PropertyExpression>
@@ -687,7 +691,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Merge - StandardAims"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="15">
+              DTS:ThreadHint="2">
               <DTS:Variables />
               <DTS:PropertyExpression
                 DTS:Name="Name">LTRIM(RTRIM("SQL - Merge - " + @[User::Name]))</DTS:PropertyExpression>
@@ -743,7 +747,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Merge - StandardCommonComponent"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="16">
+              DTS:ThreadHint="9">
               <DTS:Variables />
               <DTS:PropertyExpression
                 DTS:Name="Name">LTRIM(RTRIM("SQL - Merge - " + @[User::Name]))</DTS:PropertyExpression>
@@ -799,7 +803,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Merge - StandardFunding"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="17">
+              DTS:ThreadHint="10">
               <DTS:Variables />
               <DTS:PropertyExpression
                 DTS:Name="Name">LTRIM(RTRIM("SQL - Merge - " + @[User::Name]))</DTS:PropertyExpression>
@@ -855,7 +859,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Merge - StandardMetaData"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="3">
+              DTS:ThreadHint="11">
               <DTS:Variables />
               <DTS:PropertyExpression
                 DTS:Name="Name">LTRIM(RTRIM("SQL - Merge - " + @[User::Name]))</DTS:PropertyExpression>
@@ -912,7 +916,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Merge - StandardPdfLink"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="4">
+              DTS:ThreadHint="13">
               <DTS:Variables />
               <DTS:PropertyExpression
                 DTS:Name="Name">LTRIM(RTRIM("SQL - Merge - " + @[User::Name]))</DTS:PropertyExpression>
@@ -968,7 +972,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Merge - StandardValidity"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="5">
+              DTS:ThreadHint="12">
               <DTS:Variables />
               <DTS:PropertyExpression
                 DTS:Name="Name">LTRIM(RTRIM("SQL - Merge - " + @[User::Name]))</DTS:PropertyExpression>
@@ -1024,7 +1028,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Merge - SupersedingAims"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="6">
+              DTS:ThreadHint="0">
               <DTS:Variables />
               <DTS:PropertyExpression
                 DTS:Name="Name">LTRIM(RTRIM("SQL - Merge - " + @[User::Name]))</DTS:PropertyExpression>
@@ -1080,7 +1084,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Merge - SupersedingFrameworks"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="7">
+              DTS:ThreadHint="15">
               <DTS:Variables />
               <DTS:PropertyExpression
                 DTS:Name="Name">LTRIM(RTRIM("SQL - Merge - " + @[User::Name]))</DTS:PropertyExpression>
@@ -1137,7 +1141,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Merge - UnitQualificationRelationship"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="10">
+              DTS:ThreadHint="16">
               <DTS:Variables />
               <DTS:PropertyExpression
                 DTS:Name="Name">LTRIM(RTRIM("SQL - Merge - " + @[User::Name]))</DTS:PropertyExpression>
@@ -1193,7 +1197,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Merge - Validity"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="11">
+              DTS:ThreadHint="17">
               <DTS:Variables />
               <DTS:PropertyExpression
                 DTS:Name="Name">LTRIM(RTRIM("SQL - Merge - " + @[User::Name]))</DTS:PropertyExpression>
@@ -1249,7 +1253,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Merge - Version"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="12">
+              DTS:ThreadHint="14">
               <DTS:Variables />
               <DTS:PropertyExpression
                 DTS:Name="Name">LTRIM(RTRIM("SQL - Merge - " + @[User::Name]))</DTS:PropertyExpression>
@@ -2280,11 +2284,13 @@
                               name="LearnAimRef" />
                             <externalMetadataColumn
                               refId="Package\SEQ - Stage Data\SEQ - Stage - AnnualValue\DFT - AnnualValue\Target Data.Inputs[OLE DB Destination Input].ExternalColumns[EffectiveFrom]"
-                              dataType="dbDate"
+                              dataType="wstr"
+                              length="10"
                               name="EffectiveFrom" />
                             <externalMetadataColumn
                               refId="Package\SEQ - Stage Data\SEQ - Stage - AnnualValue\DFT - AnnualValue\Target Data.Inputs[OLE DB Destination Input].ExternalColumns[EffectiveTo]"
-                              dataType="dbDate"
+                              dataType="wstr"
+                              length="10"
                               name="EffectiveTo" />
                             <externalMetadataColumn
                               refId="Package\SEQ - Stage Data\SEQ - Stage - AnnualValue\DFT - AnnualValue\Target Data.Inputs[OLE DB Destination Input].ExternalColumns[BasicSkills]"
@@ -2408,7 +2414,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Delete from - AnnualValue"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="4">
+              DTS:ThreadHint="13">
               <DTS:Variables>
                 <DTS:Variable
                   DTS:CreationName=""
@@ -3361,11 +3367,13 @@
                               name="Modified_By" />
                             <externalMetadataColumn
                               refId="Package\SEQ - Stage Data\SEQ - Stage - ApprenticeshipFunding\DFT - ApprenticeshipFunding\Target Data.Inputs[OLE DB Destination Input].ExternalColumns[EffectiveFrom]"
-                              dataType="dbDate"
+                              dataType="wstr"
+                              length="10"
                               name="EffectiveFrom" />
                             <externalMetadataColumn
                               refId="Package\SEQ - Stage Data\SEQ - Stage - ApprenticeshipFunding\DFT - ApprenticeshipFunding\Target Data.Inputs[OLE DB Destination Input].ExternalColumns[EffectiveTo]"
-                              dataType="dbDate"
+                              dataType="wstr"
+                              length="10"
                               name="EffectiveTo" />
                             <externalMetadataColumn
                               refId="Package\SEQ - Stage Data\SEQ - Stage - ApprenticeshipFunding\DFT - ApprenticeshipFunding\Target Data.Inputs[OLE DB Destination Input].ExternalColumns[ApprenticeshipType]"
@@ -3509,7 +3517,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Delete from - ApprenticeshipFunding"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="7">
+              DTS:ThreadHint="9">
               <DTS:Variables>
                 <DTS:Variable
                   DTS:CreationName=""
@@ -4112,11 +4120,13 @@
                               name="AreaCode" />
                             <externalMetadataColumn
                               refId="Package\SEQ - Stage Data\SEQ - Stage - CareerLearningPilot\DFT - CareerLearningPilot\Target Data.Inputs[OLE DB Destination Input].ExternalColumns[EffectiveFrom]"
-                              dataType="dbDate"
+                              dataType="wstr"
+                              length="10"
                               name="EffectiveFrom" />
                             <externalMetadataColumn
                               refId="Package\SEQ - Stage Data\SEQ - Stage - CareerLearningPilot\DFT - CareerLearningPilot\Target Data.Inputs[OLE DB Destination Input].ExternalColumns[EffectiveTo]"
-                              dataType="dbDate"
+                              dataType="wstr"
+                              length="10"
                               name="EffectiveTo" />
                             <externalMetadataColumn
                               refId="Package\SEQ - Stage Data\SEQ - Stage - CareerLearningPilot\DFT - CareerLearningPilot\Target Data.Inputs[OLE DB Destination Input].ExternalColumns[MaxLoanAmount]"
@@ -4671,7 +4681,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Delete from - DataGeneration"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="9">
+              DTS:ThreadHint="10">
               <DTS:Variables>
                 <DTS:Variable
                   DTS:CreationName=""
@@ -5600,11 +5610,13 @@
                               name="Modified_By" />
                             <externalMetadataColumn
                               refId="Package\SEQ - Stage Data\SEQ - Stage - Framework\DFT - Framework\Target Data.Inputs[OLE DB Destination Input].ExternalColumns[EffectiveFrom]"
-                              dataType="dbDate"
+                              dataType="wstr"
+                              length="10"
                               name="EffectiveFrom" />
                             <externalMetadataColumn
                               refId="Package\SEQ - Stage Data\SEQ - Stage - Framework\DFT - Framework\Target Data.Inputs[OLE DB Destination Input].ExternalColumns[EffectiveTo]"
-                              dataType="dbDate"
+                              dataType="wstr"
+                              length="10"
                               name="EffectiveTo" />
                             <externalMetadataColumn
                               refId="Package\SEQ - Stage Data\SEQ - Stage - Framework\DFT - Framework\Target Data.Inputs[OLE DB Destination Input].ExternalColumns[SectorSubjectAreaTier1]"
@@ -5650,7 +5662,8 @@
                               name="NASTitle" />
                             <externalMetadataColumn
                               refId="Package\SEQ - Stage Data\SEQ - Stage - Framework\DFT - Framework\Target Data.Inputs[OLE DB Destination Input].ExternalColumns[ImplementDate]"
-                              dataType="dbDate"
+                              dataType="wstr"
+                              length="10"
                               name="ImplementDate" />
                             <externalMetadataColumn
                               refId="Package\SEQ - Stage Data\SEQ - Stage - Framework\DFT - Framework\Target Data.Inputs[OLE DB Destination Input].ExternalColumns[IssuingAuthorityTitle]"
@@ -5666,7 +5679,8 @@
                               name="IssuingAuthority" />
                             <externalMetadataColumn
                               refId="Package\SEQ - Stage Data\SEQ - Stage - Framework\DFT - Framework\Target Data.Inputs[OLE DB Destination Input].ExternalColumns[DataReceivedDate]"
-                              dataType="dbDate"
+                              dataType="wstr"
+                              length="10"
                               name="DataReceivedDate" />
                             <externalMetadataColumn
                               refId="Package\SEQ - Stage Data\SEQ - Stage - Framework\DFT - Framework\Target Data.Inputs[OLE DB Destination Input].ExternalColumns[MI_FullLevel2]"
@@ -5742,7 +5756,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Delete from - Framework"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="10">
+              DTS:ThreadHint="11">
               <DTS:Variables>
                 <DTS:Variable
                   DTS:CreationName=""
@@ -6311,11 +6325,13 @@
                               name="Modified_By" />
                             <externalMetadataColumn
                               refId="Package\SEQ - Stage Data\SEQ - Stage - FrameworkAims\DFT - FrameworkAims\Target Data.Inputs[OLE DB Destination Input].ExternalColumns[EffectiveFrom]"
-                              dataType="dbDate"
+                              dataType="wstr"
+                              length="10"
                               name="EffectiveFrom" />
                             <externalMetadataColumn
                               refId="Package\SEQ - Stage Data\SEQ - Stage - FrameworkAims\DFT - FrameworkAims\Target Data.Inputs[OLE DB Destination Input].ExternalColumns[EffectiveTo]"
-                              dataType="dbDate"
+                              dataType="wstr"
+                              length="10"
                               name="EffectiveTo" />
                             <externalMetadataColumn
                               refId="Package\SEQ - Stage Data\SEQ - Stage - FrameworkAims\DFT - FrameworkAims\Target Data.Inputs[OLE DB Destination Input].ExternalColumns[FworkCode]"
@@ -6387,7 +6403,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Delete from - FrameworkAims"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="2">
+              DTS:ThreadHint="12">
               <DTS:Variables>
                 <DTS:Variable
                   DTS:CreationName=""
@@ -6956,11 +6972,13 @@
                               name="Modified_By" />
                             <externalMetadataColumn
                               refId="Package\SEQ - Stage Data\SEQ - Stage - FrameworkCmnComp\DFT - FrameworkCmnComp\Target Data.Inputs[OLE DB Destination Input].ExternalColumns[EffectiveFrom]"
-                              dataType="dbDate"
+                              dataType="wstr"
+                              length="10"
                               name="EffectiveFrom" />
                             <externalMetadataColumn
                               refId="Package\SEQ - Stage Data\SEQ - Stage - FrameworkCmnComp\DFT - FrameworkCmnComp\Target Data.Inputs[OLE DB Destination Input].ExternalColumns[EffectiveTo]"
-                              dataType="dbDate"
+                              dataType="wstr"
+                              length="10"
                               name="EffectiveTo" />
                             <externalMetadataColumn
                               refId="Package\SEQ - Stage Data\SEQ - Stage - FrameworkCmnComp\DFT - FrameworkCmnComp\Target Data.Inputs[OLE DB Destination Input].ExternalColumns[FworkCode]"
@@ -7032,7 +7050,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Delete from - FrameworkCmnComp"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="3">
+              DTS:ThreadHint="0">
               <DTS:Variables>
                 <DTS:Variable
                   DTS:CreationName=""
@@ -7593,11 +7611,13 @@
                               name="Modified_By" />
                             <externalMetadataColumn
                               refId="Package\SEQ - Stage Data\SEQ - Stage - FrameworkMetaData\DFT - FrameworkMetaData\Target Data.Inputs[OLE DB Destination Input].ExternalColumns[EffectiveFrom]"
-                              dataType="dbDate"
+                              dataType="wstr"
+                              length="10"
                               name="EffectiveFrom" />
                             <externalMetadataColumn
                               refId="Package\SEQ - Stage Data\SEQ - Stage - FrameworkMetaData\DFT - FrameworkMetaData\Target Data.Inputs[OLE DB Destination Input].ExternalColumns[EffectiveTo]"
-                              dataType="dbDate"
+                              dataType="wstr"
+                              length="10"
                               name="EffectiveTo" />
                             <externalMetadataColumn
                               refId="Package\SEQ - Stage Data\SEQ - Stage - FrameworkMetaData\DFT - FrameworkMetaData\Target Data.Inputs[OLE DB Destination Input].ExternalColumns[FworkCode]"
@@ -7667,7 +7687,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Delete from - FrameworkMetaData"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="0">
+              DTS:ThreadHint="2">
               <DTS:Variables>
                 <DTS:Variable
                   DTS:CreationName=""
@@ -8276,11 +8296,13 @@
                               name="LearnAimRef" />
                             <externalMetadataColumn
                               refId="Package\SEQ - Stage Data\SEQ - Stage - Funding\DFT - Funding\Target Data.Inputs[OLE DB Destination Input].ExternalColumns[EffectiveFrom]"
-                              dataType="dbDate"
+                              dataType="wstr"
+                              length="10"
                               name="EffectiveFrom" />
                             <externalMetadataColumn
                               refId="Package\SEQ - Stage Data\SEQ - Stage - Funding\DFT - Funding\Target Data.Inputs[OLE DB Destination Input].ExternalColumns[EffectiveTo]"
-                              dataType="dbDate"
+                              dataType="wstr"
+                              length="10"
                               name="EffectiveTo" />
                             <externalMetadataColumn
                               refId="Package\SEQ - Stage Data\SEQ - Stage - Funding\DFT - Funding\Target Data.Inputs[OLE DB Destination Input].ExternalColumns[FundingCategory]"
@@ -8354,7 +8376,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Delete from - Funding"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="11">
+              DTS:ThreadHint="3">
               <DTS:Variables>
                 <DTS:Variable
                   DTS:CreationName=""
@@ -10727,11 +10749,13 @@
                               name="LearnAimRef" />
                             <externalMetadataColumn
                               refId="Package\SEQ - Stage Data\SEQ - Stage - LearningDelivery\DFT - LearningDelivery\Target Data.Inputs[OLE DB Destination Input].ExternalColumns[EffectiveFrom]"
-                              dataType="dbDate"
+                              dataType="wstr"
+                              length="10"
                               name="EffectiveFrom" />
                             <externalMetadataColumn
                               refId="Package\SEQ - Stage Data\SEQ - Stage - LearningDelivery\DFT - LearningDelivery\Target Data.Inputs[OLE DB Destination Input].ExternalColumns[EffectiveTo]"
-                              dataType="dbDate"
+                              dataType="wstr"
+                              length="10"
                               name="EffectiveTo" />
                             <externalMetadataColumn
                               refId="Package\SEQ - Stage Data\SEQ - Stage - LearningDelivery\DFT - LearningDelivery\Target Data.Inputs[OLE DB Destination Input].ExternalColumns[LearnAimRefTitle]"
@@ -10765,15 +10789,18 @@
                               name="AwardOrgAimRef" />
                             <externalMetadataColumn
                               refId="Package\SEQ - Stage Data\SEQ - Stage - LearningDelivery\DFT - LearningDelivery\Target Data.Inputs[OLE DB Destination Input].ExternalColumns[CertificationEndDate]"
-                              dataType="dbDate"
+                              dataType="wstr"
+                              length="10"
                               name="CertificationEndDate" />
                             <externalMetadataColumn
                               refId="Package\SEQ - Stage Data\SEQ - Stage - LearningDelivery\DFT - LearningDelivery\Target Data.Inputs[OLE DB Destination Input].ExternalColumns[OperationalStartDate]"
-                              dataType="dbDate"
+                              dataType="wstr"
+                              length="10"
                               name="OperationalStartDate" />
                             <externalMetadataColumn
                               refId="Package\SEQ - Stage Data\SEQ - Stage - LearningDelivery\DFT - LearningDelivery\Target Data.Inputs[OLE DB Destination Input].ExternalColumns[OperationalEndDate]"
-                              dataType="dbDate"
+                              dataType="wstr"
+                              length="10"
                               name="OperationalEndDate" />
                             <externalMetadataColumn
                               refId="Package\SEQ - Stage Data\SEQ - Stage - LearningDelivery\DFT - LearningDelivery\Target Data.Inputs[OLE DB Destination Input].ExternalColumns[EnglandFEHEStatus]"
@@ -10903,7 +10930,8 @@
                               name="OfqualSubPurpose" />
                             <externalMetadataColumn
                               refId="Package\SEQ - Stage Data\SEQ - Stage - LearningDelivery\DFT - LearningDelivery\Target Data.Inputs[OLE DB Destination Input].ExternalColumns[RgltnStartDate]"
-                              dataType="dbDate"
+                              dataType="wstr"
+                              length="10"
                               name="RgltnStartDate" />
                             <externalMetadataColumn
                               refId="Package\SEQ - Stage Data\SEQ - Stage - LearningDelivery\DFT - LearningDelivery\Target Data.Inputs[OLE DB Destination Input].ExternalColumns[SourceQualType]"
@@ -11112,7 +11140,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Delete from - LearningDelivery"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="12">
+              DTS:ThreadHint="4">
               <DTS:Variables>
                 <DTS:Variable
                   DTS:CreationName=""
@@ -11615,11 +11643,13 @@
                               name="LearnAimRef" />
                             <externalMetadataColumn
                               refId="Package\SEQ - Stage Data\SEQ - Stage - LearningDeliveryCategory\DFT - LearningDeliveryCategory\Target Data.Inputs[OLE DB Destination Input].ExternalColumns[EffectiveFrom]"
-                              dataType="dbDate"
+                              dataType="wstr"
+                              length="10"
                               name="EffectiveFrom" />
                             <externalMetadataColumn
                               refId="Package\SEQ - Stage Data\SEQ - Stage - LearningDeliveryCategory\DFT - LearningDeliveryCategory\Target Data.Inputs[OLE DB Destination Input].ExternalColumns[EffectiveTo]"
-                              dataType="dbDate"
+                              dataType="wstr"
+                              length="10"
                               name="EffectiveTo" />
                             <externalMetadataColumn
                               refId="Package\SEQ - Stage Data\SEQ - Stage - LearningDeliveryCategory\DFT - LearningDeliveryCategory\Target Data.Inputs[OLE DB Destination Input].ExternalColumns[CategoryRef]"
@@ -11673,7 +11703,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Delete from - LearningDeliveryCategory"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="13">
+              DTS:ThreadHint="5">
               <DTS:Variables>
                 <DTS:Variable
                   DTS:CreationName=""
@@ -12296,11 +12326,13 @@
                               name="LearnAimRef" />
                             <externalMetadataColumn
                               refId="Package\SEQ - Stage Data\SEQ - Stage - Section96\DFT - Section96\Target Data.Inputs[OLE DB Destination Input].ExternalColumns[EffectiveFrom]"
-                              dataType="dbDate"
+                              dataType="wstr"
+                              length="10"
                               name="EffectiveFrom" />
                             <externalMetadataColumn
                               refId="Package\SEQ - Stage Data\SEQ - Stage - Section96\DFT - Section96\Target Data.Inputs[OLE DB Destination Input].ExternalColumns[EffectiveTo]"
-                              dataType="dbDate"
+                              dataType="wstr"
+                              length="10"
                               name="EffectiveTo" />
                             <externalMetadataColumn
                               refId="Package\SEQ - Stage Data\SEQ - Stage - Section96\DFT - Section96\Target Data.Inputs[OLE DB Destination Input].ExternalColumns[Section96ApprovalStatus]"
@@ -12308,11 +12340,13 @@
                               name="Section96ApprovalStatus" />
                             <externalMetadataColumn
                               refId="Package\SEQ - Stage Data\SEQ - Stage - Section96\DFT - Section96\Target Data.Inputs[OLE DB Destination Input].ExternalColumns[Section96ApprovalStartDate]"
-                              dataType="dbDate"
+                              dataType="wstr"
+                              length="10"
                               name="Section96ApprovalStartDate" />
                             <externalMetadataColumn
                               refId="Package\SEQ - Stage Data\SEQ - Stage - Section96\DFT - Section96\Target Data.Inputs[OLE DB Destination Input].ExternalColumns[Section96ReviewDate]"
-                              dataType="dbDate"
+                              dataType="wstr"
+                              length="10"
                               name="Section96ReviewDate" />
                             <externalMetadataColumn
                               refId="Package\SEQ - Stage Data\SEQ - Stage - Section96\DFT - Section96\Target Data.Inputs[OLE DB Destination Input].ExternalColumns[Section96ValidPre16]"
@@ -12374,7 +12408,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Delete from - Section96"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="5">
+              DTS:ThreadHint="6">
               <DTS:Variables>
                 <DTS:Variable
                   DTS:CreationName=""
@@ -13143,11 +13177,13 @@
                               name="Modified_By" />
                             <externalMetadataColumn
                               refId="Package\SEQ - Stage Data\SEQ - Stage - Standard\DFT - Standard\Target Data.Inputs[OLE DB Destination Input].ExternalColumns[EffectiveFrom]"
-                              dataType="dbDate"
+                              dataType="wstr"
+                              length="10"
                               name="EffectiveFrom" />
                             <externalMetadataColumn
                               refId="Package\SEQ - Stage Data\SEQ - Stage - Standard\DFT - Standard\Target Data.Inputs[OLE DB Destination Input].ExternalColumns[EffectiveTo]"
-                              dataType="dbDate"
+                              dataType="wstr"
+                              length="10"
                               name="EffectiveTo" />
                             <externalMetadataColumn
                               refId="Package\SEQ - Stage Data\SEQ - Stage - Standard\DFT - Standard\Target Data.Inputs[OLE DB Destination Input].ExternalColumns[SectorSubjectAreaTier1]"
@@ -13189,7 +13225,8 @@
                               name="NotionalEndLevel" />
                             <externalMetadataColumn
                               refId="Package\SEQ - Stage Data\SEQ - Stage - Standard\DFT - Standard\Target Data.Inputs[OLE DB Destination Input].ExternalColumns[LastDateStarts]"
-                              dataType="dbDate"
+                              dataType="wstr"
+                              length="10"
                               name="LastDateStarts" />
                             <externalMetadataColumn
                               refId="Package\SEQ - Stage Data\SEQ - Stage - Standard\DFT - Standard\Target Data.Inputs[OLE DB Destination Input].ExternalColumns[URLLink]"
@@ -13257,7 +13294,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Delete from - Standard"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="6">
+              DTS:ThreadHint="7">
               <DTS:Variables>
                 <DTS:Variable
                   DTS:CreationName=""
@@ -13778,11 +13815,13 @@
                               name="Modified_By" />
                             <externalMetadataColumn
                               refId="Package\SEQ - Stage Data\SEQ - Stage - StandardAims\DFT - StandardAims\Target Data.Inputs[OLE DB Destination Input].ExternalColumns[EffectiveFrom]"
-                              dataType="dbDate"
+                              dataType="wstr"
+                              length="10"
                               name="EffectiveFrom" />
                             <externalMetadataColumn
                               refId="Package\SEQ - Stage Data\SEQ - Stage - StandardAims\DFT - StandardAims\Target Data.Inputs[OLE DB Destination Input].ExternalColumns[EffectiveTo]"
-                              dataType="dbDate"
+                              dataType="wstr"
+                              length="10"
                               name="EffectiveTo" />
                             <externalMetadataColumn
                               refId="Package\SEQ - Stage Data\SEQ - Stage - StandardAims\DFT - StandardAims\Target Data.Inputs[OLE DB Destination Input].ExternalColumns[LearnAimRef]"
@@ -13846,7 +13885,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Delete from - StandardAims"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="20">
+              DTS:ThreadHint="1">
               <DTS:Variables>
                 <DTS:Variable
                   DTS:CreationName=""
@@ -14367,11 +14406,13 @@
                               name="Modified_By" />
                             <externalMetadataColumn
                               refId="Package\SEQ - Stage Data\SEQ - Stage - StandardCommonComponent\DFT - StandardCommonComponent\Target Data.Inputs[OLE DB Destination Input].ExternalColumns[EffectiveFrom]"
-                              dataType="dbDate"
+                              dataType="wstr"
+                              length="10"
                               name="EffectiveFrom" />
                             <externalMetadataColumn
                               refId="Package\SEQ - Stage Data\SEQ - Stage - StandardCommonComponent\DFT - StandardCommonComponent\Target Data.Inputs[OLE DB Destination Input].ExternalColumns[EffectiveTo]"
-                              dataType="dbDate"
+                              dataType="wstr"
+                              length="10"
                               name="EffectiveTo" />
                             <externalMetadataColumn
                               refId="Package\SEQ - Stage Data\SEQ - Stage - StandardCommonComponent\DFT - StandardCommonComponent\Target Data.Inputs[OLE DB Destination Input].ExternalColumns[CommonComponent]"
@@ -14435,7 +14476,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Delete from - StandardCommonComponent"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="21">
+              DTS:ThreadHint="14">
               <DTS:Variables>
                 <DTS:Variable
                   DTS:CreationName=""
@@ -15116,11 +15157,13 @@
                               name="Modified_By" />
                             <externalMetadataColumn
                               refId="Package\SEQ - Stage Data\SEQ - Stage - StandardFunding\DFT - StandardFunding\Target Data.Inputs[OLE DB Destination Input].ExternalColumns[EffectiveFrom]"
-                              dataType="dbDate"
+                              dataType="wstr"
+                              length="10"
                               name="EffectiveFrom" />
                             <externalMetadataColumn
                               refId="Package\SEQ - Stage Data\SEQ - Stage - StandardFunding\DFT - StandardFunding\Target Data.Inputs[OLE DB Destination Input].ExternalColumns[EffectiveTo]"
-                              dataType="dbDate"
+                              dataType="wstr"
+                              length="10"
                               name="EffectiveTo" />
                             <externalMetadataColumn
                               refId="Package\SEQ - Stage Data\SEQ - Stage - StandardFunding\DFT - StandardFunding\Target Data.Inputs[OLE DB Destination Input].ExternalColumns[StandardCode]"
@@ -15214,7 +15257,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Delete from - StandardFunding"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="22">
+              DTS:ThreadHint="15">
               <DTS:Variables>
                 <DTS:Variable
                   DTS:CreationName=""
@@ -15933,7 +15976,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Delete from - StandardMetaData"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="17">
+              DTS:ThreadHint="19">
               <DTS:Variables>
                 <DTS:Variable
                   DTS:CreationName=""
@@ -16464,15 +16507,18 @@
                               name="ValidityCategory" />
                             <externalMetadataColumn
                               refId="Package\SEQ - Stage Data\SEQ - Stage - StandardValidity\DFT - StandardValidity\Target Data.Inputs[OLE DB Destination Input].ExternalColumns[StartDate]"
-                              dataType="dbDate"
+                              dataType="wstr"
+                              length="10"
                               name="StartDate" />
                             <externalMetadataColumn
                               refId="Package\SEQ - Stage Data\SEQ - Stage - StandardValidity\DFT - StandardValidity\Target Data.Inputs[OLE DB Destination Input].ExternalColumns[LastNewStartDate]"
-                              dataType="dbDate"
+                              dataType="wstr"
+                              length="10"
                               name="LastNewStartDate" />
                             <externalMetadataColumn
                               refId="Package\SEQ - Stage Data\SEQ - Stage - StandardValidity\DFT - StandardValidity\Target Data.Inputs[OLE DB Destination Input].ExternalColumns[EndDate]"
-                              dataType="dbDate"
+                              dataType="wstr"
+                              length="10"
                               name="EndDate" />
                           </externalMetadataColumns>
                         </input>
@@ -16522,7 +16568,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Delete from - StandardValidity"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="23">
+              DTS:ThreadHint="16">
               <DTS:Variables>
                 <DTS:Variable
                   DTS:CreationName=""
@@ -17037,7 +17083,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Delete from - SupersedingAims"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="14">
+              DTS:ThreadHint="17">
               <DTS:Variables>
                 <DTS:Variable
                   DTS:CreationName=""
@@ -18433,7 +18479,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Delete from - TBStandardLookup"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="19">
+              DTS:ThreadHint="21">
               <DTS:Variables>
                 <DTS:Variable
                   DTS:CreationName=""
@@ -18910,7 +18956,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Delete from - TBStandardLookupVersion"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="15">
+              DTS:ThreadHint="22">
               <DTS:Variables>
                 <DTS:Variable
                   DTS:CreationName=""
@@ -19415,11 +19461,13 @@
                               name="Modified_By" />
                             <externalMetadataColumn
                               refId="Package\SEQ - Stage Data\SEQ - Stage - UnitQualificationRelationship\DFT - UnitQualificationRelationship\Target Data.Inputs[OLE DB Destination Input].ExternalColumns[EffectiveFrom]"
-                              dataType="dbDate"
+                              dataType="wstr"
+                              length="10"
                               name="EffectiveFrom" />
                             <externalMetadataColumn
                               refId="Package\SEQ - Stage Data\SEQ - Stage - UnitQualificationRelationship\DFT - UnitQualificationRelationship\Target Data.Inputs[OLE DB Destination Input].ExternalColumns[EffectiveTo]"
-                              dataType="dbDate"
+                              dataType="wstr"
+                              length="10"
                               name="EffectiveTo" />
                             <externalMetadataColumn
                               refId="Package\SEQ - Stage Data\SEQ - Stage - UnitQualificationRelationship\DFT - UnitQualificationRelationship\Target Data.Inputs[OLE DB Destination Input].ExternalColumns[UnitLearnAimRef]"
@@ -19481,7 +19529,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Delete from - UnitQualificationRelationship"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="16">
+              DTS:ThreadHint="23">
               <DTS:Variables>
                 <DTS:Variable
                   DTS:CreationName=""
@@ -20024,15 +20072,18 @@
                               name="ValidityCategory" />
                             <externalMetadataColumn
                               refId="Package\SEQ - Stage Data\SEQ - Stage - Validity\DFT - Validity\Target Data.Inputs[OLE DB Destination Input].ExternalColumns[StartDate]"
-                              dataType="dbDate"
+                              dataType="wstr"
+                              length="10"
                               name="StartDate" />
                             <externalMetadataColumn
                               refId="Package\SEQ - Stage Data\SEQ - Stage - Validity\DFT - Validity\Target Data.Inputs[OLE DB Destination Input].ExternalColumns[EndDate]"
-                              dataType="dbDate"
+                              dataType="wstr"
+                              length="10"
                               name="EndDate" />
                             <externalMetadataColumn
                               refId="Package\SEQ - Stage Data\SEQ - Stage - Validity\DFT - Validity\Target Data.Inputs[OLE DB Destination Input].ExternalColumns[LastNewStartDate]"
-                              dataType="dbDate"
+                              dataType="wstr"
+                              length="10"
                               name="LastNewStartDate" />
                           </externalMetadataColumns>
                         </input>
@@ -20082,7 +20133,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Delete from - Validity"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="1">
+              DTS:ThreadHint="24">
               <DTS:Variables>
                 <DTS:Variable
                   DTS:CreationName=""
@@ -20747,11 +20798,13 @@
                               name="RefDataSchemaName" />
                             <externalMetadataColumn
                               refId="Package\SEQ - Stage Data\SEQ - Stage - Version\DFT - Version\Target Data.Inputs[OLE DB Destination Input].ExternalColumns[ActivationDate]"
-                              dataType="dbDate"
+                              dataType="wstr"
+                              length="10"
                               name="ActivationDate" />
                             <externalMetadataColumn
                               refId="Package\SEQ - Stage Data\SEQ - Stage - Version\DFT - Version\Target Data.Inputs[OLE DB Destination Input].ExternalColumns[ExpiryDate]"
-                              dataType="dbDate"
+                              dataType="wstr"
+                              length="10"
                               name="ExpiryDate" />
                             <externalMetadataColumn
                               refId="Package\SEQ - Stage Data\SEQ - Stage - Version\DFT - Version\Target Data.Inputs[OLE DB Destination Input].ExternalColumns[Description]"
@@ -20813,7 +20866,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Delete from - Version"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="24">
+              DTS:ThreadHint="20">
               <DTS:Variables>
                 <DTS:Variable
                   DTS:CreationName=""
@@ -22603,7 +22656,7 @@
     design-time-name="Package\SEQ - Stage Data\SEQ - Stage - ApprenticeshipFunding\DFT - ApprenticeshipFunding">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="135,42"
           Id="Package\SEQ - Stage Data\SEQ - Stage - ApprenticeshipFunding\DFT - ApprenticeshipFunding\Target Data"
@@ -22631,9 +22684,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -22659,7 +22710,7 @@
     design-time-name="Package\SEQ - Stage Data\SEQ - Stage - CareerLearningPilot\DFT - CareerLearningPilot">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="136,42"
           Id="Package\SEQ - Stage Data\SEQ - Stage - CareerLearningPilot\DFT - CareerLearningPilot\Source Data"
@@ -22687,9 +22738,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -22715,7 +22764,7 @@
     design-time-name="Package\SEQ - Stage Data\SEQ - Stage - DataGeneration\DFT - DataGeneration">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="135,42"
           Id="Package\SEQ - Stage Data\SEQ - Stage - DataGeneration\DFT - DataGeneration\Target Data"
@@ -22743,9 +22792,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -22771,7 +22818,7 @@
     design-time-name="Package\SEQ - Stage Data\SEQ - Stage - Framework\DFT - Framework">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="135,42"
           Id="Package\SEQ - Stage Data\SEQ - Stage - Framework\DFT - Framework\Target Data"
@@ -22799,9 +22846,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -22827,7 +22872,7 @@
     design-time-name="Package\SEQ - Stage Data\SEQ - Stage - FrameworkAims\DFT - FrameworkAims">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="136,42"
           Id="Package\SEQ - Stage Data\SEQ - Stage - FrameworkAims\DFT - FrameworkAims\Source Data"
@@ -22855,9 +22900,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -22883,7 +22926,7 @@
     design-time-name="Package\SEQ - Stage Data\SEQ - Stage - FrameworkCmnComp\DFT - FrameworkCmnComp">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="136,42"
           Id="Package\SEQ - Stage Data\SEQ - Stage - FrameworkCmnComp\DFT - FrameworkCmnComp\Source Data"
@@ -22911,9 +22954,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -22939,7 +22980,7 @@
     design-time-name="Package\SEQ - Stage Data\SEQ - Stage - FrameworkMetaData\DFT - FrameworkMetaData">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="136,42"
           Id="Package\SEQ - Stage Data\SEQ - Stage - FrameworkMetaData\DFT - FrameworkMetaData\Source Data"
@@ -22967,9 +23008,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -22995,7 +23034,7 @@
     design-time-name="Package\SEQ - Stage Data\SEQ - Stage - Funding\DFT - Funding">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="136,42"
           Id="Package\SEQ - Stage Data\SEQ - Stage - Funding\DFT - Funding\Source Data"
@@ -23023,9 +23062,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-30.5551171875,16.62841796875,61.110234375,11.2431640625"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -23051,11 +23088,11 @@
     design-time-name="Package\SEQ - Stage Data\SEQ - Stage - LearningDelivery\DFT - LearningDelivery">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="135,42"
           Id="Package\SEQ - Stage Data\SEQ - Stage - LearningDelivery\DFT - LearningDelivery\Target Data"
-          TopLeft="361,156" />
+          TopLeft="361,157" />
         <NodeLayout
           Size="136,42"
           Id="Package\SEQ - Stage Data\SEQ - Stage - LearningDelivery\DFT - LearningDelivery\Source Data"
@@ -23066,22 +23103,20 @@
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,51"
+              EndConnector="0,52"
               Start="0,0"
-              End="0,43.5">
+              End="0,44.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,43.5" />
+                    End="0,44.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -23107,7 +23142,7 @@
     design-time-name="Package\SEQ - Stage Data\SEQ - Stage - LearningDeliveryCategory\DFT - LearningDeliveryCategory">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="135,42"
           Id="Package\SEQ - Stage Data\SEQ - Stage - LearningDeliveryCategory\DFT - LearningDeliveryCategory\Target Data"
@@ -23135,9 +23170,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -23163,7 +23196,7 @@
     design-time-name="Package\SEQ - Stage Data\SEQ - Stage - Section96\DFT - Section96">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="136,42"
           Id="Package\SEQ - Stage Data\SEQ - Stage - Section96\DFT - Section96\Source Data"
@@ -23191,9 +23224,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -23219,7 +23250,7 @@
     design-time-name="Package\SEQ - Stage Data\SEQ - Stage - Standard\DFT - Standard">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="135,42"
           Id="Package\SEQ - Stage Data\SEQ - Stage - Standard\DFT - Standard\Target Data"
@@ -23247,9 +23278,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -23275,7 +23304,7 @@
     design-time-name="Package\SEQ - Stage Data\SEQ - Stage - StandardAims\DFT - StandardAims">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="135,42"
           Id="Package\SEQ - Stage Data\SEQ - Stage - StandardAims\DFT - StandardAims\Target Data"
@@ -23303,9 +23332,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -23331,7 +23358,7 @@
     design-time-name="Package\SEQ - Stage Data\SEQ - Stage - StandardCommonComponent\DFT - StandardCommonComponent">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="135,42"
           Id="Package\SEQ - Stage Data\SEQ - Stage - StandardCommonComponent\DFT - StandardCommonComponent\Target Data"
@@ -23359,9 +23386,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -23387,7 +23412,7 @@
     design-time-name="Package\SEQ - Stage Data\SEQ - Stage - StandardFunding\DFT - StandardFunding">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="135,42"
           Id="Package\SEQ - Stage Data\SEQ - Stage - StandardFunding\DFT - StandardFunding\Target Data"
@@ -23415,9 +23440,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -23499,7 +23522,7 @@
     design-time-name="Package\SEQ - Stage Data\SEQ - Stage - StandardValidity\DFT - StandardValidity">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="135,42"
           Id="Package\SEQ - Stage Data\SEQ - Stage - StandardValidity\DFT - StandardValidity\Target Data"
@@ -23527,9 +23550,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -23555,7 +23576,7 @@
     design-time-name="Package\SEQ - Stage Data\SEQ - Stage - SupersedingAims\DFT - SupersedingAims">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="136,42"
           Id="Package\SEQ - Stage Data\SEQ - Stage - SupersedingAims\DFT - SupersedingAims\Source Data"
@@ -23583,9 +23604,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -23611,7 +23630,7 @@
     design-time-name="Package\SEQ - Stage Data\SEQ - Stage - SupersedingFrameworks\DFT - SupersedingFrameworks">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="135,42"
           Id="Package\SEQ - Stage Data\SEQ - Stage - SupersedingFrameworks\DFT - SupersedingFrameworks\Target Data"
@@ -23639,9 +23658,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -23672,7 +23689,7 @@
     design-time-name="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="135,42"
           Id="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Target Data"
@@ -23700,9 +23717,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -23728,7 +23743,7 @@
     design-time-name="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookupVersion\DFT - TBStandardLookupVersion">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="135,42"
           Id="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookupVersion\DFT - TBStandardLookupVersion\Target Data"
@@ -23756,9 +23771,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -23784,7 +23797,7 @@
     design-time-name="Package\SEQ - Stage Data\SEQ - Stage - UnitQualificationRelationship\DFT - UnitQualificationRelationship">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="135,42"
           Id="Package\SEQ - Stage Data\SEQ - Stage - UnitQualificationRelationship\DFT - UnitQualificationRelationship\Target Data"
@@ -23812,9 +23825,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -23840,7 +23851,7 @@
     design-time-name="Package\SEQ - Stage Data\SEQ - Stage - Validity\DFT - Validity">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="135,42"
           Id="Package\SEQ - Stage Data\SEQ - Stage - Validity\DFT - Validity\Target Data"
@@ -23868,9 +23879,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-30.72357421875,16.14306640625,61.4471484375,11.2138671875"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -23896,7 +23905,7 @@
     design-time-name="Package\SEQ - Stage Data\SEQ - Stage - Version\DFT - Version">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="136,42"
           Id="Package\SEQ - Stage Data\SEQ - Stage - Version\DFT - Version\Source Data"
@@ -23924,9 +23933,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
