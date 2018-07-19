@@ -1,4 +1,4 @@
-﻿CREATE VIEW [dbo].[LARS_Current_Version]
+﻿CREATE VIEW [dbo].[Current_Version]
 AS
 
 WITH CTE_Highest_Version ([MajorNumber],[MinorNumber],[MaintenanceNumber],[Rank]) 
