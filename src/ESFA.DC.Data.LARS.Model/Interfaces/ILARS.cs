@@ -30,6 +30,6 @@ namespace ESFA.DC.Data.LARS.Model.Interfaces
         DbSet<LARS_Version> LARS_Version { get; set; }
         DbSet<TBStandardLookup> TBStandardLookups { get; set; }
         DbSet<TBStandardLookupVersion> TBStandardLookupVersions { get; set; }
-
+        DbSet<Current_Version> Current_Version { get; set; }
     }
 }
