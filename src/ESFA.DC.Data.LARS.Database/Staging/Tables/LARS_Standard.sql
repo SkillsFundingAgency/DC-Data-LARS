@@ -19,3 +19,6 @@
     CONSTRAINT [PK_LARS_Standard] PRIMARY KEY CLUSTERED ([StandardCode] ASC)
 );
 
+
+GO
+GRANT ALTER ON OBJECT::Staging.LARS_Standard TO [Lars_RW_User];

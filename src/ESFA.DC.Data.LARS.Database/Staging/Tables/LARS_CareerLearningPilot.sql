@@ -14,3 +14,6 @@ CREATE TABLE [Staging].[LARS_CareerLearningPilot] (
     CONSTRAINT [PK_Staging_LARS_CLP_FundingID] PRIMARY KEY CLUSTERED ([LearnAimRef] ASC, [AreaCode] ASC, [EffectiveFrom] ASC) WITH (FILLFACTOR = 90)
 );
 
+
+GO
+GRANT ALTER ON OBJECT::Staging.LARS_CareerLearningPilot TO [Lars_RW_User];

@@ -10,6 +10,9 @@
     [Created_By]    VARCHAR (256)  NOT NULL,
     [Modified_On]   DATETIME       NOT NULL,
     [Modified_By]   VARCHAR (256)  NOT NULL,
-    CONSTRAINT [PK_Core_LARS_FrameworkMetaData] PRIMARY KEY CLUSTERED ([FworkCode] ASC, [ProgType] ASC, [PwayCode] ASC)
+    CONSTRAINT [PK_Staging_LARS_FrameworkMetaData] PRIMARY KEY CLUSTERED ([FworkCode] ASC, [ProgType] ASC, [PwayCode] ASC)
 );
 
+
+GO
+GRANT ALTER ON OBJECT::Staging.LARS_FrameworkMetaData TO [Lars_RW_User];

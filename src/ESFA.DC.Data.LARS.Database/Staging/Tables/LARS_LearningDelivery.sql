@@ -77,6 +77,9 @@
     [Created_By]                      VARCHAR (100)  NOT NULL,
     [Modified_On]                     DATETIME       NOT NULL,
     [Modified_By]                     VARCHAR (100)  NOT NULL,
-    CONSTRAINT [PK_Core_LARS_LearningDelivery] PRIMARY KEY CLUSTERED ([LearnAimRef] ASC)
+    CONSTRAINT [PK_Staging_LARS_LearningDelivery] PRIMARY KEY CLUSTERED ([LearnAimRef] ASC)
 );
 
+
+GO
+GRANT ALTER ON OBJECT::Staging.LARS_LearningDelivery TO [Lars_RW_User];

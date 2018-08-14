@@ -22,6 +22,8 @@
     [Created_By]                    VARCHAR (100)  NOT NULL,
     [Modified_On]                   DATETIME       NOT NULL,
     [Modified_By]                   VARCHAR (100)  NOT NULL,
-    CONSTRAINT [PK_Core_LARS_AnnualValue] PRIMARY KEY CLUSTERED ([LearnAimRef] ASC, [EffectiveFrom] ASC) WITH (FILLFACTOR = 90)
+    CONSTRAINT [PK_Staging_LARS_AnnualValue] PRIMARY KEY CLUSTERED ([LearnAimRef] ASC, [EffectiveFrom] ASC) WITH (FILLFACTOR = 90)
 );
 
+GO
+GRANT ALTER ON OBJECT::Staging.LARS_AnnualValue TO [Lars_RW_User];
