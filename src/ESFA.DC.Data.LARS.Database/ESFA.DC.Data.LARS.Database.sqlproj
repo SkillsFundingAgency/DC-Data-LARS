@@ -72,6 +72,7 @@
     <Folder Include="Staging\Tables\" />
     <Folder Include="Staging\Stored Procedures\" />
     <Folder Include="dbo\Stored Procedures" />
+    <Folder Include="dbo\Views" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Tables\TBStandardLookup.sql" />
@@ -174,6 +175,7 @@
     <Build Include="dbo\Stored Procedures\usp_ClearAll_StagingTables.sql" />
     <Build Include="dbo\Stored Procedures\usp_ClearAll_CoreTables.sql" />
     <Build Include="Security\User_RW.sql" />
+    <Build Include="dbo\Views\Current_Version.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="zzDeploymentProfiles\zz.Local.Dev.Version.publish.xml" />

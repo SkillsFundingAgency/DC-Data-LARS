@@ -49,6 +49,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Current_Version.cs">
+      <DependentUpon>LARS.tt</DependentUpon>
+    </Compile>
     <Compile Include="Interfaces\ILARS.cs" />
     <Compile Include="LARS.Context.cs">
       <AutoGen>True</AutoGen>

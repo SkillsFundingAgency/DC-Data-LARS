@@ -553,6 +553,15 @@
           <Property Name="Modified_On" Type="datetime" />
           <Property Name="Modified_By" Type="varchar" MaxLength="150" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'LARS.dbo.Current_Version' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Current_Version">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="CurrentVersion" Type="varchar" MaxLength="100" />
+        </EntityType>
         <Association Name="FK_Core_LARS_AnnualValue_CoreLearningDelivery">
           <End Role="LARS_LearningDelivery" Type="Self.LARS_LearningDelivery" Multiplicity="1" />
           <End Role="LARS_AnnualValue" Type="Self.LARS_AnnualValue" Multiplicity="*" />
@@ -796,6 +805,12 @@
           <EntitySet Name="LARS_Version" EntityType="Self.LARS_Version" Schema="Core" store:Type="Tables" />
           <EntitySet Name="TBStandardLookup" EntityType="Self.TBStandardLookup" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TBStandardLookupVersion" EntityType="Self.TBStandardLookupVersion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Current_Version" EntityType="Self.Current_Version" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Current_Version].[ID] AS [ID], 
+    [Current_Version].[CurrentVersion] AS [CurrentVersion]
+    FROM [dbo].[Current_Version] AS [Current_Version]</DefiningQuery>
+          </EntitySet>
           <AssociationSet Name="FK_Core_LARS_AnnualValue_CoreLearningDelivery" Association="Self.FK_Core_LARS_AnnualValue_CoreLearningDelivery">
             <End Role="LARS_LearningDelivery" EntitySet="LARS_LearningDelivery" />
             <End Role="LARS_AnnualValue" EntitySet="LARS_AnnualValue" />
@@ -1769,6 +1784,7 @@
             <End Role="LARS_Framework" EntitySet="LARS_Framework" />
             <End Role="LARS_FrameworkMetaData" EntitySet="LARS_FrameworkMetaData" />
           </AssociationSet>
+          <EntitySet Name="Current_Version" EntityType="ESFA.DC.Data.LARS.Model.Current_Version" />
         </EntityContainer>
         <EntityType Name="LARS_CareerLearningPilot">
           <Key>
@@ -1819,6 +1835,13 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Current_Version">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="CurrentVersion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -2352,6 +2375,14 @@
                 <ScalarProperty Name="EffectiveFrom" ColumnName="EffectiveFrom" />
                 <ScalarProperty Name="AreaCode" ColumnName="AreaCode" />
                 <ScalarProperty Name="LearnAimRef" ColumnName="LearnAimRef" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Current_Version">
+            <EntityTypeMapping TypeName="ESFA.DC.Data.LARS.Model.Current_Version">
+              <MappingFragment StoreEntitySet="Current_Version">
+                <ScalarProperty Name="CurrentVersion" ColumnName="CurrentVersion" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
