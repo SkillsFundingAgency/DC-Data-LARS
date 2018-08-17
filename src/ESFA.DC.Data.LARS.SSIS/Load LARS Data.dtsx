@@ -12,8 +12,8 @@
   DTS:ObjectName="Load LARS Data"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="2"
-  DTS:VersionGUID="{EF6E05D7-E414-4003-96CF-ABA07D2F70DB}">
+  DTS:VersionBuild="4"
+  DTS:VersionGUID="{B817B5D6-939E-4597-B0D7-80D00975EFEB}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -26,7 +26,7 @@
         DTS:Name="ConnectionString">@[$Project::SourceConnectionManager_ConnectionString]</DTS:PropertyExpression>
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=SQLServerHere;User Id=UserAccountHere;Initial Catalog=DbNameHere;Provider=SQLNCLI11.1;Auto Translate=False;">
+          DTS:ConnectionString="">
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"></DTS:Password>
@@ -42,7 +42,7 @@
         DTS:Name="ConnectionString">@[$Project::TargetConnectionManager_ConnectionString]</DTS:PropertyExpression>
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=SQLServerHere;User Id=UserAccountHere;Initial Catalog=DbNameHere;Provider=SQLNCLI11.1;Auto Translate=False;">
+          DTS:ConnectionString="">
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"></DTS:Password>
@@ -135,7 +135,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Merge - CareerLearningPilot"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="12">
+              DTS:ThreadHint="0">
               <DTS:Variables />
               <DTS:PropertyExpression
                 DTS:Name="Name">LTRIM(RTRIM("SQL - Merge - " + @[User::Name]))</DTS:PropertyExpression>
@@ -191,7 +191,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Merge - DataGeneration"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="13">
+              DTS:ThreadHint="9">
               <DTS:Variables />
               <DTS:PropertyExpression
                 DTS:Name="Name">LTRIM(RTRIM("SQL - Merge - " + @[User::Name]))</DTS:PropertyExpression>
@@ -247,7 +247,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Merge - Framework"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="14">
+              DTS:ThreadHint="6">
               <DTS:Variables />
               <DTS:PropertyExpression
                 DTS:Name="Name">LTRIM(RTRIM("SQL - Merge - " + @[User::Name]))</DTS:PropertyExpression>
@@ -303,7 +303,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Merge - FrameworkAims"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="14">
+              DTS:ThreadHint="10">
               <DTS:Variables />
               <DTS:PropertyExpression
                 DTS:Name="Name">LTRIM(RTRIM("SQL - Merge - " + @[User::Name]))</DTS:PropertyExpression>
@@ -359,7 +359,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Merge - FrameworkCmnComp"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="15">
+              DTS:ThreadHint="8">
               <DTS:Variables />
               <DTS:PropertyExpression
                 DTS:Name="Name">LTRIM(RTRIM("SQL - Merge - " + @[User::Name]))</DTS:PropertyExpression>
@@ -415,7 +415,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Merge - FrameworkMetaData"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="16">
+              DTS:ThreadHint="6">
               <DTS:Variables />
               <DTS:PropertyExpression
                 DTS:Name="Name">LTRIM(RTRIM("SQL - Merge - " + @[User::Name]))</DTS:PropertyExpression>
@@ -471,7 +471,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Merge - Funding"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="17">
+              DTS:ThreadHint="7">
               <DTS:Variables />
               <DTS:PropertyExpression
                 DTS:Name="Name">LTRIM(RTRIM("SQL - Merge - " + @[User::Name]))</DTS:PropertyExpression>
@@ -527,7 +527,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Merge - LearningDelivery"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="6">
+              DTS:ThreadHint="0">
               <DTS:Variables />
               <DTS:PropertyExpression
                 DTS:Name="Name">LTRIM(RTRIM("SQL - Merge - " + @[User::Name]))</DTS:PropertyExpression>
@@ -583,7 +583,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Merge - LearningDeliveryCategory"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="11">
+              DTS:ThreadHint="5">
               <DTS:Variables />
               <DTS:PropertyExpression
                 DTS:Name="Name">LTRIM(RTRIM("SQL - Merge - " + @[User::Name]))</DTS:PropertyExpression>
@@ -639,7 +639,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Merge - Standard"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="0">
+              DTS:ThreadHint="1">
               <DTS:Variables />
               <DTS:PropertyExpression
                 DTS:Name="Name">LTRIM(RTRIM("SQL - Merge - " + @[User::Name]))</DTS:PropertyExpression>
@@ -695,7 +695,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Merge - StandardAims"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="9">
+              DTS:ThreadHint="2">
               <DTS:Variables />
               <DTS:PropertyExpression
                 DTS:Name="Name">LTRIM(RTRIM("SQL - Merge - " + @[User::Name]))</DTS:PropertyExpression>
@@ -751,7 +751,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Merge - StandardCommonComponent"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="10">
+              DTS:ThreadHint="1">
               <DTS:Variables />
               <DTS:PropertyExpression
                 DTS:Name="Name">LTRIM(RTRIM("SQL - Merge - " + @[User::Name]))</DTS:PropertyExpression>
@@ -807,7 +807,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Merge - StandardFunding"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="0">
+              DTS:ThreadHint="3">
               <DTS:Variables />
               <DTS:PropertyExpression
                 DTS:Name="Name">LTRIM(RTRIM("SQL - Merge - " + @[User::Name]))</DTS:PropertyExpression>
@@ -863,7 +863,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Merge - StandardMetaData"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="1">
+              DTS:ThreadHint="4">
               <DTS:Variables />
               <DTS:PropertyExpression
                 DTS:Name="Name">LTRIM(RTRIM("SQL - Merge - " + @[User::Name]))</DTS:PropertyExpression>
@@ -920,7 +920,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Merge - StandardPdfLink"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="2">
+              DTS:ThreadHint="13">
               <DTS:Variables />
               <DTS:PropertyExpression
                 DTS:Name="Name">LTRIM(RTRIM("SQL - Merge - " + @[User::Name]))</DTS:PropertyExpression>
@@ -976,7 +976,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Merge - StandardValidity"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="3">
+              DTS:ThreadHint="14">
               <DTS:Variables />
               <DTS:PropertyExpression
                 DTS:Name="Name">LTRIM(RTRIM("SQL - Merge - " + @[User::Name]))</DTS:PropertyExpression>
@@ -1032,7 +1032,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Merge - SupersedingAims"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="4">
+              DTS:ThreadHint="15">
               <DTS:Variables />
               <DTS:PropertyExpression
                 DTS:Name="Name">LTRIM(RTRIM("SQL - Merge - " + @[User::Name]))</DTS:PropertyExpression>
@@ -1088,7 +1088,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Merge - SupersedingFrameworks"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="5">
+              DTS:ThreadHint="16">
               <DTS:Variables />
               <DTS:PropertyExpression
                 DTS:Name="Name">LTRIM(RTRIM("SQL - Merge - " + @[User::Name]))</DTS:PropertyExpression>
@@ -1145,7 +1145,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Merge - UnitQualificationRelationship"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="8">
+              DTS:ThreadHint="17">
               <DTS:Variables />
               <DTS:PropertyExpression
                 DTS:Name="Name">LTRIM(RTRIM("SQL - Merge - " + @[User::Name]))</DTS:PropertyExpression>
@@ -1201,7 +1201,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Merge - Validity"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="6">
+              DTS:ThreadHint="11">
               <DTS:Variables />
               <DTS:PropertyExpression
                 DTS:Name="Name">LTRIM(RTRIM("SQL - Merge - " + @[User::Name]))</DTS:PropertyExpression>
@@ -1257,7 +1257,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - Merge - Version"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="7">
+              DTS:ThreadHint="12">
               <DTS:Variables />
               <DTS:PropertyExpression
                 DTS:Name="Name">LTRIM(RTRIM("SQL - Merge - " + @[User::Name]))</DTS:PropertyExpression>
@@ -1477,6 +1477,7 @@
                 DTS:Name="Name">LTRIM(RTRIM("DFT - " + @[User::Name]))</DTS:PropertyExpression>
               <DTS:ObjectData>
                 <pipeline
+                  autoAdjustBufferSize="true"
                   defaultBufferMaxRows="100000"
                   engineThreads="25"
                   version="1">
@@ -2416,7 +2417,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - DELETE FROM - AnnualValue"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="16">
+              DTS:ThreadHint="15">
               <DTS:Variables>
                 <DTS:Variable
                   DTS:CreationName=""
@@ -2510,6 +2511,7 @@
                 DTS:Name="Name">LTRIM(RTRIM("DFT - " + @[User::Name]))</DTS:PropertyExpression>
               <DTS:ObjectData>
                 <pipeline
+                  autoAdjustBufferSize="true"
                   version="1">
                   <components>
                     <component
@@ -3517,7 +3519,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - DELETE FROM - ApprenticeshipFunding"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="17">
+              DTS:ThreadHint="18">
               <DTS:Variables>
                 <DTS:Variable
                   DTS:CreationName=""
@@ -3611,6 +3613,7 @@
                 DTS:Name="Name">LTRIM(RTRIM("DFT - " + @[User::Name]))</DTS:PropertyExpression>
               <DTS:ObjectData>
                 <pipeline
+                  autoAdjustBufferSize="true"
                   version="1">
                   <components>
                     <component
@@ -4202,7 +4205,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - DELETE FROM - CareerLearningPilot"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="0">
+              DTS:ThreadHint="16">
               <DTS:Variables>
                 <DTS:Variable
                   DTS:CreationName=""
@@ -4296,6 +4299,7 @@
                 DTS:Name="Name">LTRIM(RTRIM("DFT - " + @[User::Name]))</DTS:PropertyExpression>
               <DTS:ObjectData>
                 <pipeline
+                  autoAdjustBufferSize="true"
                   version="1">
                   <components>
                     <component
@@ -4679,7 +4683,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - DELETE FROM - DataGeneration"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="22">
+              DTS:ThreadHint="17">
               <DTS:Variables>
                 <DTS:Variable
                   DTS:CreationName=""
@@ -4773,6 +4777,7 @@
                 DTS:Name="Name">LTRIM(RTRIM("DFT - " + @[User::Name]))</DTS:PropertyExpression>
               <DTS:ObjectData>
                 <pipeline
+                  autoAdjustBufferSize="true"
                   version="1">
                   <components>
                     <component
@@ -5750,7 +5755,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - DELETE FROM - Framework"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="23">
+              DTS:ThreadHint="12">
               <DTS:Variables>
                 <DTS:Variable
                   DTS:CreationName=""
@@ -5844,6 +5849,7 @@
                 DTS:Name="Name">LTRIM(RTRIM("DFT - " + @[User::Name]))</DTS:PropertyExpression>
               <DTS:ObjectData>
                 <pipeline
+                  autoAdjustBufferSize="true"
                   version="1">
                   <components>
                     <component
@@ -6395,7 +6401,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - DELETE FROM - FrameworkAims"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="18">
+              DTS:ThreadHint="13">
               <DTS:Variables>
                 <DTS:Variable
                   DTS:CreationName=""
@@ -6489,6 +6495,7 @@
                 DTS:Name="Name">LTRIM(RTRIM("DFT - " + @[User::Name]))</DTS:PropertyExpression>
               <DTS:ObjectData>
                 <pipeline
+                  autoAdjustBufferSize="true"
                   version="1">
                   <components>
                     <component
@@ -7040,7 +7047,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - DELETE FROM - FrameworkCmnComp"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="19">
+              DTS:ThreadHint="8">
               <DTS:Variables>
                 <DTS:Variable
                   DTS:CreationName=""
@@ -7134,6 +7141,7 @@
                 DTS:Name="Name">LTRIM(RTRIM("DFT - " + @[User::Name]))</DTS:PropertyExpression>
               <DTS:ObjectData>
                 <pipeline
+                  autoAdjustBufferSize="true"
                   version="1">
                   <components>
                     <component
@@ -7675,7 +7683,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - DELETE FROM - FrameworkMetaData"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="20">
+              DTS:ThreadHint="9">
               <DTS:Variables>
                 <DTS:Variable
                   DTS:CreationName=""
@@ -7769,6 +7777,7 @@
                 DTS:Name="Name">LTRIM(RTRIM("DFT - " + @[User::Name]))</DTS:PropertyExpression>
               <DTS:ObjectData>
                 <pipeline
+                  autoAdjustBufferSize="true"
                   defaultBufferSize="104857600"
                   engineThreads="25"
                   version="1">
@@ -8362,7 +8371,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - DELETE FROM - Funding"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="21">
+              DTS:ThreadHint="10">
               <DTS:Variables>
                 <DTS:Variable
                   DTS:CreationName=""
@@ -8456,6 +8465,7 @@
                 DTS:Name="Name">LTRIM(RTRIM("DFT - " + @[User::Name]))</DTS:PropertyExpression>
               <DTS:ObjectData>
                 <pipeline
+                  autoAdjustBufferSize="true"
                   defaultBufferSize="104857600"
                   engineThreads="25"
                   version="1">
@@ -11120,7 +11130,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - DELETE FROM - LearningDelivery"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="5">
+              DTS:ThreadHint="11">
               <DTS:Variables>
                 <DTS:Variable
                   DTS:CreationName=""
@@ -11214,6 +11224,7 @@
                 DTS:Name="Name">LTRIM(RTRIM("DFT - " + @[User::Name]))</DTS:PropertyExpression>
               <DTS:ObjectData>
                 <pipeline
+                  autoAdjustBufferSize="true"
                   version="1">
                   <components>
                     <component
@@ -11681,7 +11692,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - DELETE FROM - LearningDeliveryCategory"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="6">
+              DTS:ThreadHint="3">
               <DTS:Variables>
                 <DTS:Variable
                   DTS:CreationName=""
@@ -11775,6 +11786,7 @@
                 DTS:Name="Name">LTRIM(RTRIM("DFT - " + @[User::Name]))</DTS:PropertyExpression>
               <DTS:ObjectData>
                 <pipeline
+                  autoAdjustBufferSize="true"
                   version="1">
                   <components>
                     <component
@@ -12382,7 +12394,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - DELETE FROM - Section96"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="1">
+              DTS:ThreadHint="4">
               <DTS:Variables>
                 <DTS:Variable
                   DTS:CreationName=""
@@ -12476,6 +12488,7 @@
                 DTS:Name="Name">LTRIM(RTRIM("DFT - " + @[User::Name]))</DTS:PropertyExpression>
               <DTS:ObjectData>
                 <pipeline
+                  autoAdjustBufferSize="true"
                   version="1">
                   <components>
                     <component
@@ -13265,7 +13278,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - DELETE FROM - Standard"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="2">
+              DTS:ThreadHint="5">
               <DTS:Variables>
                 <DTS:Variable
                   DTS:CreationName=""
@@ -13359,6 +13372,7 @@
                 DTS:Name="Name">LTRIM(RTRIM("DFT - " + @[User::Name]))</DTS:PropertyExpression>
               <DTS:ObjectData>
                 <pipeline
+                  autoAdjustBufferSize="true"
                   version="1">
                   <components>
                     <component
@@ -13854,7 +13868,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - DELETE FROM - StandardAims"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="3">
+              DTS:ThreadHint="6">
               <DTS:Variables>
                 <DTS:Variable
                   DTS:CreationName=""
@@ -13948,6 +13962,7 @@
                 DTS:Name="Name">LTRIM(RTRIM("DFT - " + @[User::Name]))</DTS:PropertyExpression>
               <DTS:ObjectData>
                 <pipeline
+                  autoAdjustBufferSize="true"
                   version="1">
                   <components>
                     <component
@@ -14443,7 +14458,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - DELETE FROM - StandardCommonComponent"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="4">
+              DTS:ThreadHint="0">
               <DTS:Variables>
                 <DTS:Variable
                   DTS:CreationName=""
@@ -14537,6 +14552,7 @@
                 DTS:Name="Name">LTRIM(RTRIM("DFT - " + @[User::Name]))</DTS:PropertyExpression>
               <DTS:ObjectData>
                 <pipeline
+                  autoAdjustBufferSize="true"
                   version="1">
                   <components>
                     <component
@@ -15222,7 +15238,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - DELETE FROM - StandardFunding"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="7">
+              DTS:ThreadHint="1">
               <DTS:Variables>
                 <DTS:Variable
                   DTS:CreationName=""
@@ -15316,6 +15332,7 @@
                 DTS:Name="Name">LTRIM(RTRIM("DFT - " + @[User::Name]))</DTS:PropertyExpression>
               <DTS:ObjectData>
                 <pipeline
+                  autoAdjustBufferSize="true"
                   version="1">
                   <components>
                     <component
@@ -15941,7 +15958,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - DELETE FROM - StandardMetaData"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="8">
+              DTS:ThreadHint="2">
               <DTS:Variables>
                 <DTS:Variable
                   DTS:CreationName=""
@@ -16035,6 +16052,7 @@
                 DTS:Name="Name">LTRIM(RTRIM("DFT - " + @[User::Name]))</DTS:PropertyExpression>
               <DTS:ObjectData>
                 <pipeline
+                  autoAdjustBufferSize="true"
                   version="1">
                   <components>
                     <component
@@ -16530,7 +16548,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - DELETE FROM - StandardValidity"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="12">
+              DTS:ThreadHint="24">
               <DTS:Variables>
                 <DTS:Variable
                   DTS:CreationName=""
@@ -16624,6 +16642,7 @@
                 DTS:Name="Name">LTRIM(RTRIM("DFT - " + @[User::Name]))</DTS:PropertyExpression>
               <DTS:ObjectData>
                 <pipeline
+                  autoAdjustBufferSize="true"
                   version="1">
                   <components>
                     <component
@@ -17045,7 +17064,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - DELETE FROM - SupersedingAims"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="13">
+              DTS:ThreadHint="19">
               <DTS:Variables>
                 <DTS:Variable
                   DTS:CreationName=""
@@ -17139,6 +17158,7 @@
                 DTS:Name="Name">LTRIM(RTRIM("DFT - " + @[User::Name]))</DTS:PropertyExpression>
               <DTS:ObjectData>
                 <pipeline
+                  autoAdjustBufferSize="true"
                   version="1">
                   <components>
                     <component
@@ -17652,7 +17672,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - DELETE FROM - SupersedingFrameworks"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="14">
+              DTS:ThreadHint="20">
               <DTS:Variables>
                 <DTS:Variable
                   DTS:CreationName=""
@@ -17746,6 +17766,7 @@
                 DTS:Name="Name">LTRIM(RTRIM("DFT - " + @[User::Name]))</DTS:PropertyExpression>
               <DTS:ObjectData>
                 <pipeline
+                  autoAdjustBufferSize="true"
                   version="1">
                   <components>
                     <component
@@ -18441,7 +18462,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - DELETE FROM - TBStandardLookup"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="15">
+              DTS:ThreadHint="7">
               <DTS:Variables>
                 <DTS:Variable
                   DTS:CreationName=""
@@ -18535,6 +18556,7 @@
                 DTS:Name="Name">LTRIM(RTRIM("DFT - " + @[User::Name]))</DTS:PropertyExpression>
               <DTS:ObjectData>
                 <pipeline
+                  autoAdjustBufferSize="true"
                   version="1">
                   <components>
                     <component
@@ -18918,7 +18940,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - DELETE FROM - TBStandardLookupVersion"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="9">
+              DTS:ThreadHint="21">
               <DTS:Variables>
                 <DTS:Variable
                   DTS:CreationName=""
@@ -19012,6 +19034,7 @@
                 DTS:Name="Name">LTRIM(RTRIM("DFT - " + @[User::Name]))</DTS:PropertyExpression>
               <DTS:ObjectData>
                 <pipeline
+                  autoAdjustBufferSize="true"
                   version="1">
                   <components>
                     <component
@@ -19489,7 +19512,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - DELETE FROM - UnitQualificationRelationship"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="10">
+              DTS:ThreadHint="22">
               <DTS:Variables>
                 <DTS:Variable
                   DTS:CreationName=""
@@ -19583,6 +19606,7 @@
                 DTS:Name="Name">LTRIM(RTRIM("DFT - " + @[User::Name]))</DTS:PropertyExpression>
               <DTS:ObjectData>
                 <pipeline
+                  autoAdjustBufferSize="true"
                   defaultBufferSize="104857600"
                   engineThreads="25"
                   version="1">
@@ -20090,7 +20114,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - DELETE FROM - Validity"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="11">
+              DTS:ThreadHint="23">
               <DTS:Variables>
                 <DTS:Variable
                   DTS:CreationName=""
@@ -20184,6 +20208,7 @@
                 DTS:Name="Name">LTRIM(RTRIM("DFT - " + @[User::Name]))</DTS:PropertyExpression>
               <DTS:ObjectData>
                 <pipeline
+                  autoAdjustBufferSize="true"
                   version="1">
                   <components>
                     <component
@@ -20821,7 +20846,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - DELETE FROM - Version"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="24">
+              DTS:ThreadHint="14">
               <DTS:Variables>
                 <DTS:Variable
                   DTS:CreationName=""
