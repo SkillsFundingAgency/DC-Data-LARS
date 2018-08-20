@@ -17,7 +17,12 @@ AS
 	FROM CTE_Highest_Version
 	WHERE [Rank] = 1
 )
- SELECT CONVERT(VARCHAR(100),'Version ' + CONVERT(VARCHAR(10),[MajorNumber]) 
+,CTE_CurrentVersion (ID, [CurrentVersion])
+AS
+(
+ SELECT
+	DENSE_RANK() OVER ( ORDER BY [DataGeneratedOn] DESC) AS [ID], 
+	CONVERT(VARCHAR(100),'Version ' + CONVERT(VARCHAR(10),[MajorNumber]) 
 			+ '.' 
 			+ CONVERT(VARCHAR(10),[MinorNumber])
 			+ '.' 
@@ -26,4 +31,8 @@ AS
 			+ CONVERT(VARCHAR(30),[DataGeneratedOn],113)) AS [CurrentVersion]
  FROM CTE_Max_Version
  CROSS JOIN [Core].[LARS_DataGeneration]
+ ) 
+
+ SELECT [ID], [CurrentVersion]
+ FROM [CTE_CurrentVersion]
 
