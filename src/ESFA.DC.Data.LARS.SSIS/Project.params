@@ -16,7 +16,7 @@
       <SSIS:Property
         SSIS:Name="Sensitive">0</SSIS:Property>
       <SSIS:Property
-        SSIS:Name="Value">Provider=SQLNCLI11.1;Data Source=SQLServerHere;Initial Catalog=DbNameHere;User Id=UserAccountHere;Password=PasswordHere;Auto Translate=False;</SSIS:Property>
+        SSIS:Name="Value"></SSIS:Property>
       <SSIS:Property
         SSIS:Name="DataType">18</SSIS:Property>
     </SSIS:Properties>
@@ -37,7 +37,28 @@
       <SSIS:Property
         SSIS:Name="Sensitive">0</SSIS:Property>
       <SSIS:Property
-        SSIS:Name="Value">Provider=SQLNCLI11.1;Data Source=SQLServerHere;Initial Catalog=DbNameHere;User Id=UserAccountHere;Password=PasswordHere;Auto Translate=False;</SSIS:Property>
+        SSIS:Name="Value"></SSIS:Property>
+      <SSIS:Property
+        SSIS:Name="DataType">18</SSIS:Property>
+    </SSIS:Properties>
+  </SSIS:Parameter>
+  <SSIS:Parameter
+    SSIS:Name="AppLogConnectionString_ConnectionString">
+    <SSIS:Properties>
+      <SSIS:Property
+        SSIS:Name="ID">{25906325-e225-4504-8f1e-c0f57762d4c6}</SSIS:Property>
+      <SSIS:Property
+        SSIS:Name="CreationName"></SSIS:Property>
+      <SSIS:Property
+        SSIS:Name="Description"></SSIS:Property>
+      <SSIS:Property
+        SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+      <SSIS:Property
+        SSIS:Name="Required">1</SSIS:Property>
+      <SSIS:Property
+        SSIS:Name="Sensitive">0</SSIS:Property>
+      <SSIS:Property
+        SSIS:Name="Value"></SSIS:Property>
       <SSIS:Property
         SSIS:Name="DataType">18</SSIS:Property>
     </SSIS:Properties>

@@ -12,11 +12,27 @@
   DTS:ObjectName="Load LARS Data"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="4"
-  DTS:VersionGUID="{B817B5D6-939E-4597-B0D7-80D00975EFEB}">
+  DTS:VersionBuild="14"
+  DTS:VersionGUID="{7D803A8A-745B-4F4F-A2EB-E62CFA754D96}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[App Log Connection String]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{74F0C0E1-B294-4D4F-B5D5-E413812FD49C}"
+      DTS:ObjectName="App Log Connection String">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[$Project::AppLogConnectionString_ConnectionString]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"></DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[Source Connection Manager]"
       DTS:CreationName="OLEDB"
@@ -26,11 +42,7 @@
         DTS:Name="ConnectionString">@[$Project::SourceConnectionManager_ConnectionString]</DTS:PropertyExpression>
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="">
-          <DTS:Password
-            DTS:Name="Password"
-            Sensitive="1"></DTS:Password>
-        </DTS:ConnectionManager>
+          DTS:ConnectionString="" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -64,6 +76,15 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
+      DTS:DTSID="{A853851B-DFB5-4FFD-AA6C-0635F5CAB77E}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="RefDataName">
+      <DTS:VariableValue
+        DTS:DataType="8">Lars</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
       DTS:DTSID="{24F4BDEE-E7B4-4329-839B-F46F2CCBC9FE}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
@@ -83,10 +104,167 @@
   </DTS:Variables>
   <DTS:Executables>
     <DTS:Executable
+      DTS:refId="Package\SEQ - Process - Log Completed"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{24057e53-95b0-468f-8bd8-46b8cfe357ba}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SEQ - Process - Log Completed">
+      <DTS:Variables>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:DTSID="{00281490-009f-4835-aa1d-b80b6d78ccd3}"
+          DTS:IncludeInDebugDump="2345"
+          DTS:Namespace="User"
+          DTS:ObjectName="Action">
+          <DTS:VariableValue
+            DTS:DataType="8">Completed</DTS:VariableValue>
+        </DTS:Variable>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:DTSID="{21a2c90f-e78d-40c9-b2c3-37065234e917}"
+          DTS:IncludeInDebugDump="2345"
+          DTS:Namespace="User"
+          DTS:ObjectName="Name">
+          <DTS:VariableValue
+            DTS:DataType="8">Log Start</DTS:VariableValue>
+        </DTS:Variable>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:DTSID="{4ae9180f-1626-4f6c-9a72-01b5bb74d9ea}"
+          DTS:EvaluateAsExpression="True"
+          DTS:Expression="&quot;INSERT INTO [dbo].[Logs]([Message],[MessageTemplate],[Level],[TimeStampUTC],[Exception],[MachineName],[ProcessName],[ThreadId],[CallerName],[SourceFile],[LineNumber],[JobId],[TaskKey])&#xA;SELECT &#xA; '&quot; + @[User::RefDataName] + &quot; Ref Data Refresh &quot; + @[User::Action] + &quot;' AS [Message]&#xA;,'&quot; + @[User::RefDataName] + &quot; Ref Data Refresh &quot; + @[User::Action] + &quot;' AS [MessageTemplate]&#xA;,'Information' AS [Level]&#xA;,GETUTCDATE() AS [TimeStampUTC]&#xA;,NULL AS [Exception]&#xA;,HOST_NAME() AS [MachineName]&#xA;,'SSIS Loader' AS [ProcessName]&#xA;,NULL AS [ThreadId]&#xA;,'&quot; + @[User::RefDataName]+ &quot;' AS [CallerName]&#xA;,NULL AS [SourceFile]&#xA;,NULL AS [LineNumber]&#xA;,NULL AS [JobId]&#xA;,NULL AS [TaskKey]&quot;&#xA;"
+          DTS:IncludeInDebugDump="2345"
+          DTS:Namespace="User"
+          DTS:ObjectName="SqlCommand">
+          <DTS:VariableValue
+            DTS:DataType="8">INSERT INTO [dbo].[Logs]([Message],[MessageTemplate],[Level],[TimeStampUTC],[Exception],[MachineName],[ProcessName],[ThreadId],[CallerName],[SourceFile],[LineNumber],[JobId],[TaskKey])
+SELECT 
+ 'Lars Ref Data Refresh Completed' AS [Message]
+,'Lars Ref Data Refresh Completed' AS [MessageTemplate]
+,'Information' AS [Level]
+,GETUTCDATE() AS [TimeStampUTC]
+,NULL AS [Exception]
+,HOST_NAME() AS [MachineName]
+,'SSIS Loader' AS [ProcessName]
+,NULL AS [ThreadId]
+,'Lars' AS [CallerName]
+,NULL AS [SourceFile]
+,NULL AS [LineNumber]
+,NULL AS [JobId]
+,NULL AS [TaskKey]</DTS:VariableValue>
+        </DTS:Variable>
+      </DTS:Variables>
+      <DTS:PropertyExpression
+        DTS:Name="Name">"SEQ - Process - Log " + @[User::Action]</DTS:PropertyExpression>
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\SEQ - Process - Log Completed\SQL - Log Completed"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{5a787259-ed81-450b-bdd1-fae8f94285e0}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SQL - Log Completed"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="1">
+          <DTS:Variables />
+          <DTS:PropertyExpression
+            DTS:Name="Name">"SQL - Log " + @[User::Action]</DTS:PropertyExpression>
+          <DTS:PropertyExpression
+            DTS:Name="SqlStatementSource">@[User::SqlCommand]</DTS:PropertyExpression>
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{74F0C0E1-B294-4D4F-B5D5-E413812FD49C}"
+              SQLTask:SqlStatementSource="INSERT INTO [dbo].[Logs]([Message],[MessageTemplate],[Level],[TimeStampUTC],[Exception],[MachineName],[ProcessName],[ThreadId],[CallerName],[SourceFile],[LineNumber],[JobId],[TaskKey])&#xA;SELECT &#xA; 'Lars Ref Data Refresh Completed' AS [Message]&#xA;,'Lars Ref Data Refresh Completed' AS [MessageTemplate]&#xA;,'Information' AS [Level]&#xA;,GETUTCDATE() AS [TimeStampUTC]&#xA;,NULL AS [Exception]&#xA;,HOST_NAME() AS [MachineName]&#xA;,'SSIS Loader' AS [ProcessName]&#xA;,NULL AS [ThreadId]&#xA;,'Lars' AS [CallerName]&#xA;,NULL AS [SourceFile]&#xA;,NULL AS [LineNumber]&#xA;,NULL AS [JobId]&#xA;,NULL AS [TaskKey]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SEQ - Process - Log Started"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{e3869157-338e-4322-9268-58ea0f25e063}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SEQ - Process - Log Started">
+      <DTS:Variables>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:DTSID="{0afdb3e5-d93f-4c72-8897-a726b7eb1f9f}"
+          DTS:IncludeInDebugDump="2345"
+          DTS:Namespace="User"
+          DTS:ObjectName="Action">
+          <DTS:VariableValue
+            DTS:DataType="8">Started</DTS:VariableValue>
+        </DTS:Variable>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:DTSID="{ea0f3607-c8c9-4fe8-988d-a12182bf8890}"
+          DTS:IncludeInDebugDump="2345"
+          DTS:Namespace="User"
+          DTS:ObjectName="Name">
+          <DTS:VariableValue
+            DTS:DataType="8">Log Start</DTS:VariableValue>
+        </DTS:Variable>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:DTSID="{c71c104d-2ae0-44d7-96da-b799e22039d8}"
+          DTS:EvaluateAsExpression="True"
+          DTS:Expression="&quot;INSERT INTO [dbo].[Logs]([Message],[MessageTemplate],[Level],[TimeStampUTC],[Exception],[MachineName],[ProcessName],[ThreadId],[CallerName],[SourceFile],[LineNumber],[JobId],[TaskKey])&#xA;SELECT &#xA; '&quot; + @[User::RefDataName] + &quot; Ref Data Refresh &quot; + @[User::Action] + &quot;' AS [Message]&#xA;,'&quot; + @[User::RefDataName] + &quot; Ref Data Refresh &quot; + @[User::Action] + &quot;' AS [MessageTemplate]&#xA;,'Information' AS [Level]&#xA;,GETUTCDATE() AS [TimeStampUTC]&#xA;,NULL AS [Exception]&#xA;,HOST_NAME() AS [MachineName]&#xA;,'SSIS Loader' AS [ProcessName]&#xA;,NULL AS [ThreadId]&#xA;,'&quot; + @[User::RefDataName]+ &quot;' AS [CallerName]&#xA;,NULL AS [SourceFile]&#xA;,NULL AS [LineNumber]&#xA;,NULL AS [JobId]&#xA;,NULL AS [TaskKey]&quot;&#xA;"
+          DTS:IncludeInDebugDump="2345"
+          DTS:Namespace="User"
+          DTS:ObjectName="SqlCommand">
+          <DTS:VariableValue
+            DTS:DataType="8">INSERT INTO [dbo].[Logs]([Message],[MessageTemplate],[Level],[TimeStampUTC],[Exception],[MachineName],[ProcessName],[ThreadId],[CallerName],[SourceFile],[LineNumber],[JobId],[TaskKey])
+SELECT 
+ 'Lars Ref Data Refresh Started' AS [Message]
+,'Lars Ref Data Refresh Started' AS [MessageTemplate]
+,'Information' AS [Level]
+,GETUTCDATE() AS [TimeStampUTC]
+,NULL AS [Exception]
+,HOST_NAME() AS [MachineName]
+,'SSIS Loader' AS [ProcessName]
+,NULL AS [ThreadId]
+,'Lars' AS [CallerName]
+,NULL AS [SourceFile]
+,NULL AS [LineNumber]
+,NULL AS [JobId]
+,NULL AS [TaskKey]</DTS:VariableValue>
+        </DTS:Variable>
+      </DTS:Variables>
+      <DTS:PropertyExpression
+        DTS:Name="Name">"SEQ - Process - Log " + @[User::Action]</DTS:PropertyExpression>
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\SEQ - Process - Log Started\SQL - Log Started"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{e3931001-6bef-496b-83f8-ce23ea1b74a5}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SQL - Log Started"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:PropertyExpression
+            DTS:Name="Name">"SQL - Log " + @[User::Action]</DTS:PropertyExpression>
+          <DTS:PropertyExpression
+            DTS:Name="SqlStatementSource">@[User::SqlCommand]</DTS:PropertyExpression>
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{74F0C0E1-B294-4D4F-B5D5-E413812FD49C}"
+              SQLTask:SqlStatementSource="INSERT INTO [dbo].[Logs]([Message],[MessageTemplate],[Level],[TimeStampUTC],[Exception],[MachineName],[ProcessName],[ThreadId],[CallerName],[SourceFile],[LineNumber],[JobId],[TaskKey])&#xA;SELECT &#xA; 'Lars Ref Data Refresh Started' AS [Message]&#xA;,'Lars Ref Data Refresh Started' AS [MessageTemplate]&#xA;,'Information' AS [Level]&#xA;,GETUTCDATE() AS [TimeStampUTC]&#xA;,NULL AS [Exception]&#xA;,HOST_NAME() AS [MachineName]&#xA;,'SSIS Loader' AS [ProcessName]&#xA;,NULL AS [ThreadId]&#xA;,'Lars' AS [CallerName]&#xA;,NULL AS [SourceFile]&#xA;,NULL AS [LineNumber]&#xA;,NULL AS [JobId]&#xA;,NULL AS [TaskKey]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:Executable>
+    <DTS:Executable
       DTS:refId="Package\SEQ - Process Data"
       DTS:CreationName="STOCK:SEQUENCE"
       DTS:Description="Sequence Container"
-      DTS:Disabled="True"
       DTS:DTSID="{365b63b4-58bd-4c23-ac7a-159888ef81bc}"
       DTS:ExecutableType="STOCK:SEQUENCE"
       DTS:LocaleID="-1"
@@ -94,69 +272,13 @@
       <DTS:Variables />
       <DTS:Executables>
         <DTS:Executable
-          DTS:refId="Package\SEQ - Process Data\SEQ - Process - CareerLearningPilot"
-          DTS:CreationName="STOCK:SEQUENCE"
-          DTS:Description="Sequence Container"
-          DTS:DTSID="{4e0acc11-c4c9-4899-ab11-bccfac6f464c}"
-          DTS:ExecutableType="STOCK:SEQUENCE"
-          DTS:LocaleID="-1"
-          DTS:ObjectName="SEQ - Process - CareerLearningPilot">
-          <DTS:Variables>
-            <DTS:Variable
-              DTS:CreationName=""
-              DTS:DTSID="{973cd5fd-644c-4ccc-8234-7400405f7557}"
-              DTS:IncludeInDebugDump="2345"
-              DTS:Namespace="User"
-              DTS:ObjectName="Name">
-              <DTS:VariableValue
-                DTS:DataType="8">CareerLearningPilot</DTS:VariableValue>
-            </DTS:Variable>
-            <DTS:Variable
-              DTS:CreationName=""
-              DTS:DTSID="{355dfcf8-de76-4827-acd6-30801260b00c}"
-              DTS:EvaluateAsExpression="True"
-              DTS:Expression="&quot;EXEC [&quot; + @[User::StagingSchema] +  &quot;].[usp_Process_&quot;+ @[User::Name] +&quot;];&quot;"
-              DTS:IncludeInDebugDump="2345"
-              DTS:Namespace="User"
-              DTS:ObjectName="SqlCommand">
-              <DTS:VariableValue
-                DTS:DataType="8">EXEC [Staging].[usp_Process_CareerLearningPilot];</DTS:VariableValue>
-            </DTS:Variable>
-          </DTS:Variables>
-          <DTS:PropertyExpression
-            DTS:Name="Name">LTRIM(RTRIM( "SEQ - Process - " + @[User::Name]))</DTS:PropertyExpression>
-          <DTS:Executables>
-            <DTS:Executable
-              DTS:refId="Package\SEQ - Process Data\SEQ - Process - CareerLearningPilot\SQL - Merge - CareerLearningPilot"
-              DTS:CreationName="Microsoft.ExecuteSQLTask"
-              DTS:Description="Execute SQL Task"
-              DTS:DTSID="{734e216b-6a2e-4fab-95ed-e0bea302d047}"
-              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
-              DTS:LocaleID="-1"
-              DTS:ObjectName="SQL - Merge - CareerLearningPilot"
-              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="0">
-              <DTS:Variables />
-              <DTS:PropertyExpression
-                DTS:Name="Name">LTRIM(RTRIM("SQL - Merge - " + @[User::Name]))</DTS:PropertyExpression>
-              <DTS:PropertyExpression
-                DTS:Name="SqlStatementSource">@[User::SqlCommand]</DTS:PropertyExpression>
-              <DTS:ObjectData>
-                <SQLTask:SqlTaskData
-                  SQLTask:Connection="{86E1CE56-F3B2-4A5A-ACFF-4C6DFB8BCD0A}"
-                  SQLTask:SqlStatementSource="EXEC [Staging].[usp_Process_CareerLearningPilot];" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
-              </DTS:ObjectData>
-            </DTS:Executable>
-          </DTS:Executables>
-        </DTS:Executable>
-        <DTS:Executable
-          DTS:refId="Package\SEQ - Process Data\SEQ - Process - DataGeneration"
+          DTS:refId="Package\SEQ - Process Data\SEQ - Process - Update from Staging"
           DTS:CreationName="STOCK:SEQUENCE"
           DTS:Description="Sequence Container"
           DTS:DTSID="{6305695c-d906-482b-9bb1-fce2c12dc69b}"
           DTS:ExecutableType="STOCK:SEQUENCE"
           DTS:LocaleID="-1"
-          DTS:ObjectName="SEQ - Process - DataGeneration">
+          DTS:ObjectName="SEQ - Process - Update from Staging">
           <DTS:Variables>
             <DTS:Variable
               DTS:CreationName=""
@@ -165,367 +287,31 @@
               DTS:Namespace="User"
               DTS:ObjectName="Name">
               <DTS:VariableValue
-                DTS:DataType="8">DataGeneration</DTS:VariableValue>
+                DTS:DataType="8">Update from Staging</DTS:VariableValue>
             </DTS:Variable>
             <DTS:Variable
               DTS:CreationName=""
               DTS:DTSID="{e8cd2442-3fe2-4708-bffe-12ee33a19064}"
               DTS:EvaluateAsExpression="True"
-              DTS:Expression="&quot;EXEC [&quot; + @[User::StagingSchema] +  &quot;].[usp_Process_&quot;+ @[User::Name] +&quot;];&quot;"
+              DTS:Expression="&quot;EXEC [&quot; + @[User::StagingSchema] +  &quot;].[usp_Process];&quot;"
               DTS:IncludeInDebugDump="2345"
               DTS:Namespace="User"
               DTS:ObjectName="SqlCommand">
               <DTS:VariableValue
-                DTS:DataType="8">EXEC [Staging].[usp_Process_DataGeneration];</DTS:VariableValue>
+                DTS:DataType="8">EXEC [Staging].[usp_Process];</DTS:VariableValue>
             </DTS:Variable>
           </DTS:Variables>
           <DTS:PropertyExpression
             DTS:Name="Name">LTRIM(RTRIM( "SEQ - Process - " + @[User::Name]))</DTS:PropertyExpression>
           <DTS:Executables>
             <DTS:Executable
-              DTS:refId="Package\SEQ - Process Data\SEQ - Process - DataGeneration\SQL - Merge - DataGeneration"
+              DTS:refId="Package\SEQ - Process Data\SEQ - Process - Update from Staging\SQL - Merge - Update from Staging"
               DTS:CreationName="Microsoft.ExecuteSQLTask"
               DTS:Description="Execute SQL Task"
               DTS:DTSID="{ae038e0a-41bc-424e-b6d1-81ac2ac236c0}"
               DTS:ExecutableType="Microsoft.ExecuteSQLTask"
               DTS:LocaleID="-1"
-              DTS:ObjectName="SQL - Merge - DataGeneration"
-              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="9">
-              <DTS:Variables />
-              <DTS:PropertyExpression
-                DTS:Name="Name">LTRIM(RTRIM("SQL - Merge - " + @[User::Name]))</DTS:PropertyExpression>
-              <DTS:PropertyExpression
-                DTS:Name="SqlStatementSource">@[User::SqlCommand]</DTS:PropertyExpression>
-              <DTS:ObjectData>
-                <SQLTask:SqlTaskData
-                  SQLTask:Connection="{86E1CE56-F3B2-4A5A-ACFF-4C6DFB8BCD0A}"
-                  SQLTask:SqlStatementSource="EXEC [Staging].[usp_Process_DataGeneration];" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
-              </DTS:ObjectData>
-            </DTS:Executable>
-          </DTS:Executables>
-        </DTS:Executable>
-        <DTS:Executable
-          DTS:refId="Package\SEQ - Process Data\SEQ - Process - Framework"
-          DTS:CreationName="STOCK:SEQUENCE"
-          DTS:Description="Sequence Container"
-          DTS:DTSID="{37d44ea2-b0cb-4443-a4fd-5ef14fb46e62}"
-          DTS:ExecutableType="STOCK:SEQUENCE"
-          DTS:LocaleID="-1"
-          DTS:ObjectName="SEQ - Process - Framework">
-          <DTS:Variables>
-            <DTS:Variable
-              DTS:CreationName=""
-              DTS:DTSID="{bf26d828-aeb2-4dda-844b-e38da19813d0}"
-              DTS:IncludeInDebugDump="2345"
-              DTS:Namespace="User"
-              DTS:ObjectName="Name">
-              <DTS:VariableValue
-                DTS:DataType="8">Framework</DTS:VariableValue>
-            </DTS:Variable>
-            <DTS:Variable
-              DTS:CreationName=""
-              DTS:DTSID="{9ec33126-c99f-4e70-a371-4f29e5785d7a}"
-              DTS:EvaluateAsExpression="True"
-              DTS:Expression="&quot;EXEC [&quot; + @[User::StagingSchema] +  &quot;].[usp_Process_&quot;+ @[User::Name] +&quot;];&quot;"
-              DTS:IncludeInDebugDump="2345"
-              DTS:Namespace="User"
-              DTS:ObjectName="SqlCommand">
-              <DTS:VariableValue
-                DTS:DataType="8">EXEC [Staging].[usp_Process_Framework];</DTS:VariableValue>
-            </DTS:Variable>
-          </DTS:Variables>
-          <DTS:PropertyExpression
-            DTS:Name="Name">LTRIM(RTRIM( "SEQ - Process - " + @[User::Name]))</DTS:PropertyExpression>
-          <DTS:Executables>
-            <DTS:Executable
-              DTS:refId="Package\SEQ - Process Data\SEQ - Process - Framework\SQL - Merge - Framework"
-              DTS:CreationName="Microsoft.ExecuteSQLTask"
-              DTS:Description="Execute SQL Task"
-              DTS:DTSID="{d55fb1ce-0064-4038-8643-94b2ea60a8f7}"
-              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
-              DTS:LocaleID="-1"
-              DTS:ObjectName="SQL - Merge - Framework"
-              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="6">
-              <DTS:Variables />
-              <DTS:PropertyExpression
-                DTS:Name="Name">LTRIM(RTRIM("SQL - Merge - " + @[User::Name]))</DTS:PropertyExpression>
-              <DTS:PropertyExpression
-                DTS:Name="SqlStatementSource">@[User::SqlCommand]</DTS:PropertyExpression>
-              <DTS:ObjectData>
-                <SQLTask:SqlTaskData
-                  SQLTask:Connection="{86E1CE56-F3B2-4A5A-ACFF-4C6DFB8BCD0A}"
-                  SQLTask:SqlStatementSource="EXEC [Staging].[usp_Process_Framework];" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
-              </DTS:ObjectData>
-            </DTS:Executable>
-          </DTS:Executables>
-        </DTS:Executable>
-        <DTS:Executable
-          DTS:refId="Package\SEQ - Process Data\SEQ - Process - FrameworkAims"
-          DTS:CreationName="STOCK:SEQUENCE"
-          DTS:Description="Sequence Container"
-          DTS:DTSID="{1ddb0228-aee1-4d88-b6cc-2b1cd86f313d}"
-          DTS:ExecutableType="STOCK:SEQUENCE"
-          DTS:LocaleID="-1"
-          DTS:ObjectName="SEQ - Process - FrameworkAims">
-          <DTS:Variables>
-            <DTS:Variable
-              DTS:CreationName=""
-              DTS:DTSID="{734171ff-663c-4cf8-91aa-09bdc22fe607}"
-              DTS:IncludeInDebugDump="2345"
-              DTS:Namespace="User"
-              DTS:ObjectName="Name">
-              <DTS:VariableValue
-                DTS:DataType="8">FrameworkAims</DTS:VariableValue>
-            </DTS:Variable>
-            <DTS:Variable
-              DTS:CreationName=""
-              DTS:DTSID="{f34fdfdf-9654-4af0-9756-035a3fcf854c}"
-              DTS:EvaluateAsExpression="True"
-              DTS:Expression="&quot;EXEC [&quot; + @[User::StagingSchema] +  &quot;].[usp_Process_&quot;+ @[User::Name] +&quot;];&quot;"
-              DTS:IncludeInDebugDump="2345"
-              DTS:Namespace="User"
-              DTS:ObjectName="SqlCommand">
-              <DTS:VariableValue
-                DTS:DataType="8">EXEC [Staging].[usp_Process_FrameworkAims];</DTS:VariableValue>
-            </DTS:Variable>
-          </DTS:Variables>
-          <DTS:PropertyExpression
-            DTS:Name="Name">LTRIM(RTRIM( "SEQ - Process - " + @[User::Name]))</DTS:PropertyExpression>
-          <DTS:Executables>
-            <DTS:Executable
-              DTS:refId="Package\SEQ - Process Data\SEQ - Process - FrameworkAims\SQL - Merge - FrameworkAims"
-              DTS:CreationName="Microsoft.ExecuteSQLTask"
-              DTS:Description="Execute SQL Task"
-              DTS:DTSID="{245fea72-8b35-4d27-a67a-bd51b5e3a7a5}"
-              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
-              DTS:LocaleID="-1"
-              DTS:ObjectName="SQL - Merge - FrameworkAims"
-              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="10">
-              <DTS:Variables />
-              <DTS:PropertyExpression
-                DTS:Name="Name">LTRIM(RTRIM("SQL - Merge - " + @[User::Name]))</DTS:PropertyExpression>
-              <DTS:PropertyExpression
-                DTS:Name="SqlStatementSource">@[User::SqlCommand]</DTS:PropertyExpression>
-              <DTS:ObjectData>
-                <SQLTask:SqlTaskData
-                  SQLTask:Connection="{86E1CE56-F3B2-4A5A-ACFF-4C6DFB8BCD0A}"
-                  SQLTask:SqlStatementSource="EXEC [Staging].[usp_Process_FrameworkAims];" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
-              </DTS:ObjectData>
-            </DTS:Executable>
-          </DTS:Executables>
-        </DTS:Executable>
-        <DTS:Executable
-          DTS:refId="Package\SEQ - Process Data\SEQ - Process - FrameworkCmnComp"
-          DTS:CreationName="STOCK:SEQUENCE"
-          DTS:Description="Sequence Container"
-          DTS:DTSID="{51233075-de4e-43a2-a2a8-f3b81287db42}"
-          DTS:ExecutableType="STOCK:SEQUENCE"
-          DTS:LocaleID="-1"
-          DTS:ObjectName="SEQ - Process - FrameworkCmnComp">
-          <DTS:Variables>
-            <DTS:Variable
-              DTS:CreationName=""
-              DTS:DTSID="{9671b26d-46e4-4ac0-b49e-59bcd0de9a5c}"
-              DTS:IncludeInDebugDump="2345"
-              DTS:Namespace="User"
-              DTS:ObjectName="Name">
-              <DTS:VariableValue
-                DTS:DataType="8">FrameworkCmnComp</DTS:VariableValue>
-            </DTS:Variable>
-            <DTS:Variable
-              DTS:CreationName=""
-              DTS:DTSID="{c7329b91-5fbf-4e6f-8b61-e3fd284fbcdc}"
-              DTS:EvaluateAsExpression="True"
-              DTS:Expression="&quot;EXEC [&quot; + @[User::StagingSchema] +  &quot;].[usp_Process_&quot;+ @[User::Name] +&quot;];&quot;"
-              DTS:IncludeInDebugDump="2345"
-              DTS:Namespace="User"
-              DTS:ObjectName="SqlCommand">
-              <DTS:VariableValue
-                DTS:DataType="8">EXEC [Staging].[usp_Process_FrameworkCmnComp];</DTS:VariableValue>
-            </DTS:Variable>
-          </DTS:Variables>
-          <DTS:PropertyExpression
-            DTS:Name="Name">LTRIM(RTRIM( "SEQ - Process - " + @[User::Name]))</DTS:PropertyExpression>
-          <DTS:Executables>
-            <DTS:Executable
-              DTS:refId="Package\SEQ - Process Data\SEQ - Process - FrameworkCmnComp\SQL - Merge - FrameworkCmnComp"
-              DTS:CreationName="Microsoft.ExecuteSQLTask"
-              DTS:Description="Execute SQL Task"
-              DTS:DTSID="{695b38e3-1885-4618-9e58-d121a95b4eb8}"
-              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
-              DTS:LocaleID="-1"
-              DTS:ObjectName="SQL - Merge - FrameworkCmnComp"
-              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="8">
-              <DTS:Variables />
-              <DTS:PropertyExpression
-                DTS:Name="Name">LTRIM(RTRIM("SQL - Merge - " + @[User::Name]))</DTS:PropertyExpression>
-              <DTS:PropertyExpression
-                DTS:Name="SqlStatementSource">@[User::SqlCommand]</DTS:PropertyExpression>
-              <DTS:ObjectData>
-                <SQLTask:SqlTaskData
-                  SQLTask:Connection="{86E1CE56-F3B2-4A5A-ACFF-4C6DFB8BCD0A}"
-                  SQLTask:SqlStatementSource="EXEC [Staging].[usp_Process_FrameworkCmnComp];" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
-              </DTS:ObjectData>
-            </DTS:Executable>
-          </DTS:Executables>
-        </DTS:Executable>
-        <DTS:Executable
-          DTS:refId="Package\SEQ - Process Data\SEQ - Process - FrameworkMetaData"
-          DTS:CreationName="STOCK:SEQUENCE"
-          DTS:Description="Sequence Container"
-          DTS:DTSID="{a2b42381-2b75-4d17-aae9-883490e27e67}"
-          DTS:ExecutableType="STOCK:SEQUENCE"
-          DTS:LocaleID="-1"
-          DTS:ObjectName="SEQ - Process - FrameworkMetaData">
-          <DTS:Variables>
-            <DTS:Variable
-              DTS:CreationName=""
-              DTS:DTSID="{3b068946-ed85-4128-a223-4cf6efc1feb3}"
-              DTS:IncludeInDebugDump="2345"
-              DTS:Namespace="User"
-              DTS:ObjectName="Name">
-              <DTS:VariableValue
-                DTS:DataType="8">FrameworkMetaData</DTS:VariableValue>
-            </DTS:Variable>
-            <DTS:Variable
-              DTS:CreationName=""
-              DTS:DTSID="{ff164898-29f5-4d1b-821d-f4f54f00c9cb}"
-              DTS:EvaluateAsExpression="True"
-              DTS:Expression="&quot;EXEC [&quot; + @[User::StagingSchema] +  &quot;].[usp_Process_&quot;+ @[User::Name] +&quot;];&quot;"
-              DTS:IncludeInDebugDump="2345"
-              DTS:Namespace="User"
-              DTS:ObjectName="SqlCommand">
-              <DTS:VariableValue
-                DTS:DataType="8">EXEC [Staging].[usp_Process_FrameworkMetaData];</DTS:VariableValue>
-            </DTS:Variable>
-          </DTS:Variables>
-          <DTS:PropertyExpression
-            DTS:Name="Name">LTRIM(RTRIM( "SEQ - Process - " + @[User::Name]))</DTS:PropertyExpression>
-          <DTS:Executables>
-            <DTS:Executable
-              DTS:refId="Package\SEQ - Process Data\SEQ - Process - FrameworkMetaData\SQL - Merge - FrameworkMetaData"
-              DTS:CreationName="Microsoft.ExecuteSQLTask"
-              DTS:Description="Execute SQL Task"
-              DTS:DTSID="{aeb9babb-673f-4253-8b3e-7f29b5d49d70}"
-              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
-              DTS:LocaleID="-1"
-              DTS:ObjectName="SQL - Merge - FrameworkMetaData"
-              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="6">
-              <DTS:Variables />
-              <DTS:PropertyExpression
-                DTS:Name="Name">LTRIM(RTRIM("SQL - Merge - " + @[User::Name]))</DTS:PropertyExpression>
-              <DTS:PropertyExpression
-                DTS:Name="SqlStatementSource">@[User::SqlCommand]</DTS:PropertyExpression>
-              <DTS:ObjectData>
-                <SQLTask:SqlTaskData
-                  SQLTask:Connection="{86E1CE56-F3B2-4A5A-ACFF-4C6DFB8BCD0A}"
-                  SQLTask:SqlStatementSource="EXEC [Staging].[usp_Process_FrameworkMetaData];" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
-              </DTS:ObjectData>
-            </DTS:Executable>
-          </DTS:Executables>
-        </DTS:Executable>
-        <DTS:Executable
-          DTS:refId="Package\SEQ - Process Data\SEQ - Process - Funding"
-          DTS:CreationName="STOCK:SEQUENCE"
-          DTS:Description="Sequence Container"
-          DTS:DTSID="{07c71839-4347-489c-b4c0-305fad486df8}"
-          DTS:ExecutableType="STOCK:SEQUENCE"
-          DTS:LocaleID="-1"
-          DTS:ObjectName="SEQ - Process - Funding">
-          <DTS:Variables>
-            <DTS:Variable
-              DTS:CreationName=""
-              DTS:DTSID="{daa56398-3a77-4e3b-ba3c-ee1327470809}"
-              DTS:IncludeInDebugDump="2345"
-              DTS:Namespace="User"
-              DTS:ObjectName="Name">
-              <DTS:VariableValue
-                DTS:DataType="8">Funding</DTS:VariableValue>
-            </DTS:Variable>
-            <DTS:Variable
-              DTS:CreationName=""
-              DTS:DTSID="{0eb922ea-d0a8-4191-8096-7dfa93b4da96}"
-              DTS:EvaluateAsExpression="True"
-              DTS:Expression="&quot;EXEC [&quot; + @[User::StagingSchema] +  &quot;].[usp_Process_&quot;+ @[User::Name] +&quot;];&quot;"
-              DTS:IncludeInDebugDump="2345"
-              DTS:Namespace="User"
-              DTS:ObjectName="SqlCommand">
-              <DTS:VariableValue
-                DTS:DataType="8">EXEC [Staging].[usp_Process_Funding];</DTS:VariableValue>
-            </DTS:Variable>
-          </DTS:Variables>
-          <DTS:PropertyExpression
-            DTS:Name="Name">LTRIM(RTRIM( "SEQ - Process - " + @[User::Name]))</DTS:PropertyExpression>
-          <DTS:Executables>
-            <DTS:Executable
-              DTS:refId="Package\SEQ - Process Data\SEQ - Process - Funding\SQL - Merge - Funding"
-              DTS:CreationName="Microsoft.ExecuteSQLTask"
-              DTS:Description="Execute SQL Task"
-              DTS:DTSID="{ca7f8bba-e994-4606-ba35-fb2267f04cbd}"
-              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
-              DTS:LocaleID="-1"
-              DTS:ObjectName="SQL - Merge - Funding"
-              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="7">
-              <DTS:Variables />
-              <DTS:PropertyExpression
-                DTS:Name="Name">LTRIM(RTRIM("SQL - Merge - " + @[User::Name]))</DTS:PropertyExpression>
-              <DTS:PropertyExpression
-                DTS:Name="SqlStatementSource">@[User::SqlCommand]</DTS:PropertyExpression>
-              <DTS:ObjectData>
-                <SQLTask:SqlTaskData
-                  SQLTask:Connection="{86E1CE56-F3B2-4A5A-ACFF-4C6DFB8BCD0A}"
-                  SQLTask:SqlStatementSource="EXEC [Staging].[usp_Process_Funding];" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
-              </DTS:ObjectData>
-            </DTS:Executable>
-          </DTS:Executables>
-        </DTS:Executable>
-        <DTS:Executable
-          DTS:refId="Package\SEQ - Process Data\SEQ - Process - LearningDelivery"
-          DTS:CreationName="STOCK:SEQUENCE"
-          DTS:Description="Sequence Container"
-          DTS:DTSID="{078e920f-72f9-4fca-b17e-e5ec844e7a84}"
-          DTS:ExecutableType="STOCK:SEQUENCE"
-          DTS:LocaleID="-1"
-          DTS:ObjectName="SEQ - Process - LearningDelivery">
-          <DTS:Variables>
-            <DTS:Variable
-              DTS:CreationName=""
-              DTS:DTSID="{15e5e4e7-1fc6-443d-b04e-7c133cf8e751}"
-              DTS:IncludeInDebugDump="2345"
-              DTS:Namespace="User"
-              DTS:ObjectName="Name">
-              <DTS:VariableValue
-                DTS:DataType="8">LearningDelivery</DTS:VariableValue>
-            </DTS:Variable>
-            <DTS:Variable
-              DTS:CreationName=""
-              DTS:DTSID="{dd95e0a8-003d-49eb-835c-4dbaae62039e}"
-              DTS:EvaluateAsExpression="True"
-              DTS:Expression="&quot;EXEC [&quot; + @[User::StagingSchema] +  &quot;].[usp_Process_&quot;+ @[User::Name] +&quot;];&quot;"
-              DTS:IncludeInDebugDump="2345"
-              DTS:Namespace="User"
-              DTS:ObjectName="SqlCommand">
-              <DTS:VariableValue
-                DTS:DataType="8">EXEC [Staging].[usp_Process_LearningDelivery];</DTS:VariableValue>
-            </DTS:Variable>
-          </DTS:Variables>
-          <DTS:PropertyExpression
-            DTS:Name="Name">LTRIM(RTRIM( "SEQ - Process - " + @[User::Name]))</DTS:PropertyExpression>
-          <DTS:Executables>
-            <DTS:Executable
-              DTS:refId="Package\SEQ - Process Data\SEQ - Process - LearningDelivery\SQL - Merge - LearningDelivery"
-              DTS:CreationName="Microsoft.ExecuteSQLTask"
-              DTS:Description="Execute SQL Task"
-              DTS:DTSID="{2e5d40e4-f9b1-43b9-b88d-39bb723cab59}"
-              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
-              DTS:LocaleID="-1"
-              DTS:ObjectName="SQL - Merge - LearningDelivery"
+              DTS:ObjectName="SQL - Merge - Update from Staging"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
               DTS:ThreadHint="0">
               <DTS:Variables />
@@ -536,856 +322,12 @@
               <DTS:ObjectData>
                 <SQLTask:SqlTaskData
                   SQLTask:Connection="{86E1CE56-F3B2-4A5A-ACFF-4C6DFB8BCD0A}"
-                  SQLTask:SqlStatementSource="EXEC [Staging].[usp_Process_LearningDelivery];" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
-              </DTS:ObjectData>
-            </DTS:Executable>
-          </DTS:Executables>
-        </DTS:Executable>
-        <DTS:Executable
-          DTS:refId="Package\SEQ - Process Data\SEQ - Process - LearningDeliveryCategory"
-          DTS:CreationName="STOCK:SEQUENCE"
-          DTS:Description="Sequence Container"
-          DTS:DTSID="{489fa6d0-1698-4398-a3af-d7457daf585b}"
-          DTS:ExecutableType="STOCK:SEQUENCE"
-          DTS:LocaleID="-1"
-          DTS:ObjectName="SEQ - Process - LearningDeliveryCategory">
-          <DTS:Variables>
-            <DTS:Variable
-              DTS:CreationName=""
-              DTS:DTSID="{96dbd650-9765-417f-928c-d35772180b15}"
-              DTS:IncludeInDebugDump="2345"
-              DTS:Namespace="User"
-              DTS:ObjectName="Name">
-              <DTS:VariableValue
-                DTS:DataType="8">LearningDeliveryCategory</DTS:VariableValue>
-            </DTS:Variable>
-            <DTS:Variable
-              DTS:CreationName=""
-              DTS:DTSID="{64af1d06-b949-4edc-bd7f-5179769a376e}"
-              DTS:EvaluateAsExpression="True"
-              DTS:Expression="&quot;EXEC [&quot; + @[User::StagingSchema] +  &quot;].[usp_Process_&quot;+ @[User::Name] +&quot;];&quot;"
-              DTS:IncludeInDebugDump="2345"
-              DTS:Namespace="User"
-              DTS:ObjectName="SqlCommand">
-              <DTS:VariableValue
-                DTS:DataType="8">EXEC [Staging].[usp_Process_LearningDeliveryCategory];</DTS:VariableValue>
-            </DTS:Variable>
-          </DTS:Variables>
-          <DTS:PropertyExpression
-            DTS:Name="Name">LTRIM(RTRIM( "SEQ - Process - " + @[User::Name]))</DTS:PropertyExpression>
-          <DTS:Executables>
-            <DTS:Executable
-              DTS:refId="Package\SEQ - Process Data\SEQ - Process - LearningDeliveryCategory\SQL - Merge - LearningDeliveryCategory"
-              DTS:CreationName="Microsoft.ExecuteSQLTask"
-              DTS:Description="Execute SQL Task"
-              DTS:DTSID="{8eae4b6d-391b-468a-a772-aac28444d7b5}"
-              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
-              DTS:LocaleID="-1"
-              DTS:ObjectName="SQL - Merge - LearningDeliveryCategory"
-              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="5">
-              <DTS:Variables />
-              <DTS:PropertyExpression
-                DTS:Name="Name">LTRIM(RTRIM("SQL - Merge - " + @[User::Name]))</DTS:PropertyExpression>
-              <DTS:PropertyExpression
-                DTS:Name="SqlStatementSource">@[User::SqlCommand]</DTS:PropertyExpression>
-              <DTS:ObjectData>
-                <SQLTask:SqlTaskData
-                  SQLTask:Connection="{86E1CE56-F3B2-4A5A-ACFF-4C6DFB8BCD0A}"
-                  SQLTask:SqlStatementSource="EXEC [Staging].[usp_Process_LearningDeliveryCategory];" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
-              </DTS:ObjectData>
-            </DTS:Executable>
-          </DTS:Executables>
-        </DTS:Executable>
-        <DTS:Executable
-          DTS:refId="Package\SEQ - Process Data\SEQ - Process - Standard"
-          DTS:CreationName="STOCK:SEQUENCE"
-          DTS:Description="Sequence Container"
-          DTS:DTSID="{df87a950-a064-4f77-8a58-8ccc84b45a35}"
-          DTS:ExecutableType="STOCK:SEQUENCE"
-          DTS:LocaleID="-1"
-          DTS:ObjectName="SEQ - Process - Standard">
-          <DTS:Variables>
-            <DTS:Variable
-              DTS:CreationName=""
-              DTS:DTSID="{38e51ed7-4ff0-44ba-98e6-ae9db46eb494}"
-              DTS:IncludeInDebugDump="2345"
-              DTS:Namespace="User"
-              DTS:ObjectName="Name">
-              <DTS:VariableValue
-                DTS:DataType="8">Standard</DTS:VariableValue>
-            </DTS:Variable>
-            <DTS:Variable
-              DTS:CreationName=""
-              DTS:DTSID="{f02153b1-4401-42bb-b4a2-52b2ab91df47}"
-              DTS:EvaluateAsExpression="True"
-              DTS:Expression="&quot;EXEC [&quot; + @[User::StagingSchema] +  &quot;].[usp_Process_&quot;+ @[User::Name] +&quot;];&quot;"
-              DTS:IncludeInDebugDump="2345"
-              DTS:Namespace="User"
-              DTS:ObjectName="SqlCommand">
-              <DTS:VariableValue
-                DTS:DataType="8">EXEC [Staging].[usp_Process_Standard];</DTS:VariableValue>
-            </DTS:Variable>
-          </DTS:Variables>
-          <DTS:PropertyExpression
-            DTS:Name="Name">LTRIM(RTRIM( "SEQ - Process - " + @[User::Name]))</DTS:PropertyExpression>
-          <DTS:Executables>
-            <DTS:Executable
-              DTS:refId="Package\SEQ - Process Data\SEQ - Process - Standard\SQL - Merge - Standard"
-              DTS:CreationName="Microsoft.ExecuteSQLTask"
-              DTS:Description="Execute SQL Task"
-              DTS:DTSID="{7e8157f0-c0e6-4427-9967-07edd1678306}"
-              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
-              DTS:LocaleID="-1"
-              DTS:ObjectName="SQL - Merge - Standard"
-              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="1">
-              <DTS:Variables />
-              <DTS:PropertyExpression
-                DTS:Name="Name">LTRIM(RTRIM("SQL - Merge - " + @[User::Name]))</DTS:PropertyExpression>
-              <DTS:PropertyExpression
-                DTS:Name="SqlStatementSource">@[User::SqlCommand]</DTS:PropertyExpression>
-              <DTS:ObjectData>
-                <SQLTask:SqlTaskData
-                  SQLTask:Connection="{86E1CE56-F3B2-4A5A-ACFF-4C6DFB8BCD0A}"
-                  SQLTask:SqlStatementSource="EXEC [Staging].[usp_Process_Standard];" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
-              </DTS:ObjectData>
-            </DTS:Executable>
-          </DTS:Executables>
-        </DTS:Executable>
-        <DTS:Executable
-          DTS:refId="Package\SEQ - Process Data\SEQ - Process - StandardAims"
-          DTS:CreationName="STOCK:SEQUENCE"
-          DTS:Description="Sequence Container"
-          DTS:DTSID="{a9563e19-fbaa-48de-8741-9303fd155c88}"
-          DTS:ExecutableType="STOCK:SEQUENCE"
-          DTS:LocaleID="-1"
-          DTS:ObjectName="SEQ - Process - StandardAims">
-          <DTS:Variables>
-            <DTS:Variable
-              DTS:CreationName=""
-              DTS:DTSID="{d7854f17-e866-4843-a46d-0b127278fd53}"
-              DTS:IncludeInDebugDump="2345"
-              DTS:Namespace="User"
-              DTS:ObjectName="Name">
-              <DTS:VariableValue
-                DTS:DataType="8">StandardAims</DTS:VariableValue>
-            </DTS:Variable>
-            <DTS:Variable
-              DTS:CreationName=""
-              DTS:DTSID="{cc596ffd-1d43-4adf-8ce9-03ca33c52999}"
-              DTS:EvaluateAsExpression="True"
-              DTS:Expression="&quot;EXEC [&quot; + @[User::StagingSchema] +  &quot;].[usp_Process_&quot;+ @[User::Name] +&quot;];&quot;"
-              DTS:IncludeInDebugDump="2345"
-              DTS:Namespace="User"
-              DTS:ObjectName="SqlCommand">
-              <DTS:VariableValue
-                DTS:DataType="8">EXEC [Staging].[usp_Process_StandardAims];</DTS:VariableValue>
-            </DTS:Variable>
-          </DTS:Variables>
-          <DTS:PropertyExpression
-            DTS:Name="Name">LTRIM(RTRIM( "SEQ - Process - " + @[User::Name]))</DTS:PropertyExpression>
-          <DTS:Executables>
-            <DTS:Executable
-              DTS:refId="Package\SEQ - Process Data\SEQ - Process - StandardAims\SQL - Merge - StandardAims"
-              DTS:CreationName="Microsoft.ExecuteSQLTask"
-              DTS:Description="Execute SQL Task"
-              DTS:DTSID="{3ea49085-bf3f-4da3-8242-48105007fcc7}"
-              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
-              DTS:LocaleID="-1"
-              DTS:ObjectName="SQL - Merge - StandardAims"
-              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="2">
-              <DTS:Variables />
-              <DTS:PropertyExpression
-                DTS:Name="Name">LTRIM(RTRIM("SQL - Merge - " + @[User::Name]))</DTS:PropertyExpression>
-              <DTS:PropertyExpression
-                DTS:Name="SqlStatementSource">@[User::SqlCommand]</DTS:PropertyExpression>
-              <DTS:ObjectData>
-                <SQLTask:SqlTaskData
-                  SQLTask:Connection="{86E1CE56-F3B2-4A5A-ACFF-4C6DFB8BCD0A}"
-                  SQLTask:SqlStatementSource="EXEC [Staging].[usp_Process_StandardAims];" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
-              </DTS:ObjectData>
-            </DTS:Executable>
-          </DTS:Executables>
-        </DTS:Executable>
-        <DTS:Executable
-          DTS:refId="Package\SEQ - Process Data\SEQ - Process - StandardCommonComponent"
-          DTS:CreationName="STOCK:SEQUENCE"
-          DTS:Description="Sequence Container"
-          DTS:DTSID="{918c3bb9-3936-4ef9-94f5-84089df721ba}"
-          DTS:ExecutableType="STOCK:SEQUENCE"
-          DTS:LocaleID="-1"
-          DTS:ObjectName="SEQ - Process - StandardCommonComponent">
-          <DTS:Variables>
-            <DTS:Variable
-              DTS:CreationName=""
-              DTS:DTSID="{23c0743a-d377-460d-91a1-3033b003c388}"
-              DTS:IncludeInDebugDump="2345"
-              DTS:Namespace="User"
-              DTS:ObjectName="Name">
-              <DTS:VariableValue
-                DTS:DataType="8">StandardCommonComponent</DTS:VariableValue>
-            </DTS:Variable>
-            <DTS:Variable
-              DTS:CreationName=""
-              DTS:DTSID="{2b6410e9-9162-4465-b4f1-e27949bdf4ae}"
-              DTS:EvaluateAsExpression="True"
-              DTS:Expression="&quot;EXEC [&quot; + @[User::StagingSchema] +  &quot;].[usp_Process_&quot;+ @[User::Name] +&quot;];&quot;"
-              DTS:IncludeInDebugDump="2345"
-              DTS:Namespace="User"
-              DTS:ObjectName="SqlCommand">
-              <DTS:VariableValue
-                DTS:DataType="8">EXEC [Staging].[usp_Process_StandardCommonComponent];</DTS:VariableValue>
-            </DTS:Variable>
-          </DTS:Variables>
-          <DTS:PropertyExpression
-            DTS:Name="Name">LTRIM(RTRIM( "SEQ - Process - " + @[User::Name]))</DTS:PropertyExpression>
-          <DTS:Executables>
-            <DTS:Executable
-              DTS:refId="Package\SEQ - Process Data\SEQ - Process - StandardCommonComponent\SQL - Merge - StandardCommonComponent"
-              DTS:CreationName="Microsoft.ExecuteSQLTask"
-              DTS:Description="Execute SQL Task"
-              DTS:DTSID="{753398e2-15d7-46b0-a3ec-81a327fba3c2}"
-              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
-              DTS:LocaleID="-1"
-              DTS:ObjectName="SQL - Merge - StandardCommonComponent"
-              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="1">
-              <DTS:Variables />
-              <DTS:PropertyExpression
-                DTS:Name="Name">LTRIM(RTRIM("SQL - Merge - " + @[User::Name]))</DTS:PropertyExpression>
-              <DTS:PropertyExpression
-                DTS:Name="SqlStatementSource">@[User::SqlCommand]</DTS:PropertyExpression>
-              <DTS:ObjectData>
-                <SQLTask:SqlTaskData
-                  SQLTask:Connection="{86E1CE56-F3B2-4A5A-ACFF-4C6DFB8BCD0A}"
-                  SQLTask:SqlStatementSource="EXEC [Staging].[usp_Process_StandardCommonComponent];" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
-              </DTS:ObjectData>
-            </DTS:Executable>
-          </DTS:Executables>
-        </DTS:Executable>
-        <DTS:Executable
-          DTS:refId="Package\SEQ - Process Data\SEQ - Process - StandardFunding"
-          DTS:CreationName="STOCK:SEQUENCE"
-          DTS:Description="Sequence Container"
-          DTS:DTSID="{05697d98-2974-4923-867c-2ea7bb8ad49b}"
-          DTS:ExecutableType="STOCK:SEQUENCE"
-          DTS:LocaleID="-1"
-          DTS:ObjectName="SEQ - Process - StandardFunding">
-          <DTS:Variables>
-            <DTS:Variable
-              DTS:CreationName=""
-              DTS:DTSID="{0ec7ca6c-7fa4-44a4-bfce-d0fba75c7fab}"
-              DTS:IncludeInDebugDump="2345"
-              DTS:Namespace="User"
-              DTS:ObjectName="Name">
-              <DTS:VariableValue
-                DTS:DataType="8">StandardFunding</DTS:VariableValue>
-            </DTS:Variable>
-            <DTS:Variable
-              DTS:CreationName=""
-              DTS:DTSID="{88468f3e-affb-46f9-8aec-2998491ba9ac}"
-              DTS:EvaluateAsExpression="True"
-              DTS:Expression="&quot;EXEC [&quot; + @[User::StagingSchema] +  &quot;].[usp_Process_&quot;+ @[User::Name] +&quot;];&quot;"
-              DTS:IncludeInDebugDump="2345"
-              DTS:Namespace="User"
-              DTS:ObjectName="SqlCommand">
-              <DTS:VariableValue
-                DTS:DataType="8">EXEC [Staging].[usp_Process_StandardFunding];</DTS:VariableValue>
-            </DTS:Variable>
-          </DTS:Variables>
-          <DTS:PropertyExpression
-            DTS:Name="Name">LTRIM(RTRIM( "SEQ - Process - " + @[User::Name]))</DTS:PropertyExpression>
-          <DTS:Executables>
-            <DTS:Executable
-              DTS:refId="Package\SEQ - Process Data\SEQ - Process - StandardFunding\SQL - Merge - StandardFunding"
-              DTS:CreationName="Microsoft.ExecuteSQLTask"
-              DTS:Description="Execute SQL Task"
-              DTS:DTSID="{ae1c577b-fbb9-41c7-bc6f-142973260d2e}"
-              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
-              DTS:LocaleID="-1"
-              DTS:ObjectName="SQL - Merge - StandardFunding"
-              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="3">
-              <DTS:Variables />
-              <DTS:PropertyExpression
-                DTS:Name="Name">LTRIM(RTRIM("SQL - Merge - " + @[User::Name]))</DTS:PropertyExpression>
-              <DTS:PropertyExpression
-                DTS:Name="SqlStatementSource">@[User::SqlCommand]</DTS:PropertyExpression>
-              <DTS:ObjectData>
-                <SQLTask:SqlTaskData
-                  SQLTask:Connection="{86E1CE56-F3B2-4A5A-ACFF-4C6DFB8BCD0A}"
-                  SQLTask:SqlStatementSource="EXEC [Staging].[usp_Process_StandardFunding];" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
-              </DTS:ObjectData>
-            </DTS:Executable>
-          </DTS:Executables>
-        </DTS:Executable>
-        <DTS:Executable
-          DTS:refId="Package\SEQ - Process Data\SEQ - Process - StandardMetaData"
-          DTS:CreationName="STOCK:SEQUENCE"
-          DTS:Description="Sequence Container"
-          DTS:DTSID="{7ca69332-f75f-4d38-856d-3df794aef420}"
-          DTS:ExecutableType="STOCK:SEQUENCE"
-          DTS:LocaleID="-1"
-          DTS:ObjectName="SEQ - Process - StandardMetaData">
-          <DTS:Variables>
-            <DTS:Variable
-              DTS:CreationName=""
-              DTS:DTSID="{b706c824-aa5a-4ae5-91f1-1ebd8f6d22a7}"
-              DTS:IncludeInDebugDump="2345"
-              DTS:Namespace="User"
-              DTS:ObjectName="Name">
-              <DTS:VariableValue
-                DTS:DataType="8">StandardMetaData</DTS:VariableValue>
-            </DTS:Variable>
-            <DTS:Variable
-              DTS:CreationName=""
-              DTS:DTSID="{cc9e92ab-424c-4656-8030-41b43ab7c0ef}"
-              DTS:EvaluateAsExpression="True"
-              DTS:Expression="&quot;EXEC [&quot; + @[User::StagingSchema] +  &quot;].[usp_Process_&quot;+ @[User::Name] +&quot;];&quot;"
-              DTS:IncludeInDebugDump="2345"
-              DTS:Namespace="User"
-              DTS:ObjectName="SqlCommand">
-              <DTS:VariableValue
-                DTS:DataType="8">EXEC [Staging].[usp_Process_StandardMetaData];</DTS:VariableValue>
-            </DTS:Variable>
-          </DTS:Variables>
-          <DTS:PropertyExpression
-            DTS:Name="Name">LTRIM(RTRIM( "SEQ - Process - " + @[User::Name]))</DTS:PropertyExpression>
-          <DTS:Executables>
-            <DTS:Executable
-              DTS:refId="Package\SEQ - Process Data\SEQ - Process - StandardMetaData\SQL - Merge - StandardMetaData"
-              DTS:CreationName="Microsoft.ExecuteSQLTask"
-              DTS:Description="Execute SQL Task"
-              DTS:DTSID="{4edd1585-cec6-4cd5-a702-20032ec9fd44}"
-              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
-              DTS:LocaleID="-1"
-              DTS:ObjectName="SQL - Merge - StandardMetaData"
-              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="4">
-              <DTS:Variables />
-              <DTS:PropertyExpression
-                DTS:Name="Name">LTRIM(RTRIM("SQL - Merge - " + @[User::Name]))</DTS:PropertyExpression>
-              <DTS:PropertyExpression
-                DTS:Name="SqlStatementSource">@[User::SqlCommand]</DTS:PropertyExpression>
-              <DTS:ObjectData>
-                <SQLTask:SqlTaskData
-                  SQLTask:Connection="{86E1CE56-F3B2-4A5A-ACFF-4C6DFB8BCD0A}"
-                  SQLTask:SqlStatementSource="EXEC [Staging].[usp_Process_StandardMetaData];" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
-              </DTS:ObjectData>
-            </DTS:Executable>
-          </DTS:Executables>
-        </DTS:Executable>
-        <DTS:Executable
-          DTS:refId="Package\SEQ - Process Data\SEQ - Process - StandardPdfLink"
-          DTS:CreationName="STOCK:SEQUENCE"
-          DTS:Description="Sequence Container"
-          DTS:Disabled="True"
-          DTS:DTSID="{aad815de-9483-4e57-9dd1-22d64ca02a25}"
-          DTS:ExecutableType="STOCK:SEQUENCE"
-          DTS:LocaleID="-1"
-          DTS:ObjectName="SEQ - Process - StandardPdfLink">
-          <DTS:Variables>
-            <DTS:Variable
-              DTS:CreationName=""
-              DTS:DTSID="{738ff406-306e-443d-b2d9-c9cc48cb888b}"
-              DTS:IncludeInDebugDump="2345"
-              DTS:Namespace="User"
-              DTS:ObjectName="Name">
-              <DTS:VariableValue
-                DTS:DataType="8">StandardPdfLink</DTS:VariableValue>
-            </DTS:Variable>
-            <DTS:Variable
-              DTS:CreationName=""
-              DTS:DTSID="{2a629387-2a8f-4684-83e1-402134ac1099}"
-              DTS:EvaluateAsExpression="True"
-              DTS:Expression="&quot;EXEC [&quot; + @[User::StagingSchema] +  &quot;].[usp_Process_&quot;+ @[User::Name] +&quot;];&quot;"
-              DTS:IncludeInDebugDump="2345"
-              DTS:Namespace="User"
-              DTS:ObjectName="SqlCommand">
-              <DTS:VariableValue
-                DTS:DataType="8">EXEC [Staging].[usp_Process_StandardPdfLink];</DTS:VariableValue>
-            </DTS:Variable>
-          </DTS:Variables>
-          <DTS:PropertyExpression
-            DTS:Name="Name">LTRIM(RTRIM( "SEQ - Process - " + @[User::Name]))</DTS:PropertyExpression>
-          <DTS:Executables>
-            <DTS:Executable
-              DTS:refId="Package\SEQ - Process Data\SEQ - Process - StandardPdfLink\SQL - Merge - StandardPdfLink"
-              DTS:CreationName="Microsoft.ExecuteSQLTask"
-              DTS:Description="Execute SQL Task"
-              DTS:DTSID="{e36cb52a-5bbe-46ba-8397-f0cc2066206b}"
-              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
-              DTS:LocaleID="-1"
-              DTS:ObjectName="SQL - Merge - StandardPdfLink"
-              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="13">
-              <DTS:Variables />
-              <DTS:PropertyExpression
-                DTS:Name="Name">LTRIM(RTRIM("SQL - Merge - " + @[User::Name]))</DTS:PropertyExpression>
-              <DTS:PropertyExpression
-                DTS:Name="SqlStatementSource">@[User::SqlCommand]</DTS:PropertyExpression>
-              <DTS:ObjectData>
-                <SQLTask:SqlTaskData
-                  SQLTask:Connection="{86E1CE56-F3B2-4A5A-ACFF-4C6DFB8BCD0A}"
-                  SQLTask:SqlStatementSource="EXEC [Staging].[usp_Process_StandardPdfLink];" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
-              </DTS:ObjectData>
-            </DTS:Executable>
-          </DTS:Executables>
-        </DTS:Executable>
-        <DTS:Executable
-          DTS:refId="Package\SEQ - Process Data\SEQ - Process - StandardValidity"
-          DTS:CreationName="STOCK:SEQUENCE"
-          DTS:Description="Sequence Container"
-          DTS:DTSID="{7272bc23-eff0-4f32-9526-58d421834bb8}"
-          DTS:ExecutableType="STOCK:SEQUENCE"
-          DTS:LocaleID="-1"
-          DTS:ObjectName="SEQ - Process - StandardValidity">
-          <DTS:Variables>
-            <DTS:Variable
-              DTS:CreationName=""
-              DTS:DTSID="{637a0c0b-6a04-417e-b99c-57866689f0f6}"
-              DTS:IncludeInDebugDump="2345"
-              DTS:Namespace="User"
-              DTS:ObjectName="Name">
-              <DTS:VariableValue
-                DTS:DataType="8">StandardValidity</DTS:VariableValue>
-            </DTS:Variable>
-            <DTS:Variable
-              DTS:CreationName=""
-              DTS:DTSID="{dae69b29-a200-46d3-8930-695b6aa2e239}"
-              DTS:EvaluateAsExpression="True"
-              DTS:Expression="&quot;EXEC [&quot; + @[User::StagingSchema] +  &quot;].[usp_Process_&quot;+ @[User::Name] +&quot;];&quot;"
-              DTS:IncludeInDebugDump="2345"
-              DTS:Namespace="User"
-              DTS:ObjectName="SqlCommand">
-              <DTS:VariableValue
-                DTS:DataType="8">EXEC [Staging].[usp_Process_StandardValidity];</DTS:VariableValue>
-            </DTS:Variable>
-          </DTS:Variables>
-          <DTS:PropertyExpression
-            DTS:Name="Name">LTRIM(RTRIM( "SEQ - Process - " + @[User::Name]))</DTS:PropertyExpression>
-          <DTS:Executables>
-            <DTS:Executable
-              DTS:refId="Package\SEQ - Process Data\SEQ - Process - StandardValidity\SQL - Merge - StandardValidity"
-              DTS:CreationName="Microsoft.ExecuteSQLTask"
-              DTS:Description="Execute SQL Task"
-              DTS:DTSID="{19ff373a-0ad1-4298-a348-b9ddb5bb0f72}"
-              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
-              DTS:LocaleID="-1"
-              DTS:ObjectName="SQL - Merge - StandardValidity"
-              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="14">
-              <DTS:Variables />
-              <DTS:PropertyExpression
-                DTS:Name="Name">LTRIM(RTRIM("SQL - Merge - " + @[User::Name]))</DTS:PropertyExpression>
-              <DTS:PropertyExpression
-                DTS:Name="SqlStatementSource">@[User::SqlCommand]</DTS:PropertyExpression>
-              <DTS:ObjectData>
-                <SQLTask:SqlTaskData
-                  SQLTask:Connection="{86E1CE56-F3B2-4A5A-ACFF-4C6DFB8BCD0A}"
-                  SQLTask:SqlStatementSource="EXEC [Staging].[usp_Process_StandardValidity];" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
-              </DTS:ObjectData>
-            </DTS:Executable>
-          </DTS:Executables>
-        </DTS:Executable>
-        <DTS:Executable
-          DTS:refId="Package\SEQ - Process Data\SEQ - Process - SupersedingAims"
-          DTS:CreationName="STOCK:SEQUENCE"
-          DTS:Description="Sequence Container"
-          DTS:DTSID="{433695c9-c865-4c86-9e42-4a76c795bd1d}"
-          DTS:ExecutableType="STOCK:SEQUENCE"
-          DTS:LocaleID="-1"
-          DTS:ObjectName="SEQ - Process - SupersedingAims">
-          <DTS:Variables>
-            <DTS:Variable
-              DTS:CreationName=""
-              DTS:DTSID="{6b053bdf-0258-4952-8dd4-4cccc580866c}"
-              DTS:IncludeInDebugDump="2345"
-              DTS:Namespace="User"
-              DTS:ObjectName="Name">
-              <DTS:VariableValue
-                DTS:DataType="8">SupersedingAims</DTS:VariableValue>
-            </DTS:Variable>
-            <DTS:Variable
-              DTS:CreationName=""
-              DTS:DTSID="{782526e3-d48d-4eab-9362-4972117b4bbf}"
-              DTS:EvaluateAsExpression="True"
-              DTS:Expression="&quot;EXEC [&quot; + @[User::StagingSchema] +  &quot;].[usp_Process_&quot;+ @[User::Name] +&quot;];&quot;"
-              DTS:IncludeInDebugDump="2345"
-              DTS:Namespace="User"
-              DTS:ObjectName="SqlCommand">
-              <DTS:VariableValue
-                DTS:DataType="8">EXEC [Staging].[usp_Process_SupersedingAims];</DTS:VariableValue>
-            </DTS:Variable>
-          </DTS:Variables>
-          <DTS:PropertyExpression
-            DTS:Name="Name">LTRIM(RTRIM( "SEQ - Process - " + @[User::Name]))</DTS:PropertyExpression>
-          <DTS:Executables>
-            <DTS:Executable
-              DTS:refId="Package\SEQ - Process Data\SEQ - Process - SupersedingAims\SQL - Merge - SupersedingAims"
-              DTS:CreationName="Microsoft.ExecuteSQLTask"
-              DTS:Description="Execute SQL Task"
-              DTS:DTSID="{52057051-cc27-49e7-99e6-bce132c490f5}"
-              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
-              DTS:LocaleID="-1"
-              DTS:ObjectName="SQL - Merge - SupersedingAims"
-              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="15">
-              <DTS:Variables />
-              <DTS:PropertyExpression
-                DTS:Name="Name">LTRIM(RTRIM("SQL - Merge - " + @[User::Name]))</DTS:PropertyExpression>
-              <DTS:PropertyExpression
-                DTS:Name="SqlStatementSource">@[User::SqlCommand]</DTS:PropertyExpression>
-              <DTS:ObjectData>
-                <SQLTask:SqlTaskData
-                  SQLTask:Connection="{86E1CE56-F3B2-4A5A-ACFF-4C6DFB8BCD0A}"
-                  SQLTask:SqlStatementSource="EXEC [Staging].[usp_Process_SupersedingAims];" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
-              </DTS:ObjectData>
-            </DTS:Executable>
-          </DTS:Executables>
-        </DTS:Executable>
-        <DTS:Executable
-          DTS:refId="Package\SEQ - Process Data\SEQ - Process - SupersedingFrameworks"
-          DTS:CreationName="STOCK:SEQUENCE"
-          DTS:Description="Sequence Container"
-          DTS:DTSID="{3271ab9c-4f43-4988-b721-9e03592499f6}"
-          DTS:ExecutableType="STOCK:SEQUENCE"
-          DTS:LocaleID="-1"
-          DTS:ObjectName="SEQ - Process - SupersedingFrameworks">
-          <DTS:Variables>
-            <DTS:Variable
-              DTS:CreationName=""
-              DTS:DTSID="{734af62f-8fce-43e7-9338-800d43c0dd9b}"
-              DTS:IncludeInDebugDump="2345"
-              DTS:Namespace="User"
-              DTS:ObjectName="Name">
-              <DTS:VariableValue
-                DTS:DataType="8">SupersedingFrameworks</DTS:VariableValue>
-            </DTS:Variable>
-            <DTS:Variable
-              DTS:CreationName=""
-              DTS:DTSID="{7dafe5e7-fd73-4af0-b7c3-49174483ffc7}"
-              DTS:EvaluateAsExpression="True"
-              DTS:Expression="&quot;EXEC [&quot; + @[User::StagingSchema] +  &quot;].[usp_Process_&quot;+ @[User::Name] +&quot;];&quot;"
-              DTS:IncludeInDebugDump="2345"
-              DTS:Namespace="User"
-              DTS:ObjectName="SqlCommand">
-              <DTS:VariableValue
-                DTS:DataType="8">EXEC [Staging].[usp_Process_SupersedingFrameworks];</DTS:VariableValue>
-            </DTS:Variable>
-          </DTS:Variables>
-          <DTS:PropertyExpression
-            DTS:Name="Name">LTRIM(RTRIM( "SEQ - Process - " + @[User::Name]))</DTS:PropertyExpression>
-          <DTS:Executables>
-            <DTS:Executable
-              DTS:refId="Package\SEQ - Process Data\SEQ - Process - SupersedingFrameworks\SQL - Merge - SupersedingFrameworks"
-              DTS:CreationName="Microsoft.ExecuteSQLTask"
-              DTS:Description="Execute SQL Task"
-              DTS:DTSID="{9410fd1f-d965-4cc9-8081-cef7a0bcd491}"
-              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
-              DTS:LocaleID="-1"
-              DTS:ObjectName="SQL - Merge - SupersedingFrameworks"
-              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="16">
-              <DTS:Variables />
-              <DTS:PropertyExpression
-                DTS:Name="Name">LTRIM(RTRIM("SQL - Merge - " + @[User::Name]))</DTS:PropertyExpression>
-              <DTS:PropertyExpression
-                DTS:Name="SqlStatementSource">@[User::SqlCommand]</DTS:PropertyExpression>
-              <DTS:ObjectData>
-                <SQLTask:SqlTaskData
-                  SQLTask:Connection="{86E1CE56-F3B2-4A5A-ACFF-4C6DFB8BCD0A}"
-                  SQLTask:SqlStatementSource="EXEC [Staging].[usp_Process_SupersedingFrameworks];" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
-              </DTS:ObjectData>
-            </DTS:Executable>
-          </DTS:Executables>
-        </DTS:Executable>
-        <DTS:Executable
-          DTS:refId="Package\SEQ - Process Data\SEQ - Process - UnitQualificationRelationship"
-          DTS:CreationName="STOCK:SEQUENCE"
-          DTS:Description="Sequence Container"
-          DTS:Disabled="True"
-          DTS:DTSID="{0df424d2-4060-48d3-bbca-430f859d8fb5}"
-          DTS:ExecutableType="STOCK:SEQUENCE"
-          DTS:LocaleID="-1"
-          DTS:ObjectName="SEQ - Process - UnitQualificationRelationship">
-          <DTS:Variables>
-            <DTS:Variable
-              DTS:CreationName=""
-              DTS:DTSID="{425b4349-39ca-4efc-a0e4-bcb4610d275a}"
-              DTS:IncludeInDebugDump="2345"
-              DTS:Namespace="User"
-              DTS:ObjectName="Name">
-              <DTS:VariableValue
-                DTS:DataType="8">UnitQualificationRelationship</DTS:VariableValue>
-            </DTS:Variable>
-            <DTS:Variable
-              DTS:CreationName=""
-              DTS:DTSID="{715518d1-c91e-49f0-ad65-0869b25a86cb}"
-              DTS:EvaluateAsExpression="True"
-              DTS:Expression="&quot;EXEC [&quot; + @[User::StagingSchema] +  &quot;].[usp_Process_&quot;+ @[User::Name] +&quot;];&quot;"
-              DTS:IncludeInDebugDump="2345"
-              DTS:Namespace="User"
-              DTS:ObjectName="SqlCommand">
-              <DTS:VariableValue
-                DTS:DataType="8">EXEC [Staging].[usp_Process_UnitQualificationRelationship];</DTS:VariableValue>
-            </DTS:Variable>
-          </DTS:Variables>
-          <DTS:PropertyExpression
-            DTS:Name="Name">LTRIM(RTRIM( "SEQ - Process - " + @[User::Name]))</DTS:PropertyExpression>
-          <DTS:Executables>
-            <DTS:Executable
-              DTS:refId="Package\SEQ - Process Data\SEQ - Process - UnitQualificationRelationship\SQL - Merge - UnitQualificationRelationship"
-              DTS:CreationName="Microsoft.ExecuteSQLTask"
-              DTS:Description="Execute SQL Task"
-              DTS:DTSID="{72142d28-14cf-4078-89b0-3dc741ae54d3}"
-              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
-              DTS:LocaleID="-1"
-              DTS:ObjectName="SQL - Merge - UnitQualificationRelationship"
-              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="17">
-              <DTS:Variables />
-              <DTS:PropertyExpression
-                DTS:Name="Name">LTRIM(RTRIM("SQL - Merge - " + @[User::Name]))</DTS:PropertyExpression>
-              <DTS:PropertyExpression
-                DTS:Name="SqlStatementSource">@[User::SqlCommand]</DTS:PropertyExpression>
-              <DTS:ObjectData>
-                <SQLTask:SqlTaskData
-                  SQLTask:Connection="{86E1CE56-F3B2-4A5A-ACFF-4C6DFB8BCD0A}"
-                  SQLTask:SqlStatementSource="EXEC [Staging].[usp_Process_UnitQualificationRelationship];" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
-              </DTS:ObjectData>
-            </DTS:Executable>
-          </DTS:Executables>
-        </DTS:Executable>
-        <DTS:Executable
-          DTS:refId="Package\SEQ - Process Data\SEQ - Process - Validity"
-          DTS:CreationName="STOCK:SEQUENCE"
-          DTS:Description="Sequence Container"
-          DTS:DTSID="{63f74a10-303d-4046-b416-859cbc1d39bc}"
-          DTS:ExecutableType="STOCK:SEQUENCE"
-          DTS:LocaleID="-1"
-          DTS:ObjectName="SEQ - Process - Validity">
-          <DTS:Variables>
-            <DTS:Variable
-              DTS:CreationName=""
-              DTS:DTSID="{dbcec2e5-6a74-4f06-be39-695db9be41de}"
-              DTS:IncludeInDebugDump="2345"
-              DTS:Namespace="User"
-              DTS:ObjectName="Name">
-              <DTS:VariableValue
-                DTS:DataType="8">Validity</DTS:VariableValue>
-            </DTS:Variable>
-            <DTS:Variable
-              DTS:CreationName=""
-              DTS:DTSID="{68340501-9f31-4f14-9707-e2dc0694dc05}"
-              DTS:EvaluateAsExpression="True"
-              DTS:Expression="&quot;EXEC [&quot; + @[User::StagingSchema] +  &quot;].[usp_Process_&quot;+ @[User::Name] +&quot;];&quot;"
-              DTS:IncludeInDebugDump="2345"
-              DTS:Namespace="User"
-              DTS:ObjectName="SqlCommand">
-              <DTS:VariableValue
-                DTS:DataType="8">EXEC [Staging].[usp_Process_Validity];</DTS:VariableValue>
-            </DTS:Variable>
-          </DTS:Variables>
-          <DTS:PropertyExpression
-            DTS:Name="Name">LTRIM(RTRIM( "SEQ - Process - " + @[User::Name]))</DTS:PropertyExpression>
-          <DTS:Executables>
-            <DTS:Executable
-              DTS:refId="Package\SEQ - Process Data\SEQ - Process - Validity\SQL - Merge - Validity"
-              DTS:CreationName="Microsoft.ExecuteSQLTask"
-              DTS:Description="Execute SQL Task"
-              DTS:DTSID="{c15fe8d5-e201-465d-87d3-734eabd4cf56}"
-              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
-              DTS:LocaleID="-1"
-              DTS:ObjectName="SQL - Merge - Validity"
-              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="11">
-              <DTS:Variables />
-              <DTS:PropertyExpression
-                DTS:Name="Name">LTRIM(RTRIM("SQL - Merge - " + @[User::Name]))</DTS:PropertyExpression>
-              <DTS:PropertyExpression
-                DTS:Name="SqlStatementSource">@[User::SqlCommand]</DTS:PropertyExpression>
-              <DTS:ObjectData>
-                <SQLTask:SqlTaskData
-                  SQLTask:Connection="{86E1CE56-F3B2-4A5A-ACFF-4C6DFB8BCD0A}"
-                  SQLTask:SqlStatementSource="EXEC [Staging].[usp_Process_Validity];" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
-              </DTS:ObjectData>
-            </DTS:Executable>
-          </DTS:Executables>
-        </DTS:Executable>
-        <DTS:Executable
-          DTS:refId="Package\SEQ - Process Data\SEQ - Process - Version"
-          DTS:CreationName="STOCK:SEQUENCE"
-          DTS:Description="Sequence Container"
-          DTS:DTSID="{52762e25-a55c-4acc-a81f-f0709ae1dec6}"
-          DTS:ExecutableType="STOCK:SEQUENCE"
-          DTS:LocaleID="-1"
-          DTS:ObjectName="SEQ - Process - Version">
-          <DTS:Variables>
-            <DTS:Variable
-              DTS:CreationName=""
-              DTS:DTSID="{d88ca2d6-a1bd-4151-9ccb-0b4965789712}"
-              DTS:IncludeInDebugDump="2345"
-              DTS:Namespace="User"
-              DTS:ObjectName="Name">
-              <DTS:VariableValue
-                DTS:DataType="8">Version</DTS:VariableValue>
-            </DTS:Variable>
-            <DTS:Variable
-              DTS:CreationName=""
-              DTS:DTSID="{33fdb855-8e3d-40eb-b5ef-4fcc805694ec}"
-              DTS:EvaluateAsExpression="True"
-              DTS:Expression="&quot;EXEC [&quot; + @[User::StagingSchema] +  &quot;].[usp_Process_&quot;+ @[User::Name] +&quot;];&quot;"
-              DTS:IncludeInDebugDump="2345"
-              DTS:Namespace="User"
-              DTS:ObjectName="SqlCommand">
-              <DTS:VariableValue
-                DTS:DataType="8">EXEC [Staging].[usp_Process_Version];</DTS:VariableValue>
-            </DTS:Variable>
-          </DTS:Variables>
-          <DTS:PropertyExpression
-            DTS:Name="Name">LTRIM(RTRIM( "SEQ - Process - " + @[User::Name]))</DTS:PropertyExpression>
-          <DTS:Executables>
-            <DTS:Executable
-              DTS:refId="Package\SEQ - Process Data\SEQ - Process - Version\SQL - Merge - Version"
-              DTS:CreationName="Microsoft.ExecuteSQLTask"
-              DTS:Description="Execute SQL Task"
-              DTS:DTSID="{8a58aced-8881-4098-91d5-8ca8fb8037a7}"
-              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
-              DTS:LocaleID="-1"
-              DTS:ObjectName="SQL - Merge - Version"
-              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="12">
-              <DTS:Variables />
-              <DTS:PropertyExpression
-                DTS:Name="Name">LTRIM(RTRIM("SQL - Merge - " + @[User::Name]))</DTS:PropertyExpression>
-              <DTS:PropertyExpression
-                DTS:Name="SqlStatementSource">@[User::SqlCommand]</DTS:PropertyExpression>
-              <DTS:ObjectData>
-                <SQLTask:SqlTaskData
-                  SQLTask:Connection="{86E1CE56-F3B2-4A5A-ACFF-4C6DFB8BCD0A}"
-                  SQLTask:SqlStatementSource="EXEC [Staging].[usp_Process_Version];" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+                  SQLTask:SqlStatementSource="EXEC [Staging].[usp_Process];" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
               </DTS:ObjectData>
             </DTS:Executable>
           </DTS:Executables>
         </DTS:Executable>
       </DTS:Executables>
-      <DTS:PrecedenceConstraints>
-        <DTS:PrecedenceConstraint
-          DTS:refId="Package\SEQ - Process Data.PrecedenceConstraints[Constraint]"
-          DTS:CreationName=""
-          DTS:DTSID="{2A306809-9FB5-497B-BDDD-7AA77B5F40AE}"
-          DTS:From="Package\SEQ - Process Data\SEQ - Process - LearningDelivery"
-          DTS:LogicalAnd="True"
-          DTS:ObjectName="Constraint"
-          DTS:To="Package\SEQ - Process Data\SEQ - Process - FrameworkAims" />
-        <DTS:PrecedenceConstraint
-          DTS:refId="Package\SEQ - Process Data.PrecedenceConstraints[Constraint 1]"
-          DTS:CreationName=""
-          DTS:DTSID="{1981840B-C3C9-49BC-A020-1B3F65BF2D36}"
-          DTS:From="Package\SEQ - Process Data\SEQ - Process - LearningDelivery"
-          DTS:LogicalAnd="True"
-          DTS:ObjectName="Constraint 1"
-          DTS:To="Package\SEQ - Process Data\SEQ - Process - Funding" />
-        <DTS:PrecedenceConstraint
-          DTS:refId="Package\SEQ - Process Data.PrecedenceConstraints[Constraint 10]"
-          DTS:CreationName=""
-          DTS:DTSID="{09C48879-F96A-49CB-86E9-60797E147562}"
-          DTS:From="Package\SEQ - Process Data\SEQ - Process - Framework"
-          DTS:LogicalAnd="True"
-          DTS:ObjectName="Constraint 10"
-          DTS:To="Package\SEQ - Process Data\SEQ - Process - FrameworkCmnComp" />
-        <DTS:PrecedenceConstraint
-          DTS:refId="Package\SEQ - Process Data.PrecedenceConstraints[Constraint 11]"
-          DTS:CreationName=""
-          DTS:DTSID="{4198B9B7-5974-41B3-97A3-A4F492531A89}"
-          DTS:From="Package\SEQ - Process Data\SEQ - Process - Framework"
-          DTS:LogicalAnd="True"
-          DTS:ObjectName="Constraint 11"
-          DTS:To="Package\SEQ - Process Data\SEQ - Process - FrameworkMetaData" />
-        <DTS:PrecedenceConstraint
-          DTS:refId="Package\SEQ - Process Data.PrecedenceConstraints[Constraint 12]"
-          DTS:CreationName=""
-          DTS:DTSID="{DF0345E2-4B8D-4189-BF16-516F333E0641}"
-          DTS:From="Package\SEQ - Process Data\SEQ - Process - Standard"
-          DTS:LogicalAnd="True"
-          DTS:ObjectName="Constraint 12"
-          DTS:To="Package\SEQ - Process Data\SEQ - Process - StandardCommonComponent" />
-        <DTS:PrecedenceConstraint
-          DTS:refId="Package\SEQ - Process Data.PrecedenceConstraints[Constraint 13]"
-          DTS:CreationName=""
-          DTS:DTSID="{FF22E9C6-989E-40F2-97C2-774C38B55C61}"
-          DTS:From="Package\SEQ - Process Data\SEQ - Process - Standard"
-          DTS:LogicalAnd="True"
-          DTS:ObjectName="Constraint 13"
-          DTS:To="Package\SEQ - Process Data\SEQ - Process - StandardMetaData" />
-        <DTS:PrecedenceConstraint
-          DTS:refId="Package\SEQ - Process Data.PrecedenceConstraints[Constraint 2]"
-          DTS:CreationName=""
-          DTS:DTSID="{FB40F21F-C9B5-46D4-BB74-8D25E79912B3}"
-          DTS:From="Package\SEQ - Process Data\SEQ - Process - LearningDelivery"
-          DTS:LogicalAnd="True"
-          DTS:ObjectName="Constraint 2"
-          DTS:To="Package\SEQ - Process Data\SEQ - Process - Validity" />
-        <DTS:PrecedenceConstraint
-          DTS:refId="Package\SEQ - Process Data.PrecedenceConstraints[Constraint 3]"
-          DTS:CreationName=""
-          DTS:DTSID="{19866174-E465-4449-A7D9-68682F347A6B}"
-          DTS:From="Package\SEQ - Process Data\SEQ - Process - LearningDelivery"
-          DTS:LogicalAnd="True"
-          DTS:ObjectName="Constraint 3"
-          DTS:To="Package\SEQ - Process Data\SEQ - Process - LearningDeliveryCategory" />
-        <DTS:PrecedenceConstraint
-          DTS:refId="Package\SEQ - Process Data.PrecedenceConstraints[Constraint 4]"
-          DTS:CreationName=""
-          DTS:DTSID="{8F3B4A5B-BF0D-484C-BCAA-6E20175F04F8}"
-          DTS:From="Package\SEQ - Process Data\SEQ - Process - LearningDelivery"
-          DTS:LogicalAnd="True"
-          DTS:ObjectName="Constraint 4"
-          DTS:To="Package\SEQ - Process Data\SEQ - Process - CareerLearningPilot" />
-        <DTS:PrecedenceConstraint
-          DTS:refId="Package\SEQ - Process Data.PrecedenceConstraints[Constraint 5]"
-          DTS:CreationName=""
-          DTS:DTSID="{EC34CAD6-AD7C-4EA1-88BD-B6682D84DB62}"
-          DTS:From="Package\SEQ - Process Data\SEQ - Process - Framework"
-          DTS:LogicalAnd="True"
-          DTS:ObjectName="Constraint 5"
-          DTS:To="Package\SEQ - Process Data\SEQ - Process - FrameworkAims" />
-        <DTS:PrecedenceConstraint
-          DTS:refId="Package\SEQ - Process Data.PrecedenceConstraints[Constraint 6]"
-          DTS:CreationName=""
-          DTS:DTSID="{B6BB2A66-1175-472D-B947-41BEE985BB22}"
-          DTS:From="Package\SEQ - Process Data\SEQ - Process - LearningDelivery"
-          DTS:LogicalAnd="True"
-          DTS:ObjectName="Constraint 6"
-          DTS:To="Package\SEQ - Process Data\SEQ - Process - StandardAims" />
-        <DTS:PrecedenceConstraint
-          DTS:refId="Package\SEQ - Process Data.PrecedenceConstraints[Constraint 7]"
-          DTS:CreationName=""
-          DTS:DTSID="{812127CB-27BD-4993-AC83-18953B846A14}"
-          DTS:From="Package\SEQ - Process Data\SEQ - Process - Standard"
-          DTS:LogicalAnd="True"
-          DTS:ObjectName="Constraint 7"
-          DTS:To="Package\SEQ - Process Data\SEQ - Process - StandardAims" />
-        <DTS:PrecedenceConstraint
-          DTS:refId="Package\SEQ - Process Data.PrecedenceConstraints[Constraint 8]"
-          DTS:CreationName=""
-          DTS:DTSID="{64CD4C20-72BE-40ED-B88A-BD2B5389CFE7}"
-          DTS:From="Package\SEQ - Process Data\SEQ - Process - Standard"
-          DTS:LogicalAnd="True"
-          DTS:ObjectName="Constraint 8"
-          DTS:To="Package\SEQ - Process Data\SEQ - Process - StandardFunding" />
-        <DTS:PrecedenceConstraint
-          DTS:refId="Package\SEQ - Process Data.PrecedenceConstraints[Constraint 9]"
-          DTS:CreationName=""
-          DTS:DTSID="{197C94EC-141F-4ED1-8F68-6BEEA479ACB1}"
-          DTS:From="Package\SEQ - Process Data\SEQ - Process - Standard"
-          DTS:LogicalAnd="True"
-          DTS:ObjectName="Constraint 9"
-          DTS:To="Package\SEQ - Process Data\SEQ - Process - StandardValidity" />
-      </DTS:PrecedenceConstraints>
     </DTS:Executable>
     <DTS:Executable
       DTS:refId="Package\SEQ - Stage Data"
@@ -2417,7 +1359,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - DELETE FROM - AnnualValue"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="15">
+              DTS:ThreadHint="5">
               <DTS:Variables>
                 <DTS:Variable
                   DTS:CreationName=""
@@ -3519,7 +2461,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - DELETE FROM - ApprenticeshipFunding"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="18">
+              DTS:ThreadHint="6">
               <DTS:Variables>
                 <DTS:Variable
                   DTS:CreationName=""
@@ -4205,7 +3147,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - DELETE FROM - CareerLearningPilot"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="16">
+              DTS:ThreadHint="7">
               <DTS:Variables>
                 <DTS:Variable
                   DTS:CreationName=""
@@ -4683,7 +3625,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - DELETE FROM - DataGeneration"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="17">
+              DTS:ThreadHint="8">
               <DTS:Variables>
                 <DTS:Variable
                   DTS:CreationName=""
@@ -5755,7 +4697,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - DELETE FROM - Framework"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="12">
+              DTS:ThreadHint="3">
               <DTS:Variables>
                 <DTS:Variable
                   DTS:CreationName=""
@@ -6401,7 +5343,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - DELETE FROM - FrameworkAims"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="13">
+              DTS:ThreadHint="4">
               <DTS:Variables>
                 <DTS:Variable
                   DTS:CreationName=""
@@ -7047,7 +5989,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - DELETE FROM - FrameworkCmnComp"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="8">
+              DTS:ThreadHint="1">
               <DTS:Variables>
                 <DTS:Variable
                   DTS:CreationName=""
@@ -7683,7 +6625,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - DELETE FROM - FrameworkMetaData"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="9">
+              DTS:ThreadHint="2">
               <DTS:Variables>
                 <DTS:Variable
                   DTS:CreationName=""
@@ -8371,7 +7313,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - DELETE FROM - Funding"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="10">
+              DTS:ThreadHint="0">
               <DTS:Variables>
                 <DTS:Variable
                   DTS:CreationName=""
@@ -11130,7 +10072,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - DELETE FROM - LearningDelivery"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="11">
+              DTS:ThreadHint="16">
               <DTS:Variables>
                 <DTS:Variable
                   DTS:CreationName=""
@@ -11692,7 +10634,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - DELETE FROM - LearningDeliveryCategory"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="3">
+              DTS:ThreadHint="11">
               <DTS:Variables>
                 <DTS:Variable
                   DTS:CreationName=""
@@ -12394,7 +11336,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - DELETE FROM - Section96"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="4">
+              DTS:ThreadHint="12">
               <DTS:Variables>
                 <DTS:Variable
                   DTS:CreationName=""
@@ -13278,7 +12220,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - DELETE FROM - Standard"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="5">
+              DTS:ThreadHint="13">
               <DTS:Variables>
                 <DTS:Variable
                   DTS:CreationName=""
@@ -13868,7 +12810,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - DELETE FROM - StandardAims"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="6">
+              DTS:ThreadHint="14">
               <DTS:Variables>
                 <DTS:Variable
                   DTS:CreationName=""
@@ -14458,7 +13400,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - DELETE FROM - StandardCommonComponent"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="0">
+              DTS:ThreadHint="15">
               <DTS:Variables>
                 <DTS:Variable
                   DTS:CreationName=""
@@ -15238,7 +14180,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - DELETE FROM - StandardFunding"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="1">
+              DTS:ThreadHint="10">
               <DTS:Variables>
                 <DTS:Variable
                   DTS:CreationName=""
@@ -15958,7 +14900,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - DELETE FROM - StandardMetaData"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="2">
+              DTS:ThreadHint="9">
               <DTS:Variables>
                 <DTS:Variable
                   DTS:CreationName=""
@@ -16548,7 +15490,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - DELETE FROM - StandardValidity"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="24">
+              DTS:ThreadHint="19">
               <DTS:Variables>
                 <DTS:Variable
                   DTS:CreationName=""
@@ -17064,7 +16006,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - DELETE FROM - SupersedingAims"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="19">
+              DTS:ThreadHint="20">
               <DTS:Variables>
                 <DTS:Variable
                   DTS:CreationName=""
@@ -17672,7 +16614,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - DELETE FROM - SupersedingFrameworks"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="20">
+              DTS:ThreadHint="21">
               <DTS:Variables>
                 <DTS:Variable
                   DTS:CreationName=""
@@ -18462,7 +17404,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - DELETE FROM - TBStandardLookup"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="7">
+              DTS:ThreadHint="22">
               <DTS:Variables>
                 <DTS:Variable
                   DTS:CreationName=""
@@ -18940,7 +17882,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - DELETE FROM - TBStandardLookupVersion"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="21">
+              DTS:ThreadHint="17">
               <DTS:Variables>
                 <DTS:Variable
                   DTS:CreationName=""
@@ -19512,7 +18454,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - DELETE FROM - UnitQualificationRelationship"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="22">
+              DTS:ThreadHint="18">
               <DTS:Variables>
                 <DTS:Variable
                   DTS:CreationName=""
@@ -20846,7 +19788,7 @@
               DTS:LocaleID="-1"
               DTS:ObjectName="SQL - DELETE FROM - Version"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-              DTS:ThreadHint="14">
+              DTS:ThreadHint="24">
               <DTS:Variables>
                 <DTS:Variable
                   DTS:CreationName=""
@@ -20894,6 +19836,22 @@
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint"
       DTS:To="Package\SEQ - Process Data" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{5FE74538-4A43-4FD6-94DF-D887E3441B6D}"
+      DTS:From="Package\SEQ - Process - Log Started"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\SEQ - Stage Data" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{99CF3D93-E6D5-4126-83B6-3F8159863360}"
+      DTS:From="Package\SEQ - Stage Data"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\SEQ - Process - Log Completed" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -20906,697 +19864,25 @@
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="256" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="128" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="285,44"
-          Id="Package\SEQ - Process Data\SEQ - Process - CareerLearningPilot\SQL - Merge - CareerLearningPilot"
+          Id="Package\SEQ - Process Data\SEQ - Process - Update from Staging\SQL - Merge - Update from Staging"
           TopLeft="5.25,3.75" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
           PanelSize="301,65"
           Size="301,108"
-          Id="Package\SEQ - Process Data\SEQ - Process - CareerLearningPilot"
-          TopLeft="1204.5,894.464285714286" />
-        <NodeLayout
-          Size="285,44"
-          Id="Package\SEQ - Process Data\SEQ - Process - DataGeneration\SQL - Merge - DataGeneration"
-          TopLeft="5.25,3.75" />
+          Id="Package\SEQ - Process Data\SEQ - Process - Update from Staging"
+          TopLeft="5.50000000000003,5.5" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="301,65"
-          Size="301,108"
-          Id="Package\SEQ - Process Data\SEQ - Process - DataGeneration"
-          TopLeft="17,9.25" />
-        <NodeLayout
-          Size="285,44"
-          Id="Package\SEQ - Process Data\SEQ - Process - Framework\SQL - Merge - Framework"
-          TopLeft="5.25,3.75" />
-        <ContainerLayout
-          HeaderHeight="43"
-          IsExpanded="True"
-          PanelSize="301,65"
-          Size="301,108"
-          Id="Package\SEQ - Process Data\SEQ - Process - Framework"
-          TopLeft="1089.5,271.464285714286" />
-        <NodeLayout
-          Size="285,44"
-          Id="Package\SEQ - Process Data\SEQ - Process - FrameworkAims\SQL - Merge - FrameworkAims"
-          TopLeft="5.25,3.75" />
-        <ContainerLayout
-          HeaderHeight="43"
-          IsExpanded="True"
-          PanelSize="301,65"
-          Size="301,108"
-          Id="Package\SEQ - Process Data\SEQ - Process - FrameworkAims"
-          TopLeft="1054.5,518.964285714286" />
-        <NodeLayout
-          Size="285,44"
-          Id="Package\SEQ - Process Data\SEQ - Process - FrameworkCmnComp\SQL - Merge - FrameworkCmnComp"
-          TopLeft="5.25,3.75" />
-        <ContainerLayout
-          HeaderHeight="43"
-          IsExpanded="True"
-          PanelSize="301,65"
-          Size="301,108"
-          Id="Package\SEQ - Process Data\SEQ - Process - FrameworkCmnComp"
-          TopLeft="842,117.464285714286" />
-        <NodeLayout
-          Size="285,44"
-          Id="Package\SEQ - Process Data\SEQ - Process - FrameworkMetaData\SQL - Merge - FrameworkMetaData"
-          TopLeft="5.25,3.75" />
-        <ContainerLayout
-          HeaderHeight="43"
-          IsExpanded="True"
-          PanelSize="301,65"
-          Size="301,108"
-          Id="Package\SEQ - Process Data\SEQ - Process - FrameworkMetaData"
-          TopLeft="1169.5,106.964285714286" />
-        <NodeLayout
-          Size="285,44"
-          Id="Package\SEQ - Process Data\SEQ - Process - Funding\SQL - Merge - Funding"
-          TopLeft="5.25,3.75" />
-        <ContainerLayout
-          HeaderHeight="43"
-          IsExpanded="True"
-          PanelSize="301,65"
-          Size="301,108"
-          Id="Package\SEQ - Process Data\SEQ - Process - Funding"
-          TopLeft="194.5,896.464285714286" />
-        <NodeLayout
-          Size="285,44"
-          Id="Package\SEQ - Process Data\SEQ - Process - LearningDelivery\SQL - Merge - LearningDelivery"
-          TopLeft="5.25,3.75" />
-        <ContainerLayout
-          HeaderHeight="43"
-          IsExpanded="True"
-          PanelSize="301,65"
-          Size="301,108"
-          Id="Package\SEQ - Process Data\SEQ - Process - LearningDelivery"
-          TopLeft="847,676.464285714286" />
-        <NodeLayout
-          Size="285,44"
-          Id="Package\SEQ - Process Data\SEQ - Process - LearningDeliveryCategory\SQL - Merge - LearningDeliveryCategory"
-          TopLeft="5.25,3.75" />
-        <ContainerLayout
-          HeaderHeight="43"
-          IsExpanded="True"
-          PanelSize="301,65"
-          Size="301,108"
-          Id="Package\SEQ - Process Data\SEQ - Process - LearningDeliveryCategory"
-          TopLeft="877,891.464285714286" />
-        <NodeLayout
-          Size="285,44"
-          Id="Package\SEQ - Process Data\SEQ - Process - Standard\SQL - Merge - Standard"
-          TopLeft="5.25,3.75" />
-        <ContainerLayout
-          HeaderHeight="43"
-          IsExpanded="True"
-          PanelSize="301,65"
-          Size="301,108"
-          Id="Package\SEQ - Process Data\SEQ - Process - Standard"
-          TopLeft="384.5,444.464285714286" />
-        <NodeLayout
-          Size="285,44"
-          Id="Package\SEQ - Process Data\SEQ - Process - StandardAims\SQL - Merge - StandardAims"
-          TopLeft="5.25,3.75" />
-        <ContainerLayout
-          HeaderHeight="43"
-          IsExpanded="True"
-          PanelSize="301,65"
-          Size="301,108"
-          Id="Package\SEQ - Process Data\SEQ - Process - StandardAims"
-          TopLeft="484.5,592.464285714286" />
-        <NodeLayout
-          Size="285,44"
-          Id="Package\SEQ - Process Data\SEQ - Process - StandardCommonComponent\SQL - Merge - StandardCommonComponent"
-          TopLeft="5.25,3.75" />
-        <ContainerLayout
-          HeaderHeight="43"
-          IsExpanded="True"
-          PanelSize="301,65"
-          Size="301,108"
-          Id="Package\SEQ - Process Data\SEQ - Process - StandardCommonComponent"
-          TopLeft="5.5,448.964285714286" />
-        <NodeLayout
-          Size="285,44"
-          Id="Package\SEQ - Process Data\SEQ - Process - StandardFunding\SQL - Merge - StandardFunding"
-          TopLeft="5.25,3.75" />
-        <ContainerLayout
-          HeaderHeight="43"
-          IsExpanded="True"
-          PanelSize="301,65"
-          Size="301,108"
-          Id="Package\SEQ - Process Data\SEQ - Process - StandardFunding"
-          TopLeft="204.5,273.964285714286" />
-        <NodeLayout
-          Size="285,44"
-          Id="Package\SEQ - Process Data\SEQ - Process - StandardMetaData\SQL - Merge - StandardMetaData"
-          TopLeft="5.25,3.75" />
-        <ContainerLayout
-          HeaderHeight="43"
-          IsExpanded="True"
-          PanelSize="316,65"
-          Size="316,108"
-          Id="Package\SEQ - Process Data\SEQ - Process - StandardMetaData"
-          TopLeft="73,612.25" />
-        <NodeLayout
-          Size="285,44"
-          Id="Package\SEQ - Process Data\SEQ - Process - StandardPdfLink\SQL - Merge - StandardPdfLink"
-          TopLeft="5.25,3.75" />
-        <ContainerLayout
-          HeaderHeight="43"
-          IsExpanded="True"
-          PanelSize="301,65"
-          Size="301,108"
-          Id="Package\SEQ - Process Data\SEQ - Process - StandardPdfLink"
-          TopLeft="886,1060.96428571429" />
-        <NodeLayout
-          Size="285,44"
-          Id="Package\SEQ - Process Data\SEQ - Process - StandardValidity\SQL - Merge - StandardValidity"
-          TopLeft="5.25,3.75" />
-        <ContainerLayout
-          HeaderHeight="43"
-          IsExpanded="True"
-          PanelSize="301,65"
-          Size="301,108"
-          Id="Package\SEQ - Process Data\SEQ - Process - StandardValidity"
-          TopLeft="604.5,275.464285714286" />
-        <NodeLayout
-          Size="285,44"
-          Id="Package\SEQ - Process Data\SEQ - Process - SupersedingAims\SQL - Merge - SupersedingAims"
-          TopLeft="5.25,3.75" />
-        <ContainerLayout
-          HeaderHeight="43"
-          IsExpanded="True"
-          PanelSize="301,65"
-          Size="301,108"
-          Id="Package\SEQ - Process Data\SEQ - Process - SupersedingAims"
-          TopLeft="202,1064.25" />
-        <NodeLayout
-          Size="285,44"
-          Id="Package\SEQ - Process Data\SEQ - Process - SupersedingFrameworks\SQL - Merge - SupersedingFrameworks"
-          TopLeft="5.25,3.75" />
-        <ContainerLayout
-          HeaderHeight="43"
-          IsExpanded="True"
-          PanelSize="301,65"
-          Size="301,108"
-          Id="Package\SEQ - Process Data\SEQ - Process - SupersedingFrameworks"
-          TopLeft="569.857142857143,1060.10714285714" />
-        <NodeLayout
-          Size="285,44"
-          Id="Package\SEQ - Process Data\SEQ - Process - UnitQualificationRelationship\SQL - Merge - UnitQualificationRelationship"
-          TopLeft="5.25,3.75" />
-        <ContainerLayout
-          HeaderHeight="43"
-          IsExpanded="True"
-          PanelSize="302,65"
-          Size="302,108"
-          Id="Package\SEQ - Process Data\SEQ - Process - UnitQualificationRelationship"
-          TopLeft="1207.42857142857,1058.96428571429" />
-        <NodeLayout
-          Size="285,44"
-          Id="Package\SEQ - Process Data\SEQ - Process - Validity\SQL - Merge - Validity"
-          TopLeft="5.25,3.75" />
-        <ContainerLayout
-          HeaderHeight="43"
-          IsExpanded="True"
-          PanelSize="301,65"
-          Size="301,108"
-          Id="Package\SEQ - Process Data\SEQ - Process - Validity"
-          TopLeft="564.5,891.464285714286" />
-        <NodeLayout
-          Size="285,44"
-          Id="Package\SEQ - Process Data\SEQ - Process - Version\SQL - Merge - Version"
-          TopLeft="5.25,3.75" />
-        <ContainerLayout
-          HeaderHeight="43"
-          IsExpanded="True"
-          PanelSize="301,65"
-          Size="301,108"
-          Id="Package\SEQ - Process Data\SEQ - Process - Version"
-          TopLeft="16,128.25" />
-        <EdgeLayout
-          Id="Package\SEQ - Process Data.PrecedenceConstraints[Constraint]"
-          TopLeft="997.5,676.464285714286">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="207.5,-49.5"
-              Start="0,0"
-              End="207.5,-42">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,-20.75" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,-20.75"
-                    Point2="0,-24.75"
-                    Point3="4,-24.75" />
-                  <mssgle:LineSegment
-                    End="203.5,-24.75" />
-                  <mssgle:CubicBezierSegment
-                    Point1="203.5,-24.75"
-                    Point2="207.5,-24.75"
-                    Point3="207.5,-28.75" />
-                  <mssgle:LineSegment
-                    End="207.5,-42" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\SEQ - Process Data.PrecedenceConstraints[Constraint 1]"
-          TopLeft="909.6,784.464285714286">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-564.6,112"
-              Start="0,0"
-              End="-564.6,104.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,28.9009854528391" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,28.9009854528391"
-                    Point2="0,32.9009854528391"
-                    Point3="-4,32.9009854528391" />
-                  <mssgle:LineSegment
-                    End="-560.6,32.9009854528391" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-560.6,32.9009854528391"
-                    Point2="-564.6,32.9009854528391"
-                    Point3="-564.6,36.9009854528391" />
-                  <mssgle:LineSegment
-                    End="-564.6,104.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\SEQ - Process Data.PrecedenceConstraints[Constraint 10]"
-          TopLeft="1240,271.464285714286">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-247.5,-46"
-              Start="0,0"
-              End="-247.5,-38.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,-19" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,-19"
-                    Point2="0,-23"
-                    Point3="-4,-23" />
-                  <mssgle:LineSegment
-                    End="-243.5,-23" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-243.5,-23"
-                    Point2="-247.5,-23"
-                    Point3="-247.5,-27" />
-                  <mssgle:LineSegment
-                    End="-247.5,-38.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\SEQ - Process Data.PrecedenceConstraints[Constraint 11]"
-          TopLeft="1288.83333333333,271.464285714286">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="31.166666666667,-56.5"
-              Start="0,0"
-              End="31.166666666667,-49">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,-18.7792465300727" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,-18.7792465300727"
-                    Point2="0,-22.7792465300727"
-                    Point3="4,-22.7792465300727" />
-                  <mssgle:LineSegment
-                    End="27.166666666667,-22.7792465300727" />
-                  <mssgle:CubicBezierSegment
-                    Point1="27.166666666667,-22.7792465300727"
-                    Point2="31.166666666667,-22.7792465300727"
-                    Point3="31.166666666667,-26.7792465300727" />
-                  <mssgle:LineSegment
-                    End="31.166666666667,-49" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\SEQ - Process Data.PrecedenceConstraints[Constraint 12]"
-          TopLeft="384.5,500.714285714286">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-78,0"
-              Start="0,0"
-              End="-70.5,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="-70.5,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\SEQ - Process Data.PrecedenceConstraints[Constraint 13]"
-          TopLeft="486.166666666667,552.464285714286">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-255.166666666667,59.7857142857138"
-              Start="0,0"
-              End="-255.166666666667,52.2857142857138">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,20.103956189217" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,20.103956189217"
-                    Point2="0,24.103956189217"
-                    Point3="-4,24.103956189217" />
-                  <mssgle:LineSegment
-                    End="-251.166666666667,24.103956189217" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-251.166666666667,24.103956189217"
-                    Point2="-255.166666666667,24.103956189217"
-                    Point3="-255.166666666667,28.103956189217" />
-                  <mssgle:LineSegment
-                    End="-255.166666666667,52.2857142857138" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\SEQ - Process Data.PrecedenceConstraints[Constraint 2]"
-          TopLeft="968.2,784.464285714286">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-253.2,107"
-              Start="0,0"
-              End="-253.2,99.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,43.7305852042696" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,43.7305852042696"
-                    Point2="0,47.7305852042696"
-                    Point3="-4,47.7305852042696" />
-                  <mssgle:LineSegment
-                    End="-249.2,47.7305852042696" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-249.2,47.7305852042696"
-                    Point2="-253.2,47.7305852042696"
-                    Point3="-253.2,51.7305852042696" />
-                  <mssgle:LineSegment
-                    End="-253.2,99.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\SEQ - Process Data.PrecedenceConstraints[Constraint 3]"
-          TopLeft="1027.15,784.464285714286">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,107"
-              Start="0,0"
-              End="0,99.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,99.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\SEQ - Process Data.PrecedenceConstraints[Constraint 4]"
-          TopLeft="1085.4,784.464285714286">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="269.6,110"
-              Start="0,0"
-              End="269.6,102.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,28.313467855467" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,28.313467855467"
-                    Point2="0,32.313467855467"
-                    Point3="4,32.313467855467" />
-                  <mssgle:LineSegment
-                    End="265.6,32.313467855467" />
-                  <mssgle:CubicBezierSegment
-                    Point1="265.6,32.313467855467"
-                    Point2="269.6,32.313467855467"
-                    Point3="269.6,36.313467855467" />
-                  <mssgle:LineSegment
-                    End="269.6,102.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\SEQ - Process Data.PrecedenceConstraints[Constraint 5]"
-          TopLeft="1240,379.464285714286">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-35,139.5"
-              Start="0,0"
-              End="-35,132">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,65.75" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,65.75"
-                    Point2="0,69.75"
-                    Point3="-4,69.75" />
-                  <mssgle:LineSegment
-                    End="-31,69.75" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-31,69.75"
-                    Point2="-35,69.75"
-                    Point3="-35,73.75" />
-                  <mssgle:LineSegment
-                    End="-35,132" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\SEQ - Process Data.PrecedenceConstraints[Constraint 6]"
-          TopLeft="847,730.464285714286">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-61.5,-84"
-              Start="0,0"
-              End="-54,-84">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="-26.75,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-26.75,0"
-                    Point2="-30.75,0"
-                    Point3="-30.75,-4" />
-                  <mssgle:LineSegment
-                    End="-30.75,-80" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-30.75,-80"
-                    Point2="-30.75,-84"
-                    Point3="-34.75,-84" />
-                  <mssgle:LineSegment
-                    End="-54,-84" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\SEQ - Process Data.PrecedenceConstraints[Constraint 7]"
-          TopLeft="535,552.464285714286">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="100,40"
-              Start="0,0"
-              End="100,32.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,16" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,16"
-                    Point2="0,20"
-                    Point3="4,20" />
-                  <mssgle:LineSegment
-                    End="96,20" />
-                  <mssgle:CubicBezierSegment
-                    Point1="96,20"
-                    Point2="100,20"
-                    Point3="100,24" />
-                  <mssgle:LineSegment
-                    End="100,32.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\SEQ - Process Data.PrecedenceConstraints[Constraint 8]"
-          TopLeft="486.166666666667,444.464285714286">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-131.166666666667,-62.5"
-              Start="0,0"
-              End="-131.166666666667,-55">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,-21.1982815598149" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,-21.1982815598149"
-                    Point2="0,-25.1982815598149"
-                    Point3="-4,-25.1982815598149" />
-                  <mssgle:LineSegment
-                    End="-127.166666666667,-25.1982815598149" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-127.166666666667,-25.1982815598149"
-                    Point2="-131.166666666667,-25.1982815598149"
-                    Point3="-131.166666666667,-29.1982815598149" />
-                  <mssgle:LineSegment
-                    End="-131.166666666667,-55" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\SEQ - Process Data.PrecedenceConstraints[Constraint 9]"
-          TopLeft="583.833333333333,444.464285714286">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="171.166666666667,-61"
-              Start="0,0"
-              End="171.166666666667,-53.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,-20.5935228023794" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,-20.5935228023794"
-                    Point2="0,-24.5935228023794"
-                    Point3="4,-24.5935228023794" />
-                  <mssgle:LineSegment
-                    End="167.166666666667,-24.5935228023794" />
-                  <mssgle:CubicBezierSegment
-                    Point1="167.166666666667,-24.5935228023794"
-                    Point2="171.166666666667,-24.5935228023794"
-                    Point3="171.166666666667,-28.5935228023794" />
-                  <mssgle:LineSegment
-                    End="171.166666666667,-53.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <ContainerLayout
-          HeaderHeight="43"
-          IsExpanded="True"
-          PanelSize="1722,1261"
-          Size="1722,1304"
+          PanelSize="312,129"
+          Size="312,172"
           Id="Package\SEQ - Process Data"
-          TopLeft="2416.76190476191,610.28571428572" />
+          TopLeft="1895.21428571429,535.42857142858" />
         <NodeLayout
           Size="224,42"
           Id="Package\SEQ - Stage Data\SEQ - Stage - AnnualValue\DFT - AnnualValue"
@@ -21631,9 +19917,9 @@
           HeaderHeight="43"
           IsExpanded="True"
           PanelSize="300,125"
-          Size="300,168"
+          Size="303,168"
           Id="Package\SEQ - Stage Data\SEQ - Stage - AnnualValue"
-          TopLeft="5.71428571428547,13" />
+          TopLeft="0.5,13" />
         <NodeLayout
           Size="224,42"
           Id="Package\SEQ - Stage Data\SEQ - Stage - ApprenticeshipFunding\DFT - ApprenticeshipFunding"
@@ -21668,9 +19954,9 @@
           HeaderHeight="43"
           IsExpanded="True"
           PanelSize="300,125"
-          Size="300,168"
+          Size="303,168"
           Id="Package\SEQ - Stage Data\SEQ - Stage - ApprenticeshipFunding"
-          TopLeft="322.857142857143,13" />
+          TopLeft="337.339285714286,13" />
         <NodeLayout
           Size="224,42"
           Id="Package\SEQ - Stage Data\SEQ - Stage - CareerLearningPilot\DFT - CareerLearningPilot"
@@ -21705,9 +19991,9 @@
           HeaderHeight="43"
           IsExpanded="True"
           PanelSize="300,125"
-          Size="300,168"
+          Size="303,168"
           Id="Package\SEQ - Stage Data\SEQ - Stage - CareerLearningPilot"
-          TopLeft="993.214285714285,10.928571428572" />
+          TopLeft="1011.01785714286,10.928571428572" />
         <NodeLayout
           Size="224,42"
           Id="Package\SEQ - Stage Data\SEQ - Stage - DataGeneration\DFT - DataGeneration"
@@ -21742,9 +20028,9 @@
           HeaderHeight="43"
           IsExpanded="True"
           PanelSize="300,125"
-          Size="300,168"
+          Size="303,168"
           Id="Package\SEQ - Stage Data\SEQ - Stage - DataGeneration"
-          TopLeft="667.238095238095,13" />
+          TopLeft="674.178571428572,13" />
         <NodeLayout
           Size="224,42"
           Id="Package\SEQ - Stage Data\SEQ - Stage - Framework\DFT - Framework"
@@ -21779,9 +20065,9 @@
           HeaderHeight="43"
           IsExpanded="True"
           PanelSize="300,125"
-          Size="300,168"
+          Size="303,168"
           Id="Package\SEQ - Stage Data\SEQ - Stage - Framework"
-          TopLeft="6.75,196.571428571429" />
+          TopLeft="1347.85714285714,9.07142857142901" />
         <NodeLayout
           Size="224,42"
           Id="Package\SEQ - Stage Data\SEQ - Stage - FrameworkAims\DFT - FrameworkAims"
@@ -21816,9 +20102,9 @@
           HeaderHeight="43"
           IsExpanded="True"
           PanelSize="300,125"
-          Size="300,168"
+          Size="303,168"
           Id="Package\SEQ - Stage Data\SEQ - Stage - FrameworkAims"
-          TopLeft="322.857142857143,196.571428571429" />
+          TopLeft="0.5,202.863095238095" />
         <NodeLayout
           Size="224,42"
           Id="Package\SEQ - Stage Data\SEQ - Stage - FrameworkCmnComp\DFT - FrameworkCmnComp"
@@ -21853,9 +20139,9 @@
           HeaderHeight="43"
           IsExpanded="True"
           PanelSize="300,125"
-          Size="300,168"
+          Size="303,168"
           Id="Package\SEQ - Stage Data\SEQ - Stage - FrameworkCmnComp"
-          TopLeft="667.238095238095,196.571428571429" />
+          TopLeft="337.339285714286,203.607142857143" />
         <NodeLayout
           Size="224,42"
           Id="Package\SEQ - Stage Data\SEQ - Stage - FrameworkMetaData\DFT - FrameworkMetaData"
@@ -21890,9 +20176,9 @@
           HeaderHeight="43"
           IsExpanded="True"
           PanelSize="300,125"
-          Size="300,168"
+          Size="303,168"
           Id="Package\SEQ - Stage Data\SEQ - Stage - FrameworkMetaData"
-          TopLeft="998,196.571428571429" />
+          TopLeft="674.178571428572,202.863095238095" />
         <NodeLayout
           Size="224,42"
           Id="Package\SEQ - Stage Data\SEQ - Stage - Funding\DFT - Funding"
@@ -21927,9 +20213,9 @@
           HeaderHeight="43"
           IsExpanded="True"
           PanelSize="300,125"
-          Size="300,168"
+          Size="303,168"
           Id="Package\SEQ - Stage Data\SEQ - Stage - Funding"
-          TopLeft="5.71428571428547,388.285714285715" />
+          TopLeft="1011.01785714286,200.928571428572" />
         <NodeLayout
           Size="224,42"
           Id="Package\SEQ - Stage Data\SEQ - Stage - LearningDelivery\DFT - LearningDelivery"
@@ -21964,9 +20250,9 @@
           HeaderHeight="43"
           IsExpanded="True"
           PanelSize="300,125"
-          Size="300,168"
+          Size="303,168"
           Id="Package\SEQ - Stage Data\SEQ - Stage - LearningDelivery"
-          TopLeft="322.857142857143,388.285714285715" />
+          TopLeft="1347.85714285714,199.285714285714" />
         <NodeLayout
           Size="224,42"
           Id="Package\SEQ - Stage Data\SEQ - Stage - LearningDeliveryCategory\DFT - LearningDeliveryCategory"
@@ -22001,9 +20287,9 @@
           HeaderHeight="43"
           IsExpanded="True"
           PanelSize="300,125"
-          Size="300,168"
+          Size="303,168"
           Id="Package\SEQ - Stage Data\SEQ - Stage - LearningDeliveryCategory"
-          TopLeft="667.238095238095,388.285714285715" />
+          TopLeft="0.5,392.72619047619" />
         <NodeLayout
           Size="224,42"
           Id="Package\SEQ - Stage Data\SEQ - Stage - Section96\DFT - Section96"
@@ -22038,9 +20324,9 @@
           HeaderHeight="43"
           IsExpanded="True"
           PanelSize="300,125"
-          Size="300,168"
+          Size="303,168"
           Id="Package\SEQ - Stage Data\SEQ - Stage - Section96"
-          TopLeft="998,388.285714285715" />
+          TopLeft="337.339285714286,394.214285714286" />
         <NodeLayout
           Size="224,42"
           Id="Package\SEQ - Stage Data\SEQ - Stage - Standard\DFT - Standard"
@@ -22075,9 +20361,9 @@
           HeaderHeight="43"
           IsExpanded="True"
           PanelSize="300,125"
-          Size="300,168"
+          Size="303,168"
           Id="Package\SEQ - Stage Data\SEQ - Stage - Standard"
-          TopLeft="5.71428571428547,574.428571428572" />
+          TopLeft="674.178571428572,392.72619047619" />
         <NodeLayout
           Size="224,42"
           Id="Package\SEQ - Stage Data\SEQ - Stage - StandardAims\DFT - StandardAims"
@@ -22112,9 +20398,9 @@
           HeaderHeight="43"
           IsExpanded="True"
           PanelSize="300,125"
-          Size="300,168"
+          Size="303,168"
           Id="Package\SEQ - Stage Data\SEQ - Stage - StandardAims"
-          TopLeft="322.857142857143,574.428571428572" />
+          TopLeft="1011.01785714286,390.928571428571" />
         <NodeLayout
           Size="224,42"
           Id="Package\SEQ - Stage Data\SEQ - Stage - StandardCommonComponent\DFT - StandardCommonComponent"
@@ -22149,9 +20435,9 @@
           HeaderHeight="43"
           IsExpanded="True"
           PanelSize="300,125"
-          Size="300,168"
+          Size="303,168"
           Id="Package\SEQ - Stage Data\SEQ - Stage - StandardCommonComponent"
-          TopLeft="667.238095238095,574.428571428572" />
+          TopLeft="1347.85714285714,389.499999999999" />
         <NodeLayout
           Size="188,42"
           Id="Package\SEQ - Stage Data\SEQ - Stage - StandardFunding\DFT - StandardFunding"
@@ -22198,9 +20484,9 @@
           HeaderHeight="43"
           IsExpanded="True"
           PanelSize="300,125"
-          Size="300,168"
+          Size="303,168"
           Id="Package\SEQ - Stage Data\SEQ - Stage - StandardFunding"
-          TopLeft="998,574.428571428572" />
+          TopLeft="0.5,582.589285714286" />
         <NodeLayout
           Size="224,42"
           Id="Package\SEQ - Stage Data\SEQ - Stage - StandardMetaData\DFT - StandardMetaData"
@@ -22235,9 +20521,9 @@
           HeaderHeight="43"
           IsExpanded="True"
           PanelSize="300,125"
-          Size="300,168"
+          Size="303,168"
           Id="Package\SEQ - Stage Data\SEQ - Stage - StandardMetaData"
-          TopLeft="5.71428571428547,754.714285714286" />
+          TopLeft="337.339285714286,584.821428571429" />
         <NodeLayout
           Size="224,42"
           Id="Package\SEQ - Stage Data\SEQ - Stage - StandardValidity\DFT - StandardValidity"
@@ -22272,9 +20558,9 @@
           HeaderHeight="43"
           IsExpanded="True"
           PanelSize="300,125"
-          Size="300,168"
+          Size="303,168"
           Id="Package\SEQ - Stage Data\SEQ - Stage - StandardValidity"
-          TopLeft="322.857142857143,754.714285714286" />
+          TopLeft="674.178571428572,582.589285714286" />
         <NodeLayout
           Size="224,42"
           Id="Package\SEQ - Stage Data\SEQ - Stage - SupersedingAims\DFT - SupersedingAims"
@@ -22309,9 +20595,9 @@
           HeaderHeight="43"
           IsExpanded="True"
           PanelSize="300,125"
-          Size="300,168"
+          Size="303,168"
           Id="Package\SEQ - Stage Data\SEQ - Stage - SupersedingAims"
-          TopLeft="667.238095238095,754.714285714286" />
+          TopLeft="1011.01785714286,580.92857142857" />
         <NodeLayout
           Size="224,42"
           Id="Package\SEQ - Stage Data\SEQ - Stage - SupersedingFrameworks\DFT - SupersedingFrameworks"
@@ -22346,9 +20632,9 @@
           HeaderHeight="43"
           IsExpanded="True"
           PanelSize="300,125"
-          Size="300,168"
+          Size="303,168"
           Id="Package\SEQ - Stage Data\SEQ - Stage - SupersedingFrameworks"
-          TopLeft="998,754.714285714286" />
+          TopLeft="1347.85714285714,579.714285714285" />
         <NodeLayout
           Size="224,42"
           Id="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup"
@@ -22383,9 +20669,9 @@
           HeaderHeight="43"
           IsExpanded="True"
           PanelSize="300,125"
-          Size="300,168"
+          Size="303,168"
           Id="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup"
-          TopLeft="5.71428571428547,1180.92857142857" />
+          TopLeft="1011.76785714286,770.92857142857" />
         <NodeLayout
           Size="224,42"
           Id="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookupVersion\DFT - TBStandardLookupVersion"
@@ -22420,9 +20706,9 @@
           HeaderHeight="43"
           IsExpanded="True"
           PanelSize="300,125"
-          Size="300,168"
+          Size="303,168"
           Id="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookupVersion"
-          TopLeft="334.714285714285,1179.92857142857" />
+          TopLeft="1347.85714285714,769.92857142857" />
         <NodeLayout
           Size="224,42"
           Id="Package\SEQ - Stage Data\SEQ - Stage - UnitQualificationRelationship\DFT - UnitQualificationRelationship"
@@ -22457,9 +20743,9 @@
           HeaderHeight="43"
           IsExpanded="True"
           PanelSize="300,125"
-          Size="300,168"
+          Size="303,168"
           Id="Package\SEQ - Stage Data\SEQ - Stage - UnitQualificationRelationship"
-          TopLeft="5.71428571428547,949.952380952381" />
+          TopLeft="0.5,772.452380952381" />
         <NodeLayout
           Size="224,42"
           Id="Package\SEQ - Stage Data\SEQ - Stage - Validity\DFT - Validity"
@@ -22494,9 +20780,9 @@
           HeaderHeight="43"
           IsExpanded="True"
           PanelSize="300,125"
-          Size="300,168"
+          Size="303,168"
           Id="Package\SEQ - Stage Data\SEQ - Stage - Validity"
-          TopLeft="332.428571428571,952.928571428572" />
+          TopLeft="339.589285714286,775.428571428572" />
         <NodeLayout
           Size="224,42"
           Id="Package\SEQ - Stage Data\SEQ - Stage - Version\DFT - Version"
@@ -22531,42 +20817,96 @@
           HeaderHeight="43"
           IsExpanded="True"
           PanelSize="300,125"
-          Size="300,168"
+          Size="303,168"
           Id="Package\SEQ - Stage Data\SEQ - Stage - Version"
-          TopLeft="667.238095238095,949.952380952381" />
+          TopLeft="675.678571428572,772.452380952381" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="1342,1632"
-          Size="1342,1675"
+          PanelSize="1668,986"
+          Size="1668,1030"
           Id="Package\SEQ - Stage Data"
-          TopLeft="949,629.238095238097" />
+          TopLeft="102.142857142857,104.904761904764" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="2291,1466.7380952381">
+          TopLeft="1770.14285714286,620.666666666672">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="125.76190476191,-204.452380952377"
+              EndConnector="125.07142857143,0"
               Start="0,0"
-              End="118.26190476191,-204.452380952377">
+              End="117.57142857143,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="58.880952380955,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="58.880952380955,0"
-                    Point2="62.880952380955,0"
-                    Point3="62.880952380955,-4" />
+                    End="117.57142857143,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="240,42"
+          Id="Package\SEQ - Process - Log Started\SQL - Log Started"
+          TopLeft="20.5,12.5" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="283,69"
+          Size="283,112"
+          Id="Package\SEQ - Process - Log Started"
+          TopLeft="1917,300.833333333333" />
+        <NodeLayout
+          Size="240,42"
+          Id="Package\SEQ - Process - Log Completed\SQL - Log Completed"
+          TopLeft="20.5,12.5" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="283,69"
+          Size="283,112"
+          Id="Package\SEQ - Process - Log Completed"
+          TopLeft="1910.33333333333,821.666666666667" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="1917,360.619047619048">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-146.857142857143,0"
+              Start="0,0"
+              End="-139.357142857143,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
                   <mssgle:LineSegment
-                    End="62.880952380955,-200.452380952377" />
-                  <mssgle:CubicBezierSegment
-                    Point1="62.880952380955,-200.452380952377"
-                    Point2="62.880952380955,-204.452380952377"
-                    Point3="66.880952380955,-204.452380952377" />
+                    End="-139.357142857143,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="1770.14285714286,876.535714285715">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="140.190476190477,0"
+              Start="0,0"
+              End="132.690476190477,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
                   <mssgle:LineSegment
-                    End="118.26190476191,-204.452380952377" />
+                    End="132.690476190477,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -22582,7 +20922,7 @@
     design-time-name="Package\SEQ - Stage Data\SEQ - Stage - AnnualValue\DFT - AnnualValue">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="135,42"
           Id="Package\SEQ - Stage Data\SEQ - Stage - AnnualValue\DFT - AnnualValue\Target Data"
@@ -22610,7 +20950,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -22636,7 +20978,7 @@
     design-time-name="Package\SEQ - Stage Data\SEQ - Stage - ApprenticeshipFunding\DFT - ApprenticeshipFunding">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="135,42"
           Id="Package\SEQ - Stage Data\SEQ - Stage - ApprenticeshipFunding\DFT - ApprenticeshipFunding\Target Data"
@@ -22664,7 +21006,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -22690,7 +21034,7 @@
     design-time-name="Package\SEQ - Stage Data\SEQ - Stage - CareerLearningPilot\DFT - CareerLearningPilot">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="136,42"
           Id="Package\SEQ - Stage Data\SEQ - Stage - CareerLearningPilot\DFT - CareerLearningPilot\Source Data"
@@ -22718,7 +21062,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -22744,7 +21090,7 @@
     design-time-name="Package\SEQ - Stage Data\SEQ - Stage - DataGeneration\DFT - DataGeneration">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="135,42"
           Id="Package\SEQ - Stage Data\SEQ - Stage - DataGeneration\DFT - DataGeneration\Target Data"
@@ -22772,7 +21118,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -22798,7 +21146,7 @@
     design-time-name="Package\SEQ - Stage Data\SEQ - Stage - Framework\DFT - Framework">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="135,42"
           Id="Package\SEQ - Stage Data\SEQ - Stage - Framework\DFT - Framework\Target Data"
@@ -22826,7 +21174,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -22852,7 +21202,7 @@
     design-time-name="Package\SEQ - Stage Data\SEQ - Stage - FrameworkAims\DFT - FrameworkAims">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="136,42"
           Id="Package\SEQ - Stage Data\SEQ - Stage - FrameworkAims\DFT - FrameworkAims\Source Data"
@@ -22880,7 +21230,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -22906,7 +21258,7 @@
     design-time-name="Package\SEQ - Stage Data\SEQ - Stage - FrameworkCmnComp\DFT - FrameworkCmnComp">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="136,42"
           Id="Package\SEQ - Stage Data\SEQ - Stage - FrameworkCmnComp\DFT - FrameworkCmnComp\Source Data"
@@ -22934,7 +21286,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -22960,7 +21314,7 @@
     design-time-name="Package\SEQ - Stage Data\SEQ - Stage - FrameworkMetaData\DFT - FrameworkMetaData">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="136,42"
           Id="Package\SEQ - Stage Data\SEQ - Stage - FrameworkMetaData\DFT - FrameworkMetaData\Source Data"
@@ -22988,7 +21342,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -23014,7 +21370,7 @@
     design-time-name="Package\SEQ - Stage Data\SEQ - Stage - Funding\DFT - Funding">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="136,42"
           Id="Package\SEQ - Stage Data\SEQ - Stage - Funding\DFT - Funding\Source Data"
@@ -23042,7 +21398,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -23068,7 +21426,7 @@
     design-time-name="Package\SEQ - Stage Data\SEQ - Stage - LearningDelivery\DFT - LearningDelivery">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="135,42"
           Id="Package\SEQ - Stage Data\SEQ - Stage - LearningDelivery\DFT - LearningDelivery\Target Data"
@@ -23096,7 +21454,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -23122,7 +21482,7 @@
     design-time-name="Package\SEQ - Stage Data\SEQ - Stage - LearningDeliveryCategory\DFT - LearningDeliveryCategory">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="135,42"
           Id="Package\SEQ - Stage Data\SEQ - Stage - LearningDeliveryCategory\DFT - LearningDeliveryCategory\Target Data"
@@ -23150,7 +21510,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -23176,7 +21538,7 @@
     design-time-name="Package\SEQ - Stage Data\SEQ - Stage - Section96\DFT - Section96">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="136,42"
           Id="Package\SEQ - Stage Data\SEQ - Stage - Section96\DFT - Section96\Source Data"
@@ -23204,7 +21566,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -23230,7 +21594,7 @@
     design-time-name="Package\SEQ - Stage Data\SEQ - Stage - Standard\DFT - Standard">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="135,42"
           Id="Package\SEQ - Stage Data\SEQ - Stage - Standard\DFT - Standard\Target Data"
@@ -23258,7 +21622,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -23284,7 +21650,7 @@
     design-time-name="Package\SEQ - Stage Data\SEQ - Stage - StandardAims\DFT - StandardAims">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="135,42"
           Id="Package\SEQ - Stage Data\SEQ - Stage - StandardAims\DFT - StandardAims\Target Data"
@@ -23312,7 +21678,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -23338,7 +21706,7 @@
     design-time-name="Package\SEQ - Stage Data\SEQ - Stage - StandardCommonComponent\DFT - StandardCommonComponent">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="135,42"
           Id="Package\SEQ - Stage Data\SEQ - Stage - StandardCommonComponent\DFT - StandardCommonComponent\Target Data"
@@ -23366,7 +21734,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -23392,7 +21762,7 @@
     design-time-name="Package\SEQ - Stage Data\SEQ - Stage - StandardFunding\DFT - StandardFunding">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="135,42"
           Id="Package\SEQ - Stage Data\SEQ - Stage - StandardFunding\DFT - StandardFunding\Target Data"
@@ -23420,7 +21790,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -23502,7 +21874,7 @@
     design-time-name="Package\SEQ - Stage Data\SEQ - Stage - StandardValidity\DFT - StandardValidity">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="135,42"
           Id="Package\SEQ - Stage Data\SEQ - Stage - StandardValidity\DFT - StandardValidity\Target Data"
@@ -23530,7 +21902,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -23556,7 +21930,7 @@
     design-time-name="Package\SEQ - Stage Data\SEQ - Stage - SupersedingAims\DFT - SupersedingAims">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="136,42"
           Id="Package\SEQ - Stage Data\SEQ - Stage - SupersedingAims\DFT - SupersedingAims\Source Data"
@@ -23584,7 +21958,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -23610,7 +21986,7 @@
     design-time-name="Package\SEQ - Stage Data\SEQ - Stage - SupersedingFrameworks\DFT - SupersedingFrameworks">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="135,42"
           Id="Package\SEQ - Stage Data\SEQ - Stage - SupersedingFrameworks\DFT - SupersedingFrameworks\Target Data"
@@ -23638,7 +22014,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -23669,7 +22047,7 @@
     design-time-name="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="135,42"
           Id="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup\Target Data"
@@ -23697,7 +22075,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -23723,7 +22103,7 @@
     design-time-name="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookupVersion\DFT - TBStandardLookupVersion">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="135,42"
           Id="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookupVersion\DFT - TBStandardLookupVersion\Target Data"
@@ -23751,7 +22131,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -23777,7 +22159,7 @@
     design-time-name="Package\SEQ - Stage Data\SEQ - Stage - UnitQualificationRelationship\DFT - UnitQualificationRelationship">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="135,42"
           Id="Package\SEQ - Stage Data\SEQ - Stage - UnitQualificationRelationship\DFT - UnitQualificationRelationship\Target Data"
@@ -23805,7 +22187,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -23831,7 +22215,7 @@
     design-time-name="Package\SEQ - Stage Data\SEQ - Stage - Validity\DFT - Validity">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="135,42"
           Id="Package\SEQ - Stage Data\SEQ - Stage - Validity\DFT - Validity\Target Data"
@@ -23859,7 +22243,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -23885,7 +22271,7 @@
     design-time-name="Package\SEQ - Stage Data\SEQ - Stage - Version\DFT - Version">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="136,42"
           Id="Package\SEQ - Stage Data\SEQ - Stage - Version\DFT - Version\Source Data"
@@ -23913,7 +22299,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
