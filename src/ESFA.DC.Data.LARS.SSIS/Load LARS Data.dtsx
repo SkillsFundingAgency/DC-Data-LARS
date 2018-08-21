@@ -1351,13 +1351,13 @@ SELECT
               </DTS:ObjectData>
             </DTS:Executable>
             <DTS:Executable
-              DTS:refId="Package\SEQ - Stage Data\SEQ - Stage - AnnualValue\SQL - DELETE FROM - AnnualValue"
+              DTS:refId="Package\SEQ - Stage Data\SEQ - Stage - AnnualValue\SQL - Clear Table - AnnualValue"
               DTS:CreationName="Microsoft.ExecuteSQLTask"
               DTS:Description="Execute SQL Task"
               DTS:DTSID="{b9e41dfa-c11e-42e0-b4ec-fdc2e87f0e35}"
               DTS:ExecutableType="Microsoft.ExecuteSQLTask"
               DTS:LocaleID="-1"
-              DTS:ObjectName="SQL - DELETE FROM - AnnualValue"
+              DTS:ObjectName="SQL - Clear Table - AnnualValue"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
               DTS:ThreadHint="5">
               <DTS:Variables>
@@ -1365,7 +1365,7 @@ SELECT
                   DTS:CreationName=""
                   DTS:DTSID="{17d95481-32f8-499b-8b59-66ddb509a2f3}"
                   DTS:EvaluateAsExpression="True"
-                  DTS:Expression="&quot;DELETE FROM &quot; + @[User::StagingObjectName] + &quot;;&quot;"
+                  DTS:Expression="&quot;TRUNCATE TABLE &quot; + @[User::StagingObjectName] + &quot;;&quot;"
                   DTS:IncludeInDebugDump="2345"
                   DTS:Namespace="User"
                   DTS:ObjectName="SqlCommand">
@@ -1374,7 +1374,7 @@ SELECT
                 </DTS:Variable>
               </DTS:Variables>
               <DTS:PropertyExpression
-                DTS:Name="Name">LTRIM(RTRIM("SQL - DELETE FROM - " + @[User::Name]))</DTS:PropertyExpression>
+                DTS:Name="Name">LTRIM(RTRIM("SQL - Clear Table - " + @[User::Name]))</DTS:PropertyExpression>
               <DTS:PropertyExpression
                 DTS:Name="SqlStatementSource">@[User::SqlCommand]</DTS:PropertyExpression>
               <DTS:ObjectData>
@@ -1389,7 +1389,7 @@ SELECT
               DTS:refId="Package\SEQ - Stage Data\SEQ - Stage - AnnualValue.PrecedenceConstraints[Constraint]"
               DTS:CreationName=""
               DTS:DTSID="{c0ed9a12-2f53-47b7-8da4-90e15cdbc12d}"
-              DTS:From="Package\SEQ - Stage Data\SEQ - Stage - AnnualValue\SQL - DELETE FROM - AnnualValue"
+              DTS:From="Package\SEQ - Stage Data\SEQ - Stage - AnnualValue\SQL - Clear Table - AnnualValue"
               DTS:LogicalAnd="True"
               DTS:ObjectName="Constraint"
               DTS:To="Package\SEQ - Stage Data\SEQ - Stage - AnnualValue\DFT - AnnualValue" />
@@ -2453,13 +2453,13 @@ SELECT
               </DTS:ObjectData>
             </DTS:Executable>
             <DTS:Executable
-              DTS:refId="Package\SEQ - Stage Data\SEQ - Stage - ApprenticeshipFunding\SQL - DELETE FROM - ApprenticeshipFunding"
+              DTS:refId="Package\SEQ - Stage Data\SEQ - Stage - ApprenticeshipFunding\SQL - Clear Table - ApprenticeshipFunding"
               DTS:CreationName="Microsoft.ExecuteSQLTask"
               DTS:Description="Execute SQL Task"
               DTS:DTSID="{402085e1-7fd6-466e-a0d7-dbd43cc89854}"
               DTS:ExecutableType="Microsoft.ExecuteSQLTask"
               DTS:LocaleID="-1"
-              DTS:ObjectName="SQL - DELETE FROM - ApprenticeshipFunding"
+              DTS:ObjectName="SQL - Clear Table - ApprenticeshipFunding"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
               DTS:ThreadHint="6">
               <DTS:Variables>
@@ -2467,7 +2467,7 @@ SELECT
                   DTS:CreationName=""
                   DTS:DTSID="{f2ca8dd2-3571-48a0-ac4c-151db603c0db}"
                   DTS:EvaluateAsExpression="True"
-                  DTS:Expression="&quot;DELETE FROM &quot; + @[User::StagingObjectName] + &quot;;&quot;"
+                  DTS:Expression="&quot;TRUNCATE TABLE &quot; + @[User::StagingObjectName] + &quot;;&quot;"
                   DTS:IncludeInDebugDump="2345"
                   DTS:Namespace="User"
                   DTS:ObjectName="SqlCommand">
@@ -2476,7 +2476,7 @@ SELECT
                 </DTS:Variable>
               </DTS:Variables>
               <DTS:PropertyExpression
-                DTS:Name="Name">LTRIM(RTRIM("SQL - DELETE FROM - " + @[User::Name]))</DTS:PropertyExpression>
+                DTS:Name="Name">LTRIM(RTRIM("SQL - Clear Table - " + @[User::Name]))</DTS:PropertyExpression>
               <DTS:PropertyExpression
                 DTS:Name="SqlStatementSource">@[User::SqlCommand]</DTS:PropertyExpression>
               <DTS:ObjectData>
@@ -2491,7 +2491,7 @@ SELECT
               DTS:refId="Package\SEQ - Stage Data\SEQ - Stage - ApprenticeshipFunding.PrecedenceConstraints[Constraint]"
               DTS:CreationName=""
               DTS:DTSID="{988f1b58-149c-4518-8e3e-521a8e37a2a6}"
-              DTS:From="Package\SEQ - Stage Data\SEQ - Stage - ApprenticeshipFunding\SQL - DELETE FROM - ApprenticeshipFunding"
+              DTS:From="Package\SEQ - Stage Data\SEQ - Stage - ApprenticeshipFunding\SQL - Clear Table - ApprenticeshipFunding"
               DTS:LogicalAnd="True"
               DTS:ObjectName="Constraint"
               DTS:To="Package\SEQ - Stage Data\SEQ - Stage - ApprenticeshipFunding\DFT - ApprenticeshipFunding" />
@@ -3139,13 +3139,13 @@ SELECT
               </DTS:ObjectData>
             </DTS:Executable>
             <DTS:Executable
-              DTS:refId="Package\SEQ - Stage Data\SEQ - Stage - CareerLearningPilot\SQL - DELETE FROM - CareerLearningPilot"
+              DTS:refId="Package\SEQ - Stage Data\SEQ - Stage - CareerLearningPilot\SQL - Clear Table - CareerLearningPilot"
               DTS:CreationName="Microsoft.ExecuteSQLTask"
               DTS:Description="Execute SQL Task"
               DTS:DTSID="{6aa0d651-a222-483d-9f75-4386f8f7d026}"
               DTS:ExecutableType="Microsoft.ExecuteSQLTask"
               DTS:LocaleID="-1"
-              DTS:ObjectName="SQL - DELETE FROM - CareerLearningPilot"
+              DTS:ObjectName="SQL - Clear Table - CareerLearningPilot"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
               DTS:ThreadHint="7">
               <DTS:Variables>
@@ -3153,7 +3153,7 @@ SELECT
                   DTS:CreationName=""
                   DTS:DTSID="{4fd12315-6a21-4c9d-ac29-a8851e7a7fd7}"
                   DTS:EvaluateAsExpression="True"
-                  DTS:Expression="&quot;DELETE FROM &quot; + @[User::StagingObjectName] + &quot;;&quot;"
+                  DTS:Expression="&quot;TRUNCATE TABLE &quot; + @[User::StagingObjectName] + &quot;;&quot;"
                   DTS:IncludeInDebugDump="2345"
                   DTS:Namespace="User"
                   DTS:ObjectName="SqlCommand">
@@ -3162,7 +3162,7 @@ SELECT
                 </DTS:Variable>
               </DTS:Variables>
               <DTS:PropertyExpression
-                DTS:Name="Name">LTRIM(RTRIM("SQL - DELETE FROM - " + @[User::Name]))</DTS:PropertyExpression>
+                DTS:Name="Name">LTRIM(RTRIM("SQL - Clear Table - " + @[User::Name]))</DTS:PropertyExpression>
               <DTS:PropertyExpression
                 DTS:Name="SqlStatementSource">@[User::SqlCommand]</DTS:PropertyExpression>
               <DTS:ObjectData>
@@ -3177,7 +3177,7 @@ SELECT
               DTS:refId="Package\SEQ - Stage Data\SEQ - Stage - CareerLearningPilot.PrecedenceConstraints[Constraint]"
               DTS:CreationName=""
               DTS:DTSID="{957d4d73-7c18-4d83-a95b-978884045c45}"
-              DTS:From="Package\SEQ - Stage Data\SEQ - Stage - CareerLearningPilot\SQL - DELETE FROM - CareerLearningPilot"
+              DTS:From="Package\SEQ - Stage Data\SEQ - Stage - CareerLearningPilot\SQL - Clear Table - CareerLearningPilot"
               DTS:LogicalAnd="True"
               DTS:ObjectName="Constraint"
               DTS:To="Package\SEQ - Stage Data\SEQ - Stage - CareerLearningPilot\DFT - CareerLearningPilot" />
@@ -3617,13 +3617,13 @@ SELECT
               </DTS:ObjectData>
             </DTS:Executable>
             <DTS:Executable
-              DTS:refId="Package\SEQ - Stage Data\SEQ - Stage - DataGeneration\SQL - DELETE FROM - DataGeneration"
+              DTS:refId="Package\SEQ - Stage Data\SEQ - Stage - DataGeneration\SQL - Clear Table - DataGeneration"
               DTS:CreationName="Microsoft.ExecuteSQLTask"
               DTS:Description="Execute SQL Task"
               DTS:DTSID="{2df175a8-3f49-4747-838e-b8a8a75dc06b}"
               DTS:ExecutableType="Microsoft.ExecuteSQLTask"
               DTS:LocaleID="-1"
-              DTS:ObjectName="SQL - DELETE FROM - DataGeneration"
+              DTS:ObjectName="SQL - Clear Table - DataGeneration"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
               DTS:ThreadHint="8">
               <DTS:Variables>
@@ -3631,7 +3631,7 @@ SELECT
                   DTS:CreationName=""
                   DTS:DTSID="{9ad0eb11-b99e-4a0f-b69a-a4a344b0fc2f}"
                   DTS:EvaluateAsExpression="True"
-                  DTS:Expression="&quot;DELETE FROM &quot; + @[User::StagingObjectName] + &quot;;&quot;"
+                  DTS:Expression="&quot;TRUNCATE TABLE &quot; + @[User::StagingObjectName] + &quot;;&quot;"
                   DTS:IncludeInDebugDump="2345"
                   DTS:Namespace="User"
                   DTS:ObjectName="SqlCommand">
@@ -3640,7 +3640,7 @@ SELECT
                 </DTS:Variable>
               </DTS:Variables>
               <DTS:PropertyExpression
-                DTS:Name="Name">LTRIM(RTRIM("SQL - DELETE FROM - " + @[User::Name]))</DTS:PropertyExpression>
+                DTS:Name="Name">LTRIM(RTRIM("SQL - Clear Table - " + @[User::Name]))</DTS:PropertyExpression>
               <DTS:PropertyExpression
                 DTS:Name="SqlStatementSource">@[User::SqlCommand]</DTS:PropertyExpression>
               <DTS:ObjectData>
@@ -3655,7 +3655,7 @@ SELECT
               DTS:refId="Package\SEQ - Stage Data\SEQ - Stage - DataGeneration.PrecedenceConstraints[Constraint]"
               DTS:CreationName=""
               DTS:DTSID="{6c7865a1-3744-43e1-b595-3418f41412c1}"
-              DTS:From="Package\SEQ - Stage Data\SEQ - Stage - DataGeneration\SQL - DELETE FROM - DataGeneration"
+              DTS:From="Package\SEQ - Stage Data\SEQ - Stage - DataGeneration\SQL - Clear Table - DataGeneration"
               DTS:LogicalAnd="True"
               DTS:ObjectName="Constraint"
               DTS:To="Package\SEQ - Stage Data\SEQ - Stage - DataGeneration\DFT - DataGeneration" />
@@ -4689,13 +4689,13 @@ SELECT
               </DTS:ObjectData>
             </DTS:Executable>
             <DTS:Executable
-              DTS:refId="Package\SEQ - Stage Data\SEQ - Stage - Framework\SQL - DELETE FROM - Framework"
+              DTS:refId="Package\SEQ - Stage Data\SEQ - Stage - Framework\SQL - Clear Table - Framework"
               DTS:CreationName="Microsoft.ExecuteSQLTask"
               DTS:Description="Execute SQL Task"
               DTS:DTSID="{66aeb283-c8ba-408e-ad38-cb9840f88061}"
               DTS:ExecutableType="Microsoft.ExecuteSQLTask"
               DTS:LocaleID="-1"
-              DTS:ObjectName="SQL - DELETE FROM - Framework"
+              DTS:ObjectName="SQL - Clear Table - Framework"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
               DTS:ThreadHint="3">
               <DTS:Variables>
@@ -4703,7 +4703,7 @@ SELECT
                   DTS:CreationName=""
                   DTS:DTSID="{20060a8d-a238-49bf-ae05-e9533f45c8c1}"
                   DTS:EvaluateAsExpression="True"
-                  DTS:Expression="&quot;DELETE FROM &quot; + @[User::StagingObjectName] + &quot;;&quot;"
+                  DTS:Expression="&quot;TRUNCATE TABLE &quot; + @[User::StagingObjectName] + &quot;;&quot;"
                   DTS:IncludeInDebugDump="2345"
                   DTS:Namespace="User"
                   DTS:ObjectName="SqlCommand">
@@ -4712,7 +4712,7 @@ SELECT
                 </DTS:Variable>
               </DTS:Variables>
               <DTS:PropertyExpression
-                DTS:Name="Name">LTRIM(RTRIM("SQL - DELETE FROM - " + @[User::Name]))</DTS:PropertyExpression>
+                DTS:Name="Name">LTRIM(RTRIM("SQL - Clear Table - " + @[User::Name]))</DTS:PropertyExpression>
               <DTS:PropertyExpression
                 DTS:Name="SqlStatementSource">@[User::SqlCommand]</DTS:PropertyExpression>
               <DTS:ObjectData>
@@ -4727,7 +4727,7 @@ SELECT
               DTS:refId="Package\SEQ - Stage Data\SEQ - Stage - Framework.PrecedenceConstraints[Constraint]"
               DTS:CreationName=""
               DTS:DTSID="{db03d4b0-fe79-4a5a-85fd-7a627cad383d}"
-              DTS:From="Package\SEQ - Stage Data\SEQ - Stage - Framework\SQL - DELETE FROM - Framework"
+              DTS:From="Package\SEQ - Stage Data\SEQ - Stage - Framework\SQL - Clear Table - Framework"
               DTS:LogicalAnd="True"
               DTS:ObjectName="Constraint"
               DTS:To="Package\SEQ - Stage Data\SEQ - Stage - Framework\DFT - Framework" />
@@ -5335,13 +5335,13 @@ SELECT
               </DTS:ObjectData>
             </DTS:Executable>
             <DTS:Executable
-              DTS:refId="Package\SEQ - Stage Data\SEQ - Stage - FrameworkAims\SQL - DELETE FROM - FrameworkAims"
+              DTS:refId="Package\SEQ - Stage Data\SEQ - Stage - FrameworkAims\SQL - Clear Table - FrameworkAims"
               DTS:CreationName="Microsoft.ExecuteSQLTask"
               DTS:Description="Execute SQL Task"
               DTS:DTSID="{fde633c6-ce74-43d8-b994-828ef94fd081}"
               DTS:ExecutableType="Microsoft.ExecuteSQLTask"
               DTS:LocaleID="-1"
-              DTS:ObjectName="SQL - DELETE FROM - FrameworkAims"
+              DTS:ObjectName="SQL - Clear Table - FrameworkAims"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
               DTS:ThreadHint="4">
               <DTS:Variables>
@@ -5349,7 +5349,7 @@ SELECT
                   DTS:CreationName=""
                   DTS:DTSID="{98712008-629d-4bf6-af26-0e2d86d38bbe}"
                   DTS:EvaluateAsExpression="True"
-                  DTS:Expression="&quot;DELETE FROM &quot; + @[User::StagingObjectName] + &quot;;&quot;"
+                  DTS:Expression="&quot;TRUNCATE TABLE &quot; + @[User::StagingObjectName] + &quot;;&quot;"
                   DTS:IncludeInDebugDump="2345"
                   DTS:Namespace="User"
                   DTS:ObjectName="SqlCommand">
@@ -5358,7 +5358,7 @@ SELECT
                 </DTS:Variable>
               </DTS:Variables>
               <DTS:PropertyExpression
-                DTS:Name="Name">LTRIM(RTRIM("SQL - DELETE FROM - " + @[User::Name]))</DTS:PropertyExpression>
+                DTS:Name="Name">LTRIM(RTRIM("SQL - Clear Table - " + @[User::Name]))</DTS:PropertyExpression>
               <DTS:PropertyExpression
                 DTS:Name="SqlStatementSource">@[User::SqlCommand]</DTS:PropertyExpression>
               <DTS:ObjectData>
@@ -5373,7 +5373,7 @@ SELECT
               DTS:refId="Package\SEQ - Stage Data\SEQ - Stage - FrameworkAims.PrecedenceConstraints[Constraint]"
               DTS:CreationName=""
               DTS:DTSID="{cfbf3aee-dfbf-4c14-9747-d3f262fc7d73}"
-              DTS:From="Package\SEQ - Stage Data\SEQ - Stage - FrameworkAims\SQL - DELETE FROM - FrameworkAims"
+              DTS:From="Package\SEQ - Stage Data\SEQ - Stage - FrameworkAims\SQL - Clear Table - FrameworkAims"
               DTS:LogicalAnd="True"
               DTS:ObjectName="Constraint"
               DTS:To="Package\SEQ - Stage Data\SEQ - Stage - FrameworkAims\DFT - FrameworkAims" />
@@ -5981,13 +5981,13 @@ SELECT
               </DTS:ObjectData>
             </DTS:Executable>
             <DTS:Executable
-              DTS:refId="Package\SEQ - Stage Data\SEQ - Stage - FrameworkCmnComp\SQL - DELETE FROM - FrameworkCmnComp"
+              DTS:refId="Package\SEQ - Stage Data\SEQ - Stage - FrameworkCmnComp\SQL - Clear Table - FrameworkCmnComp"
               DTS:CreationName="Microsoft.ExecuteSQLTask"
               DTS:Description="Execute SQL Task"
               DTS:DTSID="{b2ad6ef6-c8b8-4aae-b6aa-edeab5ab29e2}"
               DTS:ExecutableType="Microsoft.ExecuteSQLTask"
               DTS:LocaleID="-1"
-              DTS:ObjectName="SQL - DELETE FROM - FrameworkCmnComp"
+              DTS:ObjectName="SQL - Clear Table - FrameworkCmnComp"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
               DTS:ThreadHint="1">
               <DTS:Variables>
@@ -5995,7 +5995,7 @@ SELECT
                   DTS:CreationName=""
                   DTS:DTSID="{0990fc83-d4ab-4338-ac53-4bfc88e71a16}"
                   DTS:EvaluateAsExpression="True"
-                  DTS:Expression="&quot;DELETE FROM &quot; + @[User::StagingObjectName] + &quot;;&quot;"
+                  DTS:Expression="&quot;TRUNCATE TABLE &quot; + @[User::StagingObjectName] + &quot;;&quot;"
                   DTS:IncludeInDebugDump="2345"
                   DTS:Namespace="User"
                   DTS:ObjectName="SqlCommand">
@@ -6004,7 +6004,7 @@ SELECT
                 </DTS:Variable>
               </DTS:Variables>
               <DTS:PropertyExpression
-                DTS:Name="Name">LTRIM(RTRIM("SQL - DELETE FROM - " + @[User::Name]))</DTS:PropertyExpression>
+                DTS:Name="Name">LTRIM(RTRIM("SQL - Clear Table - " + @[User::Name]))</DTS:PropertyExpression>
               <DTS:PropertyExpression
                 DTS:Name="SqlStatementSource">@[User::SqlCommand]</DTS:PropertyExpression>
               <DTS:ObjectData>
@@ -6019,7 +6019,7 @@ SELECT
               DTS:refId="Package\SEQ - Stage Data\SEQ - Stage - FrameworkCmnComp.PrecedenceConstraints[Constraint]"
               DTS:CreationName=""
               DTS:DTSID="{f092a91a-57ed-4211-a380-474449a3d961}"
-              DTS:From="Package\SEQ - Stage Data\SEQ - Stage - FrameworkCmnComp\SQL - DELETE FROM - FrameworkCmnComp"
+              DTS:From="Package\SEQ - Stage Data\SEQ - Stage - FrameworkCmnComp\SQL - Clear Table - FrameworkCmnComp"
               DTS:LogicalAnd="True"
               DTS:ObjectName="Constraint"
               DTS:To="Package\SEQ - Stage Data\SEQ - Stage - FrameworkCmnComp\DFT - FrameworkCmnComp" />
@@ -6617,13 +6617,13 @@ SELECT
               </DTS:ObjectData>
             </DTS:Executable>
             <DTS:Executable
-              DTS:refId="Package\SEQ - Stage Data\SEQ - Stage - FrameworkMetaData\SQL - DELETE FROM - FrameworkMetaData"
+              DTS:refId="Package\SEQ - Stage Data\SEQ - Stage - FrameworkMetaData\SQL - Clear Table - FrameworkMetaData"
               DTS:CreationName="Microsoft.ExecuteSQLTask"
               DTS:Description="Execute SQL Task"
               DTS:DTSID="{aecf519d-08fc-481b-95b7-d63b0ae05d09}"
               DTS:ExecutableType="Microsoft.ExecuteSQLTask"
               DTS:LocaleID="-1"
-              DTS:ObjectName="SQL - DELETE FROM - FrameworkMetaData"
+              DTS:ObjectName="SQL - Clear Table - FrameworkMetaData"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
               DTS:ThreadHint="2">
               <DTS:Variables>
@@ -6631,7 +6631,7 @@ SELECT
                   DTS:CreationName=""
                   DTS:DTSID="{5e862c30-357a-4e76-b264-87a653218b24}"
                   DTS:EvaluateAsExpression="True"
-                  DTS:Expression="&quot;DELETE FROM &quot; + @[User::StagingObjectName] + &quot;;&quot;"
+                  DTS:Expression="&quot;TRUNCATE TABLE &quot; + @[User::StagingObjectName] + &quot;;&quot;"
                   DTS:IncludeInDebugDump="2345"
                   DTS:Namespace="User"
                   DTS:ObjectName="SqlCommand">
@@ -6640,7 +6640,7 @@ SELECT
                 </DTS:Variable>
               </DTS:Variables>
               <DTS:PropertyExpression
-                DTS:Name="Name">LTRIM(RTRIM("SQL - DELETE FROM - " + @[User::Name]))</DTS:PropertyExpression>
+                DTS:Name="Name">LTRIM(RTRIM("SQL - Clear Table - " + @[User::Name]))</DTS:PropertyExpression>
               <DTS:PropertyExpression
                 DTS:Name="SqlStatementSource">@[User::SqlCommand]</DTS:PropertyExpression>
               <DTS:ObjectData>
@@ -6655,7 +6655,7 @@ SELECT
               DTS:refId="Package\SEQ - Stage Data\SEQ - Stage - FrameworkMetaData.PrecedenceConstraints[Constraint]"
               DTS:CreationName=""
               DTS:DTSID="{6c5c5a86-0682-4fb0-89fb-807ec37ee0f7}"
-              DTS:From="Package\SEQ - Stage Data\SEQ - Stage - FrameworkMetaData\SQL - DELETE FROM - FrameworkMetaData"
+              DTS:From="Package\SEQ - Stage Data\SEQ - Stage - FrameworkMetaData\SQL - Clear Table - FrameworkMetaData"
               DTS:LogicalAnd="True"
               DTS:ObjectName="Constraint"
               DTS:To="Package\SEQ - Stage Data\SEQ - Stage - FrameworkMetaData\DFT - FrameworkMetaData" />
@@ -7305,13 +7305,13 @@ SELECT
               </DTS:ObjectData>
             </DTS:Executable>
             <DTS:Executable
-              DTS:refId="Package\SEQ - Stage Data\SEQ - Stage - Funding\SQL - DELETE FROM - Funding"
+              DTS:refId="Package\SEQ - Stage Data\SEQ - Stage - Funding\SQL - Clear Table - Funding"
               DTS:CreationName="Microsoft.ExecuteSQLTask"
               DTS:Description="Execute SQL Task"
               DTS:DTSID="{4137d7c7-bf5c-4ce1-9dec-845587f883bd}"
               DTS:ExecutableType="Microsoft.ExecuteSQLTask"
               DTS:LocaleID="-1"
-              DTS:ObjectName="SQL - DELETE FROM - Funding"
+              DTS:ObjectName="SQL - Clear Table - Funding"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
               DTS:ThreadHint="0">
               <DTS:Variables>
@@ -7319,7 +7319,7 @@ SELECT
                   DTS:CreationName=""
                   DTS:DTSID="{e32907ab-b7c6-4455-83c5-da127752a2aa}"
                   DTS:EvaluateAsExpression="True"
-                  DTS:Expression="&quot;DELETE FROM &quot; + @[User::StagingObjectName] + &quot;;&quot;"
+                  DTS:Expression="&quot;TRUNCATE TABLE &quot; + @[User::StagingObjectName] + &quot;;&quot;"
                   DTS:IncludeInDebugDump="2345"
                   DTS:Namespace="User"
                   DTS:ObjectName="SqlCommand">
@@ -7328,7 +7328,7 @@ SELECT
                 </DTS:Variable>
               </DTS:Variables>
               <DTS:PropertyExpression
-                DTS:Name="Name">LTRIM(RTRIM("SQL - DELETE FROM - " + @[User::Name]))</DTS:PropertyExpression>
+                DTS:Name="Name">LTRIM(RTRIM("SQL - Clear Table - " + @[User::Name]))</DTS:PropertyExpression>
               <DTS:PropertyExpression
                 DTS:Name="SqlStatementSource">@[User::SqlCommand]</DTS:PropertyExpression>
               <DTS:ObjectData>
@@ -7343,7 +7343,7 @@ SELECT
               DTS:refId="Package\SEQ - Stage Data\SEQ - Stage - Funding.PrecedenceConstraints[Constraint]"
               DTS:CreationName=""
               DTS:DTSID="{5abdb3c8-77f1-429e-bcb2-fc963e6b1167}"
-              DTS:From="Package\SEQ - Stage Data\SEQ - Stage - Funding\SQL - DELETE FROM - Funding"
+              DTS:From="Package\SEQ - Stage Data\SEQ - Stage - Funding\SQL - Clear Table - Funding"
               DTS:LogicalAnd="True"
               DTS:ObjectName="Constraint"
               DTS:To="Package\SEQ - Stage Data\SEQ - Stage - Funding\DFT - Funding" />
@@ -10064,13 +10064,13 @@ SELECT
               </DTS:ObjectData>
             </DTS:Executable>
             <DTS:Executable
-              DTS:refId="Package\SEQ - Stage Data\SEQ - Stage - LearningDelivery\SQL - DELETE FROM - LearningDelivery"
+              DTS:refId="Package\SEQ - Stage Data\SEQ - Stage - LearningDelivery\SQL - Clear Table - LearningDelivery"
               DTS:CreationName="Microsoft.ExecuteSQLTask"
               DTS:Description="Execute SQL Task"
               DTS:DTSID="{cdb95772-d44b-49dc-bc54-6207967a4e5b}"
               DTS:ExecutableType="Microsoft.ExecuteSQLTask"
               DTS:LocaleID="-1"
-              DTS:ObjectName="SQL - DELETE FROM - LearningDelivery"
+              DTS:ObjectName="SQL - Clear Table - LearningDelivery"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
               DTS:ThreadHint="16">
               <DTS:Variables>
@@ -10078,7 +10078,7 @@ SELECT
                   DTS:CreationName=""
                   DTS:DTSID="{8a0b5557-6886-4c64-8a5c-40415be0f7d4}"
                   DTS:EvaluateAsExpression="True"
-                  DTS:Expression="&quot;DELETE FROM &quot; + @[User::StagingObjectName] + &quot;;&quot;"
+                  DTS:Expression="&quot;TRUNCATE TABLE &quot; + @[User::StagingObjectName] + &quot;;&quot;"
                   DTS:IncludeInDebugDump="2345"
                   DTS:Namespace="User"
                   DTS:ObjectName="SqlCommand">
@@ -10087,7 +10087,7 @@ SELECT
                 </DTS:Variable>
               </DTS:Variables>
               <DTS:PropertyExpression
-                DTS:Name="Name">LTRIM(RTRIM("SQL - DELETE FROM - " + @[User::Name]))</DTS:PropertyExpression>
+                DTS:Name="Name">LTRIM(RTRIM("SQL - Clear Table - " + @[User::Name]))</DTS:PropertyExpression>
               <DTS:PropertyExpression
                 DTS:Name="SqlStatementSource">@[User::SqlCommand]</DTS:PropertyExpression>
               <DTS:ObjectData>
@@ -10102,7 +10102,7 @@ SELECT
               DTS:refId="Package\SEQ - Stage Data\SEQ - Stage - LearningDelivery.PrecedenceConstraints[Constraint]"
               DTS:CreationName=""
               DTS:DTSID="{6868895c-9d61-4d45-87d0-2e3c5474dbc6}"
-              DTS:From="Package\SEQ - Stage Data\SEQ - Stage - LearningDelivery\SQL - DELETE FROM - LearningDelivery"
+              DTS:From="Package\SEQ - Stage Data\SEQ - Stage - LearningDelivery\SQL - Clear Table - LearningDelivery"
               DTS:LogicalAnd="True"
               DTS:ObjectName="Constraint"
               DTS:To="Package\SEQ - Stage Data\SEQ - Stage - LearningDelivery\DFT - LearningDelivery" />
@@ -10626,13 +10626,13 @@ SELECT
               </DTS:ObjectData>
             </DTS:Executable>
             <DTS:Executable
-              DTS:refId="Package\SEQ - Stage Data\SEQ - Stage - LearningDeliveryCategory\SQL - DELETE FROM - LearningDeliveryCategory"
+              DTS:refId="Package\SEQ - Stage Data\SEQ - Stage - LearningDeliveryCategory\SQL - Clear Table - LearningDeliveryCategory"
               DTS:CreationName="Microsoft.ExecuteSQLTask"
               DTS:Description="Execute SQL Task"
               DTS:DTSID="{c4f11b02-6ba2-49e3-b254-dfd70fd5cc65}"
               DTS:ExecutableType="Microsoft.ExecuteSQLTask"
               DTS:LocaleID="-1"
-              DTS:ObjectName="SQL - DELETE FROM - LearningDeliveryCategory"
+              DTS:ObjectName="SQL - Clear Table - LearningDeliveryCategory"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
               DTS:ThreadHint="11">
               <DTS:Variables>
@@ -10640,7 +10640,7 @@ SELECT
                   DTS:CreationName=""
                   DTS:DTSID="{bb28764a-21f2-495a-a87b-c4df8c60ef21}"
                   DTS:EvaluateAsExpression="True"
-                  DTS:Expression="&quot;DELETE FROM &quot; + @[User::StagingObjectName] + &quot;;&quot;"
+                  DTS:Expression="&quot;TRUNCATE TABLE &quot; + @[User::StagingObjectName] + &quot;;&quot;"
                   DTS:IncludeInDebugDump="2345"
                   DTS:Namespace="User"
                   DTS:ObjectName="SqlCommand">
@@ -10649,7 +10649,7 @@ SELECT
                 </DTS:Variable>
               </DTS:Variables>
               <DTS:PropertyExpression
-                DTS:Name="Name">LTRIM(RTRIM("SQL - DELETE FROM - " + @[User::Name]))</DTS:PropertyExpression>
+                DTS:Name="Name">LTRIM(RTRIM("SQL - Clear Table - " + @[User::Name]))</DTS:PropertyExpression>
               <DTS:PropertyExpression
                 DTS:Name="SqlStatementSource">@[User::SqlCommand]</DTS:PropertyExpression>
               <DTS:ObjectData>
@@ -10664,7 +10664,7 @@ SELECT
               DTS:refId="Package\SEQ - Stage Data\SEQ - Stage - LearningDeliveryCategory.PrecedenceConstraints[Constraint]"
               DTS:CreationName=""
               DTS:DTSID="{c9fe148a-719d-48db-beb3-95e5b61aa883}"
-              DTS:From="Package\SEQ - Stage Data\SEQ - Stage - LearningDeliveryCategory\SQL - DELETE FROM - LearningDeliveryCategory"
+              DTS:From="Package\SEQ - Stage Data\SEQ - Stage - LearningDeliveryCategory\SQL - Clear Table - LearningDeliveryCategory"
               DTS:LogicalAnd="True"
               DTS:ObjectName="Constraint"
               DTS:To="Package\SEQ - Stage Data\SEQ - Stage - LearningDeliveryCategory\DFT - LearningDeliveryCategory" />
@@ -11328,13 +11328,13 @@ SELECT
               </DTS:ObjectData>
             </DTS:Executable>
             <DTS:Executable
-              DTS:refId="Package\SEQ - Stage Data\SEQ - Stage - Section96\SQL - DELETE FROM - Section96"
+              DTS:refId="Package\SEQ - Stage Data\SEQ - Stage - Section96\SQL - Clear Table - Section96"
               DTS:CreationName="Microsoft.ExecuteSQLTask"
               DTS:Description="Execute SQL Task"
               DTS:DTSID="{562446f6-b8bf-44fb-83c5-5b9c9c524f1b}"
               DTS:ExecutableType="Microsoft.ExecuteSQLTask"
               DTS:LocaleID="-1"
-              DTS:ObjectName="SQL - DELETE FROM - Section96"
+              DTS:ObjectName="SQL - Clear Table - Section96"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
               DTS:ThreadHint="12">
               <DTS:Variables>
@@ -11342,7 +11342,7 @@ SELECT
                   DTS:CreationName=""
                   DTS:DTSID="{d9b9f851-9878-41aa-a43d-9079a605a1b1}"
                   DTS:EvaluateAsExpression="True"
-                  DTS:Expression="&quot;DELETE FROM &quot; + @[User::StagingObjectName] + &quot;;&quot;"
+                  DTS:Expression="&quot;TRUNCATE TABLE &quot; + @[User::StagingObjectName] + &quot;;&quot;"
                   DTS:IncludeInDebugDump="2345"
                   DTS:Namespace="User"
                   DTS:ObjectName="SqlCommand">
@@ -11351,7 +11351,7 @@ SELECT
                 </DTS:Variable>
               </DTS:Variables>
               <DTS:PropertyExpression
-                DTS:Name="Name">LTRIM(RTRIM("SQL - DELETE FROM - " + @[User::Name]))</DTS:PropertyExpression>
+                DTS:Name="Name">LTRIM(RTRIM("SQL - Clear Table - " + @[User::Name]))</DTS:PropertyExpression>
               <DTS:PropertyExpression
                 DTS:Name="SqlStatementSource">@[User::SqlCommand]</DTS:PropertyExpression>
               <DTS:ObjectData>
@@ -11366,7 +11366,7 @@ SELECT
               DTS:refId="Package\SEQ - Stage Data\SEQ - Stage - Section96.PrecedenceConstraints[Constraint]"
               DTS:CreationName=""
               DTS:DTSID="{fe53daf4-bfdf-4cf7-835a-2d0afea0a5de}"
-              DTS:From="Package\SEQ - Stage Data\SEQ - Stage - Section96\SQL - DELETE FROM - Section96"
+              DTS:From="Package\SEQ - Stage Data\SEQ - Stage - Section96\SQL - Clear Table - Section96"
               DTS:LogicalAnd="True"
               DTS:ObjectName="Constraint"
               DTS:To="Package\SEQ - Stage Data\SEQ - Stage - Section96\DFT - Section96" />
@@ -12212,13 +12212,13 @@ SELECT
               </DTS:ObjectData>
             </DTS:Executable>
             <DTS:Executable
-              DTS:refId="Package\SEQ - Stage Data\SEQ - Stage - Standard\SQL - DELETE FROM - Standard"
+              DTS:refId="Package\SEQ - Stage Data\SEQ - Stage - Standard\SQL - Clear Table - Standard"
               DTS:CreationName="Microsoft.ExecuteSQLTask"
               DTS:Description="Execute SQL Task"
               DTS:DTSID="{95b4f1e1-9623-4c06-a071-b4bd2512664b}"
               DTS:ExecutableType="Microsoft.ExecuteSQLTask"
               DTS:LocaleID="-1"
-              DTS:ObjectName="SQL - DELETE FROM - Standard"
+              DTS:ObjectName="SQL - Clear Table - Standard"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
               DTS:ThreadHint="13">
               <DTS:Variables>
@@ -12226,7 +12226,7 @@ SELECT
                   DTS:CreationName=""
                   DTS:DTSID="{20bbcc30-15dc-4eba-a79d-a01beb7e5e81}"
                   DTS:EvaluateAsExpression="True"
-                  DTS:Expression="&quot;DELETE FROM &quot; + @[User::StagingObjectName] + &quot;;&quot;"
+                  DTS:Expression="&quot;TRUNCATE TABLE &quot; + @[User::StagingObjectName] + &quot;;&quot;"
                   DTS:IncludeInDebugDump="2345"
                   DTS:Namespace="User"
                   DTS:ObjectName="SqlCommand">
@@ -12235,7 +12235,7 @@ SELECT
                 </DTS:Variable>
               </DTS:Variables>
               <DTS:PropertyExpression
-                DTS:Name="Name">LTRIM(RTRIM("SQL - DELETE FROM - " + @[User::Name]))</DTS:PropertyExpression>
+                DTS:Name="Name">LTRIM(RTRIM("SQL - Clear Table - " + @[User::Name]))</DTS:PropertyExpression>
               <DTS:PropertyExpression
                 DTS:Name="SqlStatementSource">@[User::SqlCommand]</DTS:PropertyExpression>
               <DTS:ObjectData>
@@ -12250,7 +12250,7 @@ SELECT
               DTS:refId="Package\SEQ - Stage Data\SEQ - Stage - Standard.PrecedenceConstraints[Constraint]"
               DTS:CreationName=""
               DTS:DTSID="{17ce3ed0-9a02-4295-a99a-2f4fa93bec07}"
-              DTS:From="Package\SEQ - Stage Data\SEQ - Stage - Standard\SQL - DELETE FROM - Standard"
+              DTS:From="Package\SEQ - Stage Data\SEQ - Stage - Standard\SQL - Clear Table - Standard"
               DTS:LogicalAnd="True"
               DTS:ObjectName="Constraint"
               DTS:To="Package\SEQ - Stage Data\SEQ - Stage - Standard\DFT - Standard" />
@@ -12802,13 +12802,13 @@ SELECT
               </DTS:ObjectData>
             </DTS:Executable>
             <DTS:Executable
-              DTS:refId="Package\SEQ - Stage Data\SEQ - Stage - StandardAims\SQL - DELETE FROM - StandardAims"
+              DTS:refId="Package\SEQ - Stage Data\SEQ - Stage - StandardAims\SQL - Clear Table - StandardAims"
               DTS:CreationName="Microsoft.ExecuteSQLTask"
               DTS:Description="Execute SQL Task"
               DTS:DTSID="{861425c3-adfd-472a-ab5a-632422e1c3a9}"
               DTS:ExecutableType="Microsoft.ExecuteSQLTask"
               DTS:LocaleID="-1"
-              DTS:ObjectName="SQL - DELETE FROM - StandardAims"
+              DTS:ObjectName="SQL - Clear Table - StandardAims"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
               DTS:ThreadHint="14">
               <DTS:Variables>
@@ -12816,7 +12816,7 @@ SELECT
                   DTS:CreationName=""
                   DTS:DTSID="{f1c40bc3-d470-49c0-a5a1-8a6facd4ec6e}"
                   DTS:EvaluateAsExpression="True"
-                  DTS:Expression="&quot;DELETE FROM &quot; + @[User::StagingObjectName] + &quot;;&quot;"
+                  DTS:Expression="&quot;TRUNCATE TABLE &quot; + @[User::StagingObjectName] + &quot;;&quot;"
                   DTS:IncludeInDebugDump="2345"
                   DTS:Namespace="User"
                   DTS:ObjectName="SqlCommand">
@@ -12825,7 +12825,7 @@ SELECT
                 </DTS:Variable>
               </DTS:Variables>
               <DTS:PropertyExpression
-                DTS:Name="Name">LTRIM(RTRIM("SQL - DELETE FROM - " + @[User::Name]))</DTS:PropertyExpression>
+                DTS:Name="Name">LTRIM(RTRIM("SQL - Clear Table - " + @[User::Name]))</DTS:PropertyExpression>
               <DTS:PropertyExpression
                 DTS:Name="SqlStatementSource">@[User::SqlCommand]</DTS:PropertyExpression>
               <DTS:ObjectData>
@@ -12840,7 +12840,7 @@ SELECT
               DTS:refId="Package\SEQ - Stage Data\SEQ - Stage - StandardAims.PrecedenceConstraints[Constraint]"
               DTS:CreationName=""
               DTS:DTSID="{dc2550d0-f62f-4990-8e6f-8f3f021611ff}"
-              DTS:From="Package\SEQ - Stage Data\SEQ - Stage - StandardAims\SQL - DELETE FROM - StandardAims"
+              DTS:From="Package\SEQ - Stage Data\SEQ - Stage - StandardAims\SQL - Clear Table - StandardAims"
               DTS:LogicalAnd="True"
               DTS:ObjectName="Constraint"
               DTS:To="Package\SEQ - Stage Data\SEQ - Stage - StandardAims\DFT - StandardAims" />
@@ -13392,13 +13392,13 @@ SELECT
               </DTS:ObjectData>
             </DTS:Executable>
             <DTS:Executable
-              DTS:refId="Package\SEQ - Stage Data\SEQ - Stage - StandardCommonComponent\SQL - DELETE FROM - StandardCommonComponent"
+              DTS:refId="Package\SEQ - Stage Data\SEQ - Stage - StandardCommonComponent\SQL - Clear Table - StandardCommonComponent"
               DTS:CreationName="Microsoft.ExecuteSQLTask"
               DTS:Description="Execute SQL Task"
               DTS:DTSID="{d31f05ca-0482-4aa0-a86b-ae2774d5f7c7}"
               DTS:ExecutableType="Microsoft.ExecuteSQLTask"
               DTS:LocaleID="-1"
-              DTS:ObjectName="SQL - DELETE FROM - StandardCommonComponent"
+              DTS:ObjectName="SQL - Clear Table - StandardCommonComponent"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
               DTS:ThreadHint="15">
               <DTS:Variables>
@@ -13406,7 +13406,7 @@ SELECT
                   DTS:CreationName=""
                   DTS:DTSID="{ba34dd60-d62c-4d30-bc52-97355c4efb09}"
                   DTS:EvaluateAsExpression="True"
-                  DTS:Expression="&quot;DELETE FROM &quot; + @[User::StagingObjectName] + &quot;;&quot;"
+                  DTS:Expression="&quot;TRUNCATE TABLE &quot; + @[User::StagingObjectName] + &quot;;&quot;"
                   DTS:IncludeInDebugDump="2345"
                   DTS:Namespace="User"
                   DTS:ObjectName="SqlCommand">
@@ -13415,7 +13415,7 @@ SELECT
                 </DTS:Variable>
               </DTS:Variables>
               <DTS:PropertyExpression
-                DTS:Name="Name">LTRIM(RTRIM("SQL - DELETE FROM - " + @[User::Name]))</DTS:PropertyExpression>
+                DTS:Name="Name">LTRIM(RTRIM("SQL - Clear Table - " + @[User::Name]))</DTS:PropertyExpression>
               <DTS:PropertyExpression
                 DTS:Name="SqlStatementSource">@[User::SqlCommand]</DTS:PropertyExpression>
               <DTS:ObjectData>
@@ -13430,7 +13430,7 @@ SELECT
               DTS:refId="Package\SEQ - Stage Data\SEQ - Stage - StandardCommonComponent.PrecedenceConstraints[Constraint]"
               DTS:CreationName=""
               DTS:DTSID="{703d2223-ded1-4872-800c-df280e780752}"
-              DTS:From="Package\SEQ - Stage Data\SEQ - Stage - StandardCommonComponent\SQL - DELETE FROM - StandardCommonComponent"
+              DTS:From="Package\SEQ - Stage Data\SEQ - Stage - StandardCommonComponent\SQL - Clear Table - StandardCommonComponent"
               DTS:LogicalAnd="True"
               DTS:ObjectName="Constraint"
               DTS:To="Package\SEQ - Stage Data\SEQ - Stage - StandardCommonComponent\DFT - StandardCommonComponent" />
@@ -14172,13 +14172,13 @@ SELECT
               </DTS:ObjectData>
             </DTS:Executable>
             <DTS:Executable
-              DTS:refId="Package\SEQ - Stage Data\SEQ - Stage - StandardFunding\SQL - DELETE FROM - StandardFunding"
+              DTS:refId="Package\SEQ - Stage Data\SEQ - Stage - StandardFunding\SQL - Clear Table - StandardFunding"
               DTS:CreationName="Microsoft.ExecuteSQLTask"
               DTS:Description="Execute SQL Task"
               DTS:DTSID="{541b78a1-4adb-421b-ad0c-71848b07f9f7}"
               DTS:ExecutableType="Microsoft.ExecuteSQLTask"
               DTS:LocaleID="-1"
-              DTS:ObjectName="SQL - DELETE FROM - StandardFunding"
+              DTS:ObjectName="SQL - Clear Table - StandardFunding"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
               DTS:ThreadHint="10">
               <DTS:Variables>
@@ -14186,7 +14186,7 @@ SELECT
                   DTS:CreationName=""
                   DTS:DTSID="{a69e9924-759d-41c8-86c4-3488ad528d9e}"
                   DTS:EvaluateAsExpression="True"
-                  DTS:Expression="&quot;DELETE FROM &quot; + @[User::StagingObjectName] + &quot;;&quot;"
+                  DTS:Expression="&quot;TRUNCATE TABLE &quot; + @[User::StagingObjectName] + &quot;;&quot;"
                   DTS:IncludeInDebugDump="2345"
                   DTS:Namespace="User"
                   DTS:ObjectName="SqlCommand">
@@ -14195,7 +14195,7 @@ SELECT
                 </DTS:Variable>
               </DTS:Variables>
               <DTS:PropertyExpression
-                DTS:Name="Name">LTRIM(RTRIM("SQL - DELETE FROM - " + @[User::Name]))</DTS:PropertyExpression>
+                DTS:Name="Name">LTRIM(RTRIM("SQL - Clear Table - " + @[User::Name]))</DTS:PropertyExpression>
               <DTS:PropertyExpression
                 DTS:Name="SqlStatementSource">@[User::SqlCommand]</DTS:PropertyExpression>
               <DTS:ObjectData>
@@ -14210,7 +14210,7 @@ SELECT
               DTS:refId="Package\SEQ - Stage Data\SEQ - Stage - StandardFunding.PrecedenceConstraints[Constraint]"
               DTS:CreationName=""
               DTS:DTSID="{a731e582-46eb-45d0-9797-007b76534f37}"
-              DTS:From="Package\SEQ - Stage Data\SEQ - Stage - StandardFunding\SQL - DELETE FROM - StandardFunding"
+              DTS:From="Package\SEQ - Stage Data\SEQ - Stage - StandardFunding\SQL - Clear Table - StandardFunding"
               DTS:LogicalAnd="True"
               DTS:ObjectName="Constraint"
               DTS:To="Package\SEQ - Stage Data\SEQ - Stage - StandardFunding\DFT - StandardFunding" />
@@ -14892,13 +14892,13 @@ SELECT
               </DTS:ObjectData>
             </DTS:Executable>
             <DTS:Executable
-              DTS:refId="Package\SEQ - Stage Data\SEQ - Stage - StandardMetaData\SQL - DELETE FROM - StandardMetaData"
+              DTS:refId="Package\SEQ - Stage Data\SEQ - Stage - StandardMetaData\SQL - Clear Table - StandardMetaData"
               DTS:CreationName="Microsoft.ExecuteSQLTask"
               DTS:Description="Execute SQL Task"
               DTS:DTSID="{e0f5d257-08b5-4bf1-a969-342e0b47fabd}"
               DTS:ExecutableType="Microsoft.ExecuteSQLTask"
               DTS:LocaleID="-1"
-              DTS:ObjectName="SQL - DELETE FROM - StandardMetaData"
+              DTS:ObjectName="SQL - Clear Table - StandardMetaData"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
               DTS:ThreadHint="9">
               <DTS:Variables>
@@ -14906,7 +14906,7 @@ SELECT
                   DTS:CreationName=""
                   DTS:DTSID="{8b448448-bffa-4bbb-954f-55979df468e8}"
                   DTS:EvaluateAsExpression="True"
-                  DTS:Expression="&quot;DELETE FROM &quot; + @[User::StagingObjectName] + &quot;;&quot;"
+                  DTS:Expression="&quot;TRUNCATE TABLE &quot; + @[User::StagingObjectName] + &quot;;&quot;"
                   DTS:IncludeInDebugDump="2345"
                   DTS:Namespace="User"
                   DTS:ObjectName="SqlCommand">
@@ -14915,7 +14915,7 @@ SELECT
                 </DTS:Variable>
               </DTS:Variables>
               <DTS:PropertyExpression
-                DTS:Name="Name">LTRIM(RTRIM("SQL - DELETE FROM - " + @[User::Name]))</DTS:PropertyExpression>
+                DTS:Name="Name">LTRIM(RTRIM("SQL - Clear Table - " + @[User::Name]))</DTS:PropertyExpression>
               <DTS:PropertyExpression
                 DTS:Name="SqlStatementSource">@[User::SqlCommand]</DTS:PropertyExpression>
               <DTS:ObjectData>
@@ -14930,7 +14930,7 @@ SELECT
               DTS:refId="Package\SEQ - Stage Data\SEQ - Stage - StandardMetaData.PrecedenceConstraints[Constraint]"
               DTS:CreationName=""
               DTS:DTSID="{4251c9f7-74ec-4cc6-a16d-3a55bdb2c24a}"
-              DTS:From="Package\SEQ - Stage Data\SEQ - Stage - StandardMetaData\SQL - DELETE FROM - StandardMetaData"
+              DTS:From="Package\SEQ - Stage Data\SEQ - Stage - StandardMetaData\SQL - Clear Table - StandardMetaData"
               DTS:LogicalAnd="True"
               DTS:ObjectName="Constraint"
               DTS:To="Package\SEQ - Stage Data\SEQ - Stage - StandardMetaData\DFT - StandardMetaData" />
@@ -15482,13 +15482,13 @@ SELECT
               </DTS:ObjectData>
             </DTS:Executable>
             <DTS:Executable
-              DTS:refId="Package\SEQ - Stage Data\SEQ - Stage - StandardValidity\SQL - DELETE FROM - StandardValidity"
+              DTS:refId="Package\SEQ - Stage Data\SEQ - Stage - StandardValidity\SQL - Clear Table - StandardValidity"
               DTS:CreationName="Microsoft.ExecuteSQLTask"
               DTS:Description="Execute SQL Task"
               DTS:DTSID="{74f63120-6ce8-4c4d-a214-4fdaecca9f10}"
               DTS:ExecutableType="Microsoft.ExecuteSQLTask"
               DTS:LocaleID="-1"
-              DTS:ObjectName="SQL - DELETE FROM - StandardValidity"
+              DTS:ObjectName="SQL - Clear Table - StandardValidity"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
               DTS:ThreadHint="19">
               <DTS:Variables>
@@ -15496,7 +15496,7 @@ SELECT
                   DTS:CreationName=""
                   DTS:DTSID="{3b9b9247-d52f-419d-bb51-1d9af9687141}"
                   DTS:EvaluateAsExpression="True"
-                  DTS:Expression="&quot;DELETE FROM &quot; + @[User::StagingObjectName] + &quot;;&quot;"
+                  DTS:Expression="&quot;TRUNCATE TABLE &quot; + @[User::StagingObjectName] + &quot;;&quot;"
                   DTS:IncludeInDebugDump="2345"
                   DTS:Namespace="User"
                   DTS:ObjectName="SqlCommand">
@@ -15505,7 +15505,7 @@ SELECT
                 </DTS:Variable>
               </DTS:Variables>
               <DTS:PropertyExpression
-                DTS:Name="Name">LTRIM(RTRIM("SQL - DELETE FROM - " + @[User::Name]))</DTS:PropertyExpression>
+                DTS:Name="Name">LTRIM(RTRIM("SQL - Clear Table - " + @[User::Name]))</DTS:PropertyExpression>
               <DTS:PropertyExpression
                 DTS:Name="SqlStatementSource">@[User::SqlCommand]</DTS:PropertyExpression>
               <DTS:ObjectData>
@@ -15520,7 +15520,7 @@ SELECT
               DTS:refId="Package\SEQ - Stage Data\SEQ - Stage - StandardValidity.PrecedenceConstraints[Constraint]"
               DTS:CreationName=""
               DTS:DTSID="{42d2759e-e4fc-4ca1-b393-bcb83aa24df7}"
-              DTS:From="Package\SEQ - Stage Data\SEQ - Stage - StandardValidity\SQL - DELETE FROM - StandardValidity"
+              DTS:From="Package\SEQ - Stage Data\SEQ - Stage - StandardValidity\SQL - Clear Table - StandardValidity"
               DTS:LogicalAnd="True"
               DTS:ObjectName="Constraint"
               DTS:To="Package\SEQ - Stage Data\SEQ - Stage - StandardValidity\DFT - StandardValidity" />
@@ -15998,13 +15998,13 @@ SELECT
               </DTS:ObjectData>
             </DTS:Executable>
             <DTS:Executable
-              DTS:refId="Package\SEQ - Stage Data\SEQ - Stage - SupersedingAims\SQL - DELETE FROM - SupersedingAims"
+              DTS:refId="Package\SEQ - Stage Data\SEQ - Stage - SupersedingAims\SQL - Clear Table - SupersedingAims"
               DTS:CreationName="Microsoft.ExecuteSQLTask"
               DTS:Description="Execute SQL Task"
               DTS:DTSID="{0bb2788e-8ff0-4f9a-b871-35216ecbddb9}"
               DTS:ExecutableType="Microsoft.ExecuteSQLTask"
               DTS:LocaleID="-1"
-              DTS:ObjectName="SQL - DELETE FROM - SupersedingAims"
+              DTS:ObjectName="SQL - Clear Table - SupersedingAims"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
               DTS:ThreadHint="20">
               <DTS:Variables>
@@ -16012,7 +16012,7 @@ SELECT
                   DTS:CreationName=""
                   DTS:DTSID="{7395ebce-e8c4-4ed4-8653-0d0d5ee581de}"
                   DTS:EvaluateAsExpression="True"
-                  DTS:Expression="&quot;DELETE FROM &quot; + @[User::StagingObjectName] + &quot;;&quot;"
+                  DTS:Expression="&quot;TRUNCATE TABLE &quot; + @[User::StagingObjectName] + &quot;;&quot;"
                   DTS:IncludeInDebugDump="2345"
                   DTS:Namespace="User"
                   DTS:ObjectName="SqlCommand">
@@ -16021,7 +16021,7 @@ SELECT
                 </DTS:Variable>
               </DTS:Variables>
               <DTS:PropertyExpression
-                DTS:Name="Name">LTRIM(RTRIM("SQL - DELETE FROM - " + @[User::Name]))</DTS:PropertyExpression>
+                DTS:Name="Name">LTRIM(RTRIM("SQL - Clear Table - " + @[User::Name]))</DTS:PropertyExpression>
               <DTS:PropertyExpression
                 DTS:Name="SqlStatementSource">@[User::SqlCommand]</DTS:PropertyExpression>
               <DTS:ObjectData>
@@ -16036,7 +16036,7 @@ SELECT
               DTS:refId="Package\SEQ - Stage Data\SEQ - Stage - SupersedingAims.PrecedenceConstraints[Constraint]"
               DTS:CreationName=""
               DTS:DTSID="{74ff8d26-8f01-4a7e-92d2-aa3f79c64e92}"
-              DTS:From="Package\SEQ - Stage Data\SEQ - Stage - SupersedingAims\SQL - DELETE FROM - SupersedingAims"
+              DTS:From="Package\SEQ - Stage Data\SEQ - Stage - SupersedingAims\SQL - Clear Table - SupersedingAims"
               DTS:LogicalAnd="True"
               DTS:ObjectName="Constraint"
               DTS:To="Package\SEQ - Stage Data\SEQ - Stage - SupersedingAims\DFT - SupersedingAims" />
@@ -16606,13 +16606,13 @@ SELECT
               </DTS:ObjectData>
             </DTS:Executable>
             <DTS:Executable
-              DTS:refId="Package\SEQ - Stage Data\SEQ - Stage - SupersedingFrameworks\SQL - DELETE FROM - SupersedingFrameworks"
+              DTS:refId="Package\SEQ - Stage Data\SEQ - Stage - SupersedingFrameworks\SQL - Clear Table - SupersedingFrameworks"
               DTS:CreationName="Microsoft.ExecuteSQLTask"
               DTS:Description="Execute SQL Task"
               DTS:DTSID="{a46065f6-f127-4526-9c19-188cffa93ed1}"
               DTS:ExecutableType="Microsoft.ExecuteSQLTask"
               DTS:LocaleID="-1"
-              DTS:ObjectName="SQL - DELETE FROM - SupersedingFrameworks"
+              DTS:ObjectName="SQL - Clear Table - SupersedingFrameworks"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
               DTS:ThreadHint="21">
               <DTS:Variables>
@@ -16620,7 +16620,7 @@ SELECT
                   DTS:CreationName=""
                   DTS:DTSID="{5e4c388e-76ab-42c4-a40f-81aa2a3195a5}"
                   DTS:EvaluateAsExpression="True"
-                  DTS:Expression="&quot;DELETE FROM &quot; + @[User::StagingObjectName] + &quot;;&quot;"
+                  DTS:Expression="&quot;TRUNCATE TABLE &quot; + @[User::StagingObjectName] + &quot;;&quot;"
                   DTS:IncludeInDebugDump="2345"
                   DTS:Namespace="User"
                   DTS:ObjectName="SqlCommand">
@@ -16629,7 +16629,7 @@ SELECT
                 </DTS:Variable>
               </DTS:Variables>
               <DTS:PropertyExpression
-                DTS:Name="Name">LTRIM(RTRIM("SQL - DELETE FROM - " + @[User::Name]))</DTS:PropertyExpression>
+                DTS:Name="Name">LTRIM(RTRIM("SQL - Clear Table - " + @[User::Name]))</DTS:PropertyExpression>
               <DTS:PropertyExpression
                 DTS:Name="SqlStatementSource">@[User::SqlCommand]</DTS:PropertyExpression>
               <DTS:ObjectData>
@@ -16644,7 +16644,7 @@ SELECT
               DTS:refId="Package\SEQ - Stage Data\SEQ - Stage - SupersedingFrameworks.PrecedenceConstraints[Constraint]"
               DTS:CreationName=""
               DTS:DTSID="{664A61BF-0230-4523-966B-D35D45C006C7}"
-              DTS:From="Package\SEQ - Stage Data\SEQ - Stage - SupersedingFrameworks\SQL - DELETE FROM - SupersedingFrameworks"
+              DTS:From="Package\SEQ - Stage Data\SEQ - Stage - SupersedingFrameworks\SQL - Clear Table - SupersedingFrameworks"
               DTS:LogicalAnd="True"
               DTS:ObjectName="Constraint"
               DTS:To="Package\SEQ - Stage Data\SEQ - Stage - SupersedingFrameworks\DFT - SupersedingFrameworks" />
@@ -17396,13 +17396,13 @@ SELECT
               </DTS:ObjectData>
             </DTS:Executable>
             <DTS:Executable
-              DTS:refId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\SQL - DELETE FROM - TBStandardLookup"
+              DTS:refId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\SQL - Clear Table - TBStandardLookup"
               DTS:CreationName="Microsoft.ExecuteSQLTask"
               DTS:Description="Execute SQL Task"
               DTS:DTSID="{f9b27796-f8e2-450e-b455-e16aa037ed50}"
               DTS:ExecutableType="Microsoft.ExecuteSQLTask"
               DTS:LocaleID="-1"
-              DTS:ObjectName="SQL - DELETE FROM - TBStandardLookup"
+              DTS:ObjectName="SQL - Clear Table - TBStandardLookup"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
               DTS:ThreadHint="22">
               <DTS:Variables>
@@ -17410,7 +17410,7 @@ SELECT
                   DTS:CreationName=""
                   DTS:DTSID="{83e06338-8d34-43eb-85db-291c96010ae5}"
                   DTS:EvaluateAsExpression="True"
-                  DTS:Expression="&quot;DELETE FROM &quot; + @[User::StagingObjectName] + &quot;;&quot;"
+                  DTS:Expression="&quot;TRUNCATE TABLE &quot; + @[User::StagingObjectName] + &quot;;&quot;"
                   DTS:IncludeInDebugDump="2345"
                   DTS:Namespace="User"
                   DTS:ObjectName="SqlCommand">
@@ -17419,7 +17419,7 @@ SELECT
                 </DTS:Variable>
               </DTS:Variables>
               <DTS:PropertyExpression
-                DTS:Name="Name">LTRIM(RTRIM("SQL - DELETE FROM - " + @[User::Name]))</DTS:PropertyExpression>
+                DTS:Name="Name">LTRIM(RTRIM("SQL - Clear Table - " + @[User::Name]))</DTS:PropertyExpression>
               <DTS:PropertyExpression
                 DTS:Name="SqlStatementSource">@[User::SqlCommand]</DTS:PropertyExpression>
               <DTS:ObjectData>
@@ -17434,7 +17434,7 @@ SELECT
               DTS:refId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup.PrecedenceConstraints[Constraint]"
               DTS:CreationName=""
               DTS:DTSID="{b8fd3228-66d0-4c0f-96e2-ddb24d6c4cf5}"
-              DTS:From="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\SQL - DELETE FROM - TBStandardLookup"
+              DTS:From="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\SQL - Clear Table - TBStandardLookup"
               DTS:LogicalAnd="True"
               DTS:ObjectName="Constraint"
               DTS:To="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\DFT - TBStandardLookup" />
@@ -17874,13 +17874,13 @@ SELECT
               </DTS:ObjectData>
             </DTS:Executable>
             <DTS:Executable
-              DTS:refId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookupVersion\SQL - DELETE FROM - TBStandardLookupVersion"
+              DTS:refId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookupVersion\SQL - Clear Table - TBStandardLookupVersion"
               DTS:CreationName="Microsoft.ExecuteSQLTask"
               DTS:Description="Execute SQL Task"
               DTS:DTSID="{adee299b-3ecb-44ee-867e-8bb271c538a3}"
               DTS:ExecutableType="Microsoft.ExecuteSQLTask"
               DTS:LocaleID="-1"
-              DTS:ObjectName="SQL - DELETE FROM - TBStandardLookupVersion"
+              DTS:ObjectName="SQL - Clear Table - TBStandardLookupVersion"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
               DTS:ThreadHint="17">
               <DTS:Variables>
@@ -17888,7 +17888,7 @@ SELECT
                   DTS:CreationName=""
                   DTS:DTSID="{44ad22aa-57b6-42a0-9ac1-28adeca20c84}"
                   DTS:EvaluateAsExpression="True"
-                  DTS:Expression="&quot;DELETE FROM &quot; + @[User::StagingObjectName] + &quot;;&quot;"
+                  DTS:Expression="&quot;TRUNCATE TABLE &quot; + @[User::StagingObjectName] + &quot;;&quot;"
                   DTS:IncludeInDebugDump="2345"
                   DTS:Namespace="User"
                   DTS:ObjectName="SqlCommand">
@@ -17897,7 +17897,7 @@ SELECT
                 </DTS:Variable>
               </DTS:Variables>
               <DTS:PropertyExpression
-                DTS:Name="Name">LTRIM(RTRIM("SQL - DELETE FROM - " + @[User::Name]))</DTS:PropertyExpression>
+                DTS:Name="Name">LTRIM(RTRIM("SQL - Clear Table - " + @[User::Name]))</DTS:PropertyExpression>
               <DTS:PropertyExpression
                 DTS:Name="SqlStatementSource">@[User::SqlCommand]</DTS:PropertyExpression>
               <DTS:ObjectData>
@@ -17912,7 +17912,7 @@ SELECT
               DTS:refId="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookupVersion.PrecedenceConstraints[Constraint]"
               DTS:CreationName=""
               DTS:DTSID="{5b02dd39-fe5f-4716-9a82-e430aa94660f}"
-              DTS:From="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookupVersion\SQL - DELETE FROM - TBStandardLookupVersion"
+              DTS:From="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookupVersion\SQL - Clear Table - TBStandardLookupVersion"
               DTS:LogicalAnd="True"
               DTS:ObjectName="Constraint"
               DTS:To="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookupVersion\DFT - TBStandardLookupVersion" />
@@ -18446,13 +18446,13 @@ SELECT
               </DTS:ObjectData>
             </DTS:Executable>
             <DTS:Executable
-              DTS:refId="Package\SEQ - Stage Data\SEQ - Stage - UnitQualificationRelationship\SQL - DELETE FROM - UnitQualificationRelationship"
+              DTS:refId="Package\SEQ - Stage Data\SEQ - Stage - UnitQualificationRelationship\SQL - Clear Table - UnitQualificationRelationship"
               DTS:CreationName="Microsoft.ExecuteSQLTask"
               DTS:Description="Execute SQL Task"
               DTS:DTSID="{dd12f970-c346-4526-a832-f520a34687a6}"
               DTS:ExecutableType="Microsoft.ExecuteSQLTask"
               DTS:LocaleID="-1"
-              DTS:ObjectName="SQL - DELETE FROM - UnitQualificationRelationship"
+              DTS:ObjectName="SQL - Clear Table - UnitQualificationRelationship"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
               DTS:ThreadHint="18">
               <DTS:Variables>
@@ -18460,7 +18460,7 @@ SELECT
                   DTS:CreationName=""
                   DTS:DTSID="{4bf03dde-0009-49f3-9397-6c7b11cf355d}"
                   DTS:EvaluateAsExpression="True"
-                  DTS:Expression="&quot;DELETE FROM &quot; + @[User::StagingObjectName] + &quot;;&quot;"
+                  DTS:Expression="&quot;TRUNCATE TABLE &quot; + @[User::StagingObjectName] + &quot;;&quot;"
                   DTS:IncludeInDebugDump="2345"
                   DTS:Namespace="User"
                   DTS:ObjectName="SqlCommand">
@@ -18469,7 +18469,7 @@ SELECT
                 </DTS:Variable>
               </DTS:Variables>
               <DTS:PropertyExpression
-                DTS:Name="Name">LTRIM(RTRIM("SQL - DELETE FROM - " + @[User::Name]))</DTS:PropertyExpression>
+                DTS:Name="Name">LTRIM(RTRIM("SQL - Clear Table - " + @[User::Name]))</DTS:PropertyExpression>
               <DTS:PropertyExpression
                 DTS:Name="SqlStatementSource">@[User::SqlCommand]</DTS:PropertyExpression>
               <DTS:ObjectData>
@@ -18484,7 +18484,7 @@ SELECT
               DTS:refId="Package\SEQ - Stage Data\SEQ - Stage - UnitQualificationRelationship.PrecedenceConstraints[Constraint]"
               DTS:CreationName=""
               DTS:DTSID="{f0070645-93a8-44ac-8c72-372df8839e6a}"
-              DTS:From="Package\SEQ - Stage Data\SEQ - Stage - UnitQualificationRelationship\SQL - DELETE FROM - UnitQualificationRelationship"
+              DTS:From="Package\SEQ - Stage Data\SEQ - Stage - UnitQualificationRelationship\SQL - Clear Table - UnitQualificationRelationship"
               DTS:LogicalAnd="True"
               DTS:ObjectName="Constraint"
               DTS:To="Package\SEQ - Stage Data\SEQ - Stage - UnitQualificationRelationship\DFT - UnitQualificationRelationship" />
@@ -19048,13 +19048,13 @@ SELECT
               </DTS:ObjectData>
             </DTS:Executable>
             <DTS:Executable
-              DTS:refId="Package\SEQ - Stage Data\SEQ - Stage - Validity\SQL - DELETE FROM - Validity"
+              DTS:refId="Package\SEQ - Stage Data\SEQ - Stage - Validity\SQL - Clear Table - Validity"
               DTS:CreationName="Microsoft.ExecuteSQLTask"
               DTS:Description="Execute SQL Task"
               DTS:DTSID="{de851108-bed3-48bd-baa9-51b575c6e008}"
               DTS:ExecutableType="Microsoft.ExecuteSQLTask"
               DTS:LocaleID="-1"
-              DTS:ObjectName="SQL - DELETE FROM - Validity"
+              DTS:ObjectName="SQL - Clear Table - Validity"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
               DTS:ThreadHint="23">
               <DTS:Variables>
@@ -19062,7 +19062,7 @@ SELECT
                   DTS:CreationName=""
                   DTS:DTSID="{b45f60f0-2da9-4cde-9e54-210e3b3de6a5}"
                   DTS:EvaluateAsExpression="True"
-                  DTS:Expression="&quot;DELETE FROM &quot; + @[User::StagingObjectName] + &quot;;&quot;"
+                  DTS:Expression="&quot;TRUNCATE TABLE &quot; + @[User::StagingObjectName] + &quot;;&quot;"
                   DTS:IncludeInDebugDump="2345"
                   DTS:Namespace="User"
                   DTS:ObjectName="SqlCommand">
@@ -19071,7 +19071,7 @@ SELECT
                 </DTS:Variable>
               </DTS:Variables>
               <DTS:PropertyExpression
-                DTS:Name="Name">LTRIM(RTRIM("SQL - DELETE FROM - " + @[User::Name]))</DTS:PropertyExpression>
+                DTS:Name="Name">LTRIM(RTRIM("SQL - Clear Table - " + @[User::Name]))</DTS:PropertyExpression>
               <DTS:PropertyExpression
                 DTS:Name="SqlStatementSource">@[User::SqlCommand]</DTS:PropertyExpression>
               <DTS:ObjectData>
@@ -19086,7 +19086,7 @@ SELECT
               DTS:refId="Package\SEQ - Stage Data\SEQ - Stage - Validity.PrecedenceConstraints[Constraint]"
               DTS:CreationName=""
               DTS:DTSID="{6507cd06-3a51-4c5b-a794-e26969e1a108}"
-              DTS:From="Package\SEQ - Stage Data\SEQ - Stage - Validity\SQL - DELETE FROM - Validity"
+              DTS:From="Package\SEQ - Stage Data\SEQ - Stage - Validity\SQL - Clear Table - Validity"
               DTS:LogicalAnd="True"
               DTS:ObjectName="Constraint"
               DTS:To="Package\SEQ - Stage Data\SEQ - Stage - Validity\DFT - Validity" />
@@ -19780,13 +19780,13 @@ SELECT
               </DTS:ObjectData>
             </DTS:Executable>
             <DTS:Executable
-              DTS:refId="Package\SEQ - Stage Data\SEQ - Stage - Version\SQL - DELETE FROM - Version"
+              DTS:refId="Package\SEQ - Stage Data\SEQ - Stage - Version\SQL - Clear Table - Version"
               DTS:CreationName="Microsoft.ExecuteSQLTask"
               DTS:Description="Execute SQL Task"
               DTS:DTSID="{e8f4bbc4-2c74-41b0-bda1-c38f5c556555}"
               DTS:ExecutableType="Microsoft.ExecuteSQLTask"
               DTS:LocaleID="-1"
-              DTS:ObjectName="SQL - DELETE FROM - Version"
+              DTS:ObjectName="SQL - Clear Table - Version"
               DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
               DTS:ThreadHint="24">
               <DTS:Variables>
@@ -19794,7 +19794,7 @@ SELECT
                   DTS:CreationName=""
                   DTS:DTSID="{b9d649af-6e1d-4a32-b9d1-2272b86cb202}"
                   DTS:EvaluateAsExpression="True"
-                  DTS:Expression="&quot;DELETE FROM &quot; + @[User::StagingObjectName] + &quot;;&quot;"
+                  DTS:Expression="&quot;TRUNCATE TABLE &quot; + @[User::StagingObjectName] + &quot;;&quot;"
                   DTS:IncludeInDebugDump="2345"
                   DTS:Namespace="User"
                   DTS:ObjectName="SqlCommand">
@@ -19803,7 +19803,7 @@ SELECT
                 </DTS:Variable>
               </DTS:Variables>
               <DTS:PropertyExpression
-                DTS:Name="Name">LTRIM(RTRIM("SQL - DELETE FROM - " + @[User::Name]))</DTS:PropertyExpression>
+                DTS:Name="Name">LTRIM(RTRIM("SQL - Clear Table - " + @[User::Name]))</DTS:PropertyExpression>
               <DTS:PropertyExpression
                 DTS:Name="SqlStatementSource">@[User::SqlCommand]</DTS:PropertyExpression>
               <DTS:ObjectData>
@@ -19818,7 +19818,7 @@ SELECT
               DTS:refId="Package\SEQ - Stage Data\SEQ - Stage - Version.PrecedenceConstraints[Constraint]"
               DTS:CreationName=""
               DTS:DTSID="{766f6bb1-9e68-4079-9414-e5e1c79c6b5c}"
-              DTS:From="Package\SEQ - Stage Data\SEQ - Stage - Version\SQL - DELETE FROM - Version"
+              DTS:From="Package\SEQ - Stage Data\SEQ - Stage - Version\SQL - Clear Table - Version"
               DTS:LogicalAnd="True"
               DTS:ObjectName="Constraint"
               DTS:To="Package\SEQ - Stage Data\SEQ - Stage - Version\DFT - Version" />
@@ -19889,7 +19889,7 @@ SELECT
           TopLeft="35,74.5" />
         <NodeLayout
           Size="289,42"
-          Id="Package\SEQ - Stage Data\SEQ - Stage - AnnualValue\SQL - DELETE FROM - AnnualValue"
+          Id="Package\SEQ - Stage Data\SEQ - Stage - AnnualValue\SQL - Clear Table - AnnualValue"
           TopLeft="5.5,5.5" />
         <EdgeLayout
           Id="Package\SEQ - Stage Data\SEQ - Stage - AnnualValue.PrecedenceConstraints[Constraint]"
@@ -19926,7 +19926,7 @@ SELECT
           TopLeft="35,74.5" />
         <NodeLayout
           Size="289,42"
-          Id="Package\SEQ - Stage Data\SEQ - Stage - ApprenticeshipFunding\SQL - DELETE FROM - ApprenticeshipFunding"
+          Id="Package\SEQ - Stage Data\SEQ - Stage - ApprenticeshipFunding\SQL - Clear Table - ApprenticeshipFunding"
           TopLeft="5.5,5.5" />
         <EdgeLayout
           Id="Package\SEQ - Stage Data\SEQ - Stage - ApprenticeshipFunding.PrecedenceConstraints[Constraint]"
@@ -19963,7 +19963,7 @@ SELECT
           TopLeft="35,74.5" />
         <NodeLayout
           Size="289,42"
-          Id="Package\SEQ - Stage Data\SEQ - Stage - CareerLearningPilot\SQL - DELETE FROM - CareerLearningPilot"
+          Id="Package\SEQ - Stage Data\SEQ - Stage - CareerLearningPilot\SQL - Clear Table - CareerLearningPilot"
           TopLeft="5.5,5.5" />
         <EdgeLayout
           Id="Package\SEQ - Stage Data\SEQ - Stage - CareerLearningPilot.PrecedenceConstraints[Constraint]"
@@ -20000,7 +20000,7 @@ SELECT
           TopLeft="35,74.5" />
         <NodeLayout
           Size="289,42"
-          Id="Package\SEQ - Stage Data\SEQ - Stage - DataGeneration\SQL - DELETE FROM - DataGeneration"
+          Id="Package\SEQ - Stage Data\SEQ - Stage - DataGeneration\SQL - Clear Table - DataGeneration"
           TopLeft="5.5,5.5" />
         <EdgeLayout
           Id="Package\SEQ - Stage Data\SEQ - Stage - DataGeneration.PrecedenceConstraints[Constraint]"
@@ -20037,7 +20037,7 @@ SELECT
           TopLeft="35,74.5" />
         <NodeLayout
           Size="289,42"
-          Id="Package\SEQ - Stage Data\SEQ - Stage - Framework\SQL - DELETE FROM - Framework"
+          Id="Package\SEQ - Stage Data\SEQ - Stage - Framework\SQL - Clear Table - Framework"
           TopLeft="5.5,5.5" />
         <EdgeLayout
           Id="Package\SEQ - Stage Data\SEQ - Stage - Framework.PrecedenceConstraints[Constraint]"
@@ -20074,7 +20074,7 @@ SELECT
           TopLeft="35,74.5" />
         <NodeLayout
           Size="289,42"
-          Id="Package\SEQ - Stage Data\SEQ - Stage - FrameworkAims\SQL - DELETE FROM - FrameworkAims"
+          Id="Package\SEQ - Stage Data\SEQ - Stage - FrameworkAims\SQL - Clear Table - FrameworkAims"
           TopLeft="5.5,5.5" />
         <EdgeLayout
           Id="Package\SEQ - Stage Data\SEQ - Stage - FrameworkAims.PrecedenceConstraints[Constraint]"
@@ -20111,7 +20111,7 @@ SELECT
           TopLeft="35,74.5" />
         <NodeLayout
           Size="289,42"
-          Id="Package\SEQ - Stage Data\SEQ - Stage - FrameworkCmnComp\SQL - DELETE FROM - FrameworkCmnComp"
+          Id="Package\SEQ - Stage Data\SEQ - Stage - FrameworkCmnComp\SQL - Clear Table - FrameworkCmnComp"
           TopLeft="5.5,5.5" />
         <EdgeLayout
           Id="Package\SEQ - Stage Data\SEQ - Stage - FrameworkCmnComp.PrecedenceConstraints[Constraint]"
@@ -20148,7 +20148,7 @@ SELECT
           TopLeft="35,74.5" />
         <NodeLayout
           Size="289,42"
-          Id="Package\SEQ - Stage Data\SEQ - Stage - FrameworkMetaData\SQL - DELETE FROM - FrameworkMetaData"
+          Id="Package\SEQ - Stage Data\SEQ - Stage - FrameworkMetaData\SQL - Clear Table - FrameworkMetaData"
           TopLeft="5.5,5.5" />
         <EdgeLayout
           Id="Package\SEQ - Stage Data\SEQ - Stage - FrameworkMetaData.PrecedenceConstraints[Constraint]"
@@ -20185,7 +20185,7 @@ SELECT
           TopLeft="35,74.5" />
         <NodeLayout
           Size="289,42"
-          Id="Package\SEQ - Stage Data\SEQ - Stage - Funding\SQL - DELETE FROM - Funding"
+          Id="Package\SEQ - Stage Data\SEQ - Stage - Funding\SQL - Clear Table - Funding"
           TopLeft="5.5,5.5" />
         <EdgeLayout
           Id="Package\SEQ - Stage Data\SEQ - Stage - Funding.PrecedenceConstraints[Constraint]"
@@ -20222,7 +20222,7 @@ SELECT
           TopLeft="35,74.5" />
         <NodeLayout
           Size="289,42"
-          Id="Package\SEQ - Stage Data\SEQ - Stage - LearningDelivery\SQL - DELETE FROM - LearningDelivery"
+          Id="Package\SEQ - Stage Data\SEQ - Stage - LearningDelivery\SQL - Clear Table - LearningDelivery"
           TopLeft="5.5,5.5" />
         <EdgeLayout
           Id="Package\SEQ - Stage Data\SEQ - Stage - LearningDelivery.PrecedenceConstraints[Constraint]"
@@ -20259,7 +20259,7 @@ SELECT
           TopLeft="35,74.5" />
         <NodeLayout
           Size="289,42"
-          Id="Package\SEQ - Stage Data\SEQ - Stage - LearningDeliveryCategory\SQL - DELETE FROM - LearningDeliveryCategory"
+          Id="Package\SEQ - Stage Data\SEQ - Stage - LearningDeliveryCategory\SQL - Clear Table - LearningDeliveryCategory"
           TopLeft="5.5,5.5" />
         <EdgeLayout
           Id="Package\SEQ - Stage Data\SEQ - Stage - LearningDeliveryCategory.PrecedenceConstraints[Constraint]"
@@ -20296,7 +20296,7 @@ SELECT
           TopLeft="35,74.5" />
         <NodeLayout
           Size="289,42"
-          Id="Package\SEQ - Stage Data\SEQ - Stage - Section96\SQL - DELETE FROM - Section96"
+          Id="Package\SEQ - Stage Data\SEQ - Stage - Section96\SQL - Clear Table - Section96"
           TopLeft="5.5,5.5" />
         <EdgeLayout
           Id="Package\SEQ - Stage Data\SEQ - Stage - Section96.PrecedenceConstraints[Constraint]"
@@ -20333,7 +20333,7 @@ SELECT
           TopLeft="35,74.5" />
         <NodeLayout
           Size="289,42"
-          Id="Package\SEQ - Stage Data\SEQ - Stage - Standard\SQL - DELETE FROM - Standard"
+          Id="Package\SEQ - Stage Data\SEQ - Stage - Standard\SQL - Clear Table - Standard"
           TopLeft="5.5,5.5" />
         <EdgeLayout
           Id="Package\SEQ - Stage Data\SEQ - Stage - Standard.PrecedenceConstraints[Constraint]"
@@ -20370,7 +20370,7 @@ SELECT
           TopLeft="35,74.5" />
         <NodeLayout
           Size="289,42"
-          Id="Package\SEQ - Stage Data\SEQ - Stage - StandardAims\SQL - DELETE FROM - StandardAims"
+          Id="Package\SEQ - Stage Data\SEQ - Stage - StandardAims\SQL - Clear Table - StandardAims"
           TopLeft="5.5,5.5" />
         <EdgeLayout
           Id="Package\SEQ - Stage Data\SEQ - Stage - StandardAims.PrecedenceConstraints[Constraint]"
@@ -20407,7 +20407,7 @@ SELECT
           TopLeft="35,74.5" />
         <NodeLayout
           Size="289,42"
-          Id="Package\SEQ - Stage Data\SEQ - Stage - StandardCommonComponent\SQL - DELETE FROM - StandardCommonComponent"
+          Id="Package\SEQ - Stage Data\SEQ - Stage - StandardCommonComponent\SQL - Clear Table - StandardCommonComponent"
           TopLeft="5.5,5.5" />
         <EdgeLayout
           Id="Package\SEQ - Stage Data\SEQ - Stage - StandardCommonComponent.PrecedenceConstraints[Constraint]"
@@ -20444,7 +20444,7 @@ SELECT
           TopLeft="35,74.5" />
         <NodeLayout
           Size="289,42"
-          Id="Package\SEQ - Stage Data\SEQ - Stage - StandardFunding\SQL - DELETE FROM - StandardFunding"
+          Id="Package\SEQ - Stage Data\SEQ - Stage - StandardFunding\SQL - Clear Table - StandardFunding"
           TopLeft="5.5,5.5" />
         <EdgeLayout
           Id="Package\SEQ - Stage Data\SEQ - Stage - StandardFunding.PrecedenceConstraints[Constraint]"
@@ -20493,7 +20493,7 @@ SELECT
           TopLeft="35,74.5" />
         <NodeLayout
           Size="289,42"
-          Id="Package\SEQ - Stage Data\SEQ - Stage - StandardMetaData\SQL - DELETE FROM - StandardMetaData"
+          Id="Package\SEQ - Stage Data\SEQ - Stage - StandardMetaData\SQL - Clear Table - StandardMetaData"
           TopLeft="5.5,5.5" />
         <EdgeLayout
           Id="Package\SEQ - Stage Data\SEQ - Stage - StandardMetaData.PrecedenceConstraints[Constraint]"
@@ -20530,7 +20530,7 @@ SELECT
           TopLeft="35,74.5" />
         <NodeLayout
           Size="289,42"
-          Id="Package\SEQ - Stage Data\SEQ - Stage - StandardValidity\SQL - DELETE FROM - StandardValidity"
+          Id="Package\SEQ - Stage Data\SEQ - Stage - StandardValidity\SQL - Clear Table - StandardValidity"
           TopLeft="5.5,5.5" />
         <EdgeLayout
           Id="Package\SEQ - Stage Data\SEQ - Stage - StandardValidity.PrecedenceConstraints[Constraint]"
@@ -20567,7 +20567,7 @@ SELECT
           TopLeft="35,74.5" />
         <NodeLayout
           Size="289,42"
-          Id="Package\SEQ - Stage Data\SEQ - Stage - SupersedingAims\SQL - DELETE FROM - SupersedingAims"
+          Id="Package\SEQ - Stage Data\SEQ - Stage - SupersedingAims\SQL - Clear Table - SupersedingAims"
           TopLeft="5.5,5.5" />
         <EdgeLayout
           Id="Package\SEQ - Stage Data\SEQ - Stage - SupersedingAims.PrecedenceConstraints[Constraint]"
@@ -20604,7 +20604,7 @@ SELECT
           TopLeft="35,74.5" />
         <NodeLayout
           Size="289,42"
-          Id="Package\SEQ - Stage Data\SEQ - Stage - SupersedingFrameworks\SQL - DELETE FROM - SupersedingFrameworks"
+          Id="Package\SEQ - Stage Data\SEQ - Stage - SupersedingFrameworks\SQL - Clear Table - SupersedingFrameworks"
           TopLeft="5.5,5.5" />
         <EdgeLayout
           Id="Package\SEQ - Stage Data\SEQ - Stage - SupersedingFrameworks.PrecedenceConstraints[Constraint]"
@@ -20641,7 +20641,7 @@ SELECT
           TopLeft="35,74.5" />
         <NodeLayout
           Size="289,42"
-          Id="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\SQL - DELETE FROM - TBStandardLookup"
+          Id="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup\SQL - Clear Table - TBStandardLookup"
           TopLeft="5.5,5.5" />
         <EdgeLayout
           Id="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookup.PrecedenceConstraints[Constraint]"
@@ -20678,7 +20678,7 @@ SELECT
           TopLeft="35,74.5" />
         <NodeLayout
           Size="289,42"
-          Id="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookupVersion\SQL - DELETE FROM - TBStandardLookupVersion"
+          Id="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookupVersion\SQL - Clear Table - TBStandardLookupVersion"
           TopLeft="5.5,5.5" />
         <EdgeLayout
           Id="Package\SEQ - Stage Data\SEQ - Stage - TBStandardLookupVersion.PrecedenceConstraints[Constraint]"
@@ -20715,7 +20715,7 @@ SELECT
           TopLeft="35,74.5" />
         <NodeLayout
           Size="289,42"
-          Id="Package\SEQ - Stage Data\SEQ - Stage - UnitQualificationRelationship\SQL - DELETE FROM - UnitQualificationRelationship"
+          Id="Package\SEQ - Stage Data\SEQ - Stage - UnitQualificationRelationship\SQL - Clear Table - UnitQualificationRelationship"
           TopLeft="5.5,5.5" />
         <EdgeLayout
           Id="Package\SEQ - Stage Data\SEQ - Stage - UnitQualificationRelationship.PrecedenceConstraints[Constraint]"
@@ -20752,7 +20752,7 @@ SELECT
           TopLeft="35,74.5" />
         <NodeLayout
           Size="289,42"
-          Id="Package\SEQ - Stage Data\SEQ - Stage - Validity\SQL - DELETE FROM - Validity"
+          Id="Package\SEQ - Stage Data\SEQ - Stage - Validity\SQL - Clear Table - Validity"
           TopLeft="5.5,5.5" />
         <EdgeLayout
           Id="Package\SEQ - Stage Data\SEQ - Stage - Validity.PrecedenceConstraints[Constraint]"
@@ -20789,7 +20789,7 @@ SELECT
           TopLeft="35,74.5" />
         <NodeLayout
           Size="289,42"
-          Id="Package\SEQ - Stage Data\SEQ - Stage - Version\SQL - DELETE FROM - Version"
+          Id="Package\SEQ - Stage Data\SEQ - Stage - Version\SQL - Clear Table - Version"
           TopLeft="5.5,5.5" />
         <EdgeLayout
           Id="Package\SEQ - Stage Data\SEQ - Stage - Version.PrecedenceConstraints[Constraint]"
