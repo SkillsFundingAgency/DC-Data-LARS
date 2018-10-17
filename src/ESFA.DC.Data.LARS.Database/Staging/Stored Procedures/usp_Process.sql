@@ -73,3 +73,8 @@ BEGIN
 -------------------------------------------------------------------------------------- 
 -- 
 END
+
+GO
+
+GRANT EXECUTE ON [Staging].[usp_Process] TO [Lars_RW_User]
+GO
