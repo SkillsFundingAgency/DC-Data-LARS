@@ -33,6 +33,6 @@ AS
  CROSS JOIN [Core].[LARS_DataGeneration]
  ) 
 
- SELECT [ID], [CurrentVersion]
+ SELECT CONVERT(INT,[ID]) AS [ID], [CurrentVersion]
  FROM [CTE_CurrentVersion]
 
