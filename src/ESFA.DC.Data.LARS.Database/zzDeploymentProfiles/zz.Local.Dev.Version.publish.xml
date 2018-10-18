@@ -4,22 +4,26 @@
     <TargetDatabaseName>LARS</TargetDatabaseName>
     <DeployScriptFileName>ESFA.DC.Data.LARS.Database.sql</DeployScriptFileName>
     <TargetConnectionString>Data Source=(local);Integrated Security=True;Persist Security Info=False;Pooling=False;MultipleActiveResultSets=False;Connect Timeout=60;Encrypt=False;TrustServerCertificate=True</TargetConnectionString>
+    <ProfileVersionNumber>1</ProfileVersionNumber>
   </PropertyGroup>
   <ItemGroup>
+    <SqlCmdVariable Include="BUILD_BRANCHNAME">
+      <Value>Local Machine</Value>
+    </SqlCmdVariable>
+    <SqlCmdVariable Include="BUILD_BUILDNUMBER">
+      <Value>X.Y.Z-LocalDev</Value>
+    </SqlCmdVariable>
+    <SqlCmdVariable Include="DsciUserPassword">
+      <Value>NotUsedLocally!!!</Value>
+    </SqlCmdVariable>
+    <SqlCmdVariable Include="RELEASE_RELEASENAME">
+      <Value>From Local Machine</Value>
+    </SqlCmdVariable>
     <SqlCmdVariable Include="ROUserPassword">
       <Value>NotUsedLocally!</Value>
     </SqlCmdVariable>
     <SqlCmdVariable Include="RWUserPassword">
       <Value>NotUsedLocally!!</Value>
-    </SqlCmdVariable>  
-    <SqlCmdVariable Include="BUILD_BUILDNUMBER">
-      <Value>X.Y.Z-LocalDev</Value>
-    </SqlCmdVariable>
-    <SqlCmdVariable Include="BUILD_BRANCHNAME">
-      <Value>Local Machine</Value>
-    </SqlCmdVariable>
-    <SqlCmdVariable Include="RELEASE_RELEASENAME">
-      <Value>From Local Machine</Value>
     </SqlCmdVariable>
   </ItemGroup>
 </Project>

@@ -176,6 +176,8 @@
     <Build Include="dbo\Stored Procedures\usp_ClearAll_CoreTables.sql" />
     <Build Include="Security\User_RW.sql" />
     <Build Include="dbo\Views\Current_Version.sql" />
+    <Build Include="Security\User_DsciUser.sql" />
+    <Build Include="Security\Role_DataViewer.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="zzDeploymentProfiles\zz.Local.Dev.Version.publish.xml" />
@@ -189,17 +191,20 @@
       <DefaultValue>0.0.0.0</DefaultValue>
       <Value>$(SqlCmdVar__4)</Value>
     </SqlCmdVariable>
+    <SqlCmdVariable Include="DsciUserPassword">
+      <DefaultValue>Set@Deployment3</DefaultValue>
+      <Value>$(SqlCmdVar__7)</Value>
+    </SqlCmdVariable>
     <SqlCmdVariable Include="RELEASE_RELEASENAME">
-      <DefaultValue>
-      </DefaultValue>
+      <DefaultValue>From Dev Machine</DefaultValue>
       <Value>$(SqlCmdVar__6)</Value>
     </SqlCmdVariable>
     <SqlCmdVariable Include="ROUserPassword">
-      <DefaultValue>Set@Deployment</DefaultValue>
+      <DefaultValue>Set@Deployment1</DefaultValue>
       <Value>$(SqlCmdVar__1)</Value>
     </SqlCmdVariable>
     <SqlCmdVariable Include="RWUserPassword">
-      <DefaultValue>Set@Deployment</DefaultValue>
+      <DefaultValue>Set@Deployment2</DefaultValue>
       <Value>$(SqlCmdVar__2)</Value>
     </SqlCmdVariable>
   </ItemGroup>
