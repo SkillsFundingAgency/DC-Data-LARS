@@ -8,7 +8,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectVersion>4.1</ProjectVersion>
     <ProjectGuid>{4e562c40-a67a-4296-aa11-0aa2fafa2883}</ProjectGuid>
-    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql130DatabaseSchemaProvider</DSP>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.SqlAzureV12DatabaseSchemaProvider</DSP>
     <OutputType>Database</OutputType>
     <RootPath>
     </RootPath>
@@ -25,6 +25,9 @@
     <TargetDatabaseSet>True</TargetDatabaseSet>
     <DefaultCollation>Latin1_General_CI_AS</DefaultCollation>
     <DefaultFilegroup>PRIMARY</DefaultFilegroup>
+    <IsEncryptionOn>True</IsEncryptionOn>
+    <CompatibilityMode>140</CompatibilityMode>
+    <EnableFullTextSearch>True</EnableFullTextSearch>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <OutputPath>bin\Release\</OutputPath>
@@ -68,6 +71,8 @@
     <Folder Include="Staging\" />
     <Folder Include="Staging\Tables\" />
     <Folder Include="Staging\Stored Procedures\" />
+    <Folder Include="dbo\Stored Procedures" />
+    <Folder Include="dbo\Views" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Tables\TBStandardLookup.sql" />
@@ -160,9 +165,51 @@
     <Build Include="Staging\Stored Procedures\usp_Process_ApprenticeshipFunding.sql" />
     <Build Include="Staging\Stored Procedures\usp_Process_AnnualValue.sql" />
     <Build Include="Staging\Stored Procedures\usp_Process.sql" />
+    <Build Include="Security\User_RO.sql" />
+    <Build Include="Security\RoleMemberships.sql" />
+    <Build Include="Core\Tables\LARS_CareerLearningPilot.sql" />
+    <Build Include="Staging\Tables\LARS_CareerLearningPilot.sql" />
+    <Build Include="Staging\Stored Procedures\usp_Process_CareerLearningPilot.sql" />
+    <Build Include="Staging\Stored Procedures\usp_Process_TBStandardLookup.sql" />
+    <Build Include="Staging\Stored Procedures\usp_Process_TBStandardLookupVersion.sql" />
+    <Build Include="dbo\Stored Procedures\usp_ClearAll_StagingTables.sql" />
+    <Build Include="dbo\Stored Procedures\usp_ClearAll_CoreTables.sql" />
+    <Build Include="Security\User_RW.sql" />
+    <Build Include="dbo\Views\Current_Version.sql" />
+    <Build Include="Security\User_DsciUser.sql" />
+    <Build Include="Security\Role_DataViewer.sql" />
+    <Build Include="Security\Role_DataProcessor.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="zzDeploymentProfiles\zz.Local.Dev.Version.publish.xml" />
-    <None Include="zzDeploymentProfiles\Release.publish.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <SqlCmdVariable Include="BUILD_BRANCHNAME">
+      <DefaultValue>DevMachine</DefaultValue>
+      <Value>$(SqlCmdVar__5)</Value>
+    </SqlCmdVariable>
+    <SqlCmdVariable Include="BUILD_BUILDNUMBER">
+      <DefaultValue>0.0.0.0</DefaultValue>
+      <Value>$(SqlCmdVar__4)</Value>
+    </SqlCmdVariable>
+    <SqlCmdVariable Include="DsciUserPassword">
+      <DefaultValue>Set@Deployment3</DefaultValue>
+      <Value>$(SqlCmdVar__7)</Value>
+    </SqlCmdVariable>
+    <SqlCmdVariable Include="RELEASE_RELEASENAME">
+      <DefaultValue>From Dev Machine</DefaultValue>
+      <Value>$(SqlCmdVar__6)</Value>
+    </SqlCmdVariable>
+    <SqlCmdVariable Include="ROUserPassword">
+      <DefaultValue>Set@Deployment1</DefaultValue>
+      <Value>$(SqlCmdVar__1)</Value>
+    </SqlCmdVariable>
+    <SqlCmdVariable Include="RWUserPassword">
+      <DefaultValue>Set@Deployment2</DefaultValue>
+      <Value>$(SqlCmdVar__2)</Value>
+    </SqlCmdVariable>
+  </ItemGroup>
+  <ItemGroup>
+    <PostDeploy Include="zz.Script.PostDeployment.sql" />
   </ItemGroup>
 </Project>

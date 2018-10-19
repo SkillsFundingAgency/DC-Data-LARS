@@ -10,6 +10,8 @@
     [Created_By]      VARCHAR (256)   NOT NULL,
     [Modified_On]     DATETIME        NOT NULL,
     [Modified_By]     VARCHAR (256)   NOT NULL,
-    CONSTRAINT [PK_Core_LARS_Funding_FundingID] PRIMARY KEY CLUSTERED ([LearnAimRef] ASC, [FundingCategory] ASC, [EffectiveFrom] ASC) WITH (FILLFACTOR = 90)
+    CONSTRAINT [PK_Staging_LARS_Funding_FundingID] PRIMARY KEY CLUSTERED ([LearnAimRef] ASC, [FundingCategory] ASC, [EffectiveFrom] ASC) WITH (FILLFACTOR = 90)
 );
 
+GO
+GRANT ALTER ON OBJECT::Staging.LARS_Funding TO [Lars_RW_User];

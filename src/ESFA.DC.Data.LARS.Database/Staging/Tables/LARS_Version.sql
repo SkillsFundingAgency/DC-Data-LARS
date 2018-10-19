@@ -12,6 +12,9 @@
     [Created_By]         VARCHAR (100) NOT NULL,
     [Modified_On]        DATETIME      NOT NULL,
     [Modified_By]        VARCHAR (100) NOT NULL,
-    CONSTRAINT [PK_Core_LARS_Version] PRIMARY KEY CLUSTERED ([MajorNumber] ASC, [MinorNumber] ASC, [MaintenanceNumber] ASC)
+    CONSTRAINT [PK_Staging_LARS_Version] PRIMARY KEY CLUSTERED ([MajorNumber] ASC, [MinorNumber] ASC, [MaintenanceNumber] ASC)
 );
 
+
+GO
+GRANT ALTER ON OBJECT::Staging.LARS_Version TO [Lars_RW_User];

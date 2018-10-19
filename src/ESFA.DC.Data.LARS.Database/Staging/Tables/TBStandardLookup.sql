@@ -13,6 +13,9 @@
     [Created_By]          VARCHAR (150)   NULL,
     [Modified_On]         DATETIME        NULL,
     [Modified_By]         VARCHAR (150)   NULL,
-    CONSTRAINT [PK_TBStandardLookup] PRIMARY KEY CLUSTERED ([StandardNumber] ASC, [ValuesEffectiveFrom] ASC) WITH (FILLFACTOR = 90)
+    CONSTRAINT [PK_Staging_TBStandardLookup] PRIMARY KEY CLUSTERED ([StandardNumber] ASC, [ValuesEffectiveFrom] ASC) WITH (FILLFACTOR = 90)
 );
 
+
+GO
+GRANT ALTER ON OBJECT::Staging.TBStandardLookup TO [Lars_RW_User];

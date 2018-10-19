@@ -9,6 +9,9 @@
     [Created_By]   VARCHAR (100) NOT NULL,
     [Modified_On]  DATETIME      NOT NULL,
     [Modified_By]  VARCHAR (100) NOT NULL,
-    CONSTRAINT [PK_Core_LARS_SupersedingFrameworks] PRIMARY KEY CLUSTERED ([OldFworkCode] ASC, [OldProgType] ASC, [OldPwayCode] ASC, [NewFworkCode] ASC, [NewProgType] ASC, [NewPwayCode] ASC) WITH (FILLFACTOR = 90)
+    CONSTRAINT [PK_Staging_LARS_SupersedingFrameworks] PRIMARY KEY CLUSTERED ([OldFworkCode] ASC, [OldProgType] ASC, [OldPwayCode] ASC, [NewFworkCode] ASC, [NewProgType] ASC, [NewPwayCode] ASC) WITH (FILLFACTOR = 90)
 );
 
+
+GO
+GRANT ALTER ON OBJECT::Staging.LARS_SupersedingFrameworks TO [Lars_RW_User];

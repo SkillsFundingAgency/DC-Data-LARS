@@ -4,14 +4,14 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="377bceaa10554dcfb93f384f26b301b5" Name="Diagram1">
+      <Diagram DiagramId="377bceaa10554dcfb93f384f26b301b5" Name="Diagram1" ZoomLevel="96">
         <EntityTypeShape EntityType="ESFA.DC.Data.LARS.Model.LARS_AnnualValue" Width="1.5" PointX="3" PointY="8.625" IsExpanded="true" />
         <EntityTypeShape EntityType="ESFA.DC.Data.LARS.Model.LARS_ApprenticeshipFunding" Width="1.5" PointX="8.75" PointY="2.875" IsExpanded="true" />
         <EntityTypeShape EntityType="ESFA.DC.Data.LARS.Model.LARS_DataGeneration" Width="1.5" PointX="5.75" PointY="2.875" IsExpanded="true" />
         <EntityTypeShape EntityType="ESFA.DC.Data.LARS.Model.LARS_Framework" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ESFA.DC.Data.LARS.Model.LARS_FrameworkAims" Width="1.5" PointX="6" PointY="19.25" IsExpanded="true" />
         <EntityTypeShape EntityType="ESFA.DC.Data.LARS.Model.LARS_FrameworkCmnComp" Width="1.5" PointX="6" PointY="8" IsExpanded="true" />
-        <EntityTypeShape EntityType="ESFA.DC.Data.LARS.Model.LARS_FrameworkMetaData" Width="1.5" PointX="6" PointY="12.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ESFA.DC.Data.LARS.Model.LARS_FrameworkMetaData" Width="1.5" PointX="13.375" PointY="11.625" IsExpanded="true" />
         <EntityTypeShape EntityType="ESFA.DC.Data.LARS.Model.LARS_Funding" Width="1.5" PointX="3" PointY="19.25" IsExpanded="true" />
         <EntityTypeShape EntityType="ESFA.DC.Data.LARS.Model.LARS_LearningDelivery" Width="1.5" PointX="0.75" PointY="12.125" IsExpanded="true" />
         <EntityTypeShape EntityType="ESFA.DC.Data.LARS.Model.LARS_LearningDeliveryCategory" Width="1.5" PointX="3" PointY="23.375" IsExpanded="true" />
@@ -33,7 +33,6 @@
         <AssociationConnector Association="ESFA.DC.Data.LARS.Model.FK_CoreAnnualValue_CoreLearningDelivery" ManuallyRouted="false" />
         <AssociationConnector Association="ESFA.DC.Data.LARS.Model.FK_CoreFrameworkAimsp_CoreFramework" ManuallyRouted="false" />
         <AssociationConnector Association="ESFA.DC.Data.LARS.Model.FK_CoreFrameworkCmnComp_CoreFramework" ManuallyRouted="false" />
-        <AssociationConnector Association="ESFA.DC.Data.LARS.Model.FK_CoreFrameworkMetaData_CoreFramework" ManuallyRouted="false" />
         <AssociationConnector Association="ESFA.DC.Data.LARS.Model.FK_CoreSupersedingFrameworks_CoreFramework_New" ManuallyRouted="false" />
         <AssociationConnector Association="ESFA.DC.Data.LARS.Model.FK_CoreSupersedingFrameworks_CoreFramework_Old" ManuallyRouted="false" />
         <AssociationConnector Association="ESFA.DC.Data.LARS.Model.FK_CoreFrameworkAims_CoreLearningDelivery" ManuallyRouted="false" />
@@ -49,6 +48,10 @@
         <AssociationConnector Association="ESFA.DC.Data.LARS.Model.FK_CoreStandardFunding_CoreStandard" ManuallyRouted="false" />
         <AssociationConnector Association="ESFA.DC.Data.LARS.Model.FK_CoreStandardMetaData_CoreStandard" ManuallyRouted="false" />
         <AssociationConnector Association="ESFA.DC.Data.LARS.Model.FK_CoreStandardValidity_CoreStandard" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="ESFA.DC.Data.LARS.Model.LARS_CareerLearningPilot" Width="1.5" PointX="3" PointY="59.375" />
+        <AssociationConnector Association="ESFA.DC.Data.LARS.Model.FK_Core_LARS_CLP_CoreLearningDelivery" />
+        <AssociationConnector Association="ESFA.DC.Data.LARS.Model.FK_Core_LARS_FrameworkMetaData_CoreFramework" />
+        <EntityTypeShape EntityType="ESFA.DC.Data.LARS.Model.Current_Version" Width="1.5" PointX="0.75" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

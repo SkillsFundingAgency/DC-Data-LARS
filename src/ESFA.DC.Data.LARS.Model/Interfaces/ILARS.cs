@@ -7,6 +7,7 @@ namespace ESFA.DC.Data.LARS.Model.Interfaces
         DbSet<LARS_AnnualValue> LARS_AnnualValue { get; set; }
         DbSet<LARS_ApprenticeshipFunding> LARS_ApprenticeshipFunding { get; set; }
         DbSet<LARS_DataGeneration> LARS_DataGeneration { get; set; }
+        DbSet<LARS_CareerLearningPilot> LARS_CareerLearningPilot { get; set; }
         DbSet<LARS_Framework> LARS_Framework { get; set; }
         DbSet<LARS_FrameworkAims> LARS_FrameworkAims { get; set; }
         DbSet<LARS_FrameworkCmnComp> LARS_FrameworkCmnComp { get; set; }
@@ -29,6 +30,6 @@ namespace ESFA.DC.Data.LARS.Model.Interfaces
         DbSet<LARS_Version> LARS_Version { get; set; }
         DbSet<TBStandardLookup> TBStandardLookups { get; set; }
         DbSet<TBStandardLookupVersion> TBStandardLookupVersions { get; set; }
-
+        DbSet<Current_Version> Current_Version { get; set; }
     }
 }

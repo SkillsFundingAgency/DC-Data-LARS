@@ -11,6 +11,7 @@
     [SectorSubjectAreaTier1]   DECIMAL (5, 2) NULL,
     [SectorSubjectAreaTier2]   DECIMAL (5, 2) NULL,
     [IntegratedDegreeStandard] CHAR (1)       NULL,
+    [OtherBodyApprovalRequired] VARCHAR (20)  NULL,
     [Created_On]               DATETIME       NOT NULL,
     [Created_By]               VARCHAR (100)  NOT NULL,
     [Modified_On]              DATETIME       NOT NULL,

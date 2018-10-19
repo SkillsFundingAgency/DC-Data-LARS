@@ -13,7 +13,6 @@
     [Created_By]               VARCHAR (100)  NOT NULL,
     [Modified_On]              DATETIME       NOT NULL,
     [Modified_By]              VARCHAR (100)  NOT NULL,
-    CONSTRAINT [PK_CORE_LARS_StandardDescription] PRIMARY KEY CLUSTERED ([StandardCode] ASC) WITH (FILLFACTOR = 90),
-    CONSTRAINT [FK_CoreStandardMetaData_CoreStandard] FOREIGN KEY ([StandardCode]) REFERENCES [Core].[LARS_Standard] ([StandardCode])
+    CONSTRAINT [PK_CORE_LARS_StandardDescription] PRIMARY KEY CLUSTERED ([StandardCode] ASC) WITH (FILLFACTOR = 90)
 );
 

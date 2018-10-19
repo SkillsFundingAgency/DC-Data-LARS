@@ -9,6 +9,6 @@
     [Modified_On]      DATETIME      NOT NULL,
     [Modified_By]      VARCHAR (100) NOT NULL,
     CONSTRAINT [PK_Core_LARS_Validity] PRIMARY KEY CLUSTERED ([LearnAimRef] ASC, [ValidityCategory] ASC, [StartDate] ASC) WITH (FILLFACTOR = 90),
-    CONSTRAINT [FK_CoreValidity_CoreLearningDelivery] FOREIGN KEY ([LearnAimRef]) REFERENCES [Core].[LARS_LearningDelivery] ([LearnAimRef])
+    CONSTRAINT [FK_Core_LARS_Validity_CoreLearningDelivery] FOREIGN KEY ([LearnAimRef]) REFERENCES [Core].[LARS_LearningDelivery] ([LearnAimRef]) ON DELETE CASCADE
 );
 
