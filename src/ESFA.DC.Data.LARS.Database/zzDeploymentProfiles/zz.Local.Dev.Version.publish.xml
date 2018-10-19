@@ -13,17 +13,17 @@
     <SqlCmdVariable Include="BUILD_BUILDNUMBER">
       <Value>X.Y.Z-LocalDev</Value>
     </SqlCmdVariable>
-    <SqlCmdVariable Include="DsciUserPassword">
-      <Value>NotUsedLocally!!!</Value>
-    </SqlCmdVariable>
     <SqlCmdVariable Include="RELEASE_RELEASENAME">
       <Value>From Local Machine</Value>
     </SqlCmdVariable>
-    <SqlCmdVariable Include="ROUserPassword">
+    <SqlCmdVariable Include="DsciUserPassword">
       <Value>NotUsedLocally!</Value>
     </SqlCmdVariable>
-    <SqlCmdVariable Include="RWUserPassword">
+    <SqlCmdVariable Include="ROUserPassword">
       <Value>NotUsedLocally!!</Value>
+    </SqlCmdVariable>
+    <SqlCmdVariable Include="RWUserPassword">
+      <Value>NotUsedLocally!!!</Value>
     </SqlCmdVariable>
   </ItemGroup>
 </Project>

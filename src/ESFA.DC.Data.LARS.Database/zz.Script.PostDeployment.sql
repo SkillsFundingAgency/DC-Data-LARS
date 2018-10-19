@@ -60,6 +60,12 @@ GO
 
 RAISERROR('		   Update User Account Passwords',10,1) WITH NOWAIT;
 GO
+ALTER ROLE [db_datareader] DROP MEMBER [Lars_RO_User];
+GO
+ALTER ROLE [db_datareader] DROP MEMBER [Lars_RW_User];
+GO
+ALTER ROLE [db_datareader] DROP MEMBER [Lars_RO_User];
+GO
 RAISERROR('		       RO User',10,1) WITH NOWAIT;
 ALTER USER [Lars_RO_User] WITH PASSWORD = N'$(ROUserPassword)';
 GO
