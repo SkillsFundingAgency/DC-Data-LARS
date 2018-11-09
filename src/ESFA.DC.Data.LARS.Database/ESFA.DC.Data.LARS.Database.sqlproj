@@ -179,6 +179,7 @@
     <Build Include="Security\User_DsciUser.sql" />
     <Build Include="Security\Role_DataViewer.sql" />
     <Build Include="Security\Role_DataProcessor.sql" />
+    <Build Include="dbo\Stored Procedures\usp_DisplayDeploymentProperties.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="zzDeploymentProfiles\zz.Local.Dev.Version.publish.xml" />
