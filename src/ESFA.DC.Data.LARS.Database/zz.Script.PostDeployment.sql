@@ -54,6 +54,13 @@ GO
 ALTER ROLE [db_datareader] DROP MEMBER [Lars_RW_User];
 GO
 ALTER ROLE [db_datareader] DROP MEMBER [Lars_RO_User];
+go
+ALTER ROLE [DataProcessor] DROP MEMBER [Lars_RO_User];
+go
+ALTER ROLE [DataViewer] DROP MEMBER [Lars_RW_User];
+GO
+
+
 GO
 RAISERROR('		       RO User',10,1) WITH NOWAIT;
 ALTER USER [Lars_RO_User] WITH PASSWORD = N'$(ROUserPassword)';
